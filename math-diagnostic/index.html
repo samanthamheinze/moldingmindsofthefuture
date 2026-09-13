@@ -213,17 +213,10 @@
     box-shadow:0 7px 22px rgba(124,92,191,0.18);
   }
   .mc-choice:active{transform:scale(0.95);}
-  .mc-choice.mc-correct{
-    background:#E9F6EF!important;
-    border-color:#4BAE8A!important;
-    color:#1E5C3D!important;
-    animation:correctPulse 0.5s ease,popIn 0.28s ease;
-    pointer-events:none;
-  }
-  .mc-choice.mc-incorrect{
-    background:var(--red-soft)!important;
-    border-color:#FF7F6B!important;
-    animation:shake 0.4s ease;
+  .mc-choice.mc-selected{
+    background:var(--lavender-soft)!important;
+    border-color:var(--purple)!important;
+    transform:scale(0.97);
     pointer-events:none;
   }
 
@@ -2944,9 +2937,9 @@ document.addEventListener('click',(e)=>{
   else if (action==='reason'){ handleReasoningAnswer(btn.dataset.val); }
   else if (action==='mcchoice'){
     const isCorrect = btn.dataset.correct==='1';
-    btn.classList.add(isCorrect ? 'mc-correct' : 'mc-incorrect');
+    btn.classList.add('mc-selected');
     btn.closest('.mc-grid').querySelectorAll('.mc-choice').forEach(b=>b.style.pointerEvents='none');
-    setTimeout(()=>{ handleAnswerCorrectness(isCorrect, btn.textContent.trim()); }, 400);
+    setTimeout(()=>{ handleAnswerCorrectness(isCorrect, btn.textContent.trim()); }, 300);
   }
   else if (action==='revealtutor'){ state.handRaised=true; render(); }
   else if (action==='download'){ downloadResults(); }
