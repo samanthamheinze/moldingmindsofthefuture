@@ -2400,8 +2400,8 @@ async function generatePDF(){
   doc.text(`Date Assessed: ${dateStr}`, MARGIN, y); y += 12;
   doc.setDrawColor(...BORDER); doc.line(MARGIN, y, PAGE_W-MARGIN, y); y += 20;
 
-  // Grade-Level Placement
-  sectionHeading('Grade-Level Placement', INK);
+  // Grade Level Placement
+  sectionHeading('Grade Level Placement', INK);
   doc.setFont('helvetica','normal'); doc.setFontSize(9.5); doc.setTextColor(...INK_SOFT);
   wrapped(`This is the grade level where ${name} is currently placed in each band, based on today's assessment. Every standard was individually tested; nothing is inferred.`, MARGIN, CONTENT_W, 9.5, 12.5, INK_SOFT);
   y += 6;
@@ -2522,7 +2522,7 @@ async function generatePDF(){
   growthCandidates.sort((a,b) => a.priority - b.priority);
   const growthHighlights = growthCandidates.slice(0,3).map(c => c.name);
   const bandNamesCovered = joinList(state.bandResults.map(br => br.bandLabel));
-  const parentNote = `${name} just completed a math check-in with me covering ${bandNamesCovered}.` +
+  const parentNote = `${name} just completed a math check in with me covering ${bandNamesCovered}.` +
     (strengthHighlights.length ? ` ${name} is showing real strength in ${joinList(strengthHighlights)}.` : '') +
     (growthHighlights.length ? ` Over the next few sessions, we'll focus on ${joinList(growthHighlights)}.` : '') +
     ` We're excited about the progress ahead!`;
@@ -2617,7 +2617,7 @@ function renderIntro(){
       <div class="intro-hero">
         <span class="intro-hero-icon">🧮</span>
         <h2 class="intro-hero-title">Math Diagnostic</h2>
-        <p class="intro-hero-sub">Find exactly where to start — every standard from Kindergarten through Grade 5, tested individually.</p>
+        <p class="intro-hero-sub">Find exactly where to start.</p>
       </div>
       <div class="intro-features">
         <div class="intro-feature"><span class="intro-feature-icon">🎯</span>Pinpoints skill gaps by standard</div>
@@ -2634,7 +2634,7 @@ function renderIntro(){
       </div>
       <p style="font-size:13px;color:var(--ink-soft);margin:0 0 18px;display:flex;align-items:flex-start;gap:10px;">
         <span style="font-size:18px;flex-shrink:0;">👆</span>
-        <span>When the hand-raise sign appears, the student should pause and wait for a teacher or tutor to come score the response — those questions need an adult.</span>
+        <span>When the hand raise sign appears, the student should pause and wait for a teacher or tutor to come score the response — those questions need an adult.</span>
       </p>
       <button class="btn-primary" data-action="start">✦ &nbsp;Start Assessment</button>
     </div>
@@ -2666,7 +2666,7 @@ function renderQuestion(){
       </div>
       <div class="tutor-panel tutor-panel-mc">
         ${contextLine}
-        <div class="tutor-label" style="margin-bottom:0;">Self-scored, no action needed here</div>
+        <div class="tutor-label" style="margin-bottom:0;">Self scored — no action needed here</div>
         ${saveIndicator}
       </div>
     `;
@@ -2799,7 +2799,7 @@ function renderReport(){
   growthCandidates.sort((a,b) => a.priority - b.priority);
   const growthHighlights = growthCandidates.slice(0,3).map(c => c.name);
   const bandNamesCovered = joinList(state.bandResults.map(br => br.bandLabel));
-  const parentNote = `${name} just completed a math check-in with me covering ${bandNamesCovered}.` +
+  const parentNote = `${name} just completed a math check in with me covering ${bandNamesCovered}.` +
     (strengthHighlights.length ? ` ${name} is showing real strength in ${joinList(strengthHighlights)}.` : '') +
     (growthHighlights.length ? ` Over the next few sessions, we'll focus on ${joinList(growthHighlights)}.` : '') +
     ` We're excited about the progress ahead!`;
@@ -2856,7 +2856,7 @@ function renderReport(){
     <div class="report-body">
       <div class="math-bg-pattern">${mathBackgroundPattern()}</div>
       <div class="placement-strip-wrap">
-        <div class="placement-heading">Grade-Level Placement</div>
+        <div class="placement-heading">Grade Level Placement</div>
         <div class="placement-instructions">This is the grade level where ${name} is currently placed in each band, based on today's assessment. Every standard below was individually tested; nothing is inferred.</div>
         <div class="placement-strip">${placementHtml}</div>
       </div>
