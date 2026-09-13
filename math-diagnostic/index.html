@@ -123,6 +123,250 @@
   .report-actions{ padding:0 36px 32px; }
   .btn-restart{ width:100%; background:transparent; color:var(--ink-soft); border:1.5px solid var(--border); padding:12px; border-radius:12px; font-size:13px; font-weight:600; margin-top:10px; }
   .download-note{ font-size:11.5px; color:#2C6B48; margin-top:8px; text-align:center; }
+
+  /* ═══════════════════════════════════════════════════
+     ENHANCED UI — animations, polish, branding
+  ═══════════════════════════════════════════════════ */
+
+  /* — Keyframes — */
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes slideCard{from{opacity:0;transform:translateY(28px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+  @keyframes popIn{0%{transform:scale(0.84);opacity:0}65%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+  @keyframes correctPulse{0%{box-shadow:0 0 0 0 rgba(75,174,138,0.55);background:#E9F6EF;border-color:#4BAE8A}65%{box-shadow:0 0 0 16px rgba(75,174,138,0)}100%{box-shadow:0 0 0 0 rgba(75,174,138,0)}}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+  @keyframes floatIcon{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-9px) rotate(3deg)}}
+
+  /* — Top bar — */
+  .top-bar{
+    background:rgba(255,255,255,0.84);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-radius:16px;
+    padding:12px 18px;
+    box-shadow:0 2px 16px rgba(124,92,191,0.10),0 1px 3px rgba(44,37,71,0.05);
+    border:1px solid rgba(255,255,255,0.95);
+    animation:fadeInUp 0.4s ease both;
+  }
+
+  /* — Card entrance — */
+  .card{
+    box-shadow:0 24px 64px rgba(124,92,191,0.12),0 4px 16px rgba(44,37,71,0.07);
+    border-radius:24px;
+    animation:slideCard 0.42s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+
+  /* — Primary button — */
+  .btn-primary{
+    background:linear-gradient(135deg,#7C5CBF 0%,#A98FD8 50%,#7C5CBF 100%);
+    background-size:200% 100%;
+    box-shadow:0 4px 18px rgba(124,92,191,0.38),0 1px 4px rgba(44,37,71,0.10);
+    transition:transform 0.18s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.18s,filter 0.18s,background-position 0.4s;
+    border-radius:14px;
+    padding:16px;
+    font-size:15.5px;
+    font-weight:700;
+    letter-spacing:0.025em;
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px) scale(1.01);
+    box-shadow:0 8px 28px rgba(124,92,191,0.46),0 2px 6px rgba(44,37,71,0.10);
+    filter:brightness(1.07);
+    background-position:100% 0;
+  }
+  .btn-primary:active{transform:scale(0.97);box-shadow:0 2px 8px rgba(124,92,191,0.28);}
+  .btn-primary:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+
+  /* — Handraise button — */
+  .btn-handraise{
+    background:linear-gradient(135deg,var(--purple),var(--lavender));
+    box-shadow:0 3px 14px rgba(124,92,191,0.34);
+    transition:transform 0.15s,box-shadow 0.15s;
+    border-radius:12px;
+    padding:14px;
+    font-size:14px;
+    font-weight:700;
+  }
+  .btn-handraise:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,92,191,0.42);}
+  .btn-handraise:active{transform:scale(0.97);}
+
+  /* — Restart button — */
+  .btn-restart{
+    transition:border-color 0.15s,color 0.15s,background 0.15s,transform 0.15s;
+    border-radius:12px;
+    border:2px solid var(--border);
+  }
+  .btn-restart:hover{border-color:var(--purple);color:var(--purple);background:var(--lavender-soft);transform:translateY(-1px);}
+
+  /* — MC choices — */
+  .mc-choice{
+    font-size:18px;
+    border-radius:16px;
+    padding:18px 12px;
+    border:2.5px solid var(--border);
+    box-shadow:0 2px 8px rgba(44,37,71,0.04);
+    transition:transform 0.13s cubic-bezier(0.34,1.56,0.64,1),border-color 0.14s,background 0.14s,box-shadow 0.14s;
+  }
+  .mc-choice:hover{
+    border-color:var(--purple);
+    background:var(--lavender-soft);
+    transform:translateY(-3px) scale(1.04);
+    box-shadow:0 7px 22px rgba(124,92,191,0.18);
+  }
+  .mc-choice:active{transform:scale(0.95);}
+  .mc-choice.mc-correct{
+    background:#E9F6EF!important;
+    border-color:#4BAE8A!important;
+    color:#1E5C3D!important;
+    animation:correctPulse 0.5s ease,popIn 0.28s ease;
+    pointer-events:none;
+  }
+  .mc-choice.mc-incorrect{
+    background:var(--red-soft)!important;
+    border-color:#FF7F6B!important;
+    animation:shake 0.4s ease;
+    pointer-events:none;
+  }
+
+  /* — Progress bar — */
+  .progress-wrap{padding:18px 24px 0;}
+  .progress-label{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:11px;font-weight:700;color:var(--ink-soft);
+    margin-bottom:7px;letter-spacing:0.04em;text-transform:uppercase;
+  }
+  .progress-track{height:8px;background:rgba(124,92,191,0.12);border-radius:999px;overflow:hidden;}
+  .progress-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--purple),var(--blue),var(--green));
+    border-radius:999px;
+    transition:width 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* — Intro hero — */
+  .intro-hero{text-align:center;padding:22px 0 14px;position:relative;}
+  .intro-hero-icon{font-size:56px;display:block;line-height:1;animation:floatIcon 3.5s ease-in-out infinite;margin-bottom:10px;}
+  .intro-hero-title{font-family:'Chewy',cursive;font-size:32px;color:var(--purple);margin:0 0 6px;line-height:1.2;}
+  .intro-hero-sub{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.55;}
+  .intro-fields{
+    background:rgba(124,92,191,0.04);
+    border-radius:16px;padding:20px 18px;margin:18px 0 14px;
+    border:1.5px solid rgba(124,92,191,0.08);
+  }
+  .intro-field-label{
+    font-size:11.5px;font-weight:700;color:var(--ink);
+    text-transform:uppercase;letter-spacing:0.07em;display:block;margin-bottom:6px;
+  }
+  .intro-fields .name-input{margin-top:0;margin-bottom:0;}
+  .intro-field-gap{margin-top:14px;}
+  .intro-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 18px;}
+  .intro-feature{
+    background:rgba(255,255,255,0.85);border-radius:12px;padding:12px 14px;
+    border:1.5px solid var(--border);display:flex;align-items:center;gap:10px;
+    font-size:12px;color:var(--ink-soft);font-weight:500;
+    transition:transform 0.15s,border-color 0.15s,box-shadow 0.15s;
+  }
+  .intro-feature:hover{transform:translateY(-2px);border-color:var(--lavender);box-shadow:0 4px 12px rgba(124,92,191,0.10);}
+  .intro-feature-icon{font-size:20px;flex-shrink:0;}
+
+  /* — Inputs — */
+  select.name-input:focus,input.name-input:focus{
+    border-color:var(--purple);
+    box-shadow:0 0 0 4px rgba(124,92,191,0.12);
+    outline:none;
+  }
+  textarea.notes:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,92,191,0.10);outline:none;}
+
+  /* — Tutor context box — */
+  .tutor-context{
+    background:rgba(255,255,255,0.55);border-radius:8px;
+    padding:8px 12px;font-size:11.5px;color:#8B815F;margin-bottom:12px;line-height:1.6;
+  }
+
+  /* — Small buttons — */
+  .small-btn{
+    border-radius:999px;padding:9px 18px;
+    transition:transform 0.12s,box-shadow 0.12s,background 0.12s,border-color 0.12s;
+    border:2px solid transparent;
+  }
+  .small-btn:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(44,37,71,0.12);}
+  .small-btn:active{transform:scale(0.95);}
+  .small-got:hover{background:var(--green-soft);border-color:#4BAE8A;}
+  .small-partial:hover{background:var(--gold-soft);border-color:#F5C842;}
+
+  /* — Handraise note — */
+  .handraise-note{
+    border-radius:14px;padding:14px 18px;
+    border:1.5px solid rgba(245,200,66,0.3);
+    box-shadow:0 2px 12px rgba(245,200,66,0.14);
+    display:inline-flex;align-items:center;gap:12px;font-weight:500;
+  }
+
+  /* — Stage question animation — */
+  .stage-question{animation:fadeInUp 0.35s 0.06s ease both;}
+  .stage-visual{animation:fadeInUp 0.3s ease both;}
+
+  /* — Report header — */
+  .report-header{
+    background:linear-gradient(135deg,#5C3FA0 0%,var(--purple) 45%,#4A7FD4 100%);
+    border-radius:24px 24px 0 0;
+    padding:36px 36px 30px;
+  }
+  .report-header h2{font-size:30px;margin-bottom:6px;}
+  .student-name-display{font-size:22px;text-shadow:0 1px 4px rgba(0,0,0,0.12);}
+
+  /* — Placement items — */
+  .placement-item{
+    background:linear-gradient(135deg,var(--lavender-soft),#EBF3FF);
+    border:1.5px solid rgba(124,92,191,0.12);border-radius:14px;padding:14px 18px;
+    transition:transform 0.18s,box-shadow 0.18s;
+  }
+  .placement-item:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(124,92,191,0.12);}
+  .placement-item .grade{font-size:15px;}
+
+  /* — Skill list — */
+  ul.skill-list li{transition:transform 0.15s;border-radius:12px;}
+  ul.skill-list li:hover{transform:translateX(4px);}
+  .section-strengths ul.skill-list li{border-left:3px solid #4BAE8A;}
+  .section-growth ul.skill-list li{border-left:3px solid #F5C842;}
+  .grade-chip{
+    background:linear-gradient(135deg,var(--purple),var(--lavender));
+    color:#fff;font-size:11px;box-shadow:0 2px 6px rgba(124,92,191,0.25);
+  }
+
+  /* — Parent box — */
+  .parent-box{
+    background:linear-gradient(135deg,#FBF6EC,#FFF8E7);
+    border:1.5px solid #EBD79A;border-radius:14px;padding:22px 24px;
+    box-shadow:0 2px 12px rgba(245,200,66,0.12);line-height:1.78;
+  }
+
+  /* — Tutor notes — */
+  .tutor-note-item{border-left:3px solid var(--purple);}
+
+  /* — Answer log — */
+  .answer-log-item{transition:border-color 0.15s;border:1.5px solid var(--border);border-radius:12px;}
+  .answer-log-item:hover{border-color:var(--lavender);}
+  table.sp-table tr:hover td{background:var(--lavender-soft);}
+
+  /* — Answer key reveal — */
+  .answer-key .reveal{border-left:3px solid var(--purple);}
+  details.answer-key summary{user-select:none;padding:4px 0;}
+
+  /* — Save indicator — */
+  .save-indicator{display:flex;align-items:center;gap:6px;}
+
+  /* — Mobile — */
+  @media(max-width:480px){
+    body{padding:12px 10px 50px;}
+    .top-bar{padding:10px 14px;border-radius:14px;}
+    .card{border-radius:20px;}
+    .mc-choice{padding:15px 8px;font-size:15px;border-radius:12px;}
+    .report-header,.report-body,.report-actions{padding-left:20px;padding-right:20px;}
+    .intro-features{grid-template-columns:1fr;}
+    .intro-hero-title{font-size:26px;}
+    h1.title{font-size:20px;}
+    .progress-wrap{padding:14px 18px 0;}
+  }
 </style>
 <script>
 /** @license
@@ -2377,16 +2621,29 @@ function renderIntro(){
   return `
     <div class="intro">
       <div class="math-bg-pattern">${mathBackgroundPattern()}</div>
-      <div class="eyebrow">Before you start</div>
-      <p>Let's find your starting point in math! Enter your name and grade below to begin.</p>
-      <p style="margin-bottom:8px;">When you see this:</p>
-      <div class="handraise-note">${stopSignSVG(32)} This one needs assistance. Please raise your hand!</div>
-      <p style="margin-top:10px;">...raise your hand so your tutor or teacher can help you!</p>
-      <label class="notes-label" style="margin-top:14px;">Student name</label>
-      <input class="name-input" id="studentNameInput" placeholder="e.g. Jordan">
-      <label class="notes-label" style="margin-top:0;">Reported grade</label>
-      <select class="name-input" id="gradeSelect">${opts}</select>
-      <button class="btn-primary" data-action="start">Start Assessment</button>
+      <div class="intro-hero">
+        <span class="intro-hero-icon">🧮</span>
+        <h2 class="intro-hero-title">Math Diagnostic</h2>
+        <p class="intro-hero-sub">Find exactly where to start — every standard from Kindergarten through Grade 5, tested individually.</p>
+      </div>
+      <div class="intro-features">
+        <div class="intro-feature"><span class="intro-feature-icon">🎯</span>Pinpoints skill gaps by standard</div>
+        <div class="intro-feature"><span class="intro-feature-icon">💾</span>Auto-saves progress</div>
+        <div class="intro-feature"><span class="intro-feature-icon">📄</span>Generates a PDF report</div>
+        <div class="intro-feature"><span class="intro-feature-icon">✋</span>Some questions need tutor help</div>
+      </div>
+      <div class="intro-fields">
+        <label class="intro-field-label">Student name</label>
+        <input class="name-input" id="studentNameInput" placeholder="e.g. Jordan" autocomplete="off">
+        <div class="intro-field-gap"></div>
+        <label class="intro-field-label">Reported grade</label>
+        <select class="name-input" id="gradeSelect">${opts}</select>
+      </div>
+      <p style="font-size:13px;color:var(--ink-soft);margin:0 0 18px;display:flex;align-items:flex-start;gap:10px;">
+        <span style="font-size:18px;flex-shrink:0;">👆</span>
+        <span>When the hand-raise sign appears, the student should pause and wait for a teacher or tutor to come score the response — those questions need an adult.</span>
+      </p>
+      <button class="btn-primary" data-action="start">✦ &nbsp;Start Assessment</button>
     </div>
   `;
 }
@@ -2396,7 +2653,9 @@ function renderQuestion(){
   const q = currentQuestionObj();
   const qType = q.type || 'numeric';
 
-  let stageMain = `${q.visual?`<div class="stage-visual">${renderVisual(q.visual)}</div>`:''}<div class="stage-question">${q.text}</div>`;
+  const bandPct = Math.round((state.bandIdx / BANDS.length) * 100);
+  const progressBar = `<div class="progress-wrap"><div class="progress-label"><span>${BANDS[state.bandIdx].label}</span><span>Band ${state.bandIdx+1} of ${BANDS.length}</span></div><div class="progress-track"><div class="progress-fill" style="width:${Math.max(bandPct,5)}%"></div></div></div>`;
+  let stageMain = progressBar + `${q.visual?`<div class="stage-visual">${renderVisual(q.visual)}</div>`:''}<div class="stage-question">${q.text}</div>`;
 
   const modeLabel = state.mode==='locator' ? `Grade Check &middot; ${currentGrades()[state.gradeIdx].label}` : currentGrades()[state.gradeIdx].label;
   const contextLine = `<div class="tutor-context">${BANDS[state.bandIdx].label} &middot; ${modeLabel} &middot; ${std.code} &middot; ${std.name}</div>`;
@@ -2683,7 +2942,12 @@ document.addEventListener('click',(e)=>{
     state.phase='testing'; render();
   } else if (action==='answer'){ handleAnswerCorrectness(btn.dataset.val==='1'); }
   else if (action==='reason'){ handleReasoningAnswer(btn.dataset.val); }
-  else if (action==='mcchoice'){ handleAnswerCorrectness(btn.dataset.correct==='1', btn.textContent.trim()); }
+  else if (action==='mcchoice'){
+    const isCorrect = btn.dataset.correct==='1';
+    btn.classList.add(isCorrect ? 'mc-correct' : 'mc-incorrect');
+    btn.closest('.mc-grid').querySelectorAll('.mc-choice').forEach(b=>b.style.pointerEvents='none');
+    setTimeout(()=>{ handleAnswerCorrectness(isCorrect, btn.textContent.trim()); }, 400);
+  }
   else if (action==='revealtutor'){ state.handRaised=true; render(); }
   else if (action==='download'){ downloadResults(); }
   else if (action==='restart'){ clearSavedProgress(); initState(); render(); }
