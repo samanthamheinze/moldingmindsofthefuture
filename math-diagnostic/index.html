@@ -222,7 +222,7 @@
   }
 
   /* — Progress bar — */
-  .progress-wrap{padding:18px 24px 0;}
+  .progress-wrap{padding:18px 24px 22px;}
   .progress-label{
     display:flex;justify-content:space-between;align-items:center;
     font-size:11px;font-weight:700;color:var(--ink-soft);
@@ -2638,7 +2638,7 @@ function renderQuestion(){
   const qType = q.type || 'numeric';
 
   const bandPct = Math.round((state.bandIdx / BANDS.length) * 100);
-  const progressBar = `<div class="progress-wrap"><div class="progress-label"><span>${BANDS[state.bandIdx].label}</span><span>Band ${state.bandIdx+1} of ${BANDS.length}</span></div><div class="progress-track"><div class="progress-fill" style="width:${Math.max(bandPct,5)}%"></div></div></div>`;
+  const progressBar = `<div class="progress-wrap"><div class="progress-track"><div class="progress-fill" style="width:${Math.max(bandPct,5)}%"></div></div></div>`;
   let stageMain = progressBar + `${q.visual?`<div class="stage-visual">${renderVisual(q.visual)}</div>`:''}<div class="stage-question">${q.text}</div>`;
 
   const modeLabel = state.mode==='locator' ? `Grade Check &middot; ${currentGrades()[state.gradeIdx].label}` : currentGrades()[state.gradeIdx].label;
