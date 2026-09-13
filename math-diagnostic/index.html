@@ -767,7 +767,6 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 <div class="wrap">
   <div class="top-bar">
     <div id="topBarLogo"></div>
-    <h1 class="title">Math Diagnostic</h1>
   </div>
   <div id="app" class="card"></div>
 </div>
@@ -2614,29 +2613,21 @@ function renderIntro(){
   return `
     <div class="intro">
       <div class="math-bg-pattern">${mathBackgroundPattern()}</div>
-      <div class="intro-hero">
-        <span class="intro-hero-icon">🧮</span>
-        <h2 class="intro-hero-title">Math Diagnostic</h2>
-        <p class="intro-hero-sub">Find exactly where to start.</p>
+      <div style="text-align:center;margin-bottom:22px;position:relative;z-index:1;">
+        <span style="font-size:52px;display:block;line-height:1;animation:floatIcon 3.5s ease-in-out infinite;margin-bottom:10px;">🧮</span>
+        <h2 style="font-family:'Chewy',cursive;font-size:28px;color:var(--purple);margin:0 0 2px;font-weight:400;">Math Diagnostic</h2>
+        <p style="font-size:13px;color:var(--ink-soft);margin:0;">Find exactly where to start.</p>
       </div>
-      <div class="intro-features">
-        <div class="intro-feature"><span class="intro-feature-icon">🎯</span>Pinpoints skill gaps by standard</div>
-        <div class="intro-feature"><span class="intro-feature-icon">💾</span>Auto-saves progress</div>
-        <div class="intro-feature"><span class="intro-feature-icon">📄</span>Generates a PDF report</div>
-        <div class="intro-feature"><span class="intro-feature-icon">✋</span>Some questions need tutor help</div>
-      </div>
-      <div class="intro-fields">
-        <label class="intro-field-label">Student name</label>
-        <input class="name-input" id="studentNameInput" placeholder="e.g. Jordan" autocomplete="off">
-        <div class="intro-field-gap"></div>
-        <label class="intro-field-label">Reported grade</label>
-        <select class="name-input" id="gradeSelect">${opts}</select>
-      </div>
-      <p style="font-size:13px;color:var(--ink-soft);margin:0 0 18px;display:flex;align-items:flex-start;gap:10px;">
-        <span style="font-size:18px;flex-shrink:0;">👆</span>
-        <span>When the hand raise sign appears, the student should pause and wait for a teacher or tutor to come score the response — those questions need an adult.</span>
-      </p>
-      <button class="btn-primary" data-action="start">✦ &nbsp;Start Assessment</button>
+      <div class="eyebrow">Before you start</div>
+      <p>Let's find your starting point in math! Enter your name and grade below to begin.</p>
+      <p style="margin-bottom:8px;">When you see this:</p>
+      <div class="handraise-note">${stopSignSVG(32)} This one needs assistance. Please raise your hand!</div>
+      <p style="margin-top:10px;">...raise your hand so your tutor or teacher can help you!</p>
+      <label class="notes-label" style="margin-top:14px;">Student name</label>
+      <input class="name-input" id="studentNameInput" placeholder="e.g. Jordan" autocomplete="off">
+      <label class="notes-label" style="margin-top:0;">Reported grade</label>
+      <select class="name-input" id="gradeSelect">${opts}</select>
+      <button class="btn-primary" data-action="start">Start Assessment</button>
     </div>
   `;
 }
