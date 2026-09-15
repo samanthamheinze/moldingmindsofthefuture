@@ -827,6 +827,7 @@ function renderVisual(v){
   if(v.type==='gridpartition') return gridPartition(v.rows, v.cols);
   if(v.type==='coordinate') return coordinateGrid(v.points, v.maxVal);
   if(v.type==='symmetry') return symmetryVisual();
+  if(v.type==='dotarray') return dotArraySVG(v.rows, v.cols, v.color);
   return '';
 }
 
@@ -873,6 +874,18 @@ function countGrid(count, color){
     dots+=`<circle cx="${padding+dotR+c*gap}" cy="${padding+dotR+r*gap}" r="${dotR}" fill="${color}"/>`;
   }
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" style="display:block;margin:0 auto;max-width:100%;height:auto;">${dots}</svg>`;
+}
+function dotArraySVG(rows, cols, color){
+  color = color || '#7C5CBF';
+  const dotR=11, gap=28, padding=16;
+  const w=padding*2+(cols-1)*gap+dotR*2, h=padding*2+(rows-1)*gap+dotR*2;
+  let dots='';
+  for(let r=0;r<rows;r++){
+    for(let c=0;c<cols;c++){
+      dots+=`<circle cx="${padding+dotR+c*gap}" cy="${padding+dotR+r*gap}" r="${dotR}" fill="${color}"/>`;
+    }
+  }
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="display:block;margin:0 auto;max-width:100%;height:auto;">${dots}</svg>`;
 }
 function compareVisual(a,b){
   a = Number(a) || 0; b = Number(b) || 0;
@@ -1283,8 +1296,8 @@ const GRADES_NUMOPS = [
       {text:'Which number is odd: 8, 13, or 20?', type:'mc', choices:['8','13','20'], correct:'13'}
     ]},
     { code:'2.OA.C.4', name:'Rectangular arrays / repeated addition', questions:[
-      {text:'How many dots are in this array?', type:'mc', choices:['10','12','14','16'], correct:'12', visual:{type:'blocks', o:0}},
-      {text:'How many dots are in this array?', type:'mc', choices:['8','9','10','12'], correct:'10'}
+      {text:'How many dots are in this array?', type:'mc', choices:['10','12','14','16'], correct:'12', visual:{type:'dotarray', rows:3, cols:4}},
+      {text:'How many dots are in this array?', type:'mc', choices:['8','9','10','12'], correct:'10', visual:{type:'dotarray', rows:2, cols:5}}
     ]}
   ]},
   { id:'2-C', label:'Within 100', standards:[
