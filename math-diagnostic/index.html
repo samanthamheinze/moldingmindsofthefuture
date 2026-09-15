@@ -2416,7 +2416,7 @@ async function generatePDF(){
   // Grade Level Placement
   sectionHeading('Grade Level Placement', INK);
   doc.setFont('helvetica','normal'); doc.setFontSize(9.5); doc.setTextColor(...INK_SOFT);
-  wrapped(`This is the grade level where ${name} is currently placed in each band, based on today's assessment. Every standard was individually tested; nothing is inferred.`, MARGIN, CONTENT_W, 9.5, 12.5, INK_SOFT);
+  wrapped(`This is the grade level where ${name} is currently placed in each band, based on today's assessment.`, MARGIN, CONTENT_W, 9.5, 12.5, INK_SOFT);
   y += 6;
 
   const startingPoints = [];
@@ -2861,7 +2861,7 @@ function renderReport(){
       <div class="math-bg-pattern">${mathBackgroundPattern()}</div>
       <div class="placement-strip-wrap">
         <div class="placement-heading">Grade Level Placement</div>
-        <div class="placement-instructions">This is the grade level where ${name} is currently placed in each band, based on today's assessment. Every standard below was individually tested; nothing is inferred.</div>
+        <div class="placement-instructions">This is the grade level where ${name} is currently placed in each band, based on today's assessment.</div>
         <div class="placement-strip">${placementHtml}</div>
       </div>
 
