@@ -1011,6 +1011,65 @@
     .rdg-line:nth-child(3) { width:65%; }
     .rdg-line:nth-child(4) { width:75%; }
 
+    /* ─── Background character scatter ─── */
+    #tools, #resources { position: relative; overflow: hidden; }
+    .bg-chars {
+      position: absolute; inset: 0; overflow: hidden;
+      pointer-events: none; z-index: 0; user-select: none;
+    }
+    .bg-chars span {
+      position: absolute; font-family: 'Chewy', cursive;
+      font-weight: 400; line-height: 1;
+      pointer-events: none; user-select: none;
+    }
+    .hero-floats { z-index: 2; }
+    .hero-content { position: relative; z-index: 3; }
+    .tools-inner, .tpt-inner { position: relative; z-index: 1; }
+
+    /* ─── Hero floating letter pills ─── */
+    .fi {
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fi-char {
+      font-family: 'Chewy', cursive;
+      font-size: clamp(18px, 2.5vw, 30px);
+      line-height: 1; font-weight: 400;
+    }
+
+    /* ─── TPT filter tabs ─── */
+    .filter-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .filter-tab {
+      padding: 8px 20px; border-radius: 999px;
+      border: 1.5px solid var(--border); background: var(--white);
+      color: var(--mid); font-weight: 700; font-size: 13px;
+      cursor: pointer; font-family: 'Nunito', sans-serif;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .filter-tab:hover { border-color: var(--purple); color: var(--purple); }
+    .filter-tab.active { background: var(--purple); color: #fff; border-color: var(--purple); }
+    .tpt-card[hidden] { display: none !important; }
+
+    /* ─── Tool card dual-action ─── */
+    .tool-action-row {
+      display: flex; flex-direction: column; gap: 10px; margin-top: auto;
+    }
+    .tool-launch-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-weight: 800; font-size: 14px; color: #fff;
+      background: var(--purple); border-radius: 10px;
+      padding: 10px 16px; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .tool-launch-btn:hover { background: var(--purple-dark); transform: translateY(-1px); }
+    .tool-tpt-link {
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      font-weight: 700; display: inline-flex; align-items: center; gap: 4px;
+    }
+    .tool-tpt-link:hover { color: var(--purple); }
+
     /* ─── Responsive extras ─── */
     @media (max-width: 900px) {
       .assessment-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1087,31 +1146,14 @@
   <div class="hero-blob hero-blob-1"></div>
   <div class="hero-blob hero-blob-2"></div>
   <div class="hero-blob hero-blob-3"></div>
+  <div class="bg-chars" id="heroBgChars" aria-hidden="true"></div>
   <div class="hero-floats" aria-hidden="true">
-    <svg class="fi" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="30" cy="30" r="24" stroke="#7C5CBF" stroke-width="3.5" opacity="0.28"/>
-      <circle cx="30" cy="30" r="10" fill="#7C5CBF" opacity="0.10"/>
-    </svg>
-    <svg class="fi" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8" y="8" width="44" height="44" rx="10" fill="#4A90D9" opacity="0.16"/>
-      <rect x="16" y="16" width="28" height="28" rx="5" fill="#4A90D9" opacity="0.12"/>
-    </svg>
-    <svg class="fi" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="30" cy="30" r="28" fill="#4BAE8A" opacity="0.13"/>
-      <circle cx="30" cy="30" r="17" fill="#4BAE8A" opacity="0.10"/>
-    </svg>
-    <svg class="fi" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M30 6 L54 30 L30 54 L6 30 Z" stroke="#F5C842" stroke-width="3" opacity="0.38"/>
-      <path d="M30 16 L44 30 L30 44 L16 30 Z" fill="#F5C842" opacity="0.12"/>
-    </svg>
-    <svg class="fi" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="15" cy="23" r="10" fill="#7C5CBF" opacity="0.18"/>
-      <circle cx="31" cy="23" r="10" fill="#4A90D9" opacity="0.16"/>
-    </svg>
-    <svg class="fi" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="23" cy="23" r="19" stroke="#4BAE8A" stroke-width="3" opacity="0.28"/>
-      <circle cx="23" cy="23" r="8" stroke="#4BAE8A" stroke-width="2" opacity="0.20"/>
-    </svg>
+    <div class="fi" style="background:rgba(124,92,191,0.15);"><span class="fi-char" style="color:#7C5CBF;">A</span></div>
+    <div class="fi" style="background:rgba(74,144,217,0.15);"><span class="fi-char" style="color:#4A90D9;">3</span></div>
+    <div class="fi" style="background:rgba(75,174,138,0.15);"><span class="fi-char" style="color:#4BAE8A;">B</span></div>
+    <div class="fi" style="background:rgba(245,200,66,0.20);"><span class="fi-char" style="color:#9A7500;">7</span></div>
+    <div class="fi" style="background:rgba(124,92,191,0.12);"><span class="fi-char" style="color:#7C5CBF;">+</span></div>
+    <div class="fi" style="background:rgba(74,144,217,0.12);"><span class="fi-char" style="color:#4A90D9;">C</span></div>
   </div>
   <div class="hero-content">
     <div class="hero-badge">✦ Learning Tools and Resources for Educators, Tutors, and Parents</div>
@@ -1130,7 +1172,7 @@
     </div>
     <div class="hero-trust" aria-label="Trust signals">
       <div class="trust-chip"><span class="trust-chip-dot"></span>K-5 Math Assessment on TPT</div>
-      <div class="trust-chip"><span class="trust-chip-dot"></span>K-2 Reading Assessment · Coming Soon</div>
+      <div class="trust-chip"><span class="trust-chip-dot"></span>K-2 Reading Assessment · Now on TPT</div>
       <div class="trust-chip"><span class="trust-chip-dot"></span>K-8 Resources · Math + SEL + ELA</div>
     </div>
   </div>
@@ -1190,6 +1232,7 @@
 
 <!-- ─── Tools Section ─── -->
 <section id="tools" aria-label="Interactive learning tools">
+  <div class="bg-chars" id="toolsBgChars" aria-hidden="true"></div>
   <div class="tools-inner">
     <p class="section-label reveal">Interactive Tools</p>
     <h2 class="section-title reveal d1">Start Here</h2>
@@ -1197,15 +1240,18 @@
 
     <div class="tools-grid">
 
-      <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="tool-card reveal d1" onclick="ga4('tool_click',{tool:'math_diagnostic'})">
+      <div class="tool-card reveal d1">
         <div class="tool-preview-img">
           <img src="/images/assessment-start.jpg" alt="K-5 Math Diagnostic assessment start screen" loading="lazy">
         </div>
         <span class="tool-badge badge-new">✦ On TPT</span>
         <div class="tool-name">K-5 Math Diagnostic</div>
         <p class="tool-desc">Pinpoint exactly where each student stands across every K-5 math standard. Adaptive, standard by standard, across five domains. Download a personalized PDF report at the end.</p>
-        <span class="tool-link">Get on TPT <span class="tool-arrow">→</span></span>
-      </a>
+        <div class="tool-action-row">
+          <a href="/math-diagnostic/" class="tool-launch-btn" onclick="ga4('tool_click',{tool:'math_diagnostic_launch'})">Launch Assessment <span class="tool-arrow">→</span></a>
+          <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="tool-tpt-link" onclick="ga4('tool_click',{tool:'math_diagnostic_tpt'})">Buy on TPT →</a>
+        </div>
+      </div>
 
       <div class="tool-card reveal d2">
         <div class="tool-preview-reading" aria-hidden="true">
@@ -1219,10 +1265,13 @@
             <div class="rdg-line"></div>
           </div>
         </div>
-        <span class="tool-badge badge-new">✦ Coming to TPT</span>
+        <span class="tool-badge badge-new">✦ Now on TPT</span>
         <div class="tool-name">K-2 Reading Diagnostic</div>
-        <p class="tool-desc">An adaptive online reading assessment that identifies exactly where each early reader stands — phonemic awareness, decoding, fluency, and comprehension — standard by standard. Coming soon on TPT.</p>
-        <span class="tool-link" style="opacity:0.45;cursor:default;">Coming Soon <span class="tool-arrow">→</span></span>
+        <p class="tool-desc">An adaptive online reading assessment that identifies exactly where each early reader stands — phonemic awareness, decoding, fluency, and comprehension — standard by standard.</p>
+        <div class="tool-action-row">
+          <a href="/reading-diagnostic/" class="tool-launch-btn" onclick="ga4('tool_click',{tool:'reading_diagnostic_launch'})">Launch Assessment <span class="tool-arrow">→</span></a>
+          <a href="https://www.teacherspayteachers.com/Product/Adaptive-Reading-Diagnostic-Assessment-K-5-Tutors-Teachers-Homeschool-17678575" target="_blank" rel="noopener" class="tool-tpt-link" onclick="ga4('tool_click',{tool:'reading_diagnostic_tpt'})">Buy on TPT →</a>
+        </div>
       </div>
 
       <div class="tool-card reveal d3">
@@ -1249,110 +1298,199 @@
 </section>
 
 <!-- ─── TPT Resources Section ─── -->
-<!-- TPT resource cards -->
 <section id="resources" aria-label="Teachers Pay Teachers resources">
+  <div class="bg-chars" id="resourcesBgChars" aria-hidden="true"></div>
   <div class="tpt-inner">
     <p class="section-label reveal">On Teachers Pay Teachers</p>
-    <h2 class="section-title reveal d1">Curriculum Resources</h2>
-    <p class="section-sub reveal d2">Worksheets, activity packs, and lesson bundles designed for real classrooms and ready to use the same day you download them.</p>
+    <h2 class="section-title reveal d1">All Resources</h2>
+    <p class="section-sub reveal d2">40 products across math, SEL, ELA, and life skills — worksheets, bundles, diagnostic assessments, and more, all ready to use the day you download them.</p>
+
+    <div class="filter-tabs reveal d3">
+      <button class="filter-tab active" data-filter="all">All (40)</button>
+      <button class="filter-tab" data-filter="assessment">Assessments</button>
+      <button class="filter-tab" data-filter="math">Math</button>
+      <button class="filter-tab" data-filter="sel">SEL</button>
+      <button class="filter-tab" data-filter="ela">ELA</button>
+      <button class="filter-tab" data-filter="more">More</button>
+    </div>
 
     <div class="tpt-grid">
 
-      <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="tpt-card reveal d1" onclick="ga4('tpt_resource_click',{resource:'math_diagnostic'})">
-        <div class="tpt-thumb tpt-thumb--assessment">
-          <span class="tpt-cat">Math</span>
-          <span class="tpt-cat-sub">Assessment · K–5</span>
-        </div>
-        <div class="tpt-body">
-          <div class="tpt-grade">Grades K–5</div>
-          <div class="tpt-title">K-5 Adaptive Math Diagnostic Assessment</div>
-          <div class="tpt-footer">
-            <span class="tpt-stars">★★★★★</span>
-            <span class="tpt-price-label">View on TPT</span>
-          </div>
-        </div>
+      <!-- ── ASSESSMENTS ── -->
+      <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="tpt-card reveal" data-category="assessment" onclick="ga4('tpt_click',{id:'math_diag'})">
+        <div class="tpt-thumb tpt-thumb--assessment"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Assessment · K–5</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades K–5</div><div class="tpt-title">K-5 Adaptive Math Diagnostic Assessment</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Adaptive-Reading-Diagnostic-Assessment-K-5-Tutors-Teachers-Homeschool-17678575" target="_blank" rel="noopener" class="tpt-card reveal" data-category="assessment" onclick="ga4('tpt_click',{id:'reading_diag'})">
+        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Assessment · K–5</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades K–5</div><div class="tpt-title">Adaptive Reading Diagnostic Assessment</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
 
-      <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-BUNDLE-3rd-4th-5th-Grade-24-Week-Social-Emotional-Learning-17426053" target="_blank" rel="noopener" class="tpt-card reveal d2" onclick="ga4('tpt_resource_click',{resource:'sel_elementary_bundle'})">
-        <div class="tpt-thumb tpt-thumb--sel-elem">
-          <span class="tpt-cat">SEL</span>
-          <span class="tpt-cat-sub">Bundle · 3–5</span>
-        </div>
-        <div class="tpt-body">
-          <div class="tpt-grade">Grades 3–5</div>
-          <div class="tpt-title">SEL Curriculum Bundle, 24-Week Program</div>
-          <div class="tpt-footer">
-            <span class="tpt-stars">★★★★★</span>
-            <span class="tpt-price-label">View on TPT</span>
-          </div>
-        </div>
+      <!-- ── MATH ── -->
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Fluently-Add-Subtract-within-20-2nd-Grade-2OAB2-17604167" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'add_sub_20'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Operations · 1–2</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 1–2</div><div class="tpt-title">Fluently Add and Subtract within 20</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Place-Value-Worksheets-3-Digit-Numbers-2nd-Grade-Math-2NBTA1-16083811" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'place_value'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Place Value · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Place Value Worksheets: 3-Digit Numbers</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Read-Write-Numbers-to-1000-2nd-Grade-2NBTA3-17339112" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'read_write_1000'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Place Value · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Read and Write Numbers to 1,000</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Word-Problems-Worksheets-2nd-Grade-2OAA1-17336568" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'word_problems'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Word Problems · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Differentiated Word Problems Worksheets</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Arrays-Repeated-Addition-2nd-Grade-Math-2OAC4-17308771" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'arrays'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Multiplication · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Arrays and Repeated Addition</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Elapsed-Time-Task-Cards-Anchor-Chart-Differentiated-Grade-3-17265642" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'elapsed_time'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Time · 3rd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 3</div><div class="tpt-title">Elapsed Time Task Cards &amp; Anchor Chart</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Measurement-Tools-Worksheets-2nd-Grade-2MDA1-17249160" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'measurement'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Measurement · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Measurement Tools Worksheets</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Odd-or-Even-Equal-Addends-2nd-Grade-2OAC3-17240588" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'odd_even'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Operations · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Odd or Even &amp; Equal Addends</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Money-Word-Problems-2nd-Grade-2MDC8-Counting-Coins-17239638" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'money'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Money · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Money Word Problems: Counting Coins</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Telling-Time-to-5-Minutes-Worksheets-2nd-Grade-Math-2MDC7-17229154" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'telling_time'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Time · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Telling Time to 5 Minutes</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Equal-Shares-Worksheets-2nd-Grade-2GA3-17185193" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'equal_shares'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Fractions · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Equal Shares Worksheets</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Skip-Counting-by-5s-10s-100s-2nd-Grade-2NBTA2-17181622" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'skip_counting'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Counting · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Skip Counting by 5s, 10s, and 100s</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Addition-Subtraction-3-Digit-Numbers-2nd-Grade-2NBTB7-16065486" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'add_sub_3dig'})">
+        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Operations · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Addition &amp; Subtraction: 3-Digit Numbers</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
 
-      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Yearlong-Curriculum-Bundle-Grades-6-to-8-School-Counseling-17483753" target="_blank" rel="noopener" class="tpt-card reveal d3" onclick="ga4('tpt_resource_click',{resource:'sel_middle_bundle'})">
-        <div class="tpt-thumb tpt-thumb--sel-mid">
-          <span class="tpt-cat">SEL</span>
-          <span class="tpt-cat-sub">Middle · 6–8</span>
-        </div>
-        <div class="tpt-body">
-          <div class="tpt-grade">Grades 6–8</div>
-          <div class="tpt-title">Middle School SEL Yearlong Bundle</div>
-          <div class="tpt-footer">
-            <span class="tpt-stars">★★★★★</span>
-            <span class="tpt-price-label">View on TPT</span>
-          </div>
-        </div>
+      <!-- ── SEL ── -->
+      <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-BUNDLE-3rd-4th-5th-Grade-24-Week-Social-Emotional-Learning-17426053" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'sel_bundle'})">
+        <div class="tpt-thumb tpt-thumb--sel-elem"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Bundle · 3–5</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">SEL Curriculum Bundle: 24-Week Program (Vol 1 &amp; 2)</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-3rd-4th-5th-Grade-Social-Emotional-Learning-Lessons-Vol-1-17249965" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'sel_vol1'})">
+        <div class="tpt-thumb tpt-thumb--sel-elem"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Curriculum · 3–5</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">SEL Curriculum Vol 1</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-3rd-4th-5th-Grade-Social-Emotional-Learning-Lessons-Vol-2-17425737" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'sel_vol2'})">
+        <div class="tpt-thumb tpt-thumb--sel-elem"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Curriculum · 3–5</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">SEL Curriculum Vol 2</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/IB-PYP-Learner-Profile-Attributes-Posters-Task-Cards-Self-Assessment-K-2-17562458" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ib_pyp'})">
+        <div class="tpt-thumb tpt-thumb--sel-elem"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">IB PYP · K–2</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades K–2</div><div class="tpt-title">IB PYP Learner Profile: Posters, Task Cards &amp; Self-Assessment</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Yearlong-Curriculum-Bundle-Grades-6-to-8-School-Counseling-17483753" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_sel_bundle'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Bundle · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL Yearlong Curriculum Bundle</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Resilience-Growth-Mindset-5-No-Prep-Lessons-Grades-6-to-8-17482890" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_resilience'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Resilience &amp; Growth Mindset</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Empathy-Perspective-Taking-5-No-Prep-Lessons-Grades-6-to-8-17476192" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_empathy'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Empathy &amp; Perspective Taking</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Time-Management-5-No-Prep-Lessons-Grades-6-to-8-17464084" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_time_mgmt'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Time Management</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Conflict-Resolution-5-No-Prep-Lessons-Grades-6-to-8-17463345" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_conflict'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Conflict Resolution</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Emotional-Regulation-5-No-Prep-Lessons-Grades-6-to-8-17463131" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_emotional'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Emotional Regulation</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Friendships-Peer-Pressure-5-No-Prep-Lessons-Grades-6-to-8-17462763" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_friendships'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Friendships &amp; Peer Pressure</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Social-Media-Digital-Habits-5-No-Prep-Lessons-Grades-6-8-17462466" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_social_media'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Social Media &amp; Digital Habits</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Stress-Management-5-No-Prep-Lessons-Grades-6-to-8-17434736" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_stress'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Stress Management</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Identity-Self-Image-5-No-Prep-Lessons-Grades-6-to-8-17433975" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_identity'})">
+        <div class="tpt-thumb tpt-thumb--sel-mid"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Unit · 6–8</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 6–8</div><div class="tpt-title">Middle School SEL: Identity &amp; Self Image</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
 
-      <a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-16319304" target="_blank" rel="noopener" class="tpt-card reveal d1" onclick="ga4('tpt_resource_click',{resource:'grocery_store_guide'})">
-        <div class="tpt-thumb tpt-thumb--life">
-          <span class="tpt-cat">Life Skills</span>
-          <span class="tpt-cat-sub">Project · 3–6</span>
-        </div>
-        <div class="tpt-body">
-          <div class="tpt-grade">Grades 3–6</div>
-          <div class="tpt-title">Financial Literacy: Grocery Store Budgeting Project</div>
-          <div class="tpt-footer">
-            <span class="tpt-stars">★★★★★</span>
-            <span class="tpt-price-label">View on TPT</span>
-          </div>
-        </div>
+      <!-- ── ELA ── -->
+      <a href="https://www.teacherspayteachers.com/Product/Nonfiction-Reading-Response-for-any-Book-Grades-2-4-Text-Features-Main-Idea-17327255" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'nonfic_response'})">
+        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Reading · 2–4</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 2–4</div><div class="tpt-title">Nonfiction Reading Response for Any Book</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Making-Inferences-With-Evidence-2nd-3rd-Grade-Reading-Passages-17220832" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'inferences_ev'})">
+        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Reading · 2–3</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 2–3</div><div class="tpt-title">Making Inferences with Evidence</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Making-Inferences-Activity-Passages-Textual-Evidence-2nd-3rd-Grade-ELA-16408122" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'inferences_act'})">
+        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Reading · 2–3</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 2–3</div><div class="tpt-title">Making Inferences Activity: Passages &amp; Textual Evidence</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Reading-Response-Questions-Fiction-Nonfiction-Any-Book-No-Prep-3-5-16198501" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'reading_response'})">
+        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Reading · 3–5</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">Reading Response Questions: Fiction &amp; Nonfiction</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Higher-Order-Thinking-Question-Ladder-Blooms-Taxonomy-Critical-Thinking-16104572" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'hot_ladder'})">
+        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Critical Thinking</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 2–5</div><div class="tpt-title">Higher Order Thinking Question Ladder</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Descriptive-Writing-Activity-Lift-the-Flap-Low-Prep-Printable-K-3-Center-15771261" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'desc_writing'})">
+        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Writing · K–3</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades K–3</div><div class="tpt-title">Descriptive Writing: Lift the Flap Activity</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Phonics-Bookmarks-Vowel-Teams-Digraphs-Science-of-Reading-K-2-Editable-15736229" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'phonics_bmks'})">
+        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Phonics · K–2</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades K–2</div><div class="tpt-title">Phonics Bookmarks: Vowel Teams &amp; Digraphs</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
 
-      <a href="https://www.teacherspayteachers.com/Product/Reading-Response-Questions-Fiction-Nonfiction-Any-Book-No-Prep-3-5-16198501" target="_blank" rel="noopener" class="tpt-card reveal d2" onclick="ga4('tpt_resource_click',{resource:'reading_response'})">
-        <div class="tpt-thumb tpt-thumb--ela">
-          <span class="tpt-cat">ELA</span>
-          <span class="tpt-cat-sub">Reading · 3–5</span>
-        </div>
-        <div class="tpt-body">
-          <div class="tpt-grade">Grades 3–5</div>
-          <div class="tpt-title">Reading Response Questions: Fiction and Nonfiction</div>
-          <div class="tpt-footer">
-            <span class="tpt-stars">★★★★★</span>
-            <span class="tpt-price-label">View on TPT</span>
-          </div>
-        </div>
+      <!-- ── MORE ── -->
+      <a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-16319304" target="_blank" rel="noopener" class="tpt-card reveal" data-category="more" onclick="ga4('tpt_click',{id:'grocery_store'})">
+        <div class="tpt-thumb tpt-thumb--life"><span class="tpt-cat">Life Skills</span><span class="tpt-cat-sub">Project · 3–6</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 3–6</div><div class="tpt-title">Financial Literacy: Grocery Store Budgeting Project</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
-
-      <a href="https://www.teacherspayteachers.com/Product/Differentiated-Word-Problems-Worksheets-2nd-Grade-2OAA1-17336568" target="_blank" rel="noopener" class="tpt-card reveal d3" onclick="ga4('tpt_resource_click',{resource:'word_problems'})">
-        <div class="tpt-thumb tpt-thumb--worksheet">
-          <span class="tpt-cat">Math</span>
-          <span class="tpt-cat-sub">Worksheets · 2nd</span>
-        </div>
-        <div class="tpt-body">
-          <div class="tpt-grade">Grade 2</div>
-          <div class="tpt-title">Differentiated Word Problems Worksheets</div>
-          <div class="tpt-footer">
-            <span class="tpt-stars">★★★★★</span>
-            <span class="tpt-price-label">View on TPT</span>
-          </div>
-        </div>
+      <a href="https://www.teacherspayteachers.com/Product/FREE-Digital-Mind-Map-Graphic-Organizer-IB-Key-Concepts-Sentence-Stems-3-5-16423686" target="_blank" rel="noopener" class="tpt-card reveal" data-category="more" onclick="ga4('tpt_click',{id:'mind_map'})">
+        <div class="tpt-thumb tpt-thumb--life"><span class="tpt-cat">FREE</span><span class="tpt-cat-sub">Graphic Organizer</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">FREE Digital Mind Map Graphic Organizer</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label" style="color:var(--green);">Free</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/Inquiry-Based-Graphic-Organizer-Making-Connections-IB-PYP-Exhibition-16075642" target="_blank" rel="noopener" class="tpt-card reveal" data-category="more" onclick="ga4('tpt_click',{id:'ib_connections'})">
+        <div class="tpt-thumb tpt-thumb--life"><span class="tpt-cat">IB PYP</span><span class="tpt-cat-sub">Exhibition</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">Making Connections: IB PYP Exhibition Graphic Organizer</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
+      <a href="https://www.teacherspayteachers.com/Product/End-of-Year-Coloring-Book-Easy-No-Prep-Print-Go-K-3-Sub-Plans-16016011" target="_blank" rel="noopener" class="tpt-card reveal" data-category="more" onclick="ga4('tpt_click',{id:'coloring_book'})">
+        <div class="tpt-thumb tpt-thumb--life"><span class="tpt-cat">Activity</span><span class="tpt-cat-sub">Coloring · K–3</span></div>
+        <div class="tpt-body"><div class="tpt-grade">Grades K–3</div><div class="tpt-title">End of Year Coloring Book (No-Prep)</div><div class="tpt-footer"><span class="tpt-stars">★★★★★</span><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
 
     </div>
 
     <div class="tpt-cta reveal">
       <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="btn-outline" onclick="ga4('tpt_resource_click',{resource:'view_all'})">
-        View All Resources on TPT →
+        Visit the Full Store on TPT →
       </a>
     </div>
   </div>
@@ -1530,6 +1668,44 @@
       if (e.isIntersecting) { ga4('tools_section_view', {}); obs.disconnect(); }
     }, { threshold: 0.2 }).observe(toolsEl);
   }
+
+  // ─── Background character scatter ───
+  (function() {
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklm0123456789+−×÷=?!';
+    var colors = ['#7C5CBF','#4A90D9','#4BAE8A','#F5C842','#F5A94E'];
+    var seed = 7919;
+    function rand() { seed = (seed * 1664525 + 1013904223) | 0; return (seed >>> 0) / 4294967295; }
+    function fill(id, count) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      for (var i = 0; i < count; i++) {
+        var s = document.createElement('span');
+        s.textContent = chars.charAt(Math.floor(rand() * chars.length));
+        s.style.left      = (rand() * 100) + '%';
+        s.style.top       = (rand() * 100) + '%';
+        s.style.fontSize  = (12 + rand() * 28) + 'px';
+        s.style.opacity   = (0.04 + rand() * 0.05).toFixed(3);
+        s.style.transform = 'rotate(' + ((rand() - 0.5) * 50) + 'deg)';
+        s.style.color     = colors[Math.floor(rand() * colors.length)];
+        el.appendChild(s);
+      }
+    }
+    fill('heroBgChars',      60);
+    fill('toolsBgChars',     45);
+    fill('resourcesBgChars', 55);
+  })();
+
+  // ─── TPT filter tabs ───
+  document.querySelectorAll('.filter-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-tab').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.dataset.filter;
+      document.querySelectorAll('.tpt-card[data-category]').forEach(function(card) {
+        card.hidden = (filter !== 'all' && card.dataset.category !== filter);
+      });
+    });
+  });
 </script>
 </body>
 </html>
