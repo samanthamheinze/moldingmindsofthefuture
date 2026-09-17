@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 320" width="300" height="320">
+  <defs>
+    <style>
+      .wordmark-main { font-family: 'Poppins', 'Segoe UI', sans-serif; font-weight: 800; font-size: 28px; fill: #2C2547; }
+      .wordmark-sub  { font-family: 'Poppins', 'Segoe UI', sans-serif; font-weight: 300; font-size: 11px; fill: #7C5CBF; letter-spacing: 5px; }
+    </style>
+  </defs>
+
+  <!-- LIGHT RAYS -->
+  <line x1="150" y1="22" x2="150" y2="4"   stroke="#F5C842" stroke-width="3.2" stroke-linecap="round"/>
+  <line x1="181" y1="27" x2="192" y2="12"  stroke="#F5C842" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="119" y1="27" x2="108" y2="12"  stroke="#F5C842" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="208" y1="42" x2="221" y2="30"  stroke="#F5C842" stroke-width="2.1" stroke-linecap="round" opacity="0.85"/>
+  <line x1="92"  y1="42" x2="79"  y2="30"  stroke="#F5C842" stroke-width="2.1" stroke-linecap="round" opacity="0.85"/>
+  <line x1="228" y1="64" x2="244" y2="57"  stroke="#F5C842" stroke-width="1.7" stroke-linecap="round" opacity="0.65"/>
+  <line x1="72"  y1="64" x2="56"  y2="57"  stroke="#F5C842" stroke-width="1.7" stroke-linecap="round" opacity="0.65"/>
+  <line x1="240" y1="92" x2="258" y2="90"  stroke="#F5C842" stroke-width="1.3" stroke-linecap="round" opacity="0.4"/>
+  <line x1="60"  y1="92" x2="42"  y2="90"  stroke="#F5C842" stroke-width="1.3" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- HEAD SILHOUETTE -->
+  <path d="M150 22 C110 22 84 52 84 92 C84 118 98 138 116 148 L116 178 C116 184 120 188 126 188 L174 188 C180 188 184 184 184 178 L184 148 C202 138 216 118 216 92 C216 52 190 22 150 22Z" fill="#EDE8F8"/>
+  <path d="M150 22 C190 22 216 52 216 92 L84 92 C84 52 110 22 150 22Z" fill="#D4C8F0" opacity="0.55"/>
+
+  <!-- GLOBE -->
+  <circle cx="150" cy="92" r="46" fill="#4A90D9"/>
+  <ellipse cx="150" cy="92" rx="46" ry="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <ellipse cx="150" cy="76" rx="37" ry="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+  <ellipse cx="150" cy="108" rx="37" ry="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+  <line x1="150" y1="46" x2="150" y2="138" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <path d="M126 50 Q112 92 126 134" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+  <path d="M174 50 Q188 92 174 134" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+
+  <!-- CONTINENTS -->
+  <path d="M128 76 C133 69 143 69 147 76 C150 81 147 90 141 90 C135 90 126 86 128 76Z" fill="rgba(75,174,138,0.92)"/>
+  <path d="M153 82 C158 75 168 77 170 84 C172 90 168 96 163 95 C158 94 152 89 153 82Z" fill="rgba(75,174,138,0.88)"/>
+  <path d="M132 103 C137 99 143 101 143 107 C143 113 138 115 135 113 C130 111 130 107 132 103Z" fill="rgba(75,174,138,0.78)"/>
+
+  <!-- CROWN DOT -->
+  <circle cx="150" cy="24" r="7" fill="#F5C842"/>
+  <circle cx="150" cy="24" r="3.5" fill="#FFD700"/>
+
+  <!-- NECK -->
+  <rect x="138" y="187" width="24" height="14" rx="7" fill="#D4C8F0"/>
+
+  <!-- WORDMARK -->
+  <text x="150" y="232" text-anchor="middle" class="wordmark-main">Molding Minds</text>
+  <text x="150" y="258" text-anchor="middle" class="wordmark-sub">OF THE FUTURE</text>
+</svg>

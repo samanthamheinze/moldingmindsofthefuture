@@ -28,7 +28,7 @@
   <meta name="twitter:image" content="https://moldingmindsofthefuture.com/images/samantha.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='10 0 120 115'%3E%3Cline x1='65' y1='12' x2='65' y2='2' stroke='%23F5C842' stroke-width='2.8' stroke-linecap='round'/%3E%3Cline x1='82' y1='16' x2='90' y2='7' stroke='%23F5C842' stroke-width='2.2' stroke-linecap='round'/%3E%3Cline x1='48' y1='16' x2='40' y2='7' stroke='%23F5C842' stroke-width='2.2' stroke-linecap='round'/%3E%3Cline x1='96' y1='27' x2='106' y2='19' stroke='%23F5C842' stroke-width='1.8' stroke-linecap='round' opacity='.8'/%3E%3Cline x1='34' y1='27' x2='24' y2='19' stroke='%23F5C842' stroke-width='1.8' stroke-linecap='round' opacity='.8'/%3E%3Cpath d='M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z' fill='%23EDE8F8'/%3E%3Cpath d='M65 12 C85 12 98 28 98 48 L32 48 C32 28 45 12 65 12Z' fill='%23D4C8F0' opacity='.55'/%3E%3Ccircle cx='65' cy='48' r='24' fill='%234A90D9'/%3E%3Cellipse cx='65' cy='48' rx='24' ry='10.5' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='1.3'/%3E%3Cline x1='65' y1='24' x2='65' y2='72' stroke='rgba(255,255,255,0.5)' stroke-width='1.3'/%3E%3Cpath d='M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z' fill='rgba(75,174,138,0.92)'/%3E%3Cpath d='M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z' fill='rgba(75,174,138,0.88)'/%3E%3Ccircle cx='65' cy='13' r='5' fill='%23F5C842'/%3E%3Ccircle cx='65' cy='13' r='2.5' fill='%23FFD700'/%3E%3Crect x='59' y='97' width='12' height='8' rx='4' fill='%23D4C8F0'/%3E%3C/svg%3E">
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GP97LNPLCS"></script>
@@ -270,30 +270,10 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
       flex-shrink: 0;
     }
-    .nav-logo-icon { font-size: 30px; line-height: 1; }
-    .nav-logo-wordmark {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-    .nav-logo-name {
-      font-family: 'Chewy', cursive;
-      font-size: 19px;
-      color: var(--purple);
-      letter-spacing: 0.02em;
-      line-height: 1;
-    }
-    .nav-logo-sub {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-    }
+    .nav-logo svg { display: block; }
 
     .nav-links {
       display: flex;
@@ -816,9 +796,6 @@
       .nav-links { display: none; }
     }
     .footer-logo {
-      font-family: 'Chewy', cursive;
-      font-size: 22px;
-      color: var(--white);
       margin-bottom: 12px;
     }
     .footer-tagline { font-size: 14px; line-height: 1.65; max-width: 270px; }
@@ -868,12 +845,41 @@
 <!-- ─── Nav ─── -->
 <nav id="main-nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo" onclick="ga4('nav_click',{link:'home'})">
-      <span class="nav-logo-icon">🌱</span>
-      <div class="nav-logo-wordmark">
-        <span class="nav-logo-name">Molding Minds</span>
-        <span class="nav-logo-sub">of the Future</span>
-      </div>
+    <a href="/" class="nav-logo" onclick="ga4('nav_click',{link:'home'})" aria-label="Molding Minds of the Future — home">
+      <svg viewBox="0 0 480 130" width="165" height="45" xmlns="http://www.w3.org/2000/svg">
+        <line x1="65" y1="12" x2="65" y2="2"   stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="82" y1="16" x2="90" y2="7"   stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="48" y1="16" x2="40" y2="7"   stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="96" y1="27" x2="106" y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+        <line x1="34" y1="27" x2="24"  y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+        <line x1="108" y1="42" x2="119" y2="38" stroke="#F5C842" stroke-width="1.4" stroke-linecap="round" opacity="0.55"/>
+        <line x1="22"  y1="42" x2="11"  y2="38" stroke="#F5C842" stroke-width="1.4" stroke-linecap="round" opacity="0.55"/>
+        <path d="M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z" fill="#EDE8F8"/>
+        <path d="M65 12 C85 12 98 28 98 48 L32 48 C32 28 45 12 65 12Z" fill="#D4C8F0" opacity="0.55"/>
+        <circle cx="65" cy="48" r="24" fill="#4A90D9"/>
+        <ellipse cx="65" cy="48" rx="24" ry="10.5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
+        <ellipse cx="65" cy="40" rx="19" ry="7"    fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <ellipse cx="65" cy="56" rx="19" ry="7"    fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <line x1="65" y1="24" x2="65" y2="72" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
+        <path d="M53 26 Q46 48 53 70" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <path d="M77 26 Q84 48 77 70" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <path d="M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z" fill="rgba(75,174,138,0.92)"/>
+        <path d="M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z" fill="rgba(75,174,138,0.88)"/>
+        <path d="M55 55 C58 52 62 53 62 57 C62 60 59 61 57 60 C54 59 54 57 55 55Z" fill="rgba(75,174,138,0.78)"/>
+        <circle cx="65" cy="13" r="5"   fill="#F5C842"/>
+        <circle cx="65" cy="13" r="2.5" fill="#FFD700"/>
+        <rect x="59" y="97" width="12" height="8" rx="4" fill="#D4C8F0"/>
+        <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#2C2547">Molding Minds</text>
+        <defs>
+          <linearGradient id="navgrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#7C5CBF"/>
+            <stop offset="50%"  stop-color="#4A90D9"/>
+            <stop offset="100%" stop-color="#4BAE8A"/>
+          </linearGradient>
+        </defs>
+        <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#navgrad)"/>
+        <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="#7C5CBF" letter-spacing="5">OF THE FUTURE</text>
+      </svg>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#tools"     onclick="ga4('nav_click',{link:'tools'})">Tools</a></li>
@@ -1178,7 +1184,34 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-logo">🌱 Molding Minds of the Future</div>
+      <div class="footer-logo">
+        <svg viewBox="0 0 480 130" width="165" height="45" xmlns="http://www.w3.org/2000/svg">
+          <line x1="65" y1="12" x2="65" y2="2"   stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"/>
+          <line x1="82" y1="16" x2="90" y2="7"   stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="48" y1="16" x2="40" y2="7"   stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="96" y1="27" x2="106" y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+          <line x1="34" y1="27" x2="24"  y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+          <path d="M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z" fill="rgba(237,232,248,0.15)"/>
+          <circle cx="65" cy="48" r="24" fill="#4A90D9"/>
+          <ellipse cx="65" cy="48" rx="24" ry="10.5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
+          <line x1="65" y1="24" x2="65" y2="72" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
+          <path d="M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z" fill="rgba(75,174,138,0.92)"/>
+          <path d="M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z" fill="rgba(75,174,138,0.88)"/>
+          <circle cx="65" cy="13" r="5"   fill="#F5C842"/>
+          <circle cx="65" cy="13" r="2.5" fill="#FFD700"/>
+          <rect x="59" y="97" width="12" height="8" rx="4" fill="rgba(212,200,240,0.3)"/>
+          <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#ffffff">Molding Minds</text>
+          <defs>
+            <linearGradient id="footergrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#7C5CBF"/>
+              <stop offset="50%"  stop-color="#4A90D9"/>
+              <stop offset="100%" stop-color="#4BAE8A"/>
+            </linearGradient>
+          </defs>
+          <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#footergrad)"/>
+          <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="5">OF THE FUTURE</text>
+        </svg>
+      </div>
       <p class="footer-tagline">Free, research-backed K-5 math tools and resources for teachers and tutors who want to know exactly where to start.</p>
     </div>
     <div>
