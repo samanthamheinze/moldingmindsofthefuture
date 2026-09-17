@@ -213,7 +213,7 @@
     /* ─── Nav ─── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 38px; left: 0; right: 0;
       height: var(--nav-h);
       backdrop-filter: blur(22px) saturate(180%);
       -webkit-backdrop-filter: blur(22px) saturate(180%);
@@ -354,7 +354,7 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      padding: calc(var(--nav-h) + 64px) clamp(20px, 5vw, 64px) 80px;
+      padding: calc(var(--nav-h) + 38px + 64px) clamp(20px, 5vw, 64px) 80px;
     }
     .hero-bg {
       position: absolute;
@@ -1092,7 +1092,7 @@
 <body>
 
 <!-- ─── Work-in-progress banner ─── -->
-<div style="background:var(--purple);color:#fff;text-align:center;padding:10px 16px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.02em;">
+<div id="wip-banner" style="position:fixed;top:0;left:0;right:0;z-index:300;background:var(--purple);color:#fff;text-align:center;padding:9px 16px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.02em;">
   ✦ This site is currently being updated — new tools and resources coming soon!
 </div>
 
