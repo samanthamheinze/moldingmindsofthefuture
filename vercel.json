@@ -1,9 +1,9 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [{ "type": "host", "value": "grocerystore.moldingmindsofthefuture.com" }],
-      "destination": "/grocery-store/$1"
+      "destination": "/grocery-store/:path*"
     }
   ]
 }
