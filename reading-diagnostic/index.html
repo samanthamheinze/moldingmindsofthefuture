@@ -790,7 +790,10 @@ function buildFluencyOverview(studentName){
   if (data.errors > 0){
     narrative += ` ${name} made ${data.errors} error${data.errors===1?'':'s'} while reading.`;
   }
-  return { tier, narrative, wcpm: data.wcpm, gradeLabel: data.gradeLabel, band: b, wordsCorrect: data.wordsCorrect, elapsedSeconds: data.elapsedSeconds };
+  if (data.selfCorrects > 0){
+    narrative += ` ${name} self-corrected ${data.selfCorrects} time${data.selfCorrects===1?'':'s'}, which is a great sign of active monitoring.`;
+  }
+  return { tier, narrative, wcpm: data.wcpm, gradeLabel: data.gradeLabel, band: b, wordsCorrect: data.wordsCorrect, elapsedSeconds: data.elapsedSeconds, selfCorrects: data.selfCorrects || 0 };
 }
 
 // Timed fluency (1st through 5th grade) runs once at the very end of the whole
@@ -806,7 +809,7 @@ const FINAL_FLUENCY_STANDARDS = {
   },
   2: { code:'RF.2.4', name:'Read with accuracy, rate, and expression', gradeLabel:'2nd Grade',
     question: {text:'Have the student read this passage aloud for one minute. Mark how many words they read correctly.', type:'fluency-timed',
-      passage:'Maya loved going to the park after school. She would run to the swings and go as high as she could. Her favorite part was feeding the ducks by the pond. One afternoon, she brought extra bread crumbs. The ducks swam over quickly. Maya smiled and tossed the crumbs into the water. Just then, she noticed a duckling swimming alone near the edge of the pond. It looked lost and kept quacking softly. Maya wondered where its family had gone. She walked closer and saw the other ducks resting under a nearby tree. Maya gently tossed a few crumbs toward the duckling to guide it back to the group. Slowly, the little duckling paddled over and joined the others. Maya felt happy that she could help. She sat down on a bench and watched the ducks for a while longer. The sun was starting to set, painting the sky orange and pink. Maya knew it was almost time to go home. She waved goodbye to the ducks and promised to visit again tomorrow. As she walked back with her mom, Maya talked excitedly about the little duckling she had helped.',
+      passage:'Nadia loved going to the park after school. She would run to the swings and go as high as she could. Her favorite part was feeding the ducks by the pond. One afternoon, she brought extra bread crumbs. The ducks swam over quickly. Nadia smiled and tossed the crumbs into the water. Just then, she noticed a duckling swimming alone near the edge of the pond. It looked lost and kept quacking softly. Nadia wondered where its family had gone. She walked closer and saw the other ducks resting under a nearby tree. Nadia gently tossed a few crumbs toward the duckling to guide it back to the group. Slowly, the little duckling paddled over and joined the others. Nadia felt happy that she could help. She sat down on a bench and watched the ducks for a while longer. The sun was starting to set, painting the sky orange and pink. Nadia knew it was almost time to go home. She waved goodbye to the ducks and promised to visit again tomorrow. As she walked back with her mom, Nadia talked excitedly about the little duckling she had helped.',
       wordCount:190}
   },
   3: { code:'RF.3.4', name:'Read with accuracy, rate, and expression', gradeLabel:'3rd Grade',
@@ -1221,20 +1224,20 @@ const GRADES_RL = [
   },
   { label:'5th Grade',
     passage:{title:'The Group Project', tutorReadsAloud:false,
-      text:'Priya had already outlined the entire presentation before the group even met. She liked knowing exactly what came next, like a roadmap that kept her from getting lost. Marcus, on the other hand, preferred to brainstorm out loud, tossing out ideas and seeing what stuck. "We don\u2019t need an outline yet," Marcus said, waving his hand. "Let\u2019s just talk about ideas first." Priya felt her shoulders tense. "If we don\u2019t plan, we\u2019ll run out of time," she said. "We only have two weeks." Their teacher, Ms. Kwan, had paired them together for the ecosystem project, and so far, every meeting felt like pulling two magnets apart when they should have been working together. Priya wanted structure. Marcus wanted freedom. By the end of the week, they still hadn\u2019t agreed on anything, and the silence between them had grown as thick as fog. Finally, Marcus looked at Priya\u2019s outline, really looked at it, and noticed the blank spaces she had left for ideas. "You left room for my ideas," he said, surprised. "Of course I did," Priya replied. "I just needed a shape to put them in." Marcus smiled slowly. Maybe a roadmap wasn\u2019t so bad, as long as there was still room to explore. Together, they filled in the blanks, and for the first time, the project felt like it belonged to both of them.'},
+      text:'Priya had already outlined the entire presentation before the group even met. She liked knowing exactly what came next, like a roadmap that kept her from getting lost. Andre, on the other hand, preferred to brainstorm out loud, tossing out ideas and seeing what stuck. "We don\u2019t need an outline yet," Andre said, waving his hand. "Let\u2019s just talk about ideas first." Priya felt her shoulders tense. "If we don\u2019t plan, we\u2019ll run out of time," she said. "We only have two weeks." Their teacher, Ms. Kwan, had paired them together for the ecosystem project, and so far, every meeting felt like pulling two magnets apart when they should have been working together. Priya wanted structure. Andre wanted freedom. By the end of the week, they still hadn\u2019t agreed on anything, and the silence between them had grown as thick as fog. Finally, Andre looked at Priya\u2019s outline, really looked at it, and noticed the blank spaces she had left for ideas. "You left room for my ideas," he said, surprised. "Of course I did," Priya replied. "I just needed a shape to put them in." Andre smiled slowly. Maybe a roadmap wasn\u2019t so bad, as long as there was still room to explore. Together, they filled in the blanks, and for the first time, the project felt like it belonged to both of them.'},
     clusters:[
       { label:'Key Ideas & Details', standards:[
         { code:'RL.5.1-3', name:'Key Ideas & Details', checkpoint:true,
           questions:[
-            {text:'How were Priya and Marcus different in how they liked to work?', type:'mc', choices:['Priya liked planning ahead; Marcus liked brainstorming freely','Priya liked working alone; Marcus liked big groups','Priya wanted more time; Marcus wanted less time','Priya liked art; Marcus liked science'], correct:'Priya liked planning ahead; Marcus liked brainstorming freely'},
-            {text:'What did Marcus notice when he really looked at Priya\u2019s outline?', type:'mc', choices:['She had left blank spaces for his ideas','She had already finished the whole project','She had copied his ideas without asking','She had written the whole outline in pencil'], correct:'She had left blank spaces for his ideas'}
-          ], tiebreaker:{text:'How did Priya and Marcus\u2019s project turn out by the end?', type:'mc', choices:['They combined their approaches and felt the project belonged to both of them','They gave up and asked for a new partner','Priya finished it alone without Marcus','Their teacher finished it for them'], correct:'They combined their approaches and felt the project belonged to both of them'}
+            {text:'How were Priya and Andre different in how they liked to work?', type:'mc', choices:['Priya liked planning ahead; Andre liked brainstorming freely','Priya liked working alone; Andre liked big groups','Priya wanted more time; Andre wanted less time','Priya liked art; Andre liked science'], correct:'Priya liked planning ahead; Andre liked brainstorming freely'},
+            {text:'What did Andre notice when he really looked at Priya\u2019s outline?', type:'mc', choices:['She had left blank spaces for his ideas','She had already finished the whole project','She had copied his ideas without asking','She had written the whole outline in pencil'], correct:'She had left blank spaces for his ideas'}
+          ], tiebreaker:{text:'How did Priya and Andre\u2019s project turn out by the end?', type:'mc', choices:['They combined their approaches and felt the project belonged to both of them','They gave up and asked for a new partner','Priya finished it alone without Andre','Their teacher finished it for them'], correct:'They combined their approaches and felt the project belonged to both of them'}
         }
       ]},
       { label:'Craft & Structure', standards:[
         { code:'RL.5.4-6', name:'Craft & Structure',
           questions:[
-            {text:'When the passage says their meetings felt "like pulling two magnets apart," what does this suggest about Priya and Marcus?', type:'mc', choices:['They were struggling to connect and work well together','They were physically far apart in the room','They both loved science experiments','They were racing to finish first'], correct:'They were struggling to connect and work well together'},
+            {text:'When the passage says their meetings felt "like pulling two magnets apart," what does this suggest about Priya and Andre?', type:'mc', choices:['They were struggling to connect and work well together','They were physically far apart in the room','They both loved science experiments','They were racing to finish first'], correct:'They were struggling to connect and work well together'},
             {text:'What does comparing the silence to fog that "grew as thick" suggest?', type:'mc', choices:['The tension between them was building and hard to see past','The classroom was actually foggy','They could not hear each other clearly','The weather outside was changing'], correct:'The tension between them was building and hard to see past'}
           ]
         }
@@ -1243,7 +1246,7 @@ const GRADES_RL = [
         { code:'RL.5.7', name:'Integration of Knowledge & Ideas',
           questions:[
             {text:'What is the theme of this story?', type:'mc', choices:['Different approaches can work together, not just one way alone','Planning ahead is always the best approach','Group projects should be avoided','Only one person\u2019s ideas should be used'], correct:'Different approaches can work together, not just one way alone'},
-            {text:'If you saw a picture with this story, what would it probably show?', type:'mc', choices:['Priya and Marcus working together on a project','A single student studying alone','A sports team playing a game','A teacher grading an assignment'], correct:'Priya and Marcus working together on a project'}
+            {text:'If you saw a picture with this story, what would it probably show?', type:'mc', choices:['Priya and Andre working together on a project','A single student studying alone','A sports team playing a game','A teacher grading an assignment'], correct:'Priya and Andre working together on a project'}
           ]
         },
         { code:'RL.5.9', name:'Compare and contrast two stories',
@@ -1533,7 +1536,8 @@ function initState(){
     bandResults:[],
     downloaded:false,
     fluencyPhase:'ready', fluencyStartTime:null, fluencyElapsedSeconds:0, finalFluencyStandard:null, fluencyResultData:null,
-    answerLog:[]
+    answerLog:[],
+    shownQTexts:[]
   };
 }
 initState();
@@ -1563,7 +1567,14 @@ function currentQuestionObj(){
   const q0type = std.questions[0].type;
   if (q0type==='reasoning') return std.questions[state.currentAnswers.length];
   if (std.checkpoint && state.usedTie && state.currentAnswers.length===2) return std.tiebreaker;
-  return std.questions[state.currentAnswers.length];
+  let q = std.questions[state.currentAnswers.length];
+  // If this question was already shown, try the next one in the array
+  const shown = state.shownQTexts || [];
+  if (q && shown.includes(q.text)){
+    const alt = std.questions[state.currentAnswers.length + 1];
+    if (alt && !shown.includes(alt.text)) q = alt;
+  }
+  return q;
 }
 
 /* ============================== LOCATOR ENGINE ============================== */
@@ -1688,7 +1699,9 @@ function finishBand(){
     state.phase='testing';
   } else {
     const foundationalResult = state.bandResults[0];
-    const finalFluency = foundationalResult ? FINAL_FLUENCY_STANDARDS[foundationalResult.settledGradeIdx] : null;
+    const finalFluency = foundationalResult
+      ? (FINAL_FLUENCY_STANDARDS[foundationalResult.settledGradeIdx] || FINAL_FLUENCY_STANDARDS[1])
+      : null;
     if (finalFluency){
       state.finalFluencyStandard = finalFluency;
       state.fluencyPhase='ready'; state.fluencyStartTime=null; state.fluencyElapsedSeconds=0;
@@ -1706,6 +1719,8 @@ function captureNotes(){
 function logAnswer(answerText){
   const std = currentStandard();
   const q = currentQuestionObj();
+  if (!state.shownQTexts) state.shownQTexts = [];
+  if (q && !state.shownQTexts.includes(q.text)) state.shownQTexts.push(q.text);
   state.answerLog.push({
     bandLabel: BANDS[state.bandIdx].label,
     gradeLabel: currentGrades()[state.gradeIdx].label,
@@ -1768,12 +1783,12 @@ function updateFluencyDisplay(){
   const ss = String(elapsed%60).padStart(2,'0');
   el.textContent = `${mm}:${ss}`;
 }
-function handleFinalFluencyResult(wordsCorrect, errors){
+function handleFinalFluencyResult(wordsCorrect, errors, selfCorrects){
   const std = state.finalFluencyStandard;
   const minutes = state.fluencyElapsedSeconds / 60;
   const wcpm = minutes > 0 ? Math.round(wordsCorrect / minutes) : 0;
   const status = fluencyStatus(std.gradeLabel, wcpm);
-  const wcpmNote = `${wordsCorrect} words correct in ${state.fluencyElapsedSeconds}s (${wcpm} WCPM) \u00b7 ${errors} error${errors===1?'':'s'}`;
+  const wcpmNote = `${wordsCorrect} words correct in ${state.fluencyElapsedSeconds}s (${wcpm} WCPM) \u00b7 ${errors} error${errors===1?'':'s'} \u00b7 ${selfCorrects} self-correct${selfCorrects===1?'':'s'}`;
   state.answerLog.push({
     bandLabel: 'Foundational Skills',
     gradeLabel: std.gradeLabel,
@@ -1785,7 +1800,7 @@ function handleFinalFluencyResult(wordsCorrect, errors){
   const foundational = state.bandResults[0];
   foundational.results[std.code] = {status, tested:true};
   foundational.notes[std.code] = wcpmNote;
-  state.fluencyResultData = { gradeLabel: std.gradeLabel, wordsCorrect, elapsedSeconds: state.fluencyElapsedSeconds, wcpm, errors, status };
+  state.fluencyResultData = { gradeLabel: std.gradeLabel, wordsCorrect, elapsedSeconds: state.fluencyElapsedSeconds, wcpm, errors, selfCorrects, status };
   state.phase='done';
   render();
 }
@@ -2009,11 +2024,12 @@ async function generatePDF(){
     sectionHeading('Fluency Overview', PURPLE);
     doc.setFillColor(230,240,250);
     doc.roundedRect(MARGIN, y, CONTENT_W, cardH, 10, 10, 'F');
-    const statW = (CONTENT_W - 16) / 3;
+    const statW = (CONTENT_W - 16) / 4;
     const stats = [
       [String(fluencyOverviewPdf.wcpm), 'Words Correct/Min'],
       [String(fluencyOverviewPdf.wordsCorrect), 'Words Correct'],
-      [fluencyOverviewPdf.elapsedSeconds + 's', 'Time Read']
+      [fluencyOverviewPdf.elapsedSeconds + 's', 'Time Read'],
+      [String(fluencyOverviewPdf.selfCorrects || 0), 'Self-Corrects']
     ];
     let sx = MARGIN + 10;
     stats.forEach(([num, label])=>{
@@ -2177,7 +2193,7 @@ function renderFinalFluency(){
   const q = std.question;
   const mm = String(Math.floor(state.fluencyElapsedSeconds/60)).padStart(2,'0');
   const ss = String(state.fluencyElapsedSeconds%60).padStart(2,'0');
-  const passageHtml = `<div class="fluency-passage">${q.passage}</div>`;
+  const passageHtml = `<div style="text-align:center;margin-bottom:10px;"><span style="font-size:20px;">📖</span> <strong style="font-family:'Poppins',sans-serif;font-size:16px;color:var(--purple);">Fluency Passage</strong></div><div class="fluency-passage">${q.passage}</div>`;
   const studentFirstName = (state.studentName||'the student').split(' ')[0];
   const scriptBox = `<div class="fluency-script-box"><div class="fluency-script-label">Read this to ${studentFirstName}</div>&ldquo;Now you're going to read for one minute. Just do your best reading. If you come to a tricky word, do your best guess and keep going. I'll tell you when to stop. Ready? Let's go!&rdquo;</div>`;
   const contextLine = `<div class="tutor-context">One Last Thing &middot; ${std.gradeLabel} &middot; ${std.name}</div>`;
@@ -2216,6 +2232,10 @@ function renderFinalFluency(){
           <div class="fluency-input-col">
             <label for="fluencyErrorsInput">Errors</label>
             <input class="name-input" type="number" id="fluencyErrorsInput" min="0" value="0">
+          </div>
+          <div class="fluency-input-col">
+            <label for="fluencySelfCorrectsInput">Self corrects</label>
+            <input class="name-input" type="number" id="fluencySelfCorrectsInput" min="0" value="0">
           </div>
         </div>
         <button class="btn-primary" data-action="submitfinalfluency">See the Full Report</button>
@@ -2434,6 +2454,7 @@ function renderReport(){
           <div class="fluency-overview-stat"><div class="fluency-overview-stat-num">${fluencyOverview.wcpm}</div><div class="fluency-overview-stat-label">Words Correct/Min</div></div>
           <div class="fluency-overview-stat"><div class="fluency-overview-stat-num">${fluencyOverview.wordsCorrect}</div><div class="fluency-overview-stat-label">Words Correct</div></div>
           <div class="fluency-overview-stat"><div class="fluency-overview-stat-num">${fluencyOverview.elapsedSeconds}s</div><div class="fluency-overview-stat-label">Time Read</div></div>
+          <div class="fluency-overview-stat"><div class="fluency-overview-stat-num">${fluencyOverview.selfCorrects}</div><div class="fluency-overview-stat-label">Self-Corrects</div></div>
         </div>
         <div class="fluency-overview-tier">${fluencyOverview.tier}</div>
         <div class="fluency-overview-narrative">${fluencyOverview.narrative}</div>
@@ -2581,9 +2602,11 @@ document.addEventListener('click',(e)=>{
   else if (action==='submitfinalfluency'){
     const wordsCorrectInput = document.getElementById('fluencyWordsCorrectInput');
     const errorsInput = document.getElementById('fluencyErrorsInput');
+    const selfCorrectsInput = document.getElementById('fluencySelfCorrectsInput');
     const wordsCorrect = wordsCorrectInput ? Math.max(0, parseInt(wordsCorrectInput.value,10) || 0) : 0;
     const errors = errorsInput ? Math.max(0, parseInt(errorsInput.value,10) || 0) : 0;
-    handleFinalFluencyResult(wordsCorrect, errors);
+    const selfCorrects = selfCorrectsInput ? Math.max(0, parseInt(selfCorrectsInput.value,10) || 0) : 0;
+    handleFinalFluencyResult(wordsCorrect, errors, selfCorrects);
   }
   else if (action==='download'){ downloadResults(); }
   else if (action==='restart'){ clearSavedProgress(); initState(); render(); }
