@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reading Diagnostic: K-2</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Nunito:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -2066,6 +2067,10 @@ function renderIntro(){
   return `
     <div class="intro">
       <div class="math-bg-pattern">${readingBackgroundPattern()}</div>
+      <div style="text-align:center;margin-bottom:22px;position:relative;z-index:1;">
+        <span style="font-size:52px;display:block;line-height:1;animation:floatIcon 3.5s ease-in-out infinite;margin-bottom:10px;">📚</span>
+        <h2 style="font-family:'Comic Neue',cursive;font-size:28px;color:var(--purple);margin:0;font-weight:700;">Reading Diagnostic</h2>
+      </div>
       <div class="eyebrow">Before you start</div>
       <p>Let's find your starting point in reading! Enter your name and grade below to begin.</p>
       <p style="margin-bottom:8px;">When you see this:</p>
@@ -2177,7 +2182,9 @@ function renderQuestion(){
   }
 
   const wordRowHtml = q.word ? `<div class="word-display-row" style="font-size:${wordDisplayFontSize(q.word)}px;">${q.word}</div>` : '';
-  let stageMain = `${passageHtml}${q.visual?`<div class="stage-visual">${renderVisual(q.visual)}</div>`:''}<div class="stage-question">${q.text}</div>${wordRowHtml}`;
+  const bandPct = Math.round((state.bandIdx / BANDS.length) * 100);
+  const progressBar = `<div class="progress-wrap"><div class="progress-track"><div class="progress-fill" style="width:${Math.max(bandPct,5)}%"></div></div></div>`;
+  let stageMain = progressBar + `${passageHtml}${q.visual?`<div class="stage-visual">${renderVisual(q.visual)}</div>`:''}<div class="stage-question">${q.text}</div>${wordRowHtml}`;
 
   const modeLabel = state.mode==='locator' ? `Grade Check &middot; ${currentGrades()[state.gradeIdx].label}` : currentGrades()[state.gradeIdx].label;
   const contextLine = `<div class="tutor-context">${BANDS[state.bandIdx].label} &middot; ${modeLabel} &middot; ${std.name}</div>`;
