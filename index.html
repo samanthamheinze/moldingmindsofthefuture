@@ -114,7 +114,7 @@
           {
             "@type": "Question",
             "name": "Are these math tools free for teachers?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely free. No login, no download, no credit card required. Both the K-5 Math Diagnostic and the Grocery Store Math simulation are free for teachers, tutors, and parents to use with any student, on any device with a browser." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes — both the K-5 Math Diagnostic and Grocery Store Math tool are free to open and use in any browser. No login or download required. The Grocery Store tool also has a companion Activity Guide on Teachers Pay Teachers with structured lesson plans and activities." }
           },
           {
             "@type": "Question",
@@ -885,7 +885,7 @@
       <li><a href="#tools"     onclick="ga4('nav_click',{link:'tools'})">Tools</a></li>
       <li><a href="#resources" onclick="ga4('nav_click',{link:'resources'})">Resources</a></li>
       <li><a href="#about"     onclick="ga4('nav_click',{link:'about'})">About</a></li>
-      <li><a href="#tools" class="nav-cta" onclick="ga4('nav_click',{link:'cta'})">Explore Free Tools</a></li>
+      <li><a href="#tools" class="nav-cta" onclick="ga4('nav_click',{link:'cta'})">Explore Tools</a></li>
     </ul>
   </div>
 </nav>
@@ -905,24 +905,24 @@
     <span class="fi">📊</span>
   </div>
   <div class="hero-content">
-    <div class="hero-badge">🌱 Free for every classroom</div>
+    <div class="hero-badge">✦ Interactive Tools + Curriculum Resources</div>
     <h1 class="hero-headline">
       Learning Tools<br>
       That <span class="gradient-text">Actually Work</span>
     </h1>
-    <p class="hero-sub">Free, research-backed interactive tools for K-5 teachers and tutors. Know exactly where each student needs support — before your next lesson.</p>
+    <p class="hero-sub">Interactive tools and curriculum resources for K-5 teachers and tutors. Know exactly where each student needs support — then go deeper with the curriculum to match.</p>
     <div class="hero-actions">
       <a href="#tools" class="btn-primary" onclick="ga4('hero_cta_click',{cta:'explore_tools'})">
-        Explore Free Tools ↓
+        Explore Tools ↓
       </a>
       <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="btn-outline" onclick="ga4('hero_cta_click',{cta:'tpt_store'})">
-        Visit TPT Store →
+        Shop Curriculum on TPT →
       </a>
     </div>
     <div class="hero-trust" aria-label="Trust signals">
       <div class="trust-chip"><span class="trust-chip-dot"></span>No login required</div>
-      <div class="trust-chip"><span class="trust-chip-dot"></span>No download needed</div>
       <div class="trust-chip"><span class="trust-chip-dot"></span>Works on any device</div>
+      <div class="trust-chip"><span class="trust-chip-dot"></span>Curriculum on TPT</div>
     </div>
   </div>
 </section>
@@ -930,33 +930,36 @@
 <!-- ─── Tools Section ─── -->
 <section id="tools" aria-label="Interactive learning tools">
   <div class="tools-inner">
-    <p class="section-label reveal">What's Available</p>
-    <h2 class="section-title reveal d1">Interactive Learning Tools</h2>
-    <p class="section-sub reveal d2">Built for real classrooms and tutoring sessions. Open in any browser — no account, no download, completely free.</p>
+    <p class="section-label reveal">Interactive Tools</p>
+    <h2 class="section-title reveal d1">Start Here</h2>
+    <p class="section-sub reveal d2">Browser-based tools built for real classrooms and tutoring sessions. Use them to diagnose, engage, and identify exactly where to focus — then pair with the curriculum resources on TPT to go deeper.</p>
 
     <div class="tools-grid">
 
       <a href="/math-diagnostic/" class="tool-card reveal d1" onclick="ga4('tool_click',{tool:'math_diagnostic'})">
-        <span class="tool-badge badge-free">✓ Free</span>
+        <span class="tool-badge badge-new">✦ Free Assessment</span>
         <span class="tool-icon">🧮</span>
         <div class="tool-name">K-5 Math Diagnostic</div>
         <p class="tool-desc">Pinpoint exactly where each student stands across every K-5 math standard. The tool builds a precise skill profile as they go — no guesswork, no wasted lessons. Download the PDF report at the end.</p>
         <span class="tool-link">Start Assessment <span class="tool-arrow">→</span></span>
       </a>
 
-      <a href="/grocery-store/" class="tool-card reveal d2" onclick="ga4('tool_click',{tool:'grocery_store'})">
-        <span class="tool-badge badge-free">✓ Free</span>
+      <div class="tool-card reveal d2">
+        <span class="tool-badge badge-new">✦ Free to Use</span>
         <span class="tool-icon">🛒</span>
         <div class="tool-name">Grocery Store Math</div>
         <p class="tool-desc">Students plan a dinner party on a budget — picking ingredients, comparing prices, and managing totals. Real-world math that sticks because it matters. Perfect for grades 2 and up.</p>
-        <span class="tool-link">Try it Now <span class="tool-arrow">→</span></span>
-      </a>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:auto;">
+          <a href="/grocery-store/" class="tool-link" onclick="ga4('tool_click',{tool:'grocery_store'})">Try the Tool <span class="tool-arrow">→</span></a>
+          <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="tool-link" style="color:var(--green);font-size:13px;" onclick="ga4('tool_click',{tool:'grocery_store_guide'})">📄 Get the Activity Guide on TPT <span class="tool-arrow">→</span></a>
+        </div>
+      </div>
 
       <div class="tool-card tool-card--disabled reveal d3">
         <span class="tool-badge badge-soon">✦ Coming Soon</span>
         <span class="tool-icon">✨</span>
-        <div class="tool-name">More Tools Coming</div>
-        <p class="tool-desc">New tools are in development — covering place value, fractions, word problems, and more. Built with the same research-backed approach and designed to be used the moment you open them.</p>
+        <div class="tool-name">Built-in Curriculum</div>
+        <p class="tool-desc">A full K-5 curriculum is in development — accessible directly through this website. Students will be able to work through structured lessons, activities, and assessments all in one place.</p>
         <span class="tool-link" style="color:var(--muted)">Stay Tuned</span>
       </div>
 
@@ -1099,8 +1102,8 @@
           <span class="stat-label">Grade Range</span>
         </div>
         <div class="stat-chip">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">Free Tools</span>
+          <span class="stat-number">K–5</span>
+          <span class="stat-label">Curriculum</span>
         </div>
         <div class="stat-chip">
           <span class="stat-number">TPT</span>
@@ -1138,11 +1141,11 @@
 
       <div class="faq-item reveal d1">
         <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          Are these tools really free?
+          Are the interactive tools free to use?
           <span class="faq-chevron" aria-hidden="true">⌄</span>
         </button>
         <div class="faq-a" role="region">
-          <div class="faq-a-inner">Yes — completely free. No login, no download, no credit card. Both the Math Diagnostic and Grocery Store Math are open to any teacher, tutor, or parent at no cost. Printable worksheet packs are available separately on Teachers Pay Teachers.</div>
+          <div class="faq-a-inner">Yes — both the K-5 Math Diagnostic and Grocery Store Math tool are free to open and use in any browser. No login, no download needed. The Grocery Store tool also has a companion Activity Guide on Teachers Pay Teachers with structured lesson plans and activities to use alongside it.</div>
         </div>
       </div>
 
