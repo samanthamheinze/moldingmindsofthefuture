@@ -995,6 +995,21 @@
     .tpt-thumb--life       { background: linear-gradient(145deg,#9A7500,#F5C842); color:#2C2547; }
     .tpt-thumb--ela        { background: linear-gradient(145deg,#2C2547,#7C5CBF); color:#fff; }
     .tpt-thumb--worksheet  { background: linear-gradient(145deg,#0D5C40,#38A07A); color:#fff; }
+    .tool-preview-reading {
+      margin: -36px -30px 22px; height: 162px; border-radius: 12px 12px 0 0;
+      background: linear-gradient(150deg,#EDF5F0,#D4EBF8);
+      display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 20px;
+    }
+    .rdg-book { width: 44px; height: 56px; border-radius: 4px 8px 8px 4px; position: relative; flex-shrink: 0; }
+    .rdg-book::before { content:''; position:absolute; left:5px; top:6px; right:6px; bottom:6px; background:rgba(255,255,255,0.45); border-radius:2px; }
+    .rdg-book-1 { background: linear-gradient(160deg,#7C5CBF,#4A90D9); }
+    .rdg-book-2 { background: linear-gradient(160deg,#4BAE8A,#4A90D9); width:36px; height:48px; margin-top:6px; }
+    .rdg-book-3 { background: linear-gradient(160deg,#F5C842,#F0A020); width:40px; height:52px; margin-top:2px; }
+    .rdg-lines { flex:1; display:flex; flex-direction:column; gap:7px; }
+    .rdg-line { height:7px; border-radius:4px; background:rgba(44,37,71,0.12); }
+    .rdg-line:nth-child(2) { width:80%; }
+    .rdg-line:nth-child(3) { width:65%; }
+    .rdg-line:nth-child(4) { width:75%; }
 
     /* ─── Responsive extras ─── */
     @media (max-width: 900px) {
@@ -1115,8 +1130,8 @@
     </div>
     <div class="hero-trust" aria-label="Trust signals">
       <div class="trust-chip"><span class="trust-chip-dot"></span>K-5 Math Assessment on TPT</div>
-      <div class="trust-chip"><span class="trust-chip-dot"></span>K-8 Resources</div>
-      <div class="trust-chip"><span class="trust-chip-dot"></span>Math + SEL + ELA</div>
+      <div class="trust-chip"><span class="trust-chip-dot"></span>K-2 Reading Assessment · Coming Soon</div>
+      <div class="trust-chip"><span class="trust-chip-dot"></span>K-8 Resources · Math + SEL + ELA</div>
     </div>
   </div>
 </section>
@@ -1193,6 +1208,24 @@
       </a>
 
       <div class="tool-card reveal d2">
+        <div class="tool-preview-reading" aria-hidden="true">
+          <div class="rdg-book rdg-book-1"></div>
+          <div class="rdg-book rdg-book-2"></div>
+          <div class="rdg-book rdg-book-3"></div>
+          <div class="rdg-lines">
+            <div class="rdg-line"></div>
+            <div class="rdg-line"></div>
+            <div class="rdg-line"></div>
+            <div class="rdg-line"></div>
+          </div>
+        </div>
+        <span class="tool-badge badge-new">✦ Coming to TPT</span>
+        <div class="tool-name">K-2 Reading Diagnostic</div>
+        <p class="tool-desc">An adaptive online reading assessment that identifies exactly where each early reader stands — phonemic awareness, decoding, fluency, and comprehension — standard by standard. Coming soon on TPT.</p>
+        <span class="tool-link" style="opacity:0.45;cursor:default;">Coming Soon <span class="tool-arrow">→</span></span>
+      </div>
+
+      <div class="tool-card reveal d3">
         <div class="tool-preview-mockup">
           <div class="gm-budget-bar">Budget: $45.00 remaining</div>
           <div class="gm-items">
