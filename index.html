@@ -192,9 +192,9 @@
       50%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
     }
     @keyframes pulseRing {
-      0%   { box-shadow: 0 0 0 0   rgba(124,92,191,0.45); }
-      70%  { box-shadow: 0 0 0 14px rgba(124,92,191,0); }
-      100% { box-shadow: 0 0 0 0   rgba(124,92,191,0); }
+      0%   { box-shadow: 0 0 0 0   rgba(77,184,130,0.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(77,184,130,0); }
+      100% { box-shadow: 0 0 0 0   rgba(77,184,130,0); }
     }
 
     /* ─── Scroll Reveal ─── */
@@ -279,7 +279,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--purple);
+      background: var(--green);
       color: #fff;
       font-family: 'Nunito', sans-serif;
       font-weight: 800;
@@ -294,8 +294,8 @@
     }
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 10px 36px rgba(124,92,191,0.42);
-      background: var(--purple-light);
+      box-shadow: 0 10px 36px rgba(77,184,130,0.42);
+      background: var(--green-light);
       animation: none;
     }
     .btn-outline {
@@ -327,7 +327,7 @@
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--purple);
+      color: var(--green);
       margin-bottom: 12px;
     }
     .section-title {
@@ -359,7 +359,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #F0EBFB 0%, #E8F4FD 45%, #E8F8EF 80%, #FEF9F0 100%);
+      background: linear-gradient(135deg, #E8F8EF 0%, #EDF9F4 35%, #EDE8F8 70%, #E8F4FD 100%);
       background-size: 400% 400%;
       animation: gradientShift 14s ease infinite;
     }
@@ -375,7 +375,7 @@
     }
     .hero-blob-2 {
       width: min(440px, 55vw); height: min(440px, 55vw);
-      background: radial-gradient(circle, rgba(77,184,130,0.10) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(77,184,130,0.22) 0%, transparent 68%);
       bottom: -100px; left: -100px; animation-delay: -7s;
     }
     .hero-blob-3 {
@@ -430,7 +430,7 @@
       animation: fadeUp 0.7s 0.1s var(--ease) both;
     }
     .gradient-text {
-      background: linear-gradient(130deg, var(--purple) 0%, var(--blue) 50%, var(--green) 100%);
+      background: linear-gradient(130deg, var(--green) 0%, var(--blue) 50%, var(--purple) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -477,6 +477,46 @@
       background: var(--green);
       flex-shrink: 0;
     }
+
+    .hero-brand-display {
+      margin-bottom: 20px;
+      animation: fadeUp 0.7s var(--ease) both;
+    }
+    .hbd-name {
+      font-family: 'Chewy', cursive;
+      font-size: clamp(32px, 5vw, 56px);
+      color: var(--green);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+    }
+    .hbd-tagline {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .hero-audience {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 580px;
+      margin: 0 auto 44px;
+      text-align: left;
+      animation: fadeUp 0.7s 0.25s var(--ease) both;
+    }
+    .hero-audience-card {
+      background: rgba(255,255,255,0.75);
+      border: 1.5px solid rgba(77,184,130,0.28);
+      border-radius: 16px;
+      padding: 18px 20px;
+      backdrop-filter: blur(8px);
+    }
+    .hac-icon { font-size: 22px; margin-bottom: 7px; display: block; }
+    .hac-title { font-weight: 800; font-size: 14px; color: var(--green); margin-bottom: 6px; display: block; }
+    .hac-desc { font-size: 13px; color: var(--mid); line-height: 1.55; }
+    @media (max-width: 500px) { .hero-audience { grid-template-columns: 1fr; } }
 
     /* ─── Tools Section ─── */
     #tools {
@@ -1093,7 +1133,7 @@
 
 <!-- ─── Work-in-progress banner ─── -->
 <div id="wip-banner" style="position:fixed;top:0;left:0;right:0;z-index:300;background:var(--purple);color:#fff;text-align:center;padding:9px 16px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.02em;">
-  ✦ This site is currently being updated — new tools and resources coming soon!
+  This site is currently being updated, new tools and resources coming soon!
 </div>
 
 <!-- ─── Nav ─── -->
@@ -1161,12 +1201,26 @@
     <div class="fi" style="background:rgba(74,144,217,0.12);"><span class="fi-char" style="color:#4A90D9;">C</span></div>
   </div>
   <div class="hero-content">
-    <div class="hero-badge">✦ Learning Tools and Resources for Educators, Tutors, and Parents</div>
+    <div class="hero-brand-display">
+      <div class="hbd-name">Molding Minds of the Future</div>
+      <div class="hbd-tagline">Learning tools and resources</div>
+    </div>
     <h1 class="hero-headline">
       Shape What's<br>
       <span class="gradient-text">Possible</span>
     </h1>
-    <p class="hero-sub">Learning tools and resources for educators, tutors, and parents. Find what each student needs, then teach with the right curriculum to take them further.</p>
+    <div class="hero-audience">
+      <div class="hero-audience-card">
+        <span class="hac-icon">🏫</span>
+        <span class="hac-title">For Teachers</span>
+        <p class="hac-desc">Easy to implement in your classroom with no extra prep. Ready to use the day you download.</p>
+      </div>
+      <div class="hero-audience-card">
+        <span class="hac-icon">🏠</span>
+        <span class="hac-title">For Parents</span>
+        <p class="hac-desc">Simple enough to do at home and use as a starting point for real conversations with your kids.</p>
+      </div>
+    </div>
     <div class="hero-actions">
       <a href="#assessment" class="btn-primary" onclick="ga4('hero_cta_click',{cta:'see_assessment'})">
         See the Math Assessment ↓
