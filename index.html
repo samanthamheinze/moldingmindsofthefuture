@@ -829,6 +829,23 @@
     }
     .footer-links a:hover { color: var(--white); }
 
+    .footer-social { margin-top: 20px; }
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.80);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { background: #E60023; color: #fff; border-color: #E60023; }
+
     .footer-bottom {
       max-width: 1180px;
       margin: 36px auto 0;
@@ -1639,6 +1656,12 @@
       </div>
       <p class="footer-tagline">Learning tools and curriculum resources for teachers, tutors, and students who want to know exactly where to start.</p>
       <p class="footer-love">Made with love for educators.</p>
+      <div class="footer-social">
+        <a href="https://pin.it/5vnqliDAi" target="_blank" rel="noopener" onclick="ga4('social_click',{platform:'pinterest'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          Follow on Pinterest
+        </a>
+      </div>
     </div>
     <div>
       <div class="footer-col-title">Tools</div>
