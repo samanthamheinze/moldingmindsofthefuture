@@ -123,7 +123,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ─── Design Tokens ─── */
@@ -159,7 +159,7 @@
     }
 
     body {
-      font-family: 'Nunito', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       background: var(--cream);
       color: var(--dark);
       line-height: 1.65;
@@ -281,8 +281,8 @@
       gap: 8px;
       background: var(--green);
       color: #fff;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
       font-size: 16px;
       padding: 15px 34px;
       border-radius: 99px;
@@ -304,8 +304,8 @@
       gap: 8px;
       background: transparent;
       color: var(--purple);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
       font-size: 16px;
       padding: 13px 32px;
       border-radius: 99px;
@@ -323,18 +323,21 @@
 
     /* ─── Section Rhythm ─── */
     .section-label {
-      font-size: 12px;
-      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--green);
       margin-bottom: 12px;
     }
     .section-title {
-      font-family: 'Chewy', cursive;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
       font-size: clamp(30px, 5vw, 52px);
       color: var(--dark);
       line-height: 1.12;
+      letter-spacing: -0.5px;
       margin-bottom: 14px;
     }
     .section-sub {
@@ -422,9 +425,11 @@
       animation: fadeUp 0.7s var(--ease) both;
     }
     .hero-headline {
-      font-family: 'Chewy', cursive;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
       font-size: clamp(46px, 8vw, 88px);
       line-height: 1.06;
+      letter-spacing: -1px;
       color: var(--dark);
       margin-bottom: 24px;
       animation: fadeUp 0.7s 0.1s var(--ease) both;
@@ -438,9 +443,10 @@
       animation: shimmer 4s linear infinite;
     }
     .hero-sub {
-      font-size: clamp(17px, 2.2vw, 21px);
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(16px, 2vw, 19px);
       color: var(--mid);
-      font-weight: 500;
+      font-weight: 400;
       max-width: 540px;
       margin: 0 auto 44px;
       line-height: 1.7;
@@ -483,19 +489,21 @@
       animation: fadeUp 0.7s var(--ease) both;
     }
     .hbd-name {
-      font-family: 'Chewy', cursive;
-      font-size: clamp(32px, 5vw, 56px);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5.5vw, 64px);
       color: var(--green);
-      line-height: 1.05;
-      letter-spacing: 0.01em;
+      line-height: 1.0;
+      letter-spacing: -1px;
     }
     .hbd-tagline {
-      font-size: 12px;
-      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .hero-audience {
       display: grid;
@@ -574,7 +582,7 @@
 
 
     .tool-name {
-      font-family: 'Chewy', cursive;
+      font-family: 'Nunito', sans-serif; font-weight: 900;
       font-size: 26px;
       color: var(--dark);
       margin-bottom: 10px;
@@ -726,7 +734,7 @@
     }
     .stat-chip { display: flex; flex-direction: column; gap: 3px; }
     .stat-number {
-      font-family: 'Chewy', cursive;
+      font-family: 'Nunito', sans-serif; font-weight: 900;
       font-size: 34px;
       color: var(--purple);
       line-height: 1;
@@ -1075,7 +1083,7 @@
       pointer-events: none; z-index: 0; user-select: none;
     }
     .bg-chars span {
-      position: absolute; font-family: 'Chewy', cursive;
+      position: absolute; font-family: 'Nunito', sans-serif; font-weight: 900;
       font-weight: 400; line-height: 1;
       pointer-events: none; user-select: none;
     }
@@ -1089,7 +1097,7 @@
       display: flex; align-items: center; justify-content: center;
     }
     .fi-char {
-      font-family: 'Chewy', cursive;
+      font-family: 'Nunito', sans-serif; font-weight: 900;
       font-size: clamp(18px, 2.5vw, 30px);
       line-height: 1; font-weight: 400;
     }
@@ -1101,8 +1109,8 @@
     .filter-tab {
       padding: 8px 20px; border-radius: 999px;
       border: 1.5px solid var(--border); background: var(--white);
-      color: var(--mid); font-weight: 700; font-size: 13px;
-      cursor: pointer; font-family: 'Nunito', sans-serif;
+      color: var(--mid); font-weight: 600; font-size: 13px;
+      cursor: pointer; font-family: 'Poppins', sans-serif;
       transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
     .filter-tab:hover { border-color: var(--purple); color: var(--purple); }
