@@ -128,22 +128,25 @@
   <style>
     /* ─── Design Tokens ─── */
     :root {
+      --green-dark:   #1A6B40;
+      --green-deep:   #134F2F;
+      --green:        #4DB882;
+      --green-light:  #72D4A4;
+      --green-pale:   #EDF7F2;
       --purple:       #7C5CBF;
       --purple-light: #A07FD6;
       --purple-dark:  #5E3FA1;
       --purple-pale:  #EDE8F8;
-      --green:        #4DB882;
-      --green-light:  #72D4A4;
       --blue:         #5B9BD5;
       --orange:       #F5A94E;
-      --cream:        #FDFAF6;
+      --cream:        #F3FAF6;
       --white:        #FFFFFF;
-      --dark:         #1A1033;
-      --mid:          #4A3F6B;
-      --muted:        #8A7FB5;
-      --border:       rgba(124,92,191,0.13);
-      --shadow:       0 4px 24px rgba(124,92,191,0.10);
-      --shadow-lg:    0 16px 56px rgba(124,92,191,0.18);
+      --dark:         #0D2B1A;
+      --mid:          #2A5C3A;
+      --muted:        #5B8A6A;
+      --border:       rgba(26,107,64,0.15);
+      --shadow:       0 4px 24px rgba(26,107,64,0.12);
+      --shadow-lg:    0 16px 56px rgba(26,107,64,0.20);
       --radius:       22px;
       --radius-sm:    14px;
       --nav-h:        72px;
@@ -215,17 +218,15 @@
       position: fixed;
       top: 38px; left: 0; right: 0;
       height: var(--nav-h);
-      backdrop-filter: blur(22px) saturate(180%);
-      -webkit-backdrop-filter: blur(22px) saturate(180%);
-      background: rgba(253,250,246,0.88);
-      border-bottom: 1px solid var(--border);
+      background: var(--green-dark);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       z-index: 200;
       display: flex;
       align-items: center;
       padding: 0 clamp(20px, 5vw, 64px);
       transition: box-shadow 0.3s var(--ease);
     }
-    nav.scrolled { box-shadow: 0 2px 28px rgba(124,92,191,0.12); }
+    nav.scrolled { box-shadow: 0 2px 28px rgba(13,43,26,0.30); }
 
     .nav-inner {
       width: 100%;
@@ -255,22 +256,23 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 15px;
-      color: var(--mid);
+      color: rgba(255,255,255,0.82);
       padding: 8px 16px;
       border-radius: 99px;
       transition: background 0.2s, color 0.2s;
       white-space: nowrap;
     }
-    .nav-links a:hover { background: var(--purple-pale); color: var(--purple); }
+    .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
     .nav-cta {
       background: var(--purple) !important;
       color: var(--white) !important;
-      font-weight: 800 !important;
+      font-weight: 700 !important;
+      font-family: 'Poppins', sans-serif !important;
       transition: transform 0.2s, box-shadow 0.2s, background 0.2s !important;
     }
     .nav-cta:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 6px 22px rgba(124,92,191,0.35) !important;
+      box-shadow: 0 6px 22px rgba(124,92,191,0.45) !important;
       background: var(--purple-light) !important;
     }
 
@@ -279,7 +281,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--green);
+      background: var(--green-dark);
       color: #fff;
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
@@ -294,31 +296,31 @@
     }
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 10px 36px rgba(77,184,130,0.42);
-      background: var(--green-light);
+      box-shadow: 0 10px 36px rgba(26,107,64,0.40);
+      background: var(--green-deep);
       animation: none;
     }
     .btn-outline {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: transparent;
-      color: var(--purple);
+      background: rgba(255,255,255,0.10);
+      color: #fff;
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
       font-size: 16px;
       padding: 13px 32px;
       border-radius: 99px;
       text-decoration: none;
-      border: 2px solid rgba(124,92,191,0.3);
+      border: 2px solid rgba(255,255,255,0.30);
       cursor: pointer;
       transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
     }
     .btn-outline:hover {
       transform: translateY(-3px);
-      border-color: var(--purple);
-      background: var(--purple-pale);
-      box-shadow: 0 6px 24px rgba(124,92,191,0.16);
+      border-color: rgba(255,255,255,0.70);
+      background: rgba(255,255,255,0.18);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
     }
 
     /* ─── Section Rhythm ─── */
@@ -328,7 +330,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--green-dark);
       margin-bottom: 12px;
     }
     .section-title {
@@ -362,7 +364,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #E8F8EF 0%, #EDF9F4 35%, #EDE8F8 70%, #E8F4FD 100%);
+      background: linear-gradient(145deg, #0D2B1A 0%, #1A6B40 45%, #1E7A4A 70%, #134F2F 100%);
       background-size: 400% 400%;
       animation: gradientShift 14s ease infinite;
     }
@@ -430,7 +432,7 @@
       font-size: clamp(46px, 8vw, 88px);
       line-height: 1.06;
       letter-spacing: -1px;
-      color: var(--dark);
+      color: #ffffff;
       margin-bottom: 24px;
       animation: fadeUp 0.7s 0.1s var(--ease) both;
     }
@@ -445,7 +447,7 @@
     .hero-sub {
       font-family: 'Poppins', sans-serif;
       font-size: clamp(16px, 2vw, 19px);
-      color: var(--mid);
+      color: rgba(255,255,255,0.78);
       font-weight: 400;
       max-width: 540px;
       margin: 0 auto 44px;
@@ -474,13 +476,13 @@
       align-items: center;
       gap: 7px;
       font-size: 13px;
-      font-weight: 700;
-      color: var(--mid);
+      font-weight: 600;
+      color: rgba(255,255,255,0.70);
     }
     .trust-chip-dot {
       width: 7px; height: 7px;
       border-radius: 50%;
-      background: var(--green);
+      background: var(--green-light);
       flex-shrink: 0;
     }
 
@@ -492,7 +494,7 @@
       font-family: 'Nunito', sans-serif;
       font-weight: 900;
       font-size: clamp(36px, 5.5vw, 64px);
-      color: var(--green);
+      color: #ffffff;
       line-height: 1.0;
       letter-spacing: -1px;
     }
@@ -502,7 +504,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255,255,255,0.55);
       margin-top: 6px;
     }
     .hero-audience {
@@ -525,6 +527,96 @@
     .hac-title { font-weight: 800; font-size: 14px; color: var(--green); margin-bottom: 6px; display: block; }
     .hac-desc { font-size: 13px; color: var(--mid); line-height: 1.55; }
     @media (max-width: 500px) { .hero-audience { grid-template-columns: 1fr; } }
+
+    /* ─── Who Are You Shopping For ─── */
+    #for-you {
+      background: var(--cream);
+      padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 64px);
+    }
+    .for-you-inner { max-width: 960px; margin: 0 auto; text-align: center; }
+    .for-you-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .for-you-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 44px 36px;
+      border-radius: 24px;
+      text-decoration: none;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .for-you-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .for-you-teacher {
+      background: var(--green-dark);
+      color: #fff;
+    }
+    .for-you-parent {
+      background: var(--white);
+      border: 2px solid var(--border);
+      color: var(--dark);
+    }
+    .fyc-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .for-you-teacher .fyc-icon { background: rgba(255,255,255,0.15); }
+    .for-you-parent  .fyc-icon { background: var(--green-pale); }
+    .fyc-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .for-you-teacher .fyc-label { color: rgba(255,255,255,0.60); }
+    .for-you-parent  .fyc-label { color: var(--green-dark); }
+    .fyc-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(22px, 3vw, 28px);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .for-you-teacher .fyc-title { color: #fff; }
+    .for-you-parent  .fyc-title { color: var(--dark); }
+    .fyc-desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 320px;
+    }
+    .for-you-teacher .fyc-desc { color: rgba(255,255,255,0.75); }
+    .for-you-parent  .fyc-desc { color: var(--mid); }
+    .fyc-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 99px;
+      margin-top: auto;
+      transition: background 0.2s, color 0.2s;
+    }
+    .for-you-teacher .fyc-cta { background: rgba(255,255,255,0.18); color: #fff; }
+    .for-you-teacher:hover .fyc-cta { background: rgba(255,255,255,0.28); }
+    .for-you-parent  .fyc-cta { background: var(--green-dark); color: #fff; }
+    .for-you-parent:hover  .fyc-cta { background: var(--green-deep); }
+    @media (max-width: 640px) { .for-you-grid { grid-template-columns: 1fr; } }
 
     /* ─── Tools Section ─── */
     #tools {
@@ -1159,7 +1251,7 @@
 <body>
 
 <!-- ─── Work-in-progress banner ─── -->
-<div id="wip-banner" style="position:fixed;top:0;left:0;right:0;z-index:300;background:var(--purple);color:#fff;text-align:center;padding:9px 16px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.02em;">
+<div id="wip-banner" style="position:fixed;top:0;left:0;right:0;z-index:300;background:var(--green-deep);color:rgba(255,255,255,0.88);text-align:center;padding:9px 16px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.04em;">
   This site is currently being updated, new tools and resources coming soon!
 </div>
 
@@ -1190,7 +1282,7 @@
         <circle cx="65" cy="13" r="5"   fill="#F5C842"/>
         <circle cx="65" cy="13" r="2.5" fill="#FFD700"/>
         <rect x="59" y="97" width="12" height="8" rx="4" fill="#D4C8F0"/>
-        <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#2C2547">Molding Minds</text>
+        <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#ffffff">Molding Minds</text>
         <defs>
           <linearGradient id="navgrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%"   stop-color="#7C5CBF"/>
@@ -1199,7 +1291,7 @@
           </linearGradient>
         </defs>
         <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#navgrad)"/>
-        <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="#7C5CBF" letter-spacing="5">OF THE FUTURE</text>
+        <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="5">OF THE FUTURE</text>
       </svg>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
@@ -1236,54 +1328,7 @@
       Shape What's<br>
       <span class="gradient-text">Possible</span>
     </h1>
-    <div class="hero-audience">
-      <div class="hero-audience-card">
-        <span class="hac-icon">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="20" fill="rgba(77,184,130,0.12)"/>
-            <!-- Chalkboard -->
-            <rect x="8" y="10" width="24" height="15" rx="2" fill="#4DB882"/>
-            <rect x="9.5" y="11.5" width="21" height="12" rx="1" fill="#3A9E6E"/>
-            <!-- Writing lines -->
-            <line x1="12" y1="15" x2="19" y2="15" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.8"/>
-            <line x1="12" y1="18" x2="25" y2="18" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.8"/>
-            <line x1="12" y1="21" x2="17" y2="21" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.8"/>
-            <!-- Chalk tray -->
-            <rect x="8" y="25" width="24" height="2.5" rx="1" fill="#4DB882"/>
-            <rect x="17" y="25.3" width="5" height="1.8" rx="0.5" fill="white" opacity="0.75"/>
-            <!-- Legs -->
-            <line x1="13" y1="27.5" x2="11" y2="32" stroke="#4DB882" stroke-width="2" stroke-linecap="round"/>
-            <line x1="27" y1="27.5" x2="29" y2="32" stroke="#4DB882" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="hac-title">For Teachers</span>
-        <p class="hac-desc">Easy to implement in your classroom with no extra prep. Ready to use the day you download.</p>
-      </div>
-      <div class="hero-audience-card">
-        <span class="hac-icon">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="20" fill="rgba(124,92,191,0.12)"/>
-            <!-- Roof -->
-            <path d="M8 21 L20 10 L32 21" fill="#7C5CBF"/>
-            <path d="M8 21 L20 10 L32 21" stroke="#7C5CBF" stroke-width="1.5" stroke-linejoin="round"/>
-            <!-- House body -->
-            <rect x="11" y="21" width="18" height="12" rx="1.5" fill="#7C5CBF"/>
-            <!-- Door -->
-            <rect x="17" y="26" width="6" height="7" rx="1" fill="white" opacity="0.85"/>
-            <!-- Left window -->
-            <rect x="12.5" y="23" width="4" height="3.5" rx="0.5" fill="white" opacity="0.75"/>
-            <!-- Right window -->
-            <rect x="23.5" y="23" width="4" height="3.5" rx="0.5" fill="white" opacity="0.75"/>
-            <!-- Chimney -->
-            <rect x="25" y="12" width="3.5" height="6" rx="0.5" fill="#7C5CBF" stroke="#5E3FA1" stroke-width="0.5"/>
-            <!-- Heart on door -->
-            <path d="M20 29.5 C20 29.5 18.2 28 18.2 27 C18.2 26.3 18.8 25.8 19.4 25.8 C19.7 25.8 20 26.1 20 26.1 C20 26.1 20.3 25.8 20.6 25.8 C21.2 25.8 21.8 26.3 21.8 27 C21.8 28 20 29.5 20 29.5Z" fill="#7C5CBF" opacity="0.6"/>
-          </svg>
-        </span>
-        <span class="hac-title">For Parents</span>
-        <p class="hac-desc">Simple enough to do at home and use as a starting point for real conversations with your kids.</p>
-      </div>
-    </div>
+    <p class="hero-sub">Learning tools and curriculum resources for teachers, tutors, parents, and homeschoolers — built by an educator who knows exactly what students need.</p>
     <div class="hero-actions">
       <a href="#assessment" class="btn-primary" onclick="ga4('hero_cta_click',{cta:'see_assessment'})">
         See the Math Assessment ↓
@@ -1296,6 +1341,55 @@
       <div class="trust-chip"><span class="trust-chip-dot"></span>K-5 Math Assessment on TPT</div>
       <div class="trust-chip"><span class="trust-chip-dot"></span>K-5 Reading Assessment · Now on TPT</div>
       <div class="trust-chip"><span class="trust-chip-dot"></span>K-8 Resources · Math + SEL + ELA</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Who Are You Shopping For ─── -->
+<section id="for-you" aria-label="Who are you shopping for">
+  <div class="for-you-inner">
+    <p class="section-label reveal">Find what's right for you</p>
+    <h2 class="section-title reveal d1">Who are you shopping for?</h2>
+    <div class="for-you-grid">
+
+      <a href="#resources" class="for-you-card for-you-teacher reveal d2" onclick="ga4('for_you_click',{audience:'teacher'})">
+        <div class="fyc-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect x="4" y="6" width="32" height="20" rx="2.5" fill="rgba(255,255,255,0.25)"/>
+            <rect x="5.5" y="7.5" width="29" height="17" rx="1.5" fill="rgba(255,255,255,0.15)"/>
+            <line x1="9" y1="13" x2="18" y2="13" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="9" y1="17" x2="28" y2="17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="9" y1="21" x2="14" y2="21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="4" y="26" width="32" height="3" rx="1" fill="rgba(255,255,255,0.20)"/>
+            <rect x="17" y="26.5" width="6" height="2" rx="0.5" fill="rgba(255,255,255,0.50)"/>
+            <line x1="12" y1="29" x2="10" y2="36" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="28" y1="29" x2="30" y2="36" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="fyc-label">For Educators</div>
+        <div class="fyc-title">I'm a Teacher or Tutor</div>
+        <p class="fyc-desc">Grab-and-go classroom resources. Writing, reading, math, and SEL — ready to use the day you download.</p>
+        <div class="fyc-cta">Browse Teacher Resources →</div>
+      </a>
+
+      <a href="#tools" class="for-you-card for-you-parent reveal d3" onclick="ga4('for_you_click',{audience:'parent'})">
+        <div class="fyc-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M6 22 L20 8 L34 22" fill="none" stroke="#1A6B40" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="10" y="22" width="20" height="14" rx="2" fill="#1A6B40"/>
+            <rect x="17.5" y="28" width="5" height="8" rx="1" fill="white" opacity="0.85"/>
+            <rect x="11.5" y="24" width="5" height="4" rx="0.5" fill="white" opacity="0.70"/>
+            <rect x="23.5" y="24" width="5" height="4" rx="0.5" fill="white" opacity="0.70"/>
+            <path d="M20 7 L20 4" stroke="#7C5CBF" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="20" cy="3.5" r="1.5" fill="#7C5CBF"/>
+          </svg>
+        </div>
+        <div class="fyc-label">For Families</div>
+        <div class="fyc-title">I'm a Parent or Homeschooler</div>
+        <p class="fyc-desc">Simple tools and assessments to understand where your child is and spark real learning conversations at home.</p>
+        <div class="fyc-cta">Explore Parent Tools →</div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -1356,9 +1450,9 @@
 <section id="tools" aria-label="Interactive learning tools">
   <div class="bg-chars" id="toolsBgChars" aria-hidden="true"></div>
   <div class="tools-inner">
-    <p class="section-label reveal">Interactive Tools</p>
-    <h2 class="section-title reveal d1">Start Here</h2>
-    <p class="section-sub reveal d2">Browser-based tools built for real classrooms and tutoring sessions. Use them to diagnose, engage, and identify exactly where to focus. Then pair with the curriculum resources on TPT to go deeper.</p>
+    <p class="section-label reveal">Free and Premium</p>
+    <h2 class="section-title reveal d1">Online Tools</h2>
+    <p class="section-sub reveal d2">Browser-based tools you can use right now. Diagnose, engage, and find exactly where each student needs to go next.</p>
 
     <div class="tools-grid">
 
