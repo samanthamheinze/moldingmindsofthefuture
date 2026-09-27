@@ -304,22 +304,29 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.10);
-      color: #fff;
+      background: #F5C842;
+      color: #2C2547;
       font-family: 'Poppins', sans-serif;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 16px;
-      padding: 13px 32px;
+      padding: 15px 34px;
       border-radius: 99px;
       text-decoration: none;
-      border: 2px solid rgba(255,255,255,0.30);
+      border: none;
       cursor: pointer;
-      transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 22px rgba(245,200,66,0.50);
+      animation: pulseGold 2.6s cubic-bezier(0.4,0,0.6,1) infinite;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    @keyframes pulseGold {
+      0%, 100% { box-shadow: 0 4px 22px rgba(245,200,66,0.50); }
+      50%       { box-shadow: 0 4px 38px rgba(245,200,66,0.85), 0 0 0 8px rgba(245,200,66,0.12); }
     }
     .btn-outline:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,0.70);
-      background: rgba(255,255,255,0.18);
+      transform: translateY(-3px) scale(1.04);
+      background: #FFD740;
+      box-shadow: 0 10px 40px rgba(245,200,66,0.70);
+      animation: none;
       box-shadow: 0 6px 24px rgba(0,0,0,0.15);
     }
 
