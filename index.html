@@ -218,15 +218,15 @@
       position: fixed;
       top: 38px; left: 0; right: 0;
       height: var(--nav-h);
-      background: var(--green-dark);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: #ffffff;
+      border-bottom: 2px solid rgba(75,174,138,0.18);
       z-index: 200;
       display: flex;
       align-items: center;
       padding: 0 clamp(20px, 5vw, 64px);
       transition: box-shadow 0.3s var(--ease);
     }
-    nav.scrolled { box-shadow: 0 2px 28px rgba(13,43,26,0.30); }
+    nav.scrolled { box-shadow: 0 2px 28px rgba(75,174,138,0.18); }
 
     .nav-inner {
       width: 100%;
@@ -256,13 +256,13 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 15px;
-      color: rgba(255,255,255,0.82);
+      color: var(--dark);
       padding: 8px 16px;
       border-radius: 99px;
       transition: background 0.2s, color 0.2s;
       white-space: nowrap;
     }
-    .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .nav-links a:hover { background: rgba(75,174,138,0.10); color: var(--green-dark); }
     .nav-cta {
       background: var(--purple) !important;
       color: var(--white) !important;
@@ -364,7 +364,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(145deg, #1A3D30 0%, #2D8A6A 35%, #4BAE8A 65%, #389070 100%);
+      background: linear-gradient(145deg, #2D8A6A 0%, #4BAE8A 40%, #72D4B4 70%, #4BAE8A 100%);
       background-size: 400% 400%;
       animation: gradientShift 14s ease infinite;
     }
@@ -1251,8 +1251,8 @@
 <body>
 
 <!-- ─── Work-in-progress banner ─── -->
-<div id="wip-banner" style="position:fixed;top:0;left:0;right:0;z-index:300;background:var(--green-deep);color:rgba(255,255,255,0.88);text-align:center;padding:9px 16px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.04em;">
-  This site is currently being updated, new tools and resources coming soon!
+<div id="wip-banner" style="position:fixed;top:0;left:0;right:0;z-index:300;background:#7C5CBF;color:#ffffff;text-align:center;padding:10px 16px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;letter-spacing:0.03em;">
+  This site is currently being updated — new tools and resources coming soon!
 </div>
 
 <!-- ─── Nav ─── -->
@@ -1282,7 +1282,7 @@
         <circle cx="65" cy="13" r="5"   fill="#F5C842"/>
         <circle cx="65" cy="13" r="2.5" fill="#FFD700"/>
         <rect x="59" y="97" width="12" height="8" rx="4" fill="#D4C8F0"/>
-        <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#ffffff">Molding Minds</text>
+        <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#2C2547">Molding Minds</text>
         <defs>
           <linearGradient id="navgrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%"   stop-color="#7C5CBF"/>
@@ -1291,7 +1291,7 @@
           </linearGradient>
         </defs>
         <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#navgrad)"/>
-        <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="rgba(255,255,255,0.55)" letter-spacing="5">OF THE FUTURE</text>
+        <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="rgba(44,37,71,0.50)" letter-spacing="5">OF THE FUTURE</text>
       </svg>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
@@ -1895,8 +1895,8 @@
 
   // ─── Background character scatter ───
   (function() {
-    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklm0123456789+−×÷=?!';
-    var colors = ['#7C5CBF','#4A90D9','#4BAE8A','#F5C842','#F5A94E'];
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklm0123456789+−×÷=?!★◆';
+    var colors = ['#ffffff','#ffffff','#EDE8F8','#F5C842','#F5A94E','#7C5CBF','#4A90D9'];
     var seed = 7919;
     function rand() { seed = (seed * 1664525 + 1013904223) | 0; return (seed >>> 0) / 4294967295; }
     function fill(id, count) {
@@ -1907,14 +1907,14 @@
         s.textContent = chars.charAt(Math.floor(rand() * chars.length));
         s.style.left      = (rand() * 100) + '%';
         s.style.top       = (rand() * 100) + '%';
-        s.style.fontSize  = (12 + rand() * 28) + 'px';
-        s.style.opacity   = (0.04 + rand() * 0.05).toFixed(3);
+        s.style.fontSize  = (14 + rand() * 36) + 'px';
+        s.style.opacity   = (0.08 + rand() * 0.10).toFixed(3);
         s.style.transform = 'rotate(' + ((rand() - 0.5) * 50) + 'deg)';
         s.style.color     = colors[Math.floor(rand() * colors.length)];
         el.appendChild(s);
       }
     }
-    fill('heroBgChars',      60);
+    fill('heroBgChars',      90);
     fill('toolsBgChars',     45);
     fill('resourcesBgChars', 55);
   })();
