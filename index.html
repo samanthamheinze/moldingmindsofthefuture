@@ -131,22 +131,22 @@
       --green-dark:   #4BAE8A;
       --green-deep:   #389070;
       --green:        #4BAE8A;
-      --green-light:  #72D4A4;
-      --green-pale:   #EBF7F2;
+      --green-light:  #82D4B5;
+      --green-pale:   #EFF9F5;
       --purple:       #7C5CBF;
       --purple-light: #A07FD6;
       --purple-dark:  #5E3FA1;
-      --purple-pale:  #EDE8F8;
-      --blue:         #5B9BD5;
+      --purple-pale:  #F2EFF9;
+      --blue:         #6AAAD8;
       --orange:       #F5A94E;
-      --cream:        #F3FAF6;
+      --cream:        #F8FAFB;
       --white:        #FFFFFF;
-      --dark:         #1A2E28;
-      --mid:          #2D5248;
-      --muted:        #5B8A78;
-      --border:       rgba(75,174,138,0.18);
-      --shadow:       0 4px 24px rgba(75,174,138,0.14);
-      --shadow-lg:    0 16px 56px rgba(75,174,138,0.22);
+      --dark:         #2C2547;
+      --mid:          #625C7A;
+      --muted:        #9B98B0;
+      --border:       rgba(75,174,138,0.14);
+      --shadow:       0 4px 20px rgba(44,37,71,0.08);
+      --shadow-lg:    0 16px 48px rgba(44,37,71,0.13);
       --radius:       22px;
       --radius-sm:    14px;
       --nav-h:        72px;
@@ -226,7 +226,7 @@
       padding: 0 clamp(20px, 5vw, 64px);
       transition: box-shadow 0.3s var(--ease);
     }
-    nav.scrolled { box-shadow: 0 2px 28px rgba(75,174,138,0.18); }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(44,37,71,0.10); }
 
     .nav-inner {
       width: 100%;
@@ -296,7 +296,7 @@
     }
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 10px 36px rgba(26,107,64,0.40);
+      box-shadow: 0 10px 36px rgba(75,174,138,0.35);
       background: var(--green-deep);
       animation: none;
     }
@@ -371,7 +371,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(145deg, #2D8A6A 0%, #4BAE8A 40%, #72D4B4 70%, #4BAE8A 100%);
+      background: linear-gradient(145deg, #3EA888 0%, #4BAE8A 45%, #7ECFB3 75%, #5AB8A0 100%);
       background-size: 400% 400%;
       animation: gradientShift 14s ease infinite;
     }
@@ -561,7 +561,7 @@
     }
     .for-you-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
     .for-you-teacher {
-      background: var(--green-dark);
+      background: linear-gradient(145deg, #3A9E7A 0%, #4BAE8A 60%, #6BC8A8 100%);
       color: #fff;
     }
     .for-you-parent {
@@ -1302,11 +1302,11 @@
       </svg>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
-      <li><a href="#assessment" onclick="ga4('nav_click',{link:'assessment'})">Assessment</a></li>
-      <li><a href="#tools"      onclick="ga4('nav_click',{link:'tools'})">Tools</a></li>
       <li><a href="#resources"  onclick="ga4('nav_click',{link:'resources'})">Resources</a></li>
+      <li><a href="#tools"      onclick="ga4('nav_click',{link:'tools'})">Tools</a></li>
+      <li><a href="#assessment" onclick="ga4('nav_click',{link:'assessment'})">Assessments</a></li>
       <li><a href="#about"      onclick="ga4('nav_click',{link:'about'})">About</a></li>
-      <li><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="nav-cta" onclick="ga4('nav_click',{link:'cta'})">Get on TPT</a></li>
+      <li><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="nav-cta" onclick="ga4('nav_click',{link:'cta'})">Shop My Products on TPT</a></li>
     </ul>
   </div>
 </nav>
