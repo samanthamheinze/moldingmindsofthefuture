@@ -131,22 +131,22 @@
       --green-dark:   #4BAE8A;
       --green-deep:   #389070;
       --green:        #4BAE8A;
-      --green-light:  #82D4B5;
-      --green-pale:   #EFF9F5;
+      --green-light:  #8FCFB8;
+      --green-pale:   #E8F7F1;
       --purple:       #7C5CBF;
       --purple-light: #A07FD6;
       --purple-dark:  #5E3FA1;
-      --purple-pale:  #F2EFF9;
+      --purple-pale:  #F0EDFB;
       --blue:         #6AAAD8;
       --orange:       #F5A94E;
-      --cream:        #F8FAFB;
+      --cream:        #F9FCFB;
       --white:        #FFFFFF;
       --dark:         #2C2547;
-      --mid:          #625C7A;
+      --mid:          #5E5878;
       --muted:        #9B98B0;
-      --border:       rgba(75,174,138,0.14);
-      --shadow:       0 4px 20px rgba(44,37,71,0.08);
-      --shadow-lg:    0 16px 48px rgba(44,37,71,0.13);
+      --border:       rgba(75,174,138,0.13);
+      --shadow:       0 4px 18px rgba(44,37,71,0.07);
+      --shadow-lg:    0 14px 44px rgba(44,37,71,0.11);
       --radius:       22px;
       --radius-sm:    14px;
       --nav-h:        72px;
@@ -371,7 +371,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(145deg, #3EA888 0%, #4BAE8A 45%, #7ECFB3 75%, #5AB8A0 100%);
+      background: linear-gradient(150deg, #D8F2E8 0%, #EFF9F5 40%, #F5FBFF 70%, #EDE8F8 100%);
       background-size: 400% 400%;
       animation: gradientShift 14s ease infinite;
     }
@@ -382,17 +382,17 @@
     }
     .hero-blob-1 {
       width: min(560px, 65vw); height: min(560px, 65vw);
-      background: radial-gradient(circle, rgba(124,92,191,0.13) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(124,92,191,0.07) 0%, transparent 68%);
       top: -120px; right: -120px; animation-delay: 0s;
     }
     .hero-blob-2 {
       width: min(440px, 55vw); height: min(440px, 55vw);
-      background: radial-gradient(circle, rgba(77,184,130,0.22) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(75,174,138,0.10) 0%, transparent 68%);
       bottom: -100px; left: -100px; animation-delay: -7s;
     }
     .hero-blob-3 {
       width: min(300px, 40vw); height: min(300px, 40vw);
-      background: radial-gradient(circle, rgba(91,155,213,0.08) 0%, transparent 68%);
+      background: radial-gradient(circle, rgba(106,170,216,0.07) 0%, transparent 68%);
       top: 40%; left: 20%; animation-delay: -3s;
     }
     .hero-floats {
@@ -439,7 +439,7 @@
       font-size: clamp(46px, 8vw, 88px);
       line-height: 1.06;
       letter-spacing: -1px;
-      color: #ffffff;
+      color: var(--dark);
       margin-bottom: 24px;
       animation: fadeUp 0.7s 0.1s var(--ease) both;
     }
@@ -454,7 +454,7 @@
     .hero-sub {
       font-family: 'Poppins', sans-serif;
       font-size: clamp(16px, 2vw, 19px);
-      color: rgba(255,255,255,0.78);
+      color: var(--mid);
       font-weight: 400;
       max-width: 540px;
       margin: 0 auto 44px;
@@ -484,7 +484,7 @@
       gap: 7px;
       font-size: 13px;
       font-weight: 600;
-      color: rgba(255,255,255,0.70);
+      color: var(--mid);
     }
     .trust-chip-dot {
       width: 7px; height: 7px;
@@ -501,7 +501,7 @@
       font-family: 'Nunito', sans-serif;
       font-weight: 900;
       font-size: clamp(36px, 5.5vw, 64px);
-      color: #ffffff;
+      color: var(--dark);
       line-height: 1.0;
       letter-spacing: -1px;
     }
@@ -511,7 +511,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
+      color: var(--muted);
       margin-top: 6px;
     }
     .hero-audience {
@@ -524,14 +524,14 @@
       animation: fadeUp 0.7s 0.25s var(--ease) both;
     }
     .hero-audience-card {
-      background: rgba(255,255,255,0.75);
-      border: 1.5px solid rgba(77,184,130,0.28);
+      background: var(--white);
+      border: 1.5px solid var(--border);
       border-radius: 16px;
       padding: 18px 20px;
-      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
     }
     .hac-icon { width: 40px; height: 40px; margin-bottom: 10px; display: block; }
-    .hac-title { font-weight: 800; font-size: 14px; color: var(--green); margin-bottom: 6px; display: block; }
+    .hac-title { font-weight: 800; font-size: 14px; color: var(--green-dark); margin-bottom: 6px; display: block; }
     .hac-desc { font-size: 13px; color: var(--mid); line-height: 1.55; }
     @media (max-width: 500px) { .hero-audience { grid-template-columns: 1fr; } }
 
@@ -561,8 +561,18 @@
     }
     .for-you-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
     .for-you-teacher {
-      background: linear-gradient(145deg, #3A9E7A 0%, #4BAE8A 60%, #6BC8A8 100%);
-      color: #fff;
+      background: var(--white);
+      border: 2px solid var(--border);
+      color: var(--dark);
+      box-shadow: 0 0 0 3px rgba(75,174,138,0.08);
+    }
+    .for-you-teacher::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green-dark), var(--green-light));
+      border-radius: 24px 24px 0 0;
     }
     .for-you-parent {
       background: var(--white);
@@ -575,8 +585,8 @@
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 24px;
     }
-    .for-you-teacher .fyc-icon { background: rgba(255,255,255,0.15); }
-    .for-you-parent  .fyc-icon { background: var(--green-pale); }
+    .for-you-teacher .fyc-icon { background: var(--green-pale); }
+    .for-you-parent  .fyc-icon { background: var(--purple-pale); }
     .fyc-label {
       font-family: 'Poppins', sans-serif;
       font-size: 11px;
@@ -585,8 +595,8 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
-    .for-you-teacher .fyc-label { color: rgba(255,255,255,0.60); }
-    .for-you-parent  .fyc-label { color: var(--green-dark); }
+    .for-you-teacher .fyc-label { color: var(--green-dark); }
+    .for-you-parent  .fyc-label { color: var(--purple); }
     .fyc-title {
       font-family: 'Nunito', sans-serif;
       font-weight: 900;
@@ -595,7 +605,7 @@
       margin-bottom: 14px;
       letter-spacing: -0.5px;
     }
-    .for-you-teacher .fyc-title { color: #fff; }
+    .for-you-teacher .fyc-title { color: var(--dark); }
     .for-you-parent  .fyc-title { color: var(--dark); }
     .fyc-desc {
       font-family: 'Poppins', sans-serif;
@@ -605,7 +615,7 @@
       margin-bottom: 28px;
       max-width: 320px;
     }
-    .for-you-teacher .fyc-desc { color: rgba(255,255,255,0.75); }
+    .for-you-teacher .fyc-desc { color: var(--mid); }
     .for-you-parent  .fyc-desc { color: var(--mid); }
     .fyc-cta {
       display: inline-flex;
@@ -619,10 +629,10 @@
       margin-top: auto;
       transition: background 0.2s, color 0.2s;
     }
-    .for-you-teacher .fyc-cta { background: rgba(255,255,255,0.18); color: #fff; }
-    .for-you-teacher:hover .fyc-cta { background: rgba(255,255,255,0.28); }
-    .for-you-parent  .fyc-cta { background: var(--green-dark); color: #fff; }
-    .for-you-parent:hover  .fyc-cta { background: var(--green-deep); }
+    .for-you-teacher .fyc-cta { background: var(--green-dark); color: #fff; }
+    .for-you-teacher:hover .fyc-cta { background: var(--green-deep); }
+    .for-you-parent  .fyc-cta { background: var(--purple); color: #fff; }
+    .for-you-parent:hover  .fyc-cta { background: var(--purple-dark); }
     @media (max-width: 640px) { .for-you-grid { grid-template-columns: 1fr; } }
 
     /* ─── Tools Section ─── */
@@ -708,7 +718,7 @@
 
     /* ─── TPT Section ─── */
     #resources {
-      background: linear-gradient(160deg, #F7F4FE 0%, #EEF6FF 100%);
+      background: linear-gradient(160deg, #F5F2FD 0%, #EEF8F4 100%);
       padding: clamp(72px, 9vw, 128px) clamp(20px, 5vw, 64px);
     }
     .tpt-inner { max-width: 1180px; margin: 0 auto; }
@@ -970,7 +980,7 @@
 
     /* ─── Featured Assessment Section ─── */
     #assessment {
-      background: linear-gradient(160deg, #F7F4FE 0%, #EEF6FF 55%, #EBF8F2 100%);
+      background: linear-gradient(160deg, #EEF8F2 0%, #F8FCFB 55%, #F0EDFB 100%);
       padding: clamp(72px, 9vw, 120px) clamp(20px, 5vw, 64px);
       position: relative;
       overflow: hidden;
@@ -1903,7 +1913,7 @@
   // ─── Background character scatter ───
   (function() {
     var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklm0123456789+−×÷=?!★◆';
-    var colors = ['#ffffff','#ffffff','#EDE8F8','#F5C842','#F5A94E','#7C5CBF','#4A90D9'];
+    var colors = ['#4BAE8A','#7C5CBF','#6AAAD8','#F5C842','#389070','#A07FD6'];
     var seed = 7919;
     function rand() { seed = (seed * 1664525 + 1013904223) | 0; return (seed >>> 0) / 4294967295; }
     function fill(id, count) {
