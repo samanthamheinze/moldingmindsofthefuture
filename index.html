@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>if(location.hostname==='grocerystore.moldingmindsofthefuture.com'||location.hostname==='grocery.moldingmindsofthefuture.com'){location.replace('/grocery-store/'+location.search+location.hash);}</script>
+  <script>if(location.hostname==='grocerystore.moldingmindsofthefuture.com'||location.hostname==='grocery.moldingmindsofthefuture.com'){fetch('/grocery-store/').then(function(r){return r.text();}).then(function(h){document.open();document.write(h);document.close();});}</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
