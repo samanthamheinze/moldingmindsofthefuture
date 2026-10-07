@@ -799,102 +799,262 @@ kalamata_olives: () => `<svg viewBox="0 0 64 64">
 // ── DAIRY ─────────────────────────────────────────────────
 
 eggs: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="22" width="36" height="28" rx="4" fill="#C8C0A0" stroke="#C8C0A0" stroke-width="1.5"/>
-  <rect x="14" y="22" width="36" height="9" rx="4" fill="#8A9A60"/>
-  <ellipse cx="22" cy="37" rx="7" ry="9" fill="#F0E8D0"/>
-  <ellipse cx="22" cy="36" rx="3" ry="4" fill="#F8F0DC" opacity=".6"/>
-  <ellipse cx="32" cy="37" rx="7" ry="9" fill="#F0E8D0"/>
-  <ellipse cx="32" cy="36" rx="3" ry="4" fill="#F8F0DC" opacity=".6"/>
-  <ellipse cx="42" cy="37" rx="7" ry="9" fill="#F0E8D0"/>
-  <ellipse cx="42" cy="36" rx="3" ry="4" fill="#F8F0DC" opacity=".6"/>
+  <defs>
+    <linearGradient id="dECarton" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D8CC98"/>
+      <stop offset="100%" stop-color="#B8A870"/>
+    </linearGradient>
+    <radialGradient id="dEShell" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFFCF4"/>
+      <stop offset="100%" stop-color="#E8DCC0"/>
+    </radialGradient>
+    <linearGradient id="dETop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6A9838"/>
+      <stop offset="100%" stop-color="#4A7820"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="22" ry="2.5" fill="#A89060" opacity=".3"/>
+  <rect x="10" y="30" width="44" height="22" rx="4" fill="url(#dECarton)" stroke="#A89060" stroke-width="1.5"/>
+  <path d="M10 30 Q10 20 32 18 Q54 20 54 30" fill="#C8B880" stroke="#A89060" stroke-width="1.5"/>
+  <rect x="10" y="30" width="44" height="8" fill="url(#dETop)"/>
+  <text x="32" y="37" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">LARGE EGGS</text>
+  <ellipse cx="21" cy="43" rx="8" ry="9" fill="url(#dEShell)" stroke="#D8C8A0" stroke-width=".8"/>
+  <ellipse cx="19" cy="40" rx="3" ry="3.5" fill="#FFFCF8" opacity=".5"/>
+  <ellipse cx="32" cy="43" rx="8" ry="9" fill="url(#dEShell)" stroke="#D8C8A0" stroke-width=".8"/>
+  <ellipse cx="30" cy="40" rx="3" ry="3.5" fill="#FFFCF8" opacity=".5"/>
+  <ellipse cx="43" cy="43" rx="8" ry="9" fill="url(#dEShell)" stroke="#D8C8A0" stroke-width=".8"/>
+  <ellipse cx="41" cy="40" rx="3" ry="3.5" fill="#FFFCF8" opacity=".5"/>
 </svg>`,
 
 butter: () => `<svg viewBox="0 0 64 64">
-  <rect x="12" y="26" width="40" height="22" rx="3" fill="#F8F0C0" stroke="#D8C860" stroke-width="1.5"/>
-  <rect x="12" y="26" width="40" height="7" rx="3" fill="#D8B840"/>
-  <text x="32" y="32" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">BUTTER</text>
-  <text x="32" y="40" text-anchor="middle" fill="#A89030" font-size="5.5" font-family="sans-serif">UNSALTED</text>
-  <text x="32" y="46" text-anchor="middle" fill="#A89030" font-size="5" font-family="sans-serif">1 LB</text>
+  <defs>
+    <linearGradient id="dBBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8C8"/>
+      <stop offset="100%" stop-color="#F0DC80"/>
+    </linearGradient>
+    <linearGradient id="dBWrap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8E880"/>
+      <stop offset="100%" stop-color="#D8C040"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="55" rx="22" ry="3" fill="#C8A830" opacity=".25"/>
+  <rect x="8" y="26" width="48" height="20" rx="3" fill="url(#dBBody)" stroke="#C8A830" stroke-width="1.5"/>
+  <rect x="8" y="26" width="13" height="20" rx="3" fill="url(#dBWrap)"/>
+  <rect x="43" y="26" width="13" height="20" rx="3" fill="url(#dBWrap)"/>
+  <line x1="21" y1="26" x2="21" y2="46" stroke="#C8A830" stroke-width="1" opacity=".5"/>
+  <line x1="43" y1="26" x2="43" y2="46" stroke="#C8A830" stroke-width="1" opacity=".5"/>
+  <text x="32" y="35" text-anchor="middle" fill="#8A6010" font-size="5.5" font-weight="700" font-family="sans-serif">BUTTER</text>
+  <text x="32" y="42" text-anchor="middle" fill="#A07820" font-size="4.5" font-family="sans-serif">UNSALTED · 1 LB</text>
+  <rect x="22" y="27" width="6" height="18" rx="2" fill="#fff" opacity=".18"/>
 </svg>`,
 
 milk: () => `<svg viewBox="0 0 64 64">
-  <rect x="20" y="14" width="24" height="42" rx="4" fill="#E8F0F8" stroke="#A0C0D8" stroke-width="1.5"/>
-  <rect x="20" y="14" width="24" height="12" rx="4" fill="#5080B0"/>
-  <rect x="20" y="22" width="24" height="4" fill="#5080B0"/>
-  <rect x="26" y="10" width="12" height="6" rx="2" fill="#7090C0"/>
-  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">MILK</text>
-  <text x="32" y="36" text-anchor="middle" fill="#3060A0" font-size="5.5" font-family="sans-serif">WHOLE</text>
-  <text x="32" y="43" text-anchor="middle" fill="#3060A0" font-size="5" font-family="sans-serif">1/2 GAL</text>
-  <path d="M24 52 Q32 56 40 52" stroke="#A0C0D8" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="dMCarton" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D8EEF8"/>
+      <stop offset="50%" stop-color="#EEF6FF"/>
+      <stop offset="100%" stop-color="#C8E0F0"/>
+    </linearGradient>
+    <linearGradient id="dMCap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5898C8"/>
+      <stop offset="100%" stop-color="#3068A0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="14" ry="2.5" fill="#3068A0" opacity=".2"/>
+  <rect x="18" y="20" width="28" height="36" rx="3" fill="url(#dMCarton)" stroke="#90C0E0" stroke-width="1.5"/>
+  <rect x="22" y="10" width="20" height="12" rx="3" fill="url(#dMCap)"/>
+  <rect x="18" y="20" width="28" height="10" fill="url(#dMCap)"/>
+  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">MILK</text>
+  <rect x="20" y="32" width="24" height="16" rx="2" fill="#fff" opacity=".55"/>
+  <text x="32" y="40" text-anchor="middle" fill="#2060A0" font-size="5.5" font-weight="600" font-family="sans-serif">WHOLE</text>
+  <text x="32" y="46" text-anchor="middle" fill="#4080B0" font-size="4.5" font-family="sans-serif">½ GAL</text>
+  <rect x="20" y="22" width="5" height="32" rx="2" fill="#fff" opacity=".2"/>
 </svg>`,
 
 heavy_cream: () => `<svg viewBox="0 0 64 64">
-  <rect x="20" y="14" width="24" height="42" rx="4" fill="#FFF8F0" stroke="#D8C0A0" stroke-width="1.5"/>
-  <rect x="20" y="14" width="24" height="12" rx="4" fill="#C89050"/>
-  <rect x="20" y="22" width="24" height="4" fill="#C89050"/>
-  <rect x="26" y="10" width="12" height="6" rx="2" fill="#D8A060"/>
-  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">HEAVY</text>
-  <text x="32" y="34" text-anchor="middle" fill="#9A6830" font-size="5.5" font-family="sans-serif">CREAM</text>
-  <text x="32" y="42" text-anchor="middle" fill="#9A6830" font-size="5" font-family="sans-serif">1 PINT</text>
+  <defs>
+    <linearGradient id="dCCarton" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F0E8D8"/>
+      <stop offset="50%" stop-color="#FFF8F0"/>
+      <stop offset="100%" stop-color="#E8D8C0"/>
+    </linearGradient>
+    <linearGradient id="dCCap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D8A868"/>
+      <stop offset="100%" stop-color="#A87838"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="14" ry="2.5" fill="#A07030" opacity=".2"/>
+  <rect x="18" y="20" width="28" height="36" rx="3" fill="url(#dCCarton)" stroke="#D0B888" stroke-width="1.5"/>
+  <rect x="22" y="10" width="20" height="12" rx="3" fill="url(#dCCap)"/>
+  <rect x="18" y="20" width="28" height="10" fill="url(#dCCap)"/>
+  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">HEAVY</text>
+  <rect x="20" y="32" width="24" height="16" rx="2" fill="#fff" opacity=".5"/>
+  <text x="32" y="39" text-anchor="middle" fill="#8A5818" font-size="5" font-weight="600" font-family="sans-serif">HEAVY</text>
+  <text x="32" y="45" text-anchor="middle" fill="#8A5818" font-size="5" font-family="sans-serif">CREAM</text>
+  <text x="32" y="52" text-anchor="middle" fill="#A07040" font-size="4" font-family="sans-serif">1 PINT</text>
+  <rect x="20" y="22" width="5" height="32" rx="2" fill="#fff" opacity=".2"/>
 </svg>`,
 
 mozzarella: () => `<svg viewBox="0 0 64 64">
-  <rect x="12" y="16" width="40" height="38" rx="5" fill="#F8F4EC" stroke="#D0C090" stroke-width="1.5"/>
-  <rect x="12" y="16" width="40" height="12" rx="5" fill="#4BAE8A"/>
-  <text x="32" y="25" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">MOZZARELLA</text>
-  <text x="32" y="37" text-anchor="middle" fill="#8A7030" font-size="5.5" font-family="sans-serif">SHREDDED</text>
-  <text x="32" y="44" text-anchor="middle" fill="#8A7030" font-size="5" font-family="sans-serif">2 CUPS</text>
+  <defs>
+    <linearGradient id="dZBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFEF8"/>
+      <stop offset="100%" stop-color="#EEE8D0"/>
+    </linearGradient>
+    <linearGradient id="dZLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5DC49A"/>
+      <stop offset="100%" stop-color="#3A9070"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#8A7830" opacity=".2"/>
+  <rect x="10" y="10" width="44" height="48" rx="6" fill="url(#dZBag)" stroke="#C8C090" stroke-width="1.5"/>
+  <rect x="10" y="10" width="44" height="5" rx="6" fill="#C0BA88"/>
+  <rect x="12" y="13" width="40" height="2" rx="1" fill="#A0A070"/>
+  <rect x="12" y="17" width="40" height="16" rx="3" fill="url(#dZLabel)"/>
+  <text x="32" y="26" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">MOZZARELLA</text>
+  <text x="32" y="32" text-anchor="middle" fill="#D0F0E0" font-size="4" font-family="sans-serif">SHREDDED · 2 CUPS</text>
+  <path d="M14 42 Q20 38 26 42 Q32 46 38 42 Q44 38 50 42" stroke="#E8E0C0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M14 48 Q22 44 28 48 Q34 52 40 48 Q45 44 50 48" stroke="#E0D8B8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M14 54 Q24 50 32 54 Q40 58 50 54" stroke="#D8D0B0" stroke-width="1" fill="none" stroke-linecap="round"/>
 </svg>`,
 
 parmesan: () => `<svg viewBox="0 0 64 64">
-  <path d="M12 44 L12 28 L28 16 L52 28 L52 44 Z" fill="#C89040"/>
-  <path d="M12 44 L52 44 L52 28 L12 28 Z" fill="#E8B050"/>
-  <path d="M28 16 L12 28 L52 28 L36 16 Z" fill="#D4A048"/>
-  <circle cx="24" cy="36" r="2.5" fill="#B07828" opacity=".6"/>
-  <circle cx="38" cy="34" r="2" fill="#B07828" opacity=".5"/>
-  <circle cx="30" cy="40" r="2" fill="#B07828" opacity=".5"/>
-  <text x="32" y="37" text-anchor="middle" fill="#7A4810" font-size="5" font-family="sans-serif">PARMESAN</text>
+  <defs>
+    <linearGradient id="dPTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C068"/>
+      <stop offset="100%" stop-color="#C89040"/>
+    </linearGradient>
+    <linearGradient id="dPFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0C858"/>
+      <stop offset="100%" stop-color="#D8A840"/>
+    </linearGradient>
+    <linearGradient id="dPSide" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C89040"/>
+      <stop offset="100%" stop-color="#A87020"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="22" ry="3" fill="#A87020" opacity=".3"/>
+  <path d="M10 46 L28 14 L54 28 L54 46 Z" fill="url(#dPSide)"/>
+  <path d="M10 46 L54 46 L54 28 L10 28 Z" fill="url(#dPFront)"/>
+  <path d="M28 14 L10 28 L54 28 L54 14 Z" fill="url(#dPTop)"/>
+  <circle cx="22" cy="38" r="2.5" fill="#A07828" opacity=".5"/>
+  <circle cx="34" cy="35" r="2" fill="#A07828" opacity=".4"/>
+  <circle cx="28" cy="42" r="2" fill="#9A7020" opacity=".4"/>
+  <circle cx="42" cy="38" r="1.5" fill="#A07828" opacity=".4"/>
+  <circle cx="46" cy="32" r="1.5" fill="#C89040" opacity=".5"/>
+  <path d="M10 46 L54 46" stroke="#8A6018" stroke-width="2"/>
+  <text x="33" y="38" text-anchor="middle" fill="#7A4810" font-size="5" font-weight="600" font-family="sans-serif">PARMESAN</text>
+  <text x="32" y="56" text-anchor="middle" fill="#7A4810" font-size="4.5" font-family="sans-serif">WEDGE</text>
 </svg>`,
 
 cheddar: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="22" width="36" height="28" rx="4" fill="#F0C040" stroke="#D0A020" stroke-width="1.5"/>
-  <rect x="14" y="22" width="36" height="9" rx="4" fill="#C08020"/>
-  <text x="32" y="30" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">CHEDDAR</text>
-  <text x="32" y="40" text-anchor="middle" fill="#8A5810" font-size="5.5" font-family="sans-serif">SHREDDED</text>
-  <text x="32" y="47" text-anchor="middle" fill="#8A5810" font-size="5" font-family="sans-serif">8 OZ</text>
+  <defs>
+    <linearGradient id="dCHBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF6E0"/>
+      <stop offset="100%" stop-color="#F0E0A0"/>
+    </linearGradient>
+    <linearGradient id="dCHLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0A030"/>
+      <stop offset="100%" stop-color="#B07818"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#A07818" opacity=".2"/>
+  <rect x="10" y="10" width="44" height="48" rx="6" fill="url(#dCHBag)" stroke="#D0A830" stroke-width="1.5"/>
+  <rect x="10" y="10" width="44" height="5" rx="6" fill="#D0A830"/>
+  <rect x="12" y="13" width="40" height="2" rx="1" fill="#A88020"/>
+  <rect x="12" y="17" width="40" height="16" rx="3" fill="url(#dCHLabel)"/>
+  <text x="32" y="26" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">CHEDDAR</text>
+  <text x="32" y="32" text-anchor="middle" fill="#FFF0C0" font-size="4" font-family="sans-serif">SHREDDED · 8 OZ</text>
+  <path d="M14 42 Q18 38 22 42 Q26 46 30 42 Q34 38 38 42 Q42 38 46 42 Q49 44 50 42" stroke="#F0C840" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M14 48 Q20 44 26 48 Q32 52 38 48 Q43 44 50 48" stroke="#EEC038" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M14 54 Q22 50 30 54 Q38 58 48 54" stroke="#E8B830" stroke-width="1" fill="none" stroke-linecap="round"/>
 </svg>`,
 
 feta: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="24" width="36" height="28" rx="4" fill="#F8F4F0" stroke="#D0C8B8" stroke-width="1.5"/>
-  <rect x="14" y="24" width="36" height="9" rx="4" fill="#5A7898"/>
-  <text x="32" y="31" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">FETA</text>
-  <text x="32" y="42" text-anchor="middle" fill="#7A6848" font-size="5.5" font-family="sans-serif">CRUMBLED</text>
-  <text x="32" y="49" text-anchor="middle" fill="#7A6848" font-size="5" font-family="sans-serif">1 CUP</text>
+  <defs>
+    <linearGradient id="dFCont" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFCF8"/>
+      <stop offset="100%" stop-color="#EEE8DC"/>
+    </linearGradient>
+    <linearGradient id="dFLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6898C0"/>
+      <stop offset="100%" stop-color="#4A6898"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="20" ry="3" fill="#4A6898" opacity=".2"/>
+  <rect x="12" y="26" width="40" height="30" rx="5" fill="url(#dFCont)" stroke="#C0B8A8" stroke-width="1.5"/>
+  <rect x="12" y="20" width="40" height="10" rx="5" fill="url(#dFLid)"/>
+  <text x="32" y="28" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">FETA</text>
+  <rect x="14" y="34" width="9" height="6" rx="2" fill="#F8F5EE" stroke="#D8D0C0" stroke-width=".5"/>
+  <rect x="16" y="42" width="7" height="5" rx="2" fill="#F8F5EE" stroke="#D8D0C0" stroke-width=".5"/>
+  <rect x="27" y="36" width="10" height="7" rx="2" fill="#F0ECE4" stroke="#D8D0C0" stroke-width=".5"/>
+  <rect x="30" y="44" width="8" height="5" rx="2" fill="#F8F5EE" stroke="#D8D0C0" stroke-width=".5"/>
+  <rect x="40" y="34" width="9" height="6" rx="2" fill="#F0ECE4" stroke="#D8D0C0" stroke-width=".5"/>
+  <rect x="38" y="43" width="7" height="5" rx="2" fill="#F8F5EE" stroke="#D8D0C0" stroke-width=".5"/>
+  <text x="32" y="57" text-anchor="middle" fill="#9A8868" font-size="4.5" font-family="sans-serif">CRUMBLED · 1 CUP</text>
 </svg>`,
 
 american_cheese: () => `<svg viewBox="0 0 64 64">
-  <rect x="12" y="18" width="40" height="36" rx="4" fill="#F0C040" stroke="#D0A828" stroke-width="1.5"/>
-  <rect x="16" y="22" width="32" height="28" rx="2" fill="#F8D050" stroke="#D8B030" stroke-width=".8"/>
-  <line x1="12" y1="30" x2="52" y2="30" stroke="#D0A020" stroke-width=".8" opacity=".5"/>
-  <line x1="12" y1="42" x2="52" y2="42" stroke="#D0A020" stroke-width=".8" opacity=".5"/>
-  <text x="32" y="38" text-anchor="middle" fill="#9A7010" font-size="5" font-family="sans-serif">AMERICAN</text>
+  <defs>
+    <linearGradient id="dAPkg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8E068"/>
+      <stop offset="100%" stop-color="#E0C040"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="22" ry="2.5" fill="#C8A020" opacity=".2"/>
+  <rect x="10" y="14" width="44" height="42" rx="5" fill="url(#dAPkg)" stroke="#D0A820" stroke-width="1.5"/>
+  <rect x="10" y="14" width="44" height="12" rx="5" fill="#C08818"/>
+  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">AMERICAN</text>
+  <text x="32" y="28" text-anchor="middle" fill="#FFE8A0" font-size="4" font-family="sans-serif">CHEESE SLICES</text>
+  <rect x="16" y="30" width="32" height="22" rx="2" fill="#F8D850" stroke="#E8C028" stroke-width=".5"/>
+  <line x1="16" y1="36" x2="48" y2="36" stroke="#E8C028" stroke-width=".8"/>
+  <line x1="16" y1="42" x2="48" y2="42" stroke="#E8C028" stroke-width=".8"/>
+  <line x1="16" y1="48" x2="48" y2="48" stroke="#E8C028" stroke-width=".8"/>
+  <rect x="18" y="31" width="12" height="4" rx="1" fill="#FFF8C8" opacity=".5"/>
 </svg>`,
 
 yogurt: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="46" rx="16" ry="7" fill="#D0C8C0"/>
-  <rect x="16" y="24" width="32" height="22" rx="0" fill="#F8F4F0" stroke="#D0C8C0" stroke-width="1.5"/>
-  <ellipse cx="32" cy="24" rx="16" ry="6" fill="#D0C8C0"/>
-  <text x="32" y="34" text-anchor="middle" fill="#7A6858" font-size="5.5" font-family="sans-serif">PLAIN</text>
-  <text x="32" y="41" text-anchor="middle" fill="#7A6858" font-size="5" font-family="sans-serif">YOGURT</text>
+  <defs>
+    <linearGradient id="dYCup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAFAF8"/>
+      <stop offset="100%" stop-color="#EDE8E0"/>
+    </linearGradient>
+    <linearGradient id="dYLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0D0C0"/>
+      <stop offset="100%" stop-color="#C8B8A0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="4" fill="#C8B8A0" opacity=".3"/>
+  <path d="M14 26 L18 55 L46 55 L50 26 Z" fill="url(#dYCup)" stroke="#C8B8A0" stroke-width="1.5"/>
+  <ellipse cx="32" cy="26" rx="18" ry="5" fill="url(#dYLid)" stroke="#B0A090" stroke-width="1.5"/>
+  <text x="32" y="30" text-anchor="middle" fill="#7A6850" font-size="4.5" font-weight="600" font-family="sans-serif">PLAIN YOGURT</text>
+  <path d="M48 24 L54 20 Q56 22 54 24 L50 26" fill="#C8B8A0"/>
+  <text x="32" y="42" text-anchor="middle" fill="#8A7858" font-size="4.5" font-family="sans-serif">PLAIN</text>
+  <text x="32" y="49" text-anchor="middle" fill="#9A8868" font-size="4" font-family="sans-serif">32 OZ</text>
+  <rect x="16" y="28" width="4" height="24" rx="2" fill="#fff" opacity=".2"/>
 </svg>`,
 
 whipped_cream: () => `<svg viewBox="0 0 64 64">
-  <rect x="22" y="22" width="20" height="34" rx="6" fill="#E8E8F0" stroke="#B0B0D0" stroke-width="1.5"/>
-  <ellipse cx="32" cy="22" rx="10" ry="5" fill="#C0C0D8"/>
-  <rect x="28" y="14" width="8" height="10" rx="3" fill="#A0A0C0"/>
-  <text x="32" y="35" text-anchor="middle" fill="#6060A0" font-size="5" font-family="sans-serif">WHIPPED</text>
-  <text x="32" y="42" text-anchor="middle" fill="#6060A0" font-size="5" font-family="sans-serif">CREAM</text>
-  <path d="M26 50 Q32 54 38 50" stroke="#B0B0D0" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="dWCan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C8C8E0"/>
+      <stop offset="50%" stop-color="#F0F0F8"/>
+      <stop offset="100%" stop-color="#B8B8D0"/>
+    </linearGradient>
+    <linearGradient id="dWLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8080C0"/>
+      <stop offset="100%" stop-color="#5050A0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="11" ry="3" fill="#5050A0" opacity=".2"/>
+  <rect x="22" y="22" width="20" height="34" rx="8" fill="url(#dWCan)" stroke="#A0A0C0" stroke-width="1.5"/>
+  <rect x="22" y="33" width="20" height="14" fill="url(#dWLabel)"/>
+  <text x="32" y="40" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">WHIPPED</text>
+  <text x="32" y="45" text-anchor="middle" fill="#D0D0FF" font-size="4" font-family="sans-serif">CREAM</text>
+  <ellipse cx="32" cy="22" rx="10" ry="4.5" fill="#C0C0D8" stroke="#A0A0C0" stroke-width="1"/>
+  <rect x="29" y="12" width="6" height="12" rx="3" fill="#A0A0C8" stroke="#8888B0" stroke-width="1"/>
+  <rect x="26" y="14" width="12" height="4" rx="2" fill="#B0B0D0"/>
+  <rect x="24" y="24" width="4" height="28" rx="2" fill="#fff" opacity=".2"/>
 </svg>`,
 
 condensed_milk: () => `<svg viewBox="0 0 64 64">
@@ -908,261 +1068,576 @@ condensed_milk: () => `<svg viewBox="0 0 64 64">
 </svg>`,
 
 string_cheese: () => `<svg viewBox="0 0 64 64">
-  <rect x="26" y="10" width="12" height="48" rx="6" fill="#F8F4E8" stroke="#D8D0B8" stroke-width="1.5"/>
-  <rect x="26" y="10" width="12" height="10" rx="6" fill="#C0B888"/>
-  <text x="32" y="18" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="500" font-family="sans-serif">STR</text>
-  <line x1="26" y1="26" x2="38" y2="26" stroke="#D8D0B8" stroke-width=".8" opacity=".5"/>
-  <line x1="26" y1="34" x2="38" y2="34" stroke="#D8D0B8" stroke-width=".8" opacity=".5"/>
-  <line x1="26" y1="42" x2="38" y2="42" stroke="#D8D0B8" stroke-width=".8" opacity=".5"/>
-  <text x="32" y="52" text-anchor="middle" fill="#9A8858" font-size="4" font-family="sans-serif">MOZZARELLA</text>
+  <defs>
+    <linearGradient id="dSCheese" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EEEAE0"/>
+      <stop offset="50%" stop-color="#F8F4EC"/>
+      <stop offset="100%" stop-color="#E8E4D8"/>
+    </linearGradient>
+    <linearGradient id="dSWrap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D8D0B8"/>
+      <stop offset="100%" stop-color="#C0B898"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="59" rx="10" ry="2.5" fill="#A09060" opacity=".2"/>
+  <path d="M26 8 Q32 4 38 8 Q38 13 32 11 Q26 13 26 8Z" fill="url(#dSWrap)" stroke="#C0B890" stroke-width="1"/>
+  <rect x="24" y="11" width="16" height="46" rx="8" fill="url(#dSCheese)" stroke="#D8D0B8" stroke-width="1.5"/>
+  <rect x="24" y="14" width="16" height="10" rx="0" fill="#C0A830" opacity=".85"/>
+  <text x="32" y="21" text-anchor="middle" fill="#fff" font-size="4" font-weight="700" font-family="sans-serif">STRING</text>
+  <text x="32" y="26" text-anchor="middle" fill="#FFF0C0" font-size="3.5" font-family="sans-serif">CHEESE</text>
+  <rect x="26" y="26" width="4" height="28" rx="2" fill="#fff" opacity=".25"/>
+  <line x1="24" y1="34" x2="40" y2="34" stroke="#D8D0B0" stroke-width=".8" opacity=".4"/>
+  <line x1="24" y1="42" x2="40" y2="42" stroke="#D8D0B0" stroke-width=".8" opacity=".4"/>
+  <line x1="24" y1="50" x2="40" y2="50" stroke="#D8D0B0" stroke-width=".8" opacity=".4"/>
+  <text x="32" y="61" text-anchor="middle" fill="#9A8858" font-size="3.8" font-family="sans-serif">MOZZARELLA</text>
 </svg>`,
 
 // ── PANTRY ───────────────────────────────────────────────
 
 olive_oil: () => `<svg viewBox="0 0 64 64">
-  <rect x="20" y="14" width="24" height="40" rx="4" fill="#C8D890" stroke="#A0B870" stroke-width="1.5"/>
-  <rect x="20" y="14" width="24" height="10" rx="4" fill="#5A8030"/>
-  <rect x="20" y="20" width="24" height="4" fill="#5A8030"/>
-  <rect x="25" y="10" width="14" height="6" rx="2" fill="#B0C070"/>
-  <circle cx="32" cy="12" r="3" fill="#8AB848"/>
-  <text x="32" y="32" text-anchor="middle" fill="#3A6010" font-size="5.5" font-weight="500" font-family="sans-serif">OLIVE OIL</text>
-  <text x="32" y="40" text-anchor="middle" fill="#3A6010" font-size="5" font-family="sans-serif">EXTRA VIRGIN</text>
-  <path d="M24 50 Q32 54 40 50" stroke="#A0B870" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pOOBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B0CC60"/>
+      <stop offset="50%" stop-color="#D4E880"/>
+      <stop offset="100%" stop-color="#A0BC50"/>
+    </linearGradient>
+    <linearGradient id="pOOLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3A7020"/>
+      <stop offset="100%" stop-color="#285010"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="14" ry="2.5" fill="#3A7020" opacity=".2"/>
+  <rect x="20" y="24" width="24" height="32" rx="6" fill="url(#pOOBottle)" stroke="#90A848" stroke-width="1.5"/>
+  <rect x="26" y="14" width="12" height="12" rx="4" fill="#A8C050" stroke="#80A038" stroke-width="1"/>
+  <rect x="27" y="9" width="10" height="7" rx="3" fill="#5A8828"/>
+  <rect x="22" y="30" width="20" height="18" rx="2" fill="url(#pOOLabel)"/>
+  <text x="32" y="37" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">OLIVE</text>
+  <text x="32" y="42" text-anchor="middle" fill="#C0E080" font-size="4" font-family="sans-serif">OIL</text>
+  <text x="32" y="47" text-anchor="middle" fill="#90C060" font-size="3.5" font-family="sans-serif">EXTRA VIRGIN</text>
+  <rect x="22" y="26" width="5" height="28" rx="2" fill="#fff" opacity=".2"/>
 </svg>`,
 
 vegetable_oil: () => `<svg viewBox="0 0 64 64">
-  <rect x="20" y="14" width="24" height="40" rx="4" fill="#F8F0C8" stroke="#D0C070" stroke-width="1.5"/>
-  <rect x="20" y="14" width="24" height="10" rx="4" fill="#C0A030"/>
-  <rect x="20" y="20" width="24" height="4" fill="#C0A030"/>
-  <rect x="25" y="10" width="14" height="6" rx="2" fill="#D0B040"/>
-  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">VEG OIL</text>
-  <text x="32" y="36" text-anchor="middle" fill="#9A7820" font-size="5.5" font-family="sans-serif">VEGETABLE</text>
-  <text x="32" y="43" text-anchor="middle" fill="#9A7820" font-size="5" font-family="sans-serif">OIL</text>
+  <defs>
+    <linearGradient id="pVOBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EEE870"/>
+      <stop offset="50%" stop-color="#FEF8A0"/>
+      <stop offset="100%" stop-color="#E4DC60"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="14" ry="2.5" fill="#C0A820" opacity=".2"/>
+  <rect x="20" y="24" width="24" height="32" rx="6" fill="url(#pVOBottle)" stroke="#D0B828" stroke-width="1.5"/>
+  <rect x="26" y="14" width="12" height="12" rx="4" fill="#E0C840" stroke="#C0A828" stroke-width="1"/>
+  <rect x="27" y="9" width="10" height="7" rx="3" fill="#D0A020"/>
+  <rect x="22" y="30" width="20" height="18" rx="2" fill="#C0A020" opacity=".85"/>
+  <text x="32" y="37" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">VEGGIE</text>
+  <text x="32" y="42" text-anchor="middle" fill="#FFF8C0" font-size="4" font-family="sans-serif">OIL</text>
+  <text x="32" y="47" text-anchor="middle" fill="#FFE880" font-size="3.5" font-family="sans-serif">48 FL OZ</text>
+  <rect x="22" y="26" width="5" height="28" rx="2" fill="#fff" opacity=".2"/>
 </svg>`,
 
 flour: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="4" fill="#F8F6F0" stroke="#D8D0C0" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="11" rx="4" fill="#8080A0"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">FLOUR</text>
-  <text x="32" y="34" text-anchor="middle" fill="#7A7060" font-size="5.5" font-family="sans-serif">ALL-PURPOSE</text>
-  <text x="32" y="41" text-anchor="middle" fill="#7A7060" font-size="5" font-family="sans-serif">5 LB</text>
-  <path d="M20 50 Q32 54 44 50" stroke="#D8D0C0" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pFBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFEFE"/>
+      <stop offset="100%" stop-color="#EAE6DE"/>
+    </linearGradient>
+    <linearGradient id="pFLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7878A8"/>
+      <stop offset="100%" stop-color="#505088"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#B8B8C0" opacity=".25"/>
+  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#pFBag)" stroke="#C8C8C0" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#pFLabel)"/>
+  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="6" font-weight="700" font-family="sans-serif">FLOUR</text>
+  <text x="32" y="33" text-anchor="middle" fill="#7A7868" font-size="5" font-family="sans-serif">ALL-PURPOSE</text>
+  <text x="32" y="40" text-anchor="middle" fill="#8A8878" font-size="5" font-family="sans-serif">5 LB BAG</text>
+  <path d="M18 52 Q32 56 46 52" stroke="#C8C8C0" stroke-width="1" fill="none"/>
 </svg>`,
 
 sugar: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="4" fill="#F8F8F8" stroke="#D8D8D0" stroke-width="1.5"/>
-  <ellipse cx="32" cy="14" rx="16" ry="5" fill="#D8D8D0"/>
-  <text x="32" y="30" text-anchor="middle" fill="#888880" font-size="6.5" font-family="sans-serif">SUGAR</text>
-  <text x="32" y="38" text-anchor="middle" fill="#888880" font-size="5" font-family="sans-serif">4 LB</text>
-  <circle cx="22" cy="46" r="1.5" fill="#C0C0C0"/>
-  <circle cx="28" cy="48" r="1.5" fill="#C0C0C0"/>
-  <circle cx="34" cy="46" r="1.5" fill="#C0C0C0"/>
-  <circle cx="40" cy="48" r="1.5" fill="#C0C0C0"/>
+  <defs>
+    <linearGradient id="pSGBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#EEEEE8"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#C0C0B8" opacity=".25"/>
+  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#pSGBag)" stroke="#D0D0C8" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="12" rx="5" fill="#D0D0C8"/>
+  <text x="32" y="23" text-anchor="middle" fill="#6A6A60" font-size="5.5" font-weight="700" font-family="sans-serif">SUGAR</text>
+  <circle cx="22" cy="35" r="2" fill="#D8D8D0" opacity=".8"/>
+  <circle cx="28" cy="32" r="1.5" fill="#D8D8D0" opacity=".8"/>
+  <circle cx="35" cy="35" r="2" fill="#D8D8D0" opacity=".8"/>
+  <circle cx="41" cy="32" r="1.5" fill="#D8D8D0" opacity=".8"/>
+  <circle cx="25" cy="40" r="1.5" fill="#D8D8D0" opacity=".8"/>
+  <circle cx="32" cy="42" r="2" fill="#D8D8D0" opacity=".8"/>
+  <circle cx="38" cy="40" r="1.5" fill="#D8D8D0" opacity=".8"/>
+  <text x="32" y="52" text-anchor="middle" fill="#8A8880" font-size="5" font-family="sans-serif">4 LB</text>
 </svg>`,
 
 brown_sugar: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="4" fill="#E8C880" stroke="#C0A040" stroke-width="1.5"/>
-  <ellipse cx="32" cy="14" rx="16" ry="5" fill="#C0A040"/>
-  <text x="32" y="29" text-anchor="middle" fill="#7A5A10" font-size="5.5" font-family="sans-serif">BROWN</text>
-  <text x="32" y="37" text-anchor="middle" fill="#7A5A10" font-size="6" font-family="sans-serif">SUGAR</text>
-  <text x="32" y="44" text-anchor="middle" fill="#7A5A10" font-size="5" font-family="sans-serif">2 LB</text>
+  <defs>
+    <linearGradient id="pBSBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0D888"/>
+      <stop offset="100%" stop-color="#D8B858"/>
+    </linearGradient>
+    <linearGradient id="pBSLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C0A040"/>
+      <stop offset="100%" stop-color="#906018"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#906018" opacity=".25"/>
+  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#pBSBag)" stroke="#C0A040" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#pBSLabel)"/>
+  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">BROWN SUGAR</text>
+  <circle cx="22" cy="36" r="2.5" fill="#C09030" opacity=".6"/>
+  <circle cx="30" cy="33" r="2" fill="#C09030" opacity=".5"/>
+  <circle cx="38" cy="36" r="2.5" fill="#B88020" opacity=".6"/>
+  <circle cx="26" cy="42" r="2" fill="#C09030" opacity=".5"/>
+  <circle cx="35" cy="43" r="2.5" fill="#B88020" opacity=".6"/>
+  <text x="32" y="52" text-anchor="middle" fill="#7A5010" font-size="5" font-family="sans-serif">2 LB</text>
 </svg>`,
 
 baking_soda: () => `<svg viewBox="0 0 64 64">
-  <rect x="20" y="16" width="24" height="36" rx="4" fill="#F0F0F8" stroke="#B0B8D0" stroke-width="1.5"/>
-  <rect x="20" y="16" width="24" height="10" rx="4" fill="#E04020"/>
-  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">BAKING</text>
-  <text x="32" y="34" text-anchor="middle" fill="#6068A8" font-size="5.5" font-family="sans-serif">SODA</text>
-  <text x="32" y="41" text-anchor="middle" fill="#9090B8" font-size="5" font-family="sans-serif">ARM &amp; HAMMER</text>
-  <path d="M22 48 Q32 52 42 48" stroke="#B0B8D0" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pBSDBox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4F4FC"/>
+      <stop offset="100%" stop-color="#E0E0F0"/>
+    </linearGradient>
+    <linearGradient id="pBSDTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E85030"/>
+      <stop offset="100%" stop-color="#C02810"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#6068A8" opacity=".2"/>
+  <rect x="18" y="16" width="28" height="40" rx="4" fill="url(#pBSDBox)" stroke="#B0B8D0" stroke-width="1.5"/>
+  <rect x="18" y="16" width="28" height="12" rx="4" fill="url(#pBSDTop)"/>
+  <text x="32" y="25" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">BAKING</text>
+  <text x="32" y="36" text-anchor="middle" fill="#5060A8" font-size="6" font-weight="700" font-family="sans-serif">SODA</text>
+  <text x="32" y="44" text-anchor="middle" fill="#7878B0" font-size="4" font-family="sans-serif">ARM &amp; HAMMER</text>
+  <path d="M22 52 Q32 56 42 52" stroke="#B0B8D0" stroke-width="1" fill="none"/>
 </svg>`,
 
 baking_powder: () => `<svg viewBox="0 0 64 64">
-  <rect x="20" y="16" width="24" height="36" rx="4" fill="#F8F0F0" stroke="#D0B8B0" stroke-width="1.5"/>
-  <rect x="20" y="16" width="24" height="10" rx="4" fill="#C04030"/>
-  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="500" font-family="sans-serif">BAKING</text>
-  <text x="32" y="33" text-anchor="middle" fill="#9A5040" font-size="5" font-family="sans-serif">POWDER</text>
-  <text x="32" y="40" text-anchor="middle" fill="#9A7070" font-size="4.5" font-family="sans-serif">DOUBLE ACTING</text>
-  <path d="M22 48 Q32 52 42 48" stroke="#D0B8B0" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pBPWCan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E8D8D0"/>
+      <stop offset="50%" stop-color="#F8F0EC"/>
+      <stop offset="100%" stop-color="#D8C8C0"/>
+    </linearGradient>
+    <linearGradient id="pBPWTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C85040"/>
+      <stop offset="100%" stop-color="#A02818"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#A02818" opacity=".2"/>
+  <rect x="20" y="18" width="24" height="38" rx="5" fill="url(#pBPWCan)" stroke="#D0B8B0" stroke-width="1.5"/>
+  <rect x="20" y="18" width="24" height="12" rx="5" fill="url(#pBPWTop)"/>
+  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">BAKING</text>
+  <text x="32" y="38" text-anchor="middle" fill="#9A4838" font-size="5.5" font-weight="700" font-family="sans-serif">POWDER</text>
+  <text x="32" y="46" text-anchor="middle" fill="#B07068" font-size="3.5" font-family="sans-serif">DOUBLE ACTING</text>
+  <rect x="22" y="20" width="4" height="34" rx="2" fill="#fff" opacity=".18"/>
 </svg>`,
 
 salt_pepper: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="18" width="14" height="32" rx="5" fill="#F0F0F0" stroke="#D0D0D0" stroke-width="1.5"/>
-  <ellipse cx="21" cy="18" rx="7" ry="4" fill="#C0C0C0"/>
-  <circle cx="21" cy="18" r="3" fill="#A0A0A0"/>
-  <text x="21" y="36" text-anchor="middle" fill="#9A9A9A" font-size="5" font-family="sans-serif">SALT</text>
-  <rect x="36" y="18" width="14" height="32" rx="5" fill="#2A2A2A" stroke="#1A1A1A" stroke-width="1.5"/>
-  <ellipse cx="43" cy="18" rx="7" ry="4" fill="#1A1A1A"/>
-  <circle cx="43" cy="18" r="3" fill="#3A3A3A"/>
-  <circle cx="40" cy="30" r="1" fill="#888"/>
-  <circle cx="43" cy="34" r="1" fill="#888"/>
-  <circle cx="46" cy="30" r="1" fill="#888"/>
-  <text x="43" y="42" text-anchor="middle" fill="#888" font-size="4.5" font-family="sans-serif">PEPPER</text>
+  <defs>
+    <linearGradient id="pSPSalt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E8E8E8"/>
+      <stop offset="50%" stop-color="#FAFAFA"/>
+      <stop offset="100%" stop-color="#E0E0E0"/>
+    </linearGradient>
+    <linearGradient id="pSPPepper" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#282828"/>
+      <stop offset="50%" stop-color="#404040"/>
+      <stop offset="100%" stop-color="#202020"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="21" cy="56" rx="8" ry="2.5" fill="#B0B0B0" opacity=".25"/>
+  <ellipse cx="43" cy="56" rx="8" ry="2.5" fill="#202020" opacity=".25"/>
+  <rect x="13" y="20" width="16" height="34" rx="6" fill="url(#pSPSalt)" stroke="#D0D0D0" stroke-width="1.5"/>
+  <ellipse cx="21" cy="20" rx="8" ry="4" fill="#C8C8C8"/>
+  <circle cx="21" cy="20" r="3.5" fill="#B0B0B0"/>
+  <circle cx="19" cy="30" r="1" fill="#C8C8C8"/>
+  <circle cx="23" cy="34" r="1" fill="#C8C8C8"/>
+  <circle cx="20" cy="38" r="1" fill="#C8C8C8"/>
+  <text x="21" y="48" text-anchor="middle" fill="#909090" font-size="4.5" font-weight="600" font-family="sans-serif">SALT</text>
+  <rect x="35" y="20" width="16" height="34" rx="6" fill="url(#pSPPepper)" stroke="#181818" stroke-width="1.5"/>
+  <ellipse cx="43" cy="20" rx="8" ry="4" fill="#181818"/>
+  <circle cx="43" cy="20" r="3.5" fill="#303030"/>
+  <circle cx="41" cy="30" r="1" fill="#686868"/>
+  <circle cx="45" cy="34" r="1" fill="#686868"/>
+  <circle cx="42" cy="38" r="1" fill="#686868"/>
+  <circle cx="45" cy="30" r="1" fill="#585858"/>
+  <text x="43" y="48" text-anchor="middle" fill="#888" font-size="4.5" font-weight="600" font-family="sans-serif">PEPPER</text>
 </svg>`,
 
 italian_seasoning: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="36" rx="4" fill="#F8F4E0" stroke="#C8B870" stroke-width="1.5"/>
-  <ellipse cx="32" cy="16" rx="14" ry="5" fill="#B09830"/>
-  <text x="32" y="30" text-anchor="middle" fill="#7A6820" font-size="5.5" font-family="sans-serif">ITALIAN</text>
-  <text x="32" y="37" text-anchor="middle" fill="#7A6820" font-size="5" font-family="sans-serif">SEASONING</text>
-  <circle cx="22" cy="44" r="2" fill="#6A8820"/>
-  <circle cx="28" cy="46" r="1.5" fill="#C04020"/>
-  <circle cx="34" cy="44" r="2" fill="#6A8820"/>
-  <circle cx="40" cy="46" r="1.5" fill="#C04020"/>
+  <defs>
+    <linearGradient id="pISJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8F4E0"/>
+      <stop offset="100%" stop-color="#EEE8C8"/>
+    </linearGradient>
+    <linearGradient id="pISLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B89830"/>
+      <stop offset="100%" stop-color="#907818"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#907818" opacity=".25"/>
+  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pISJar)" stroke="#C8B870" stroke-width="1.5"/>
+  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pISLid)" stroke="#907818" stroke-width="1.5"/>
+  <text x="32" y="32" text-anchor="middle" fill="#7A6820" font-size="5" font-weight="700" font-family="sans-serif">ITALIAN</text>
+  <text x="32" y="39" text-anchor="middle" fill="#7A6820" font-size="4.5" font-family="sans-serif">SEASONING</text>
+  <circle cx="22" cy="47" r="2" fill="#5A8020"/>
+  <circle cx="28" cy="49" r="1.5" fill="#C04820"/>
+  <circle cx="34" cy="47" r="2" fill="#5A8020"/>
+  <circle cx="40" cy="49" r="1.5" fill="#C04820"/>
+  <circle cx="26" cy="45" r="1.5" fill="#7A9030"/>
+  <circle cx="38" cy="45" r="1.5" fill="#8A4818"/>
 </svg>`,
 
 cumin: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="36" rx="4" fill="#F0E8D8" stroke="#C0A878" stroke-width="1.5"/>
-  <ellipse cx="32" cy="16" rx="14" ry="5" fill="#A08848"/>
-  <text x="32" y="30" text-anchor="middle" fill="#7A5820" font-size="6.5" font-family="sans-serif">CUMIN</text>
-  <text x="32" y="38" text-anchor="middle" fill="#9A7840" font-size="5" font-family="sans-serif">GROUND</text>
-  <ellipse cx="24" cy="46" rx="3" ry="1.5" fill="#9A7840" opacity=".6"/>
-  <ellipse cx="32" cy="48" rx="3" ry="1.5" fill="#9A7840" opacity=".6"/>
-  <ellipse cx="40" cy="46" rx="3" ry="1.5" fill="#9A7840" opacity=".6"/>
+  <defs>
+    <linearGradient id="pCUJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4EAD8"/>
+      <stop offset="100%" stop-color="#E4D8C0"/>
+    </linearGradient>
+    <linearGradient id="pCULid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B09050"/>
+      <stop offset="100%" stop-color="#886828"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#886828" opacity=".25"/>
+  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pCUJar)" stroke="#C0A878" stroke-width="1.5"/>
+  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pCULid)" stroke="#886828" stroke-width="1.5"/>
+  <text x="32" y="32" text-anchor="middle" fill="#7A5820" font-size="6" font-weight="700" font-family="sans-serif">CUMIN</text>
+  <text x="32" y="40" text-anchor="middle" fill="#9A7840" font-size="4.5" font-family="sans-serif">GROUND</text>
+  <ellipse cx="23" cy="48" rx="3" ry="1.5" fill="#9A7840" opacity=".7" transform="rotate(-20,23,48)"/>
+  <ellipse cx="31" cy="50" rx="3" ry="1.5" fill="#9A7840" opacity=".7" transform="rotate(10,31,50)"/>
+  <ellipse cx="39" cy="48" rx="3" ry="1.5" fill="#9A7840" opacity=".7" transform="rotate(-15,39,48)"/>
 </svg>`,
 
 chili_powder: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="36" rx="4" fill="#F0D8C8" stroke="#C07050" stroke-width="1.5"/>
-  <ellipse cx="32" cy="16" rx="14" ry="5" fill="#B04828"/>
-  <text x="32" y="29" text-anchor="middle" fill="#8A2818" font-size="5.5" font-family="sans-serif">CHILI</text>
-  <text x="32" y="37" text-anchor="middle" fill="#8A2818" font-size="5" font-family="sans-serif">POWDER</text>
-  <circle cx="24" cy="44" r="2" fill="#C04030"/>
-  <circle cx="32" cy="46" r="2" fill="#D05030"/>
-  <circle cx="40" cy="44" r="2" fill="#C04030"/>
+  <defs>
+    <linearGradient id="pCPJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4DCC8"/>
+      <stop offset="100%" stop-color="#E4C4A8"/>
+    </linearGradient>
+    <linearGradient id="pCPLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C05030"/>
+      <stop offset="100%" stop-color="#902818"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#902818" opacity=".25"/>
+  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pCPJar)" stroke="#C07050" stroke-width="1.5"/>
+  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pCPLid)" stroke="#902818" stroke-width="1.5"/>
+  <text x="32" y="31" text-anchor="middle" fill="#8A2818" font-size="5.5" font-weight="700" font-family="sans-serif">CHILI</text>
+  <text x="32" y="39" text-anchor="middle" fill="#8A2818" font-size="5" font-family="sans-serif">POWDER</text>
+  <circle cx="23" cy="47" r="2.5" fill="#C84030" opacity=".7"/>
+  <circle cx="32" cy="49" r="2.5" fill="#D85038" opacity=".7"/>
+  <circle cx="41" cy="47" r="2.5" fill="#C84030" opacity=".7"/>
 </svg>`,
 
 cinnamon: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="36" rx="4" fill="#F0E0C8" stroke="#C09060" stroke-width="1.5"/>
-  <ellipse cx="32" cy="16" rx="14" ry="5" fill="#A07040"/>
-  <text x="32" y="30" text-anchor="middle" fill="#7A4820" font-size="5.5" font-family="sans-serif">CINNAMON</text>
-  <text x="32" y="38" text-anchor="middle" fill="#9A6840" font-size="5" font-family="sans-serif">GROUND</text>
-  <path d="M22 46 Q32 44 42 46" stroke="#A07040" stroke-width="1.5" fill="none"/>
+  <defs>
+    <linearGradient id="pCNJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4E0C8"/>
+      <stop offset="100%" stop-color="#E4CCA8"/>
+    </linearGradient>
+    <linearGradient id="pCNLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B08050"/>
+      <stop offset="100%" stop-color="#886030"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#886030" opacity=".25"/>
+  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pCNJar)" stroke="#C09060" stroke-width="1.5"/>
+  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pCNLid)" stroke="#886030" stroke-width="1.5"/>
+  <text x="32" y="31" text-anchor="middle" fill="#7A4820" font-size="5.5" font-weight="700" font-family="sans-serif">CINNAMON</text>
+  <text x="32" y="39" text-anchor="middle" fill="#9A6840" font-size="4.5" font-family="sans-serif">GROUND</text>
+  <path d="M21 47 Q32 44 43 47" stroke="#A07040" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M22 51 Q32 48 42 51" stroke="#B08050" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".6"/>
 </svg>`,
 
 vanilla_extract: () => `<svg viewBox="0 0 64 64">
-  <rect x="24" y="18" width="16" height="36" rx="4" fill="#3A2010" stroke="#2A1808" stroke-width="1.5"/>
-  <rect x="24" y="18" width="16" height="10" rx="4" fill="#2A1808"/>
-  <rect x="27" y="14" width="10" height="6" rx="2" fill="#4A3018"/>
-  <text x="32" y="26" text-anchor="middle" fill="#C8A060" font-size="4.5" font-weight="500" font-family="sans-serif">VANILLA</text>
-  <text x="32" y="36" text-anchor="middle" fill="#C8A060" font-size="4" font-family="sans-serif">EXTRACT</text>
-  <text x="32" y="44" text-anchor="middle" fill="#A08040" font-size="4" font-family="sans-serif">PURE</text>
+  <defs>
+    <linearGradient id="pVEBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2A1808"/>
+      <stop offset="50%" stop-color="#4A2818"/>
+      <stop offset="100%" stop-color="#2A1808"/>
+    </linearGradient>
+    <linearGradient id="pVELabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C8A060"/>
+      <stop offset="100%" stop-color="#A87840"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="10" ry="2.5" fill="#2A1808" opacity=".3"/>
+  <rect x="24" y="20" width="16" height="36" rx="5" fill="url(#pVEBottle)" stroke="#1A1008" stroke-width="1.5"/>
+  <rect x="26" y="14" width="12" height="8" rx="3" fill="#3A2010" stroke="#2A1008" stroke-width="1"/>
+  <rect x="27" y="9" width="10" height="7" rx="3" fill="#2A1008"/>
+  <rect x="26" y="26" width="12" height="22" rx="2" fill="#1A0C04" opacity=".5"/>
+  <text x="32" y="33" text-anchor="middle" fill="#D8B070" font-size="4.5" font-weight="700" font-family="sans-serif">VANILLA</text>
+  <text x="32" y="40" text-anchor="middle" fill="#C8A058" font-size="4" font-family="sans-serif">EXTRACT</text>
+  <text x="32" y="46" text-anchor="middle" fill="#A88040" font-size="3.5" font-family="sans-serif">PURE</text>
+  <rect x="26" y="22" width="3" height="32" rx="1.5" fill="#fff" opacity=".12"/>
 </svg>`,
 
 cocoa_powder: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="14" width="28" height="38" rx="4" fill="#3A1808" stroke="#2A1000" stroke-width="1.5"/>
-  <rect x="18" y="14" width="28" height="12" rx="4" fill="#2A1000"/>
-  <text x="32" y="23" text-anchor="middle" fill="#D09050" font-size="5" font-weight="500" font-family="sans-serif">COCOA</text>
-  <text x="32" y="34" text-anchor="middle" fill="#D09050" font-size="5" font-family="sans-serif">POWDER</text>
-  <text x="32" y="41" text-anchor="middle" fill="#A06030" font-size="4.5" font-family="sans-serif">UNSWEETENED</text>
-  <path d="M22 50 Q32 54 42 50" stroke="#5A2808" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pCCCan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#301008"/>
+      <stop offset="50%" stop-color="#4A1C10"/>
+      <stop offset="100%" stop-color="#281008"/>
+    </linearGradient>
+    <linearGradient id="pCCTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#201008"/>
+      <stop offset="100%" stop-color="#180C04"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#180C04" opacity=".4"/>
+  <rect x="18" y="16" width="28" height="40" rx="5" fill="url(#pCCCan)" stroke="#180C04" stroke-width="1.5"/>
+  <rect x="18" y="16" width="28" height="12" rx="5" fill="url(#pCCTop)"/>
+  <text x="32" y="25" text-anchor="middle" fill="#D09050" font-size="5" font-weight="700" font-family="sans-serif">COCOA</text>
+  <text x="32" y="36" text-anchor="middle" fill="#D09050" font-size="5.5" font-family="sans-serif">POWDER</text>
+  <text x="32" y="44" text-anchor="middle" fill="#A06830" font-size="4" font-family="sans-serif">UNSWEETENED</text>
+  <rect x="20" y="18" width="4" height="36" rx="2" fill="#fff" opacity=".08"/>
 </svg>`,
 
 chocolate_chips: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="16" width="36" height="38" rx="5" fill="#F8F4EC" stroke="#D8C890" stroke-width="1.5"/>
-  <rect x="14" y="16" width="36" height="12" rx="5" fill="#5A2808"/>
-  <text x="32" y="26" text-anchor="middle" fill="#E8B060" font-size="5.5" font-weight="500" font-family="sans-serif">CHOC CHIPS</text>
-  <path d="M22 34 L26 28 L30 34 Z" fill="#3A1808"/>
-  <path d="M30 38 L34 32 L38 38 Z" fill="#3A1808"/>
-  <path d="M20 44 L24 38 L28 44 Z" fill="#4A2010"/>
-  <path d="M34 44 L38 38 L42 44 Z" fill="#4A2010"/>
+  <defs>
+    <linearGradient id="pCHBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF4E8"/>
+      <stop offset="100%" stop-color="#EEE0C8"/>
+    </linearGradient>
+    <linearGradient id="pCHTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5A2808"/>
+      <stop offset="100%" stop-color="#3A1408"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#3A1408" opacity=".2"/>
+  <rect x="12" y="12" width="40" height="48" rx="6" fill="url(#pCHBag)" stroke="#D8C890" stroke-width="1.5"/>
+  <rect x="12" y="12" width="40" height="14" rx="6" fill="url(#pCHTop)"/>
+  <text x="32" y="22" text-anchor="middle" fill="#E8B060" font-size="5.5" font-weight="700" font-family="sans-serif">CHOC CHIPS</text>
+  <text x="32" y="29" text-anchor="middle" fill="#C89048" font-size="4" font-family="sans-serif">SEMI-SWEET · 12 OZ</text>
+  <path d="M20 36 L23 31 L26 36 Z" fill="#3A1808"/>
+  <path d="M28 40 L31 35 L34 40 Z" fill="#3A1808"/>
+  <path d="M36 36 L39 31 L42 36 Z" fill="#4A2010"/>
+  <path d="M20 46 L23 41 L26 46 Z" fill="#4A2010"/>
+  <path d="M30 48 L33 43 L36 48 Z" fill="#3A1808"/>
+  <path d="M38 46 L41 41 L44 46 Z" fill="#4A2010"/>
 </svg>`,
 
 soy_sauce: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="48" rx="14" ry="6" fill="#5A3010"/>
-  <rect x="18" y="22" width="28" height="26" rx="3" fill="#6A3810" stroke="#4A2808" stroke-width="2"/>
-  <ellipse cx="32" cy="22" rx="14" ry="5" fill="#5A3010"/>
-  <text x="32" y="26" text-anchor="middle" fill="#C88040" font-size="5" font-weight="500" font-family="sans-serif">SOY SAUCE</text>
-  <text x="32" y="34" text-anchor="middle" fill="#C88040" font-size="5" font-family="sans-serif">REDUCED</text>
-  <text x="32" y="41" text-anchor="middle" fill="#A06020" font-size="4.5" font-family="sans-serif">SODIUM</text>
-  <path d="M22 48 Q32 52 42 48" stroke="#4A2808" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pSYBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4A2808"/>
+      <stop offset="50%" stop-color="#6A3C18"/>
+      <stop offset="100%" stop-color="#4A2808"/>
+    </linearGradient>
+    <linearGradient id="pSYLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D89050"/>
+      <stop offset="100%" stop-color="#A06018"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="3" fill="#3A1808" opacity=".35"/>
+  <path d="M18 48 Q18 24 24 18 Q28 14 32 14 Q36 14 40 18 Q46 24 46 48 Z" fill="url(#pSYBottle)" stroke="#3A1808" stroke-width="1.5"/>
+  <rect x="22" y="26" width="20" height="18" rx="2" fill="url(#pSYLabel)"/>
+  <text x="32" y="33" text-anchor="middle" fill="#2A1008" font-size="4.5" font-weight="700" font-family="sans-serif">SOY</text>
+  <text x="32" y="39" text-anchor="middle" fill="#2A1008" font-size="4.5" font-family="sans-serif">SAUCE</text>
+  <rect x="26" y="10" width="12" height="6" rx="3" fill="#5A3018"/>
+  <circle cx="32" cy="10" r="3" fill="#3A1808"/>
+  <rect x="20" y="16" width="4" height="30" rx="2" fill="#fff" opacity=".08"/>
 </svg>`,
 
 honey: () => `<svg viewBox="0 0 64 64">
-  <path d="M20 50 Q18 36 22 24 Q26 14 32 14 Q38 14 42 24 Q46 36 44 50 Z" fill="#E8A020" stroke="#C88010" stroke-width="1.5"/>
-  <path d="M22 50 Q20 38 24 26 Q28 18 32 18 Q36 18 40 26 Q44 38 42 50" fill="#F0B030" opacity=".4"/>
-  <rect x="26" y="10" width="12" height="6" rx="3" fill="#C88010"/>
-  <circle cx="32" cy="12" r="2" fill="#A06808"/>
-  <text x="32" y="36" text-anchor="middle" fill="#7A4808" font-size="6" font-family="sans-serif">HONEY</text>
-  <text x="32" y="44" text-anchor="middle" fill="#9A6010" font-size="5" font-family="sans-serif">PURE</text>
+  <defs>
+    <linearGradient id="pHNBottle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0B830"/>
+      <stop offset="100%" stop-color="#D89010"/>
+    </linearGradient>
+    <radialGradient id="pHNHoney" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#F8C840"/>
+      <stop offset="100%" stop-color="#D89010"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="32" cy="56" rx="14" ry="3" fill="#B07010" opacity=".3"/>
+  <path d="M18 52 Q16 36 20 24 Q24 12 32 12 Q40 12 44 24 Q48 36 46 52 Z" fill="url(#pHNHoney)" stroke="#C88010" stroke-width="1.5"/>
+  <path d="M20 52 Q18 38 22 26 Q26 16 32 16 Q38 16 42 26 Q46 38 44 52" fill="#FCD050" opacity=".35"/>
+  <rect x="26" y="8" width="12" height="6" rx="3" fill="#C88010"/>
+  <circle cx="32" cy="8" r="2.5" fill="#A06808"/>
+  <text x="32" y="34" text-anchor="middle" fill="#7A4808" font-size="6" font-weight="700" font-family="sans-serif">HONEY</text>
+  <text x="32" y="42" text-anchor="middle" fill="#9A6010" font-size="4.5" font-family="sans-serif">PURE</text>
+  <ellipse cx="24" cy="24" rx="3" ry="2" fill="#FDD860" opacity=".5"/>
 </svg>`,
 
 red_wine_vinegar: () => `<svg viewBox="0 0 64 64">
-  <rect x="22" y="18" width="20" height="36" rx="4" fill="#9A2030" stroke="#7A1020" stroke-width="1.5"/>
-  <rect x="22" y="18" width="20" height="10" rx="4" fill="#7A1020"/>
-  <rect x="26" y="14" width="12" height="6" rx="2" fill="#9A2030"/>
-  <text x="32" y="26" text-anchor="middle" fill="#F0A0B0" font-size="4.5" font-weight="500" font-family="sans-serif">RED WINE</text>
-  <text x="32" y="35" text-anchor="middle" fill="#F0A0B0" font-size="5" font-family="sans-serif">VINEGAR</text>
-  <path d="M25 48 Q32 52 39 48" stroke="#7A1020" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pRVBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#881828"/>
+      <stop offset="50%" stop-color="#B02838"/>
+      <stop offset="100%" stop-color="#881828"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="12" ry="2.5" fill="#881828" opacity=".3"/>
+  <rect x="22" y="22" width="20" height="34" rx="6" fill="url(#pRVBottle)" stroke="#680E1A" stroke-width="1.5"/>
+  <rect x="26" y="14" width="12" height="10" rx="4" fill="#901A28" stroke="#680E1A" stroke-width="1"/>
+  <rect x="27" y="9" width="10" height="7" rx="3" fill="#6A1018"/>
+  <rect x="24" y="28" width="16" height="18" rx="2" fill="#5A0C14" opacity=".5"/>
+  <text x="32" y="34" text-anchor="middle" fill="#F0A0B0" font-size="4.5" font-weight="700" font-family="sans-serif">RED WINE</text>
+  <text x="32" y="40" text-anchor="middle" fill="#F0A0B0" font-size="4.5" font-family="sans-serif">VINEGAR</text>
+  <rect x="24" y="24" width="3" height="30" rx="1.5" fill="#fff" opacity=".1"/>
 </svg>`,
 
 oregano: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="36" rx="4" fill="#F0ECD8" stroke="#C0B868" stroke-width="1.5"/>
-  <ellipse cx="32" cy="16" rx="14" ry="5" fill="#A09840"/>
-  <text x="32" y="30" text-anchor="middle" fill="#6A7020" font-size="5.5" font-family="sans-serif">OREGANO</text>
-  <text x="32" y="37" text-anchor="middle" fill="#8A8840" font-size="5" font-family="sans-serif">DRIED</text>
-  <circle cx="24" cy="44" r="2" fill="#7A9028"/>
-  <circle cx="30" cy="46" r="1.5" fill="#6A8020"/>
-  <circle cx="36" cy="44" r="2" fill="#7A9028"/>
-  <circle cx="42" cy="46" r="1.5" fill="#6A8020"/>
+  <defs>
+    <linearGradient id="pORJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4EED8"/>
+      <stop offset="100%" stop-color="#E4E0C0"/>
+    </linearGradient>
+    <linearGradient id="pORLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A89840"/>
+      <stop offset="100%" stop-color="#807820"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#807820" opacity=".25"/>
+  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pORJar)" stroke="#C0B868" stroke-width="1.5"/>
+  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pORLid)" stroke="#807820" stroke-width="1.5"/>
+  <text x="32" y="32" text-anchor="middle" fill="#6A7020" font-size="5.5" font-weight="700" font-family="sans-serif">OREGANO</text>
+  <text x="32" y="39" text-anchor="middle" fill="#8A8840" font-size="4.5" font-family="sans-serif">DRIED</text>
+  <circle cx="23" cy="47" r="2" fill="#7A9028"/>
+  <circle cx="29" cy="49" r="1.5" fill="#6A8020"/>
+  <circle cx="35" cy="47" r="2" fill="#7A9028"/>
+  <circle cx="41" cy="49" r="1.5" fill="#6A8020"/>
+  <circle cx="27" cy="45" r="1.5" fill="#8AA030"/>
 </svg>`,
 
 hot_sauce: () => `<svg viewBox="0 0 64 64">
-  <rect x="22" y="16" width="20" height="36" rx="5" fill="#E03020" stroke="#C02010" stroke-width="1.5"/>
-  <ellipse cx="32" cy="16" rx="10" ry="4" fill="#C02010"/>
-  <rect x="28" y="12" width="8" height="6" rx="2" fill="#A01808"/>
-  <text x="32" y="29" text-anchor="middle" fill="#FFD0C0" font-size="5.5" font-weight="500" font-family="sans-serif">HOT</text>
-  <text x="32" y="36" text-anchor="middle" fill="#FFD0C0" font-size="5" font-family="sans-serif">SAUCE</text>
-  <path d="M26 44 L32 42 L38 44" stroke="#FF8060" stroke-width="1" fill="none"/>
-  <path d="M24 50 Q32 54 40 50" stroke="#C02010" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pHSBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D02010"/>
+      <stop offset="50%" stop-color="#F03020"/>
+      <stop offset="100%" stop-color="#C01808"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="12" ry="2.5" fill="#C01808" opacity=".3"/>
+  <rect x="22" y="20" width="20" height="34" rx="7" fill="url(#pHSBottle)" stroke="#A81008" stroke-width="1.5"/>
+  <ellipse cx="32" cy="20" rx="10" ry="4.5" fill="#C01808"/>
+  <rect x="28" y="13" width="8" height="9" rx="3" fill="#A01008"/>
+  <rect x="24" y="28" width="16" height="18" rx="2" fill="#FFFAF8" opacity=".15"/>
+  <text x="32" y="35" text-anchor="middle" fill="#FFE0D0" font-size="5.5" font-weight="700" font-family="sans-serif">HOT</text>
+  <text x="32" y="42" text-anchor="middle" fill="#FFC8B0" font-size="5" font-family="sans-serif">SAUCE</text>
+  <rect x="24" y="22" width="4" height="30" rx="2" fill="#fff" opacity=".12"/>
 </svg>`,
 
 ketchup_mustard: () => `<svg viewBox="0 0 64 64">
-  <rect x="13" y="18" width="16" height="32" rx="5" fill="#D02020" stroke="#B01010" stroke-width="1.5"/>
-  <ellipse cx="21" cy="18" rx="8" ry="4" fill="#B01010"/>
-  <rect x="17" y="14" width="8" height="6" rx="2" fill="#C01818"/>
-  <text x="21" y="32" text-anchor="middle" fill="#FFB0A0" font-size="4.5" font-family="sans-serif">KETCHUP</text>
-  <rect x="35" y="18" width="16" height="32" rx="5" fill="#E8C020" stroke="#C0A010" stroke-width="1.5"/>
-  <ellipse cx="43" cy="18" rx="8" ry="4" fill="#C0A010"/>
-  <rect x="39" y="14" width="8" height="6" rx="2" fill="#D0B018"/>
-  <text x="43" y="32" text-anchor="middle" fill="#9A7808" font-size="4.5" font-family="sans-serif">MUSTARD</text>
+  <defs>
+    <linearGradient id="pKMKetch" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C01818"/>
+      <stop offset="50%" stop-color="#E02828"/>
+      <stop offset="100%" stop-color="#B81010"/>
+    </linearGradient>
+    <linearGradient id="pKMMust" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C0A010"/>
+      <stop offset="50%" stop-color="#E8C028"/>
+      <stop offset="100%" stop-color="#B89010"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="21" cy="55" rx="9" ry="2.5" fill="#C01818" opacity=".25"/>
+  <ellipse cx="43" cy="55" rx="9" ry="2.5" fill="#C0A010" opacity=".25"/>
+  <rect x="12" y="20" width="18" height="33" rx="7" fill="url(#pKMKetch)" stroke="#A01010" stroke-width="1.5"/>
+  <ellipse cx="21" cy="20" rx="9" ry="4.5" fill="#A81010"/>
+  <rect x="17" y="13" width="8" height="9" rx="3" fill="#901008"/>
+  <rect x="14" y="28" width="14" height="16" rx="2" fill="#fff" opacity=".12"/>
+  <text x="21" y="38" text-anchor="middle" fill="#FFB0A0" font-size="4.5" font-weight="700" font-family="sans-serif">KETCHUP</text>
+  <rect x="34" y="20" width="18" height="33" rx="7" fill="url(#pKMMust)" stroke="#A08010" stroke-width="1.5"/>
+  <ellipse cx="43" cy="20" rx="9" ry="4.5" fill="#B09010"/>
+  <rect x="39" y="13" width="8" height="9" rx="3" fill="#988008"/>
+  <rect x="36" y="28" width="14" height="16" rx="2" fill="#fff" opacity=".12"/>
+  <text x="43" y="38" text-anchor="middle" fill="#FFF0A0" font-size="4" font-weight="700" font-family="sans-serif">MUSTARD</text>
 </svg>`,
 
 mayonnaise: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="38" rx="5" fill="#F8F8F0" stroke="#D8D8B0" stroke-width="1.5"/>
-  <rect x="18" y="16" width="28" height="12" rx="5" fill="#4070A0"/>
-  <rect x="18" y="24" width="28" height="4" fill="#4070A0"/>
-  <rect x="23" y="12" width="18" height="6" rx="2" fill="#5080B0"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">MAYO</text>
-  <text x="32" y="35" text-anchor="middle" fill="#A0A070" font-size="5" font-family="sans-serif">REAL</text>
-  <text x="32" y="42" text-anchor="middle" fill="#A0A070" font-size="5" font-family="sans-serif">MAYONNAISE</text>
+  <defs>
+    <linearGradient id="pMYJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFEF4"/>
+      <stop offset="100%" stop-color="#EEEEDC"/>
+    </linearGradient>
+    <linearGradient id="pMYLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4878B0"/>
+      <stop offset="100%" stop-color="#305888"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="16" ry="3" fill="#305888" opacity=".2"/>
+  <rect x="16" y="18" width="32" height="38" rx="6" fill="url(#pMYJar)" stroke="#D8D8B0" stroke-width="1.5"/>
+  <rect x="16" y="18" width="32" height="13" rx="6" fill="url(#pMYLabel)"/>
+  <rect x="22" y="13" width="20" height="7" rx="2" fill="#3868A0"/>
+  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="6" font-weight="700" font-family="sans-serif">MAYO</text>
+  <text x="32" y="40" text-anchor="middle" fill="#A0A070" font-size="5" font-family="sans-serif">REAL</text>
+  <text x="32" y="47" text-anchor="middle" fill="#9A9868" font-size="4.5" font-family="sans-serif">MAYONNAISE</text>
+  <rect x="18" y="20" width="5" height="34" rx="2" fill="#fff" opacity=".18"/>
 </svg>`,
 
 peanut_butter: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="16" width="32" height="38" rx="5" fill="#F0D8A0" stroke="#C8A858" stroke-width="1.5"/>
-  <rect x="16" y="16" width="32" height="12" rx="5" fill="#8A5818"/>
-  <text x="32" y="25" text-anchor="middle" fill="#F0D070" font-size="5" font-weight="500" font-family="sans-serif">PEANUT</text>
-  <text x="32" y="34" text-anchor="middle" fill="#7A4810" font-size="5.5" font-family="sans-serif">BUTTER</text>
-  <text x="32" y="41" text-anchor="middle" fill="#9A6830" font-size="5" font-family="sans-serif">CREAMY</text>
-  <path d="M20 50 Q32 54 44 50" stroke="#C8A858" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pPBJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4DCB0"/>
+      <stop offset="100%" stop-color="#E4C888"/>
+    </linearGradient>
+    <linearGradient id="pPBLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9A6020"/>
+      <stop offset="100%" stop-color="#704010"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#704010" opacity=".25"/>
+  <rect x="14" y="18" width="36" height="38" rx="6" fill="url(#pPBJar)" stroke="#C8A858" stroke-width="1.5"/>
+  <rect x="14" y="18" width="36" height="13" rx="6" fill="url(#pPBLabel)"/>
+  <text x="32" y="27" text-anchor="middle" fill="#F0D070" font-size="5.5" font-weight="700" font-family="sans-serif">PEANUT</text>
+  <text x="32" y="37" text-anchor="middle" fill="#7A4810" font-size="6" font-weight="700" font-family="sans-serif">BUTTER</text>
+  <text x="32" y="45" text-anchor="middle" fill="#9A6830" font-size="5" font-family="sans-serif">CREAMY</text>
+  <rect x="16" y="20" width="5" height="34" rx="2" fill="#fff" opacity=".18"/>
 </svg>`,
 
 marinara_sauce: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="5" fill="#F0E4D8" stroke="#C09070" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="12" rx="5" fill="#C03020"/>
-  <text x="32" y="22" text-anchor="middle" fill="#FFD0C0" font-size="5" font-weight="500" font-family="sans-serif">MARINARA</text>
-  <text x="32" y="32" text-anchor="middle" fill="#9A5030" font-size="5" font-family="sans-serif">SAUCE</text>
-  <circle cx="24" cy="40" r="6" fill="#E03020" opacity=".7"/>
-  <circle cx="36" cy="42" r="5" fill="#D02818" opacity=".7"/>
-  <circle cx="30" cy="46" r="4" fill="#E83020" opacity=".5"/>
+  <defs>
+    <linearGradient id="pMRJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4E4D8"/>
+      <stop offset="100%" stop-color="#E4CEC0"/>
+    </linearGradient>
+    <linearGradient id="pMRLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D03828"/>
+      <stop offset="100%" stop-color="#A01808"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="18" ry="3" fill="#A01808" opacity=".25"/>
+  <rect x="14" y="16" width="36" height="42" rx="6" fill="url(#pMRJar)" stroke="#C09070" stroke-width="1.5"/>
+  <rect x="14" y="16" width="36" height="14" rx="6" fill="url(#pMRLabel)"/>
+  <text x="32" y="26" text-anchor="middle" fill="#FFD0C0" font-size="5.5" font-weight="700" font-family="sans-serif">MARINARA</text>
+  <text x="32" y="38" text-anchor="middle" fill="#9A5030" font-size="5.5" font-family="sans-serif">SAUCE</text>
+  <circle cx="23" cy="46" r="6" fill="#E03020" opacity=".65"/>
+  <circle cx="35" cy="48" r="5" fill="#C82818" opacity=".65"/>
+  <circle cx="29" cy="52" r="4" fill="#E03020" opacity=".5"/>
+  <rect x="16" y="18" width="5" height="38" rx="2" fill="#fff" opacity=".12"/>
 </svg>`,
 
 pizza_sauce: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="14" width="28" height="38" rx="5" fill="#F0E4D8" stroke="#C09070" stroke-width="1.5"/>
-  <rect x="18" y="14" width="28" height="12" rx="5" fill="#B82818"/>
-  <text x="32" y="22" text-anchor="middle" fill="#FFD0C0" font-size="5.5" font-weight="500" font-family="sans-serif">PIZZA</text>
-  <text x="32" y="32" text-anchor="middle" fill="#9A4028" font-size="5" font-family="sans-serif">SAUCE</text>
-  <circle cx="26" cy="40" r="5" fill="#D02818" opacity=".7"/>
-  <circle cx="36" cy="42" r="5" fill="#C82010" opacity=".7"/>
+  <defs>
+    <linearGradient id="pPZCan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0E4D8"/>
+      <stop offset="100%" stop-color="#E0CCC0"/>
+    </linearGradient>
+    <linearGradient id="pPZLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C02818"/>
+      <stop offset="100%" stop-color="#981008"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#981008" opacity=".25"/>
+  <rect x="16" y="16" width="32" height="42" rx="5" fill="url(#pPZCan)" stroke="#C09070" stroke-width="1.5"/>
+  <rect x="16" y="16" width="32" height="14" rx="5" fill="url(#pPZLabel)"/>
+  <text x="32" y="26" text-anchor="middle" fill="#FFD0C0" font-size="6" font-weight="700" font-family="sans-serif">PIZZA</text>
+  <text x="32" y="36" text-anchor="middle" fill="#9A4028" font-size="5.5" font-family="sans-serif">SAUCE</text>
+  <circle cx="24" cy="46" r="6" fill="#D02818" opacity=".65"/>
+  <circle cx="36" cy="48" r="6" fill="#C02010" opacity=".65"/>
+  <rect x="18" y="18" width="5" height="38" rx="2" fill="#fff" opacity=".12"/>
 </svg>`,
 
 crushed_tomatoes: () => `<svg viewBox="0 0 64 64">
@@ -1176,46 +1651,96 @@ crushed_tomatoes: () => `<svg viewBox="0 0 64 64">
 </svg>`,
 
 breadcrumbs: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="5" fill="#F0E8D0" stroke="#D04838" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="12" rx="5" fill="#D04838"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">ITALIAN</text>
-  <text x="32" y="34" text-anchor="middle" fill="#C03020" font-size="5.5" font-family="sans-serif">BREAD</text>
-  <text x="32" y="41" text-anchor="middle" fill="#C03020" font-size="5" font-family="sans-serif">CRUMBS</text>
-  <path d="M20 50 Q32 54 44 50" stroke="#D04838" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="pBCBox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4ECD8"/>
+      <stop offset="100%" stop-color="#E4D8C0"/>
+    </linearGradient>
+    <linearGradient id="pBCLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D84838"/>
+      <stop offset="100%" stop-color="#A02818"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#A02818" opacity=".2"/>
+  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#pBCBox)" stroke="#D04838" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#pBCLabel)"/>
+  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">ITALIAN</text>
+  <text x="32" y="30" text-anchor="middle" fill="#FFC0B0" font-size="4.5" font-family="sans-serif">BREAD CRUMBS</text>
+  <text x="32" y="40" text-anchor="middle" fill="#C03020" font-size="5.5" font-family="sans-serif">BREAD</text>
+  <text x="32" y="47" text-anchor="middle" fill="#C03020" font-size="5" font-family="sans-serif">CRUMBS</text>
+  <path d="M18 54 Q32 58 46 54" stroke="#D04838" stroke-width="1" fill="none"/>
 </svg>`,
 
 salsa: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="5" fill="#F0E8D8" stroke="#C07040" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="12" rx="5" fill="#C04818"/>
-  <text x="32" y="22" text-anchor="middle" fill="#FFD0A0" font-size="5.5" font-weight="500" font-family="sans-serif">SALSA</text>
-  <circle cx="24" cy="36" r="5" fill="#E03020" opacity=".7"/>
-  <circle cx="36" cy="34" r="4" fill="#E87020" opacity=".7"/>
-  <circle cx="28" cy="44" r="4" fill="#E03020" opacity=".6"/>
-  <circle cx="38" cy="44" r="3" fill="#5A9020" opacity=".6"/>
-  <text x="32" y="53" text-anchor="middle" fill="#9A5020" font-size="5" font-family="sans-serif">16 OZ</text>
+  <defs>
+    <linearGradient id="pSAJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4ECD8"/>
+      <stop offset="100%" stop-color="#E4D4B8"/>
+    </linearGradient>
+    <linearGradient id="pSALabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D04818"/>
+      <stop offset="100%" stop-color="#A02808"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="18" ry="3" fill="#A02808" opacity=".25"/>
+  <rect x="14" y="16" width="36" height="42" rx="6" fill="url(#pSAJar)" stroke="#C07040" stroke-width="1.5"/>
+  <rect x="14" y="16" width="36" height="14" rx="6" fill="url(#pSALabel)"/>
+  <text x="32" y="25" text-anchor="middle" fill="#FFD0A0" font-size="6" font-weight="700" font-family="sans-serif">SALSA</text>
+  <text x="32" y="33" text-anchor="middle" fill="#FFB080" font-size="4" font-family="sans-serif">MILD · 16 OZ</text>
+  <circle cx="22" cy="43" r="5.5" fill="#E03020" opacity=".65"/>
+  <circle cx="34" cy="41" r="4.5" fill="#E87020" opacity=".65"/>
+  <circle cx="26" cy="50" r="4" fill="#D02818" opacity=".6"/>
+  <circle cx="37" cy="50" r="3.5" fill="#4A9020" opacity=".6"/>
+  <rect x="16" y="18" width="5" height="38" rx="2" fill="#fff" opacity=".12"/>
 </svg>`,
 
 rice_cereal: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="12" width="36" height="44" rx="5" fill="#F8F4E8" stroke="#D8C890" stroke-width="1.5"/>
-  <rect x="14" y="12" width="36" height="14" rx="5" fill="#E8B020"/>
-  <text x="32" y="21" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">CRISPY RICE</text>
-  <text x="32" y="30" text-anchor="middle" fill="#fff" font-size="5" font-family="sans-serif">CEREAL</text>
-  <ellipse cx="22" cy="38" rx="3" ry="2" fill="#E0C870"/>
-  <ellipse cx="30" cy="34" rx="3" ry="2" fill="#D8C060"/>
-  <ellipse cx="38" cy="38" rx="3" ry="2" fill="#E0C870"/>
-  <ellipse cx="26" cy="44" rx="3" ry="2" fill="#D8C060"/>
-  <ellipse cx="34" cy="44" rx="3" ry="2" fill="#E0C870"/>
-  <ellipse cx="42" cy="40" rx="2.5" ry="1.8" fill="#D8C060"/>
+  <defs>
+    <linearGradient id="pRCBox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFAF0"/>
+      <stop offset="100%" stop-color="#EEE8D0"/>
+    </linearGradient>
+    <linearGradient id="pRCLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0B820"/>
+      <stop offset="100%" stop-color="#C89010"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#C89010" opacity=".2"/>
+  <rect x="12" y="12" width="40" height="48" rx="5" fill="url(#pRCBox)" stroke="#D8C890" stroke-width="1.5"/>
+  <rect x="12" y="12" width="40" height="16" rx="5" fill="url(#pRCLabel)"/>
+  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">CRISPY RICE</text>
+  <text x="32" y="30" text-anchor="middle" fill="#FFF0B0" font-size="4.5" font-family="sans-serif">CEREAL</text>
+  <ellipse cx="20" cy="40" rx="3.5" ry="2.5" fill="#E8CC70"/>
+  <ellipse cx="28" cy="36" rx="3.5" ry="2.5" fill="#E0C460"/>
+  <ellipse cx="36" cy="40" rx="3.5" ry="2.5" fill="#E8CC70"/>
+  <ellipse cx="44" cy="37" rx="3" ry="2" fill="#E0C460"/>
+  <ellipse cx="24" cy="46" rx="3.5" ry="2.5" fill="#E0C460"/>
+  <ellipse cx="33" cy="48" rx="3.5" ry="2.5" fill="#E8CC70"/>
+  <ellipse cx="42" cy="47" rx="3" ry="2" fill="#E0C460"/>
 </svg>`,
 
 marshmallows: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="14" width="36" height="44" rx="5" fill="#F0F0F8" stroke="#C0C0D0" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="12" rx="5" fill="#8080C0"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">MARSHMALLOWS</text>
-  <rect x="20" y="30" width="9" height="9" rx="4" fill="#FFFFFF" stroke="#E0E0E8" stroke-width="1"/>
-  <rect x="31" y="30" width="9" height="9" rx="4" fill="#FFFFFF" stroke="#E0E0E8" stroke-width="1"/>
-  <rect x="20" y="41" width="9" height="9" rx="4" fill="#FFFFFF" stroke="#E0E0E8" stroke-width="1"/>
-  <rect x="31" y="41" width="9" height="9" rx="4" fill="#FFFFFF" stroke="#E0E0E8" stroke-width="1"/>
+  <defs>
+    <linearGradient id="pMHBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4F4FC"/>
+      <stop offset="100%" stop-color="#E4E4F0"/>
+    </linearGradient>
+    <linearGradient id="pMHLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9090C8"/>
+      <stop offset="100%" stop-color="#6060A0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#6060A0" opacity=".2"/>
+  <rect x="12" y="12" width="40" height="48" rx="5" fill="url(#pMHBag)" stroke="#C0C0D0" stroke-width="1.5"/>
+  <rect x="12" y="12" width="40" height="14" rx="5" fill="url(#pMHLabel)"/>
+  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">MARSHMALLOWS</text>
+  <text x="32" y="28" text-anchor="middle" fill="#D0D0F0" font-size="4" font-family="sans-serif">MINI · 10 OZ</text>
+  <rect x="18" y="30" width="11" height="11" rx="5" fill="#FFFFFF" stroke="#E0E0F0" stroke-width="1"/>
+  <rect x="31" y="30" width="11" height="11" rx="5" fill="#FEFEFE" stroke="#E0E0F0" stroke-width="1"/>
+  <rect x="17" y="43" width="11" height="11" rx="5" fill="#FFFFFF" stroke="#E0E0F0" stroke-width="1"/>
+  <rect x="30" y="43" width="11" height="11" rx="5" fill="#FEFEFE" stroke="#E0E0F0" stroke-width="1"/>
+  <rect x="19" y="31" width="4" height="4" rx="2" fill="#fff" opacity=".6"/>
+  <rect x="32" y="31" width="4" height="4" rx="2" fill="#fff" opacity=".6"/>
 </svg>`,
 
 // ── PROTEIN ───────────────────────────────────────────────
@@ -1651,45 +2176,81 @@ burger_buns: () => `<svg viewBox="0 0 64 64">
   <ellipse cx="40" cy="50" rx="12" ry="3.5" fill="#DEAA38"/>
 </svg>`,
 sandwich_bread: () => `<svg viewBox="0 0 64 64">
-  <rect x="12" y="18" width="40" height="36" rx="4" fill="#E8D8A8" stroke="#C8B878" stroke-width="1.5"/>
-  <path d="M12 18 Q20 8 32 10 Q44 8 52 18" fill="#D8C898" stroke="#C8B878" stroke-width="1"/>
-  <rect x="14" y="20" width="36" height="4" fill="#C8A870" opacity=".4"/>
-  <rect x="14" y="48" width="36" height="4" fill="#C8A870" opacity=".4"/>
-  <line x1="14" y1="28" x2="50" y2="28" stroke="#C8B878" stroke-width=".7" opacity=".4"/>
-  <line x1="14" y1="36" x2="50" y2="36" stroke="#C8B878" stroke-width=".7" opacity=".4"/>
-  <line x1="14" y1="44" x2="50" y2="44" stroke="#C8B878" stroke-width=".7" opacity=".4"/>
-  <text x="32" y="54" text-anchor="middle" fill="#9A8050" font-size="4.5" font-family="sans-serif">SANDWICH BREAD</text>
+  <defs>
+    <linearGradient id="bSBLoaf" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8D898"/>
+      <stop offset="100%" stop-color="#D0C080"/>
+    </linearGradient>
+    <linearGradient id="bSBCrust" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C8A860"/>
+      <stop offset="100%" stop-color="#B89040"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="22" ry="3" fill="#B89040" opacity=".25"/>
+  <rect x="10" y="22" width="44" height="32" rx="4" fill="url(#bSBLoaf)" stroke="#C8B878" stroke-width="1.5"/>
+  <path d="M10 22 Q16 8 32 10 Q48 8 54 22" fill="url(#bSBCrust)" stroke="#C8B878" stroke-width="1.5"/>
+  <rect x="12" y="23" width="40" height="5" fill="#C8A870" opacity=".35"/>
+  <rect x="12" y="48" width="40" height="5" fill="#C0A060" opacity=".35"/>
+  <line x1="12" y1="30" x2="52" y2="30" stroke="#C8B878" stroke-width=".7" opacity=".35"/>
+  <line x1="12" y1="38" x2="52" y2="38" stroke="#C8B878" stroke-width=".7" opacity=".35"/>
+  <line x1="12" y1="46" x2="52" y2="46" stroke="#C8B878" stroke-width=".7" opacity=".35"/>
+  <text x="32" y="59" text-anchor="middle" fill="#9A8050" font-size="4.5" font-weight="600" font-family="sans-serif">SANDWICH BREAD</text>
 </svg>`,
 
 pizza_dough: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="38" rx="24" ry="14" fill="#E8D0A0"/>
-  <ellipse cx="32" cy="36" rx="20" ry="11" fill="#F0DEB0"/>
-  <ellipse cx="32" cy="34" rx="16" ry="8" fill="#F8ECC8" opacity=".6"/>
-  <path d="M18 30 Q22 22 32 20 Q42 22 46 30" fill="#F0DEB0" opacity=".5"/>
-  <text x="32" y="52" text-anchor="middle" fill="#9A7838" font-size="5" font-family="sans-serif">PIZZA DOUGH</text>
-  <circle cx="24" cy="34" r="2" fill="#D8B870" opacity=".4"/>
-  <circle cx="40" cy="32" r="2" fill="#D8B870" opacity=".4"/>
+  <defs>
+    <radialGradient id="bPDDough" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#F8ECC8"/>
+      <stop offset="100%" stop-color="#D8B870"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="32" cy="56" rx="22" ry="4" fill="#C09840" opacity=".3"/>
+  <ellipse cx="32" cy="42" rx="22" ry="14" fill="url(#bPDDough)" stroke="#C8A858" stroke-width="1.5"/>
+  <ellipse cx="32" cy="40" rx="18" ry="11" fill="#F4E0B0" opacity=".6"/>
+  <ellipse cx="32" cy="38" rx="14" ry="8" fill="#FFF0D0" opacity=".4"/>
+  <path d="M16 36 Q20 28 32 26 Q44 28 48 36" fill="#F0DCA8" opacity=".5"/>
+  <circle cx="23" cy="38" r="2.5" fill="#D8B060" opacity=".4"/>
+  <circle cx="40" cy="36" r="2" fill="#D8B060" opacity=".4"/>
+  <circle cx="32" cy="44" r="2" fill="#D8B060" opacity=".3"/>
+  <text x="32" y="57" text-anchor="middle" fill="#9A7838" font-size="5" font-weight="600" font-family="sans-serif">PIZZA DOUGH</text>
 </svg>`,
 
 corn_tortillas: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="46" rx="20" ry="5" fill="#D8C888" stroke="#B8A860" stroke-width=".8" opacity=".7"/>
-  <ellipse cx="32" cy="42" rx="20" ry="5" fill="#D8C888" stroke="#B8A860" stroke-width=".8" opacity=".8"/>
-  <ellipse cx="32" cy="38" rx="20" ry="5" fill="#D8C888" stroke="#B8A860" stroke-width=".8" opacity=".9"/>
-  <ellipse cx="32" cy="34" rx="20" ry="5" fill="#E0D098" stroke="#C0A868" stroke-width="1.5"/>
-  <ellipse cx="32" cy="33" rx="16" ry="3.5" fill="#E8D8A8" opacity=".4"/>
-  <text x="32" y="26" text-anchor="middle" fill="#8A6828" font-size="5" font-family="sans-serif">CORN TORTILLAS</text>
+  <defs>
+    <linearGradient id="bCTTort" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAD89C"/>
+      <stop offset="100%" stop-color="#D4C080"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="48" rx="20" ry="5.5" fill="#CCBA70" stroke="#B0A060" stroke-width=".8" opacity=".65"/>
+  <ellipse cx="32" cy="44" rx="20" ry="5.5" fill="#D4C07A" stroke="#B8A868" stroke-width=".8" opacity=".75"/>
+  <ellipse cx="32" cy="40" rx="20" ry="5.5" fill="#DECA84" stroke="#C0B070" stroke-width=".8" opacity=".85"/>
+  <ellipse cx="32" cy="36" rx="20" ry="5.5" fill="url(#bCTTort)" stroke="#C0A868" stroke-width="1.5"/>
+  <ellipse cx="32" cy="35" rx="16" ry="3.5" fill="#F8ECC8" opacity=".35"/>
+  <text x="32" y="26" text-anchor="middle" fill="#8A6828" font-size="5" font-weight="600" font-family="sans-serif">CORN TORTILLAS</text>
   <text x="32" y="19" text-anchor="middle" fill="#8A6828" font-size="5" font-family="sans-serif">24 PACK</text>
 </svg>`,
 
 tortilla_chips: () => `<svg viewBox="0 0 64 64">
-  <path d="M14 50 L32 14 L50 50 Z" fill="#E8C050" stroke="#C8A030" stroke-width="2"/>
-  <path d="M16 48 L32 16 L48 48 Z" fill="#F0D060" opacity=".5"/>
-  <line x1="32" y1="14" x2="14" y2="50" stroke="#C0A028" stroke-width="1" opacity=".4"/>
-  <line x1="32" y1="14" x2="50" y2="50" stroke="#C0A028" stroke-width="1" opacity=".4"/>
-  <line x1="20" y1="38" x2="44" y2="38" stroke="#C0A028" stroke-width="1" opacity=".4"/>
-  <line x1="23" y1="44" x2="41" y2="44" stroke="#C0A028" stroke-width="1" opacity=".4"/>
-  <circle cx="28" cy="36" r="1.5" fill="#D8A820" opacity=".6"/>
-  <circle cx="36" cy="40" r="1.5" fill="#D8A820" opacity=".6"/>
+  <defs>
+    <linearGradient id="bTCChip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0C848"/>
+      <stop offset="100%" stop-color="#D8A820"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="54" rx="20" ry="3" fill="#C09010" opacity=".2"/>
+  <!-- back chip -->
+  <path d="M10 52 L30 10 L52 52 Z" fill="#D8B020" stroke="#C09810" stroke-width="1" opacity=".6"/>
+  <!-- middle chip -->
+  <path d="M14 52 L32 14 L50 52 Z" fill="#E8C038" stroke="#C8A820" stroke-width="1.5" opacity=".8"/>
+  <!-- front chip -->
+  <path d="M16 50 L32 18 L48 50 Z" fill="url(#bTCChip)" stroke="#C0A028" stroke-width="2"/>
+  <path d="M18 48 L32 22 L46 48 Z" fill="#F8D858" opacity=".4"/>
+  <line x1="32" y1="18" x2="16" y2="50" stroke="#C0A028" stroke-width=".8" opacity=".35"/>
+  <line x1="32" y1="18" x2="48" y2="50" stroke="#C0A028" stroke-width=".8" opacity=".35"/>
+  <line x1="22" y1="38" x2="42" y2="38" stroke="#C0A028" stroke-width=".8" opacity=".35"/>
+  <circle cx="29" cy="38" r="1.5" fill="#D8A820" opacity=".6"/>
+  <circle cx="36" cy="42" r="1.5" fill="#C8A010" opacity=".5"/>
 </svg>`,
 
 pita_bread: () => `<svg viewBox="0 0 64 64">
@@ -1714,56 +2275,121 @@ rice_paper: () => `<svg viewBox="0 0 64 64">
 // ── GRAINS ────────────────────────────────────────────────
 
 pasta: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="4" fill="#E8E4D8" stroke="#9090A8" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="11" rx="4" fill="#4848A0"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">PASTA</text>
-  <line x1="22" y1="30" x2="22" y2="50" stroke="#E8C860" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="27" y1="30" x2="27" y2="50" stroke="#E8C860" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="32" y1="30" x2="32" y2="50" stroke="#E8C860" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="37" y1="30" x2="37" y2="50" stroke="#E8C860" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="42" y1="30" x2="42" y2="50" stroke="#E8C860" stroke-width="2.5" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="gPABox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EEEADC"/>
+      <stop offset="100%" stop-color="#DEDAD0"/>
+    </linearGradient>
+    <linearGradient id="gPALabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5858B0"/>
+      <stop offset="100%" stop-color="#383888"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#383888" opacity=".2"/>
+  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#gPABox)" stroke="#9090A8" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#gPALabel)"/>
+  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="6" font-weight="700" font-family="sans-serif">PASTA</text>
+  <text x="32" y="32" text-anchor="middle" fill="#C0C0E8" font-size="4.5" font-family="sans-serif">PENNE · 16 OZ</text>
+  <line x1="20" y1="34" x2="20" y2="53" stroke="#E8C860" stroke-width="3" stroke-linecap="round"/>
+  <line x1="25" y1="34" x2="25" y2="53" stroke="#F0D060" stroke-width="3" stroke-linecap="round"/>
+  <line x1="30" y1="34" x2="30" y2="53" stroke="#E8C860" stroke-width="3" stroke-linecap="round"/>
+  <line x1="35" y1="34" x2="35" y2="53" stroke="#F0D060" stroke-width="3" stroke-linecap="round"/>
+  <line x1="40" y1="34" x2="40" y2="53" stroke="#E8C860" stroke-width="3" stroke-linecap="round"/>
+  <line x1="45" y1="34" x2="45" y2="53" stroke="#F0D060" stroke-width="3" stroke-linecap="round"/>
 </svg>`,
 
 jasmine_rice: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="4" fill="#F8F4EC" stroke="#D8C8A0" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="11" rx="4" fill="#7A9060"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">JASMINE</text>
-  <text x="32" y="33" text-anchor="middle" fill="#8A7040" font-size="5.5" font-family="sans-serif">THAI RICE</text>
-  <text x="32" y="40" text-anchor="middle" fill="#8A7040" font-size="5" font-family="sans-serif">5 LB</text>
-  <ellipse cx="22" cy="48" rx="2.5" ry="1.5" fill="#E0D8C0"/>
-  <ellipse cx="28" cy="46" rx="2.5" ry="1.5" fill="#E0D8C0"/>
-  <ellipse cx="34" cy="48" rx="2.5" ry="1.5" fill="#E0D8C0"/>
-  <ellipse cx="40" cy="46" rx="2.5" ry="1.5" fill="#E0D8C0"/>
+  <defs>
+    <linearGradient id="gJRBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFAF0"/>
+      <stop offset="100%" stop-color="#EEE8D8"/>
+    </linearGradient>
+    <linearGradient id="gJRLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A9060"/>
+      <stop offset="100%" stop-color="#587040"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#587040" opacity=".2"/>
+  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#gJRBag)" stroke="#D8C8A0" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#gJRLabel)"/>
+  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">JASMINE</text>
+  <text x="32" y="31" text-anchor="middle" fill="#D0E8B8" font-size="4" font-family="sans-serif">THAI RICE · 5 LB</text>
+  <text x="32" y="40" text-anchor="middle" fill="#8A7040" font-size="5" font-family="sans-serif">JASMINE</text>
+  <text x="32" y="47" text-anchor="middle" fill="#9A8050" font-size="4.5" font-family="sans-serif">RICE</text>
+  <ellipse cx="20" cy="53" rx="3" ry="1.8" fill="#E0D8C0"/>
+  <ellipse cx="26" cy="54" rx="3" ry="1.8" fill="#D8D0B8"/>
+  <ellipse cx="32" cy="53" rx="3" ry="1.8" fill="#E0D8C0"/>
+  <ellipse cx="38" cy="54" rx="3" ry="1.8" fill="#D8D0B8"/>
+  <ellipse cx="44" cy="53" rx="3" ry="1.8" fill="#E0D8C0"/>
 </svg>`,
 
 garlic_powder: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="20" width="28" height="34" rx="4" fill="#F5F0E0" stroke="#C8B870" stroke-width="1.5"/>
-  <rect x="18" y="20" width="28" height="10" rx="4" fill="#C8A030"/>
-  <text x="32" y="28" text-anchor="middle" fill="#fff" font-size="5" font-weight="600" font-family="sans-serif">GARLIC</text>
-  <text x="32" y="37" text-anchor="middle" fill="#8A7030" font-size="4.5" font-family="sans-serif">POWDER</text>
-  <ellipse cx="32" cy="46" rx="8" ry="4" fill="#E8E0C8" opacity=".7"/>
-  <path d="M28 42 Q32 38 36 42" stroke="#C8A030" stroke-width="1.2" fill="none"/>
+  <defs>
+    <linearGradient id="pGPJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8F2E4"/>
+      <stop offset="100%" stop-color="#E8E0C8"/>
+    </linearGradient>
+    <linearGradient id="pGPLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D8A838"/>
+      <stop offset="100%" stop-color="#A87820"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#A87820" opacity=".25"/>
+  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pGPJar)" stroke="#C8B870" stroke-width="1.5"/>
+  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pGPLid)" stroke="#A87820" stroke-width="1.5"/>
+  <text x="32" y="31" text-anchor="middle" fill="#8A6820" font-size="5.5" font-weight="700" font-family="sans-serif">GARLIC</text>
+  <text x="32" y="39" text-anchor="middle" fill="#8A6820" font-size="4.5" font-family="sans-serif">POWDER</text>
+  <ellipse cx="24" cy="47" rx="4" ry="2.5" fill="#E8E0C8" opacity=".8"/>
+  <ellipse cx="32" cy="49" rx="3.5" ry="2" fill="#E8E0C8" opacity=".8"/>
+  <ellipse cx="40" cy="47" rx="4" ry="2.5" fill="#E8E0C8" opacity=".8"/>
+  <path d="M27 43 Q32 40 37 43" stroke="#C8A830" stroke-width="1.2" fill="none" stroke-linecap="round"/>
 </svg>`,
 
 sesame_seeds: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="18" width="28" height="34" rx="4" fill="#F8F2E0" stroke="#D0B860" stroke-width="1.5"/>
-  <rect x="18" y="18" width="28" height="10" rx="4" fill="#B89040"/>
-  <text x="32" y="26" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="600" font-family="sans-serif">SESAME</text>
-  <text x="32" y="35" text-anchor="middle" fill="#8A6820" font-size="4" font-family="sans-serif">SEEDS</text>
-  <ellipse cx="24" cy="43" rx="2.5" ry="1.2" fill="#C8A040" transform="rotate(-20 24 43)"/>
-  <ellipse cx="29" cy="46" rx="2.5" ry="1.2" fill="#D0A848" transform="rotate(10 29 46)"/>
-  <ellipse cx="34" cy="43" rx="2.5" ry="1.2" fill="#C8A040" transform="rotate(-15 34 43)"/>
-  <ellipse cx="39" cy="46" rx="2.5" ry="1.2" fill="#D0A848" transform="rotate(20 39 46)"/>
+  <defs>
+    <linearGradient id="pSSJar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAF4E4"/>
+      <stop offset="100%" stop-color="#EAE0C8"/>
+    </linearGradient>
+    <linearGradient id="pSSLid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C0A048"/>
+      <stop offset="100%" stop-color="#907828"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#907828" opacity=".25"/>
+  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pSSJar)" stroke="#D0B860" stroke-width="1.5"/>
+  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pSSLid)" stroke="#907828" stroke-width="1.5"/>
+  <text x="32" y="30" text-anchor="middle" fill="#8A6820" font-size="5.5" font-weight="700" font-family="sans-serif">SESAME</text>
+  <text x="32" y="37" text-anchor="middle" fill="#8A6820" font-size="4.5" font-family="sans-serif">SEEDS</text>
+  <ellipse cx="22" cy="45" rx="3" ry="1.4" fill="#C8A040" transform="rotate(-20,22,45)"/>
+  <ellipse cx="28" cy="48" rx="3" ry="1.4" fill="#D0A848" transform="rotate(10,28,48)"/>
+  <ellipse cx="34" cy="45" rx="3" ry="1.4" fill="#C8A040" transform="rotate(-15,34,45)"/>
+  <ellipse cx="40" cy="48" rx="3" ry="1.4" fill="#D0A848" transform="rotate(20,40,48)"/>
+  <ellipse cx="31" cy="43" rx="3" ry="1.4" fill="#C0A038" transform="rotate(5,31,43)"/>
 </svg>`,
 
 cooking_spray: () => `<svg viewBox="0 0 64 64">
-  <rect x="24" y="18" width="20" height="34" rx="5" fill="#D8E8F0" stroke="#A0B8C8" stroke-width="1.5"/>
-  <rect x="24" y="18" width="20" height="10" rx="5" fill="#5080A0"/>
-  <rect x="30" y="12" width="8" height="8" rx="2" fill="#6090B0"/>
-  <rect x="33" y="8" width="4" height="5" rx="1" fill="#4070A0"/>
-  <text x="34" y="35" text-anchor="middle" fill="#5080A0" font-size="4" font-weight="700" font-family="sans-serif">OIL</text>
-  <text x="34" y="41" text-anchor="middle" fill="#5080A0" font-size="3.5" font-family="sans-serif">SPRAY</text>
-  <path d="M44 10 Q50 8 52 12 Q50 14 46 12" fill="#C0D8E8" opacity=".7"/>
+  <defs>
+    <linearGradient id="pCSCan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B8D0E0"/>
+      <stop offset="50%" stop-color="#D8EEF8"/>
+      <stop offset="100%" stop-color="#A8C8D8"/>
+    </linearGradient>
+    <linearGradient id="pCSLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5090B8"/>
+      <stop offset="100%" stop-color="#307898"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="34" cy="56" rx="12" ry="2.5" fill="#307898" opacity=".2"/>
+  <rect x="24" y="20" width="20" height="34" rx="7" fill="url(#pCSCan)" stroke="#90B8C8" stroke-width="1.5"/>
+  <rect x="24" y="30" width="20" height="14" fill="url(#pCSLabel)"/>
+  <text x="34" y="37" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">COOKING</text>
+  <text x="34" y="42" text-anchor="middle" fill="#C8E8FF" font-size="4" font-family="sans-serif">SPRAY</text>
+  <ellipse cx="34" cy="20" rx="10" ry="4" fill="#A0C0D0" stroke="#90B8C8" stroke-width="1"/>
+  <rect x="30" y="12" width="8" height="10" rx="3" fill="#7098B0" stroke="#5080A0" stroke-width="1"/>
+  <rect x="28" y="13" width="12" height="4" rx="2" fill="#90B0C8"/>
+  <path d="M44 13 Q50 10 52 14 Q50 16 46 14" fill="#B8D8EC" opacity=".8"/>
+  <rect x="26" y="22" width="4" height="30" rx="2" fill="#fff" opacity=".2"/>
 </svg>`,
 
 shredded_cabbage: () => `<svg viewBox="0 0 64 64">
@@ -1777,13 +2403,26 @@ shredded_cabbage: () => `<svg viewBox="0 0 64 64">
 </svg>`,
 
 spring_roll_wrappers: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="44" rx="22" ry="6" fill="#E8D8A0" opacity=".5"/>
-  <rect x="14" y="20" width="36" height="26" rx="3" fill="#F5EDD0" stroke="#D8C080" stroke-width="1.5"/>
-  <rect x="14" y="26" width="36" height="2" fill="#D8C080" opacity=".4"/>
-  <rect x="14" y="32" width="36" height="2" fill="#D8C080" opacity=".4"/>
-  <rect x="14" y="38" width="36" height="2" fill="#D8C080" opacity=".4"/>
-  <rect x="14" y="20" width="36" height="8" rx="3" fill="#D4B860"/>
-  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="600" font-family="sans-serif">WRAPPERS</text>
+  <defs>
+    <linearGradient id="bSRWPkg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8F2DC"/>
+      <stop offset="100%" stop-color="#E8E0C0"/>
+    </linearGradient>
+    <linearGradient id="bSRWLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D8B858"/>
+      <stop offset="100%" stop-color="#A88830"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="22" ry="3" fill="#A88830" opacity=".2"/>
+  <rect x="10" y="16" width="44" height="40" rx="5" fill="url(#bSRWPkg)" stroke="#D0C080" stroke-width="1.5"/>
+  <rect x="10" y="16" width="44" height="12" rx="5" fill="url(#bSRWLabel)"/>
+  <text x="32" y="25" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">SPRING ROLL</text>
+  <text x="32" y="32" text-anchor="middle" fill="#FFF0C0" font-size="4" font-family="sans-serif">WRAPPERS</text>
+  <rect x="12" y="32" width="40" height="2" rx="1" fill="#D8C080" opacity=".4"/>
+  <rect x="12" y="38" width="40" height="2" rx="1" fill="#D8C080" opacity=".4"/>
+  <rect x="12" y="44" width="40" height="2" rx="1" fill="#D8C080" opacity=".4"/>
+  <rect x="12" y="50" width="40" height="2" rx="1" fill="#D8C080" opacity=".4"/>
+  <rect x="12" y="18" width="5" height="36" rx="2" fill="#fff" opacity=".15"/>
 </svg>`,
 
 lemon: () => `<svg viewBox="0 0 64 64">
@@ -1805,31 +2444,66 @@ basmati_rice: () => `<svg viewBox="0 0 64 64">
 </svg>`,
 
 rice_noodles: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="38" rx="4" fill="#F8F4E8" stroke="#D0C8A0" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="11" rx="4" fill="#C8A848"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="500" font-family="sans-serif">RICE NOODLES</text>
-  <path d="M20 32 Q24 28 28 32 Q32 36 36 32 Q40 28 44 32" stroke="#E0D090" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M20 38 Q24 34 28 38 Q32 42 36 38 Q40 34 44 38" stroke="#E0D090" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M20 44 Q24 40 28 44 Q32 48 36 44 Q40 40 44 44" stroke="#E0D090" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="gRNBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFAF0"/>
+      <stop offset="100%" stop-color="#EEEADC"/>
+    </linearGradient>
+    <linearGradient id="gRNLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D0A848"/>
+      <stop offset="100%" stop-color="#A07820"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#A07820" opacity=".2"/>
+  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#gRNBag)" stroke="#D0C8A0" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#gRNLabel)"/>
+  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">RICE NOODLES</text>
+  <text x="32" y="31" text-anchor="middle" fill="#FFF0C0" font-size="4" font-family="sans-serif">THIN VERMICELLI</text>
+  <path d="M18 36 Q22 32 26 36 Q30 40 34 36 Q38 32 42 36 Q45 38 46 36" stroke="#E8D88C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M18 42 Q22 38 26 42 Q30 46 34 42 Q38 38 42 42 Q45 44 46 42" stroke="#E8D88C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M18 48 Q22 44 26 48 Q30 52 34 48 Q38 44 42 48 Q45 50 46 48" stroke="#E0D080" stroke-width="2" fill="none" stroke-linecap="round"/>
 </svg>`,
 
 sweet_rice_flour: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="14" width="32" height="40" rx="4" fill="#F8F6F2" stroke="#D8D0C0" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="11" rx="4" fill="#C06090"/>
-  <text x="32" y="21" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="500" font-family="sans-serif">SWEET RICE</text>
-  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="4" font-family="sans-serif">FLOUR</text>
-  <text x="32" y="36" text-anchor="middle" fill="#8A7068" font-size="5" font-family="sans-serif">MOCHIKO</text>
-  <text x="32" y="43" text-anchor="middle" fill="#8A7068" font-size="5" font-family="sans-serif">16 OZ</text>
-  <path d="M20 50 Q32 54 44 50" stroke="#D8D0C0" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="gSRFBox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFCF8"/>
+      <stop offset="100%" stop-color="#EEE8E0"/>
+    </linearGradient>
+    <linearGradient id="gSRFLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D070A0"/>
+      <stop offset="100%" stop-color="#A04870"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#A04870" opacity=".2"/>
+  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#gSRFBox)" stroke="#D8D0C0" stroke-width="1.5"/>
+  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#gSRFLabel)"/>
+  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">SWEET RICE</text>
+  <text x="32" y="29" text-anchor="middle" fill="#FFD0E8" font-size="4.5" font-family="sans-serif">FLOUR</text>
+  <text x="32" y="40" text-anchor="middle" fill="#8A7068" font-size="5.5" font-weight="700" font-family="sans-serif">MOCHIKO</text>
+  <text x="32" y="48" text-anchor="middle" fill="#9A8078" font-size="4.5" font-family="sans-serif">16 OZ</text>
+  <path d="M18 54 Q32 58 46 54" stroke="#D8D0C0" stroke-width="1" fill="none"/>
 </svg>`,
 
 cornstarch: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="14" width="28" height="40" rx="4" fill="#F8F8F0" stroke="#D8D8C0" stroke-width="1.5"/>
-  <rect x="18" y="14" width="28" height="11" rx="4" fill="#E8C830"/>
-  <text x="32" y="23" text-anchor="middle" fill="#7A5A08" font-size="5" font-weight="500" font-family="sans-serif">CORN</text>
-  <text x="32" y="31" text-anchor="middle" fill="#8A8060" font-size="5.5" font-family="sans-serif">STARCH</text>
-  <text x="32" y="39" text-anchor="middle" fill="#8A8060" font-size="5" font-family="sans-serif">16 OZ</text>
-  <path d="M22 50 Q32 54 42 50" stroke="#D8D8C0" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="gCOBox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFEF4"/>
+      <stop offset="100%" stop-color="#EEEEE0"/>
+    </linearGradient>
+    <linearGradient id="gCOLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0C830"/>
+      <stop offset="100%" stop-color="#C09010"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="16" ry="3" fill="#C09010" opacity=".2"/>
+  <rect x="16" y="14" width="32" height="42" rx="5" fill="url(#gCOBox)" stroke="#D8D8C0" stroke-width="1.5"/>
+  <rect x="16" y="14" width="32" height="14" rx="5" fill="url(#gCOLabel)"/>
+  <text x="32" y="23" text-anchor="middle" fill="#7A5A08" font-size="5.5" font-weight="700" font-family="sans-serif">CORN</text>
+  <text x="32" y="30" text-anchor="middle" fill="#604008" font-size="4.5" font-family="sans-serif">STARCH</text>
+  <text x="32" y="42" text-anchor="middle" fill="#8A8060" font-size="6" font-weight="700" font-family="sans-serif">STARCH</text>
+  <text x="32" y="50" text-anchor="middle" fill="#9A9070" font-size="4.5" font-family="sans-serif">16 OZ</text>
+  <path d="M20 56 Q32 60 44 56" stroke="#D8D8C0" stroke-width="1" fill="none"/>
 </svg>`,
 
 // ── DRINKS ───────────────────────────────────────────────
@@ -1846,48 +2520,96 @@ lemons_drink: () => `<svg viewBox="0 0 64 64">
 </svg>`,
 
 cranberry_juice: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="12" width="28" height="46" rx="5" fill="#D82040" stroke="#B01828" stroke-width="1.5"/>
-  <rect x="18" y="12" width="28" height="14" rx="5" fill="#A01020"/>
-  <rect x="18" y="22" width="28" height="4" fill="#A01020"/>
-  <rect x="23" y="8" width="18" height="6" rx="2" fill="#B81828"/>
-  <text x="32" y="21" text-anchor="middle" fill="#FFB0C0" font-size="5" font-weight="500" font-family="sans-serif">CRANBERRY</text>
-  <text x="32" y="34" text-anchor="middle" fill="#FFB0C0" font-size="5" font-family="sans-serif">JUICE</text>
-  <text x="32" y="42" text-anchor="middle" fill="#FF8090" font-size="5" font-family="sans-serif">2 LITERS</text>
-  <path d="M22 52 Q32 56 42 52" stroke="#B01828" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="drCJBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B81830"/>
+      <stop offset="50%" stop-color="#E82848"/>
+      <stop offset="100%" stop-color="#A81028"/>
+    </linearGradient>
+    <linearGradient id="drCJLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#880818"/>
+      <stop offset="100%" stop-color="#600008"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#880818" opacity=".3"/>
+  <rect x="18" y="14" width="28" height="44" rx="6" fill="url(#drCJBottle)" stroke="#A01020" stroke-width="1.5"/>
+  <rect x="23" y="8" width="18" height="8" rx="3" fill="#A01020"/>
+  <rect x="18" y="14" width="28" height="14" fill="url(#drCJLabel)"/>
+  <text x="32" y="22" text-anchor="middle" fill="#FFB0C0" font-size="5" font-weight="700" font-family="sans-serif">CRANBERRY</text>
+  <text x="32" y="29" text-anchor="middle" fill="#FF90A8" font-size="4.5" font-family="sans-serif">JUICE</text>
+  <text x="32" y="42" text-anchor="middle" fill="#FFD0D8" font-size="4.5" font-family="sans-serif">JUICE</text>
+  <text x="32" y="50" text-anchor="middle" fill="#FFB0C0" font-size="4" font-family="sans-serif">2 LITERS</text>
+  <rect x="20" y="16" width="5" height="40" rx="2" fill="#fff" opacity=".1"/>
 </svg>`,
 
 pineapple_juice: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="12" width="28" height="46" rx="5" fill="#F0D820" stroke="#C8B010" stroke-width="1.5"/>
-  <rect x="18" y="12" width="28" height="14" rx="5" fill="#C89810"/>
-  <rect x="18" y="22" width="28" height="4" fill="#C89810"/>
-  <rect x="23" y="8" width="18" height="6" rx="2" fill="#D8A820"/>
-  <text x="32" y="21" text-anchor="middle" fill="#7A5A08" font-size="4.5" font-weight="500" font-family="sans-serif">PINEAPPLE</text>
-  <text x="32" y="34" text-anchor="middle" fill="#7A5A08" font-size="5" font-family="sans-serif">JUICE</text>
-  <text x="32" y="42" text-anchor="middle" fill="#9A7820" font-size="5" font-family="sans-serif">2 LITERS</text>
-  <path d="M22 52 Q32 56 42 52" stroke="#C8B010" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="drPJBottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D8B810"/>
+      <stop offset="50%" stop-color="#F8D820"/>
+      <stop offset="100%" stop-color="#C8A808"/>
+    </linearGradient>
+    <linearGradient id="drPJLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C09008"/>
+      <stop offset="100%" stop-color="#906800"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#906800" opacity=".25"/>
+  <rect x="18" y="14" width="28" height="44" rx="6" fill="url(#drPJBottle)" stroke="#C0A010" stroke-width="1.5"/>
+  <rect x="23" y="8" width="18" height="8" rx="3" fill="#C09810"/>
+  <rect x="18" y="14" width="28" height="14" fill="url(#drPJLabel)"/>
+  <text x="32" y="22" text-anchor="middle" fill="#FFF0A0" font-size="4.5" font-weight="700" font-family="sans-serif">PINEAPPLE</text>
+  <text x="32" y="29" text-anchor="middle" fill="#FFE080" font-size="4.5" font-family="sans-serif">JUICE</text>
+  <text x="32" y="42" text-anchor="middle" fill="#7A5808" font-size="5" font-family="sans-serif">JUICE</text>
+  <text x="32" y="50" text-anchor="middle" fill="#8A6810" font-size="4" font-family="sans-serif">2 LITERS</text>
+  <rect x="20" y="16" width="5" height="40" rx="2" fill="#fff" opacity=".12"/>
 </svg>`,
 
 lemon_lime_soda: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="10" width="28" height="48" rx="6" fill="#D8E840" stroke="#B0C020" stroke-width="1.5"/>
-  <rect x="18" y="10" width="28" height="14" rx="6" fill="#88A018"/>
-  <rect x="18" y="20" width="28" height="4" fill="#88A018"/>
-  <rect x="23" y="6" width="18" height="6" rx="2" fill="#A0C020"/>
-  <circle cx="24" cy="13" r="3" fill="#C8E030" opacity=".6"/>
-  <text x="32" y="20" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">LEMON-LIME</text>
-  <text x="32" y="32" text-anchor="middle" fill="#5A6808" font-size="5" font-family="sans-serif">SODA</text>
-  <text x="32" y="40" text-anchor="middle" fill="#5A6808" font-size="5" font-family="sans-serif">2 LITERS</text>
-  <circle cx="24" cy="48" r="2" fill="#C8E030" opacity=".5"/>
-  <circle cx="32" cy="50" r="2" fill="#C8E030" opacity=".5"/>
-  <circle cx="40" cy="48" r="2" fill="#C8E030" opacity=".5"/>
+  <defs>
+    <linearGradient id="drLSCan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B0CC18"/>
+      <stop offset="50%" stop-color="#D8F030"/>
+      <stop offset="100%" stop-color="#A0BC10"/>
+    </linearGradient>
+    <linearGradient id="drLSLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A9810"/>
+      <stop offset="100%" stop-color="#587008"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#587008" opacity=".2"/>
+  <rect x="18" y="12" width="28" height="46" rx="7" fill="url(#drLSCan)" stroke="#98B010" stroke-width="1.5"/>
+  <rect x="23" y="6" width="18" height="8" rx="3" fill="#90A818"/>
+  <rect x="18" y="12" width="28" height="14" fill="url(#drLSLabel)"/>
+  <text x="32" y="20" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">LEMON-LIME</text>
+  <text x="32" y="27" text-anchor="middle" fill="#DFFFA0" font-size="4.5" font-family="sans-serif">SODA</text>
+  <text x="32" y="40" text-anchor="middle" fill="#4A5808" font-size="5.5" font-family="sans-serif">SODA</text>
+  <text x="32" y="48" text-anchor="middle" fill="#5A6810" font-size="4" font-family="sans-serif">2 LITERS</text>
+  <circle cx="22" cy="50" r="2" fill="#C8E030" opacity=".5"/>
+  <circle cx="30" cy="52" r="2" fill="#C8E030" opacity=".5"/>
+  <circle cx="38" cy="50" r="2" fill="#C8E030" opacity=".5"/>
+  <rect x="20" y="14" width="5" height="42" rx="2" fill="#fff" opacity=".15"/>
 </svg>`,
 
 frozen_lemonade: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="36" rx="5" fill="#F8F090" stroke="#D8D040" stroke-width="1.5"/>
-  <rect x="18" y="16" width="28" height="12" rx="5" fill="#F0C820"/>
-  <text x="32" y="24" text-anchor="middle" fill="#7A5808" font-size="5" font-weight="500" font-family="sans-serif">FROZEN</text>
-  <text x="32" y="34" text-anchor="middle" fill="#9A8020" font-size="5.5" font-family="sans-serif">LEMONADE</text>
-  <text x="32" y="42" text-anchor="middle" fill="#9A8020" font-size="5" font-family="sans-serif">CONCENTRATE</text>
-  <path d="M22 50 Q32 54 42 50" stroke="#D8D040" stroke-width="1" fill="none"/>
+  <defs>
+    <linearGradient id="drFLCan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8F898"/>
+      <stop offset="100%" stop-color="#F0E870"/>
+    </linearGradient>
+    <linearGradient id="drFLLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0C820"/>
+      <stop offset="100%" stop-color="#C89808"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="16" ry="3" fill="#C89808" opacity=".2"/>
+  <rect x="16" y="16" width="32" height="40" rx="6" fill="url(#drFLCan)" stroke="#D8D040" stroke-width="1.5"/>
+  <rect x="16" y="16" width="32" height="14" rx="6" fill="url(#drFLLabel)"/>
+  <text x="32" y="25" text-anchor="middle" fill="#7A5808" font-size="5" font-weight="700" font-family="sans-serif">FROZEN</text>
+  <text x="32" y="32" text-anchor="middle" fill="#5A4008" font-size="4.5" font-family="sans-serif">LEMONADE</text>
+  <text x="32" y="42" text-anchor="middle" fill="#9A8820" font-size="6" font-weight="700" font-family="sans-serif">LEMON</text>
+  <text x="32" y="49" text-anchor="middle" fill="#9A8020" font-size="4.5" font-family="sans-serif">CONCENTRATE</text>
+  <rect x="18" y="18" width="5" height="36" rx="2" fill="#fff" opacity=".2"/>
 </svg>`,
 
 frozen_strawberries: () => `<svg viewBox="0 0 64 64">
@@ -1918,36 +2640,75 @@ frozen_strawberries: () => `<svg viewBox="0 0 64 64">
 </svg>`,
 
 black_tea_bags: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="12" width="28" height="38" rx="4" fill="#F8F0E0" stroke="#D0B880" stroke-width="1.5"/>
-  <rect x="18" y="12" width="28" height="11" rx="4" fill="#4A2808"/>
-  <text x="32" y="21" text-anchor="middle" fill="#F0C880" font-size="5" font-weight="500" font-family="sans-serif">BLACK TEA</text>
-  <rect x="26" y="30" width="12" height="14" rx="2" fill="#8A5828" opacity=".8"/>
-  <rect x="28" y="32" width="8" height="10" rx="1" fill="#C89058" opacity=".4"/>
-  <line x1="32" y1="28" x2="32" y2="30" stroke="#6A3818" stroke-width="1.5"/>
-  <circle cx="32" cy="27" r="2" fill="#6A3818"/>
-  <text x="32" y="54" text-anchor="middle" fill="#7A5830" font-size="5" font-family="sans-serif">8 TEA BAGS</text>
+  <defs>
+    <linearGradient id="drBTBox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF2E0"/>
+      <stop offset="100%" stop-color="#EEE0C8"/>
+    </linearGradient>
+    <linearGradient id="drBTLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5A3010"/>
+      <stop offset="100%" stop-color="#3A1808"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="56" rx="16" ry="3" fill="#3A1808" opacity=".2"/>
+  <rect x="16" y="12" width="32" height="42" rx="5" fill="url(#drBTBox)" stroke="#D0B880" stroke-width="1.5"/>
+  <rect x="16" y="12" width="32" height="13" rx="5" fill="url(#drBTLabel)"/>
+  <text x="32" y="22" text-anchor="middle" fill="#F0C880" font-size="5.5" font-weight="700" font-family="sans-serif">BLACK TEA</text>
+  <text x="32" y="29" text-anchor="middle" fill="#C8A050" font-size="4" font-family="sans-serif">8 TEA BAGS</text>
+  <!-- tea bag -->
+  <rect x="24" y="34" width="16" height="18" rx="3" fill="#9A6030" opacity=".85"/>
+  <rect x="26" y="36" width="12" height="14" rx="2" fill="#C89058" opacity=".35"/>
+  <line x1="32" y1="31" x2="32" y2="34" stroke="#7A4020" stroke-width="1.5"/>
+  <circle cx="32" cy="30" r="2.5" fill="#7A4020"/>
+  <text x="32" y="46" text-anchor="middle" fill="#F0E0C0" font-size="4" font-family="sans-serif">TEA</text>
 </svg>`,
 
 rice_horchata: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="38" rx="4" fill="#F8F4EC" stroke="#D8C8A0" stroke-width="1.5"/>
-  <rect x="18" y="16" width="28" height="11" rx="4" fill="#A09070"/>
-  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">WHITE RICE</text>
-  <text x="32" y="34" text-anchor="middle" fill="#8A7040" font-size="5" font-family="sans-serif">FOR HORCHATA</text>
-  <ellipse cx="24" cy="44" rx="3" ry="2" fill="#E0D8C0"/>
-  <ellipse cx="32" cy="46" rx="3" ry="2" fill="#E0D8C0"/>
-  <ellipse cx="40" cy="44" rx="3" ry="2" fill="#E0D8C0"/>
-  <ellipse cx="28" cy="50" rx="3" ry="2" fill="#E0D8C0"/>
-  <ellipse cx="36" cy="50" rx="3" ry="2" fill="#E0D8C0"/>
+  <defs>
+    <linearGradient id="drRHBag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEFAF4"/>
+      <stop offset="100%" stop-color="#EEE8D8"/>
+    </linearGradient>
+    <linearGradient id="drRHLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B0A078"/>
+      <stop offset="100%" stop-color="#887850"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="16" ry="3" fill="#887850" opacity=".2"/>
+  <rect x="16" y="16" width="32" height="40" rx="5" fill="url(#drRHBag)" stroke="#D8C8A0" stroke-width="1.5"/>
+  <rect x="16" y="16" width="32" height="14" rx="5" fill="url(#drRHLabel)"/>
+  <text x="32" y="25" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">WHITE RICE</text>
+  <text x="32" y="32" text-anchor="middle" fill="#FFF0D0" font-size="4" font-family="sans-serif">FOR HORCHATA</text>
+  <ellipse cx="20" cy="42" rx="3.5" ry="2.5" fill="#E8E0C8"/>
+  <ellipse cx="28" cy="45" rx="3.5" ry="2.5" fill="#E0D8C0"/>
+  <ellipse cx="36" cy="42" rx="3.5" ry="2.5" fill="#E8E0C8"/>
+  <ellipse cx="44" cy="45" rx="3" ry="2" fill="#E0D8C0"/>
+  <ellipse cx="24" cy="50" rx="3.5" ry="2.5" fill="#E0D8C0"/>
+  <ellipse cx="32" cy="52" rx="3" ry="2" fill="#E8E0C8"/>
+  <ellipse cx="40" cy="50" rx="3.5" ry="2.5" fill="#E0D8C0"/>
 </svg>`,
 
 cinnamon_sticks: () => `<svg viewBox="0 0 64 64">
-  <rect x="28" y="10" width="8" height="44" rx="4" fill="#A06030" stroke="#7A4820" stroke-width="1.5"/>
-  <line x1="28" y1="18" x2="36" y2="18" stroke="#7A4820" stroke-width="1" opacity=".6"/>
-  <line x1="28" y1="26" x2="36" y2="26" stroke="#7A4820" stroke-width="1" opacity=".6"/>
-  <line x1="28" y1="34" x2="36" y2="34" stroke="#7A4820" stroke-width="1" opacity=".6"/>
-  <line x1="28" y1="42" x2="36" y2="42" stroke="#7A4820" stroke-width="1" opacity=".6"/>
-  <rect x="18" y="14" width="8" height="40" rx="4" fill="#B07840" stroke="#8A5828" stroke-width="1.5" transform="rotate(-10 22 34)"/>
-  <text x="32" y="60" text-anchor="middle" fill="#7A4820" font-size="4.5" font-family="sans-serif">CINNAMON STICKS</text>
+  <defs>
+    <linearGradient id="drCSStick" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8A5020"/>
+      <stop offset="50%" stop-color="#B07040"/>
+      <stop offset="100%" stop-color="#8A5020"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="12" ry="2.5" fill="#7A4820" opacity=".25"/>
+  <!-- back stick (rotated) -->
+  <rect x="19" y="12" width="9" height="44" rx="4.5" fill="#9A6030" stroke="#7A4820" stroke-width="1.2" transform="rotate(-12,24,34)"/>
+  <line x1="19" y1="19" x2="28" y2="18" stroke="#7A4820" stroke-width=".8" opacity=".5" transform="rotate(-12,24,34)"/>
+  <line x1="19" y1="28" x2="28" y2="27" stroke="#7A4820" stroke-width=".8" opacity=".5" transform="rotate(-12,24,34)"/>
+  <line x1="19" y1="37" x2="28" y2="36" stroke="#7A4820" stroke-width=".8" opacity=".5" transform="rotate(-12,24,34)"/>
+  <!-- front stick (center) -->
+  <rect x="27" y="10" width="10" height="46" rx="5" fill="url(#drCSStick)" stroke="#7A4820" stroke-width="1.5"/>
+  <line x1="27" y1="18" x2="37" y2="18" stroke="#7A4820" stroke-width="1" opacity=".55"/>
+  <line x1="27" y1="26" x2="37" y2="26" stroke="#7A4820" stroke-width="1" opacity=".55"/>
+  <line x1="27" y1="34" x2="37" y2="34" stroke="#7A4820" stroke-width="1" opacity=".55"/>
+  <line x1="27" y1="42" x2="37" y2="42" stroke="#7A4820" stroke-width="1" opacity=".55"/>
+  <rect x="29" y="12" width="3" height="42" rx="1.5" fill="#fff" opacity=".12"/>
 </svg>`,
 
 // ── DESSERTS & BAKING ─────────────────────────────────────
@@ -1975,13 +2736,35 @@ cocoa_powder2: () => `<svg viewBox="0 0 64 64">
 </svg>`,
 
 ice_cream: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="20" width="32" height="30" rx="5" fill="#F8F0E0" stroke="#D8C8A8" stroke-width="1.5"/>
-  <rect x="16" y="20" width="32" height="12" rx="5" fill="#C090D8"/>
-  <text x="32" y="29" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">ICE CREAM</text>
-  <text x="32" y="40" text-anchor="middle" fill="#9A7848" font-size="5.5" font-family="sans-serif">ANY FLAVOR</text>
-  <text x="32" y="47" text-anchor="middle" fill="#9A7848" font-size="5" font-family="sans-serif">1 PINT</text>
-  <path d="M20 12 Q32 8 44 12 Q40 20 32 22 Q24 20 20 12" fill="#F8D8C8"/>
-  <path d="M22 14 Q32 10 42 14 Q38 20 32 21 Q26 20 22 14" fill="#FFF0E8" opacity=".6"/>
+  <defs>
+    <linearGradient id="deICPint" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF6E8"/>
+      <stop offset="100%" stop-color="#EEE0C8"/>
+    </linearGradient>
+    <linearGradient id="deICLabel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C898E8"/>
+      <stop offset="100%" stop-color="#9060C0"/>
+    </linearGradient>
+    <linearGradient id="deICScoop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFE8D8"/>
+      <stop offset="100%" stop-color="#F8C8A8"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="56" rx="18" ry="4" fill="#9060C0" opacity=".2"/>
+  <!-- pint container -->
+  <path d="M14 26 L16 54 L48 54 L50 26 Z" fill="url(#deICPint)" stroke="#D8C8A8" stroke-width="1.5"/>
+  <rect x="14" y="22" width="36" height="8" rx="3" fill="url(#deICLabel)"/>
+  <text x="32" y="29" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">ICE CREAM</text>
+  <text x="32" y="40" text-anchor="middle" fill="#9A7848" font-size="5" font-family="sans-serif">ANY FLAVOR</text>
+  <text x="32" y="47" text-anchor="middle" fill="#A88050" font-size="4.5" font-family="sans-serif">1 PINT</text>
+  <!-- lid scoop -->
+  <ellipse cx="32" cy="22" rx="18" ry="6" fill="url(#deICScoop)" stroke="#D8C0A0" stroke-width="1.5"/>
+  <ellipse cx="26" cy="20" rx="6" ry="4" fill="#fff" opacity=".35"/>
+  <!-- sprinkles on top -->
+  <rect x="25" y="18" width="4" height="1.5" rx=".75" fill="#E84848" transform="rotate(30,27,18.75)"/>
+  <rect x="32" y="17" width="4" height="1.5" rx=".75" fill="#4890E8" transform="rotate(-20,34,17.75)"/>
+  <rect x="38" y="19" width="4" height="1.5" rx=".75" fill="#E8C020" transform="rotate(45,40,19.75)"/>
+  <rect x="29" y="20" width="4" height="1.5" rx=".75" fill="#48C048" transform="rotate(-10,31,20.75)"/>
 </svg>`,
 
 whipped_cream2: () => `<svg viewBox="0 0 64 64">
