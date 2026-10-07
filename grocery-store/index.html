@@ -1005,119 +1005,277 @@ marshmallows: () => `<svg viewBox="0 0 64 64">
 // ── PROTEIN ───────────────────────────────────────────────
 
 ground_beef: () => `<svg viewBox="0 0 64 64">
-  <!-- styrofoam tray -->
-  <rect x="8" y="26" width="48" height="28" rx="4" fill="#F5F0EC" stroke="#D8D0C8" stroke-width="1.5"/>
-  <rect x="10" y="28" width="44" height="24" rx="3" fill="#FFF8F4"/>
+  <defs>
+    <linearGradient id="trayGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFAF7"/>
+      <stop offset="100%" stop-color="#EDE4DC"/>
+    </linearGradient>
+    <linearGradient id="beefGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4786A"/>
+      <stop offset="100%" stop-color="#A84838"/>
+    </linearGradient>
+  </defs>
+  <!-- tray shadow -->
+  <ellipse cx="33" cy="57" rx="22" ry="3" fill="#C8B8A8" opacity=".35"/>
+  <!-- tray body -->
+  <rect x="7" y="27" width="50" height="28" rx="5" fill="url(#trayGrad)" stroke="#C8C0B4" stroke-width="1.5"/>
+  <!-- tray inner well -->
+  <rect x="10" y="30" width="44" height="22" rx="3" fill="#FFF8F4"/>
+  <!-- tray rim highlight -->
+  <path d="M10 30 Q32 27 54 30" stroke="#FFFFFF" stroke-width="1.2" fill="none" opacity=".8"/>
+  <!-- ground beef mound — base shadow -->
+  <ellipse cx="32" cy="45" rx="19" ry="7" fill="#8A3820" opacity=".2"/>
+  <!-- ground beef main mass -->
+  <path d="M14 44 Q14 34 22 31 Q32 29 42 31 Q50 34 50 44 Q50 50 32 51 Q14 50 14 44Z" fill="url(#beefGrad)"/>
+  <!-- beef texture streaks -->
+  <path d="M18 36 Q24 34 30 36 Q36 34 42 36" stroke="#C06050" stroke-width="1" fill="none" opacity=".5"/>
+  <path d="M16 40 Q24 37 32 39 Q40 37 48 40" stroke="#C06050" stroke-width="1" fill="none" opacity=".4"/>
+  <path d="M17 44 Q26 41 32 43 Q38 41 47 44" stroke="#B05040" stroke-width=".8" fill="none" opacity=".4"/>
+  <!-- fat marbling -->
+  <path d="M22 33 Q26 31 28 33" stroke="#E8A890" stroke-width="1.2" fill="none" opacity=".6"/>
+  <path d="M36 32 Q40 30 43 33" stroke="#E8A890" stroke-width="1" fill="none" opacity=".5"/>
   <!-- plastic wrap shimmer -->
-  <rect x="10" y="28" width="44" height="24" rx="3" fill="none" stroke="#D0E8F0" stroke-width="2" opacity=".5"/>
-  <path d="M14 30 Q32 28 50 32" stroke="#E8F4FC" stroke-width="1.5" fill="none" opacity=".6"/>
-  <path d="M12 36 Q32 33 52 37" stroke="#E8F4FC" stroke-width="1" fill="none" opacity=".4"/>
-  <!-- ground beef mound -->
-  <ellipse cx="32" cy="40" rx="18" ry="9" fill="#C07060"/>
-  <ellipse cx="26" cy="38" rx="8" ry="5" fill="#D08070" opacity=".7"/>
-  <ellipse cx="38" cy="41" rx="9" ry="5" fill="#B86050" opacity=".7"/>
-  <ellipse cx="32" cy="37" rx="6" ry="3" fill="#D89080" opacity=".4"/>
+  <rect x="10" y="30" width="44" height="22" rx="3" fill="none" stroke="#C8E8F8" stroke-width="2.5" opacity=".35"/>
+  <path d="M13 32 Q32 29 51 33" stroke="#E0F4FF" stroke-width="1.5" fill="none" opacity=".5"/>
   <!-- label sticker -->
-  <rect x="12" y="27" width="22" height="8" rx="2" fill="#fff" stroke="#D0D0C8" stroke-width=".8"/>
-  <text x="23" y="32" text-anchor="middle" fill="#8A4030" font-size="4.5" font-weight="500" font-family="sans-serif">GROUND BEEF</text>
-  <text x="23" y="37" text-anchor="middle" fill="#A06050" font-size="4" font-family="sans-serif">2 LB  80/20</text>
+  <rect x="11" y="28" width="24" height="9" rx="2.5" fill="#FFFFFF" stroke="#D4C8BC" stroke-width=".8"/>
+  <rect x="11" y="28" width="24" height="3.5" rx="2.5" fill="#C84030"/>
+  <text x="23" y="31" text-anchor="middle" fill="#fff" font-size="3.5" font-weight="700" font-family="sans-serif">GROUND BEEF</text>
+  <text x="23" y="35.5" text-anchor="middle" fill="#7A4030" font-size="3.5" font-family="sans-serif">2 LB · 80/20</text>
 </svg>`,
 
 chicken_breast: () => `<svg viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="chkBrGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDF5E6"/>
+      <stop offset="100%" stop-color="#F0E2C8"/>
+    </linearGradient>
+    <linearGradient id="meatPink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDEEDD"/>
+      <stop offset="100%" stop-color="#E8C8A0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="33" cy="57" rx="22" ry="2.5" fill="#C8C0B0" opacity=".3"/>
   <!-- tray -->
-  <rect x="6" y="28" width="52" height="28" rx="4" fill="#F5F0EC" stroke="#D8D0C8" stroke-width="1.5"/>
-  <rect x="8" y="30" width="48" height="24" rx="3" fill="#FFF8F4"/>
-  <!-- plastic wrap -->
-  <path d="M10 32 Q32 29 54 33" stroke="#D8F0FC" stroke-width="1.5" fill="none" opacity=".5"/>
-  <!-- left breast -->
-  <path d="M10 50 Q8 40 14 34 Q20 28 28 30 Q34 32 34 40 Q32 50 24 52 Q16 52 10 50" fill="#F8E8C8" stroke="#E0C8A0" stroke-width="1"/>
-  <path d="M12 48 Q10 40 16 36 Q22 30 28 32 Q33 34 33 42" fill="#FFF0D8" opacity=".4"/>
+  <rect x="7" y="27" width="50" height="29" rx="5" fill="url(#chkBrGrad)" stroke="#C8C0B4" stroke-width="1.5"/>
+  <rect x="10" y="30" width="44" height="23" rx="3" fill="#FFFCF8"/>
+  <path d="M10 30 Q32 27 54 30" stroke="#fff" stroke-width="1.2" fill="none" opacity=".9"/>
+  <!-- left breast — plump teardrop shape -->
+  <path d="M12 52 Q9 42 13 34 Q19 28 27 30 Q34 32 33 41 Q31 52 22 53 Q16 54 12 52Z" fill="url(#meatPink)" stroke="#D8B880" stroke-width="1"/>
+  <!-- muscle grain lines -->
+  <path d="M15 36 Q20 33 26 35" stroke="#E8C890" stroke-width="1" fill="none" opacity=".7"/>
+  <path d="M13 42 Q20 38 28 41" stroke="#E8C890" stroke-width=".8" fill="none" opacity=".6"/>
+  <path d="M13 47 Q20 44 28 47" stroke="#D8B870" stroke-width=".7" fill="none" opacity=".5"/>
+  <!-- highlight -->
+  <path d="M15 34 Q21 30 27 32" stroke="#FFF8EC" stroke-width="1.8" fill="none" opacity=".6"/>
   <!-- right breast -->
-  <path d="M32 50 Q30 40 34 34 Q40 28 48 30 Q56 32 56 42 Q56 52 48 54 Q38 54 32 50" fill="#F0DEB8" stroke="#D8C090" stroke-width="1"/>
-  <path d="M34 48 Q32 40 36 34 Q42 30 48 32" fill="#FFF0D8" opacity=".4"/>
+  <path d="M33 52 Q31 41 35 33 Q41 27 49 29 Q57 31 57 41 Q57 52 49 54 Q39 55 33 52Z" fill="#F5E0C0" stroke="#D0B070" stroke-width="1"/>
+  <path d="M36 35 Q42 31 48 33" stroke="#E8C880" stroke-width="1" fill="none" opacity=".7"/>
+  <path d="M34 43 Q40 39 50 42" stroke="#E0B870" stroke-width=".8" fill="none" opacity=".6"/>
+  <path d="M35 34 Q42 30 48 32" stroke="#FFFAEE" stroke-width="1.5" fill="none" opacity=".6"/>
+  <!-- plastic wrap -->
+  <rect x="10" y="30" width="44" height="23" rx="3" fill="none" stroke="#C0E8F8" stroke-width="2" opacity=".3"/>
+  <path d="M13 31 Q32 28 52 32" stroke="#E0F4FF" stroke-width="1.2" fill="none" opacity=".45"/>
   <!-- label -->
-  <rect x="10" y="29" width="24" height="8" rx="2" fill="#fff" stroke="#D0D0C8" stroke-width=".8"/>
-  <text x="22" y="34" text-anchor="middle" fill="#5A7828" font-size="4.5" font-weight="500" font-family="sans-serif">CHICKEN BREAST</text>
-  <text x="22" y="39" text-anchor="middle" fill="#7A9040" font-size="4" font-family="sans-serif">2 LB  BONELESS</text>
+  <rect x="11" y="28" width="26" height="9" rx="2.5" fill="#fff" stroke="#D4C8BC" stroke-width=".8"/>
+  <rect x="11" y="28" width="26" height="3.5" rx="2.5" fill="#4A8030"/>
+  <text x="24" y="31" text-anchor="middle" fill="#fff" font-size="3.2" font-weight="700" font-family="sans-serif">CHICKEN BREAST</text>
+  <text x="24" y="36" text-anchor="middle" fill="#5A7030" font-size="3.2" font-family="sans-serif">2 LB · BONELESS</text>
 </svg>`,
 
 chicken_wings: () => `<svg viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="wingGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8B860"/>
+      <stop offset="100%" stop-color="#B87828"/>
+    </linearGradient>
+    <linearGradient id="trayW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFAF6"/>
+      <stop offset="100%" stop-color="#EDE4DC"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="33" cy="58" rx="22" ry="2.5" fill="#C0B8A8" opacity=".3"/>
   <!-- tray -->
-  <rect x="6" y="24" width="52" height="32" rx="4" fill="#F5F0EC" stroke="#D8D0C8" stroke-width="1.5"/>
-  <rect x="8" y="26" width="48" height="28" rx="3" fill="#FFF8F4"/>
-  <!-- wing 1 back -->
-  <path d="M12 48 Q10 38 16 30 Q22 24 28 26 Q32 28 30 36 Q28 44 20 50 Q16 50 12 48" fill="#D4A060" stroke="#B87840" stroke-width="1"/>
-  <path d="M30 36 Q34 28 40 26 Q46 24 48 32 Q48 40 42 46 Q36 48 30 44 Q28 40 30 36" fill="#C89050" stroke="#A87030" stroke-width="1"/>
-  <!-- wing 2 front -->
-  <path d="M18 52 Q14 44 18 36 Q24 28 32 30 Q38 32 36 42 Q34 50 26 54 Q22 54 18 52" fill="#E8B870" stroke="#C89848" stroke-width="1"/>
-  <path d="M20 50 Q16 44 20 38 Q26 30 32 32 Q37 34 35 42" fill="#F8D090" opacity=".4"/>
-  <!-- bone tips -->
-  <ellipse cx="20" cy="36" rx="3" ry="2" fill="#F5ECD8"/>
-  <ellipse cx="40" cy="34" rx="3" ry="2" fill="#F5ECD8"/>
+  <rect x="6" y="23" width="52" height="33" rx="5" fill="url(#trayW)" stroke="#C8C0B4" stroke-width="1.5"/>
+  <rect x="9" y="26" width="46" height="27" rx="3" fill="#FFFCF8"/>
+  <path d="M9 26 Q32 23 55 26" stroke="#fff" stroke-width="1.2" fill="none" opacity=".9"/>
+  <!-- wing back-left (darker, behind) -->
+  <path d="M10 50 Q8 38 14 30 Q20 24 27 26 Q32 28 30 37 Q28 46 20 51 Q14 53 10 50Z" fill="#C89040" stroke="#A87028" stroke-width="1" opacity=".85"/>
+  <path d="M30 37 Q33 28 39 26 Q46 24 49 32 Q49 41 43 47 Q36 50 30 46 Q27 42 30 37Z" fill="#C08030" stroke="#9A6820" stroke-width="1" opacity=".8"/>
+  <!-- wing front-center (brighter) -->
+  <path d="M16 53 Q12 44 16 35 Q23 27 32 29 Q39 31 37 42 Q35 52 26 55 Q20 56 16 53Z" fill="url(#wingGrad)" stroke="#C89840" stroke-width="1"/>
+  <!-- skin texture -->
+  <path d="M18 37 Q23 33 29 36" stroke="#F8D080" stroke-width="1.2" fill="none" opacity=".6"/>
+  <path d="M17 43 Q23 39 30 42" stroke="#E0B060" stroke-width="1" fill="none" opacity=".5"/>
+  <path d="M18 49 Q24 46 31 48" stroke="#D0A050" stroke-width=".8" fill="none" opacity=".5"/>
+  <!-- highlight sheen -->
+  <path d="M19 35 Q25 31 31 34" stroke="#FFEEA0" stroke-width="1.5" fill="none" opacity=".5"/>
+  <!-- bone tip 1 -->
+  <ellipse cx="18" cy="35" rx="3.5" ry="2.5" fill="#F5F0E4" stroke="#D8C8A8" stroke-width=".8"/>
+  <!-- bone tip 2 -->
+  <ellipse cx="40" cy="33" rx="3" ry="2" fill="#F5F0E4" stroke="#D8C8A8" stroke-width=".8"/>
+  <!-- plastic wrap -->
+  <rect x="9" y="26" width="46" height="27" rx="3" fill="none" stroke="#C0E8F8" stroke-width="2" opacity=".25"/>
   <!-- label -->
-  <rect x="10" y="25" width="24" height="8" rx="2" fill="#fff" stroke="#D0D0C8" stroke-width=".8"/>
-  <text x="22" y="30" text-anchor="middle" fill="#8A4020" font-size="4.5" font-weight="500" font-family="sans-serif">CHICKEN WINGS</text>
-  <text x="22" y="35" text-anchor="middle" fill="#A06030" font-size="4" font-family="sans-serif">4 LB  PARTY PACK</text>
+  <rect x="10" y="24" width="26" height="9" rx="2.5" fill="#fff" stroke="#D4C8BC" stroke-width=".8"/>
+  <rect x="10" y="24" width="26" height="3.5" rx="2.5" fill="#C86820"/>
+  <text x="23" y="27" text-anchor="middle" fill="#fff" font-size="3.2" font-weight="700" font-family="sans-serif">CHICKEN WINGS</text>
+  <text x="23" y="32" text-anchor="middle" fill="#8A5020" font-size="3.2" font-family="sans-serif">4 LB · PARTY PACK</text>
 </svg>`,
 
 chicken_thighs: () => `<svg viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="thighGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0D090"/>
+      <stop offset="100%" stop-color="#C8903C"/>
+    </linearGradient>
+    <linearGradient id="trayTh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFAF6"/>
+      <stop offset="100%" stop-color="#EDE4DC"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="33" cy="58" rx="22" ry="2.5" fill="#C0B8A8" opacity=".3"/>
   <!-- tray -->
-  <rect x="6" y="26" width="52" height="30" rx="4" fill="#F5F0EC" stroke="#D8D0C8" stroke-width="1.5"/>
-  <rect x="8" y="28" width="48" height="26" rx="3" fill="#FFF8F4"/>
-  <!-- plastic wrap shimmer -->
-  <path d="M10 30 Q32 27 54 31" stroke="#D8F0FC" stroke-width="1.5" fill="none" opacity=".5"/>
-  <!-- thigh 1 -->
-  <path d="M10 50 Q8 38 14 32 Q22 26 30 28 Q36 30 36 40 Q34 52 24 54 Q14 54 10 50" fill="#E8C888" stroke="#C8A860" stroke-width="1"/>
-  <path d="M12 48 Q10 38 16 34 Q24 28 30 30 Q35 32 35 42" fill="#F8DCA8" opacity=".4"/>
-  <!-- bone -->
-  <line x1="20" y1="30" x2="18" y2="54" stroke="#F0E8D0" stroke-width="3" stroke-linecap="round"/>
-  <ellipse cx="19" cy="30" rx="4" ry="3" fill="#F0E8D0"/>
-  <!-- thigh 2 -->
-  <path d="M34 50 Q32 38 38 30 Q46 24 52 28 Q58 32 56 44 Q54 54 46 56 Q36 54 34 50" fill="#DDB870" stroke="#B89848" stroke-width="1"/>
-  <path d="M36 48 Q34 38 40 32 Q48 26 52 30" fill="#F8DCA8" opacity=".4"/>
-  <!-- bone -->
-  <line x1="46" y1="26" x2="44" y2="52" stroke="#F0E8D0" stroke-width="3" stroke-linecap="round"/>
-  <ellipse cx="46" cy="26" rx="4" ry="3" fill="#F0E8D0"/>
+  <rect x="6" y="25" width="52" height="31" rx="5" fill="url(#trayTh)" stroke="#C8C0B4" stroke-width="1.5"/>
+  <rect x="9" y="28" width="46" height="25" rx="3" fill="#FFFCF8"/>
+  <path d="M9 28 Q32 25 55 28" stroke="#fff" stroke-width="1.2" fill="none" opacity=".9"/>
+  <!-- thigh 1 left -->
+  <path d="M11 51 Q9 39 14 32 Q22 26 30 28 Q37 30 36 41 Q35 53 23 54 Q15 54 11 51Z" fill="url(#thighGrad)" stroke="#C09040" stroke-width="1"/>
+  <path d="M13 34 Q19 30 26 32" stroke="#F8E0A0" stroke-width="1.2" fill="none" opacity=".6"/>
+  <path d="M12 41 Q19 37 28 40" stroke="#E8C870" stroke-width="1" fill="none" opacity=".55"/>
+  <path d="M12 47 Q19 44 27 47" stroke="#D8B060" stroke-width=".8" fill="none" opacity=".5"/>
+  <!-- bone 1 -->
+  <line x1="21" y1="28" x2="19" y2="54" stroke="#F8F0DC" stroke-width="3.5" stroke-linecap="round" opacity=".9"/>
+  <ellipse cx="21" cy="28" rx="4.5" ry="3" fill="#F5EED8" stroke="#D8C8A0" stroke-width=".8"/>
+  <ellipse cx="19" cy="54" rx="3.5" ry="2.5" fill="#F5EED8" stroke="#D8C8A0" stroke-width=".8"/>
+  <!-- thigh 2 right -->
+  <path d="M35 51 Q33 39 39 30 Q47 24 53 27 Q59 31 58 43 Q57 54 48 56 Q37 55 35 51Z" fill="#E8C278" stroke="#B88838" stroke-width="1"/>
+  <path d="M38 32 Q43 28 50 30" stroke="#F8E090" stroke-width="1.2" fill="none" opacity=".6"/>
+  <path d="M36 41 Q43 37 54 41" stroke="#E8C870" stroke-width="1" fill="none" opacity=".5"/>
+  <!-- bone 2 -->
+  <line x1="48" y1="25" x2="46" y2="54" stroke="#F8F0DC" stroke-width="3.5" stroke-linecap="round" opacity=".9"/>
+  <ellipse cx="48" cy="25" rx="4.5" ry="3" fill="#F5EED8" stroke="#D8C8A0" stroke-width=".8"/>
+  <ellipse cx="46" cy="54" rx="3.5" ry="2.5" fill="#F5EED8" stroke="#D8C8A0" stroke-width=".8"/>
+  <!-- plastic wrap -->
+  <rect x="9" y="28" width="46" height="25" rx="3" fill="none" stroke="#C0E8F8" stroke-width="2" opacity=".25"/>
   <!-- label -->
-  <rect x="10" y="27" width="24" height="8" rx="2" fill="#fff" stroke="#D0D0C8" stroke-width=".8"/>
-  <text x="22" y="32" text-anchor="middle" fill="#8A6020" font-size="4.5" font-weight="500" font-family="sans-serif">CHKN THIGHS</text>
-  <text x="22" y="37" text-anchor="middle" fill="#9A7030" font-size="4" font-family="sans-serif">2 LB  BONE-IN</text>
+  <rect x="10" y="26" width="26" height="9" rx="2.5" fill="#fff" stroke="#D4C8BC" stroke-width=".8"/>
+  <rect x="10" y="26" width="26" height="3.5" rx="2.5" fill="#9A6018"/>
+  <text x="23" y="29" text-anchor="middle" fill="#fff" font-size="3.2" font-weight="700" font-family="sans-serif">CHICKEN THIGHS</text>
+  <text x="23" y="34" text-anchor="middle" fill="#7A5018" font-size="3.2" font-family="sans-serif">2 LB · BONE-IN</text>
 </svg>`,
 
 bacon: () => `<svg viewBox="0 0 64 64">
-  <!-- package background -->
-  <rect x="8" y="12" width="48" height="44" rx="5" fill="#F8ECD8" stroke="#D09858" stroke-width="1.5"/>
-  <rect x="8" y="12" width="48" height="14" rx="5" fill="#C84020"/>
-  <text x="32" y="21" text-anchor="middle" fill="#FFD0B0" font-size="5.5" font-weight="500" font-family="sans-serif">BACON</text>
-  <text x="32" y="28" text-anchor="middle" fill="#FFB090" font-size="4.5" font-family="sans-serif">8 STRIPS</text>
-  <!-- bacon strips -->
-  <path d="M12 34 Q18 30 24 34 Q30 38 36 34 Q42 30 52 34" stroke="#C84030" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-  <path d="M12 40 Q20 36 26 40 Q32 44 40 40 Q46 36 52 40" stroke="#E87858" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M13 46 Q19 42 27 46 Q33 50 41 46 Q47 42 51 46" stroke="#F8D0A0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M12 34 Q18 30 24 34 Q30 38 36 34 Q42 30 52 34" stroke="#D85030" stroke-width="1" fill="none" stroke-linecap="round" opacity=".4"/>
+  <defs>
+    <linearGradient id="baconPkg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDF0E0"/>
+      <stop offset="100%" stop-color="#F0DCC0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="22" ry="2.5" fill="#C0A890" opacity=".3"/>
+  <!-- package -->
+  <rect x="7" y="9" width="50" height="48" rx="5" fill="url(#baconPkg)" stroke="#C8A068" stroke-width="1.5"/>
+  <!-- header band -->
+  <rect x="7" y="9" width="50" height="16" rx="5" fill="#B83018"/>
+  <rect x="7" y="21" width="50" height="4" fill="#982010"/>
+  <text x="32" y="19" text-anchor="middle" fill="#FFECD8" font-size="6" font-weight="800" font-family="sans-serif">BACON</text>
+  <!-- clear window outline -->
+  <rect x="11" y="27" width="42" height="26" rx="3" fill="#FFF8F0" stroke="#D8B888" stroke-width="1"/>
+  <!-- bacon strip 1 — lean red with fat marbling -->
+  <path d="M13 31 Q19 28 26 31 Q32 34 38 31 Q44 28 51 31" stroke="#C03820" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M13 31 Q19 28 26 31 Q32 34 38 31 Q44 28 51 31" stroke="#F0A080" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- fat streaks on strip 1 -->
+  <path d="M16 30 Q19 28 22 30" stroke="#F8DCC0" stroke-width="1.2" fill="none" opacity=".8"/>
+  <path d="M35 30 Q38 28 42 30" stroke="#F8DCC0" stroke-width="1.2" fill="none" opacity=".8"/>
+  <!-- bacon strip 2 -->
+  <path d="M13 37 Q20 34 27 37 Q33 40 40 37 Q46 34 51 37" stroke="#D04028" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M13 37 Q20 34 27 37 Q33 40 40 37 Q46 34 51 37" stroke="#F8C0A0" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <path d="M19 36 Q22 34 25 36" stroke="#F8E0C8" stroke-width="1" fill="none" opacity=".8"/>
+  <path d="M39 36 Q42 34 46 36" stroke="#F8E0C8" stroke-width="1" fill="none" opacity=".8"/>
+  <!-- bacon strip 3 -->
+  <path d="M13 43 Q21 40 28 43 Q34 46 42 43 Q47 40 51 43" stroke="#B83020" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M13 43 Q21 40 28 43 Q34 46 42 43 Q47 40 51 43" stroke="#F0B090" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <!-- bacon strip 4 -->
+  <path d="M14 48 Q22 45 30 48 Q36 51 44 48 Q48 46 51 48" stroke="#C83828" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".8"/>
+  <!-- package glare -->
+  <path d="M11 28 Q32 25 53 28" stroke="#fff" stroke-width="1" fill="none" opacity=".5"/>
 </svg>`,
 
 turkey_deli: () => `<svg viewBox="0 0 64 64">
-  <rect x="12" y="16" width="40" height="38" rx="5" fill="#F0E8D8" stroke="#D0C0A0" stroke-width="1.5"/>
-  <rect x="12" y="16" width="40" height="12" rx="5" fill="#A07848"/>
-  <text x="32" y="25" text-anchor="middle" fill="#FFE8C8" font-size="5.5" font-weight="500" font-family="sans-serif">TURKEY DELI</text>
-  <ellipse cx="32" cy="38" rx="16" ry="10" fill="#E8D8B8"/>
-  <ellipse cx="32" cy="38" rx="12" ry="7" fill="#F0E0C0"/>
-  <ellipse cx="32" cy="37" rx="8" ry="5" fill="#E8D0A8" opacity=".5"/>
-  <text x="32" y="51" text-anchor="middle" fill="#8A6030" font-size="5" font-family="sans-serif">1 LB SLICED</text>
+  <defs>
+    <linearGradient id="turkeyPkg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5EED8"/>
+      <stop offset="100%" stop-color="#E5D8B8"/>
+    </linearGradient>
+    <linearGradient id="sliceGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8E8D0"/>
+      <stop offset="100%" stop-color="#DEC8A8"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#C0B0A0" opacity=".3"/>
+  <!-- package body -->
+  <rect x="9" y="10" width="46" height="48" rx="5" fill="url(#turkeyPkg)" stroke="#C8B888" stroke-width="1.5"/>
+  <!-- header -->
+  <rect x="9" y="10" width="46" height="15" rx="5" fill="#8A6838"/>
+  <rect x="9" y="21" width="46" height="4" fill="#704E28"/>
+  <text x="32" y="19" text-anchor="middle" fill="#F8E8C8" font-size="5.5" font-weight="700" font-family="sans-serif">TURKEY</text>
+  <!-- clear window -->
+  <rect x="12" y="28" width="40" height="26" rx="3" fill="#FFF8F0" stroke="#D4C4A0" stroke-width="1"/>
+  <!-- turkey slices fanned out — 5 overlapping rounds -->
+  <ellipse cx="22" cy="42" rx="10" ry="11" fill="#E8D4B0" stroke="#C8B488" stroke-width=".8" transform="rotate(-15 22 42)"/>
+  <ellipse cx="25" cy="41" rx="10" ry="11" fill="#EED8B8" stroke="#C8B888" stroke-width=".8" transform="rotate(-8 25 41)"/>
+  <ellipse cx="28" cy="41" rx="10" ry="11" fill="#F0DAB8" stroke="#CCC090" stroke-width=".8" transform="rotate(-2 28 41)"/>
+  <ellipse cx="32" cy="41" rx="10" ry="11" fill="url(#sliceGrad)" stroke="#C8B880" stroke-width=".8" transform="rotate(4 32 41)"/>
+  <ellipse cx="36" cy="41" rx="10" ry="11" fill="#ECD8B0" stroke="#C8B880" stroke-width=".8" transform="rotate(10 36 41)"/>
+  <!-- slice texture/grain -->
+  <ellipse cx="32" cy="41" rx="7" ry="8" fill="none" stroke="#D8C498" stroke-width=".6" opacity=".6" transform="rotate(4 32 41)"/>
+  <ellipse cx="32" cy="41" rx="4" ry="5" fill="#E0C8A0" opacity=".3" transform="rotate(4 32 41)"/>
+  <!-- weight label bottom -->
+  <text x="32" y="56.5" text-anchor="middle" fill="#6A5028" font-size="4.5" font-weight="600" font-family="sans-serif">1 LB SLICED</text>
+  <!-- glare -->
+  <path d="M12 29 Q32 26 52 29" stroke="#fff" stroke-width="1" fill="none" opacity=".5"/>
 </svg>`,
 
 pepperoni: () => `<svg viewBox="0 0 64 64">
-  <circle cx="28" cy="34" r="14" fill="#C83820"/>
-  <circle cx="28" cy="34" r="11" fill="#D84828"/>
-  <circle cx="24" cy="30" r="3" fill="#A02010" opacity=".7"/>
-  <circle cx="32" cy="28" r="2.5" fill="#A02010" opacity=".7"/>
-  <circle cx="26" cy="38" r="2.5" fill="#A02010" opacity=".7"/>
-  <circle cx="33" cy="38" r="2" fill="#B02818" opacity=".6"/>
-  <circle cx="45" cy="30" r="11" fill="#C03018"/>
-  <circle cx="43" cy="28" r="3" fill="#A02010" opacity=".7"/>
-  <circle cx="48" cy="34" r="2.5" fill="#A02010" opacity=".7"/>
-  <text x="36" y="54" text-anchor="middle" fill="#8A2010" font-size="5" font-family="sans-serif">PEPPERONI</text>
+  <defs>
+    <linearGradient id="pepPkg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8EEE0"/>
+      <stop offset="100%" stop-color="#ECD8C0"/>
+    </linearGradient>
+    <radialGradient id="pepSlice" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#E85040"/>
+      <stop offset="100%" stop-color="#A01808"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#B8A090" opacity=".3"/>
+  <!-- package -->
+  <rect x="9" y="10" width="46" height="48" rx="5" fill="url(#pepPkg)" stroke="#C8A868" stroke-width="1.5"/>
+  <!-- header -->
+  <rect x="9" y="10" width="46" height="13" rx="5" fill="#A01808"/>
+  <rect x="9" y="19" width="46" height="4" fill="#800808"/>
+  <text x="32" y="18" text-anchor="middle" fill="#FFD8C8" font-size="5.5" font-weight="800" font-family="sans-serif">PEPPERONI</text>
+  <!-- window -->
+  <rect x="12" y="26" width="40" height="28" rx="3" fill="#FFF5EE" stroke="#D8B898" stroke-width="1"/>
+  <!-- back slice (left, slightly behind) -->
+  <circle cx="25" cy="41" r="12" fill="#B82010" stroke="#901008" stroke-width=".8" opacity=".75"/>
+  <circle cx="22" cy="38" r="4" fill="#901008" opacity=".5"/>
+  <circle cx="28" cy="36" r="2.5" fill="#901008" opacity=".5"/>
+  <circle cx="24" cy="46" r="3" fill="#901008" opacity=".5"/>
+  <!-- front slice (right, in front) -->
+  <circle cx="38" cy="40" r="13" fill="url(#pepSlice)" stroke="#901010" stroke-width="1"/>
+  <!-- grease/sheen highlight -->
+  <ellipse cx="33" cy="34" rx="6" ry="4" fill="#F08060" opacity=".35" transform="rotate(-15 33 34)"/>
+  <!-- dark spots (fat/spice) -->
+  <circle cx="34" cy="36" r="2.5" fill="#801008" opacity=".7"/>
+  <circle cx="42" cy="35" r="3" fill="#781008" opacity=".65"/>
+  <circle cx="36" cy="44" r="2.5" fill="#801008" opacity=".7"/>
+  <circle cx="43" cy="43" r="2" fill="#781008" opacity=".6"/>
+  <circle cx="30" cy="41" r="2" fill="#901010" opacity=".7"/>
+  <!-- edge char detail -->
+  <circle cx="38" cy="40" r="13" fill="none" stroke="#701008" stroke-width=".8" opacity=".5"/>
+  <!-- glare -->
+  <path d="M12 27 Q32 24 52 27" stroke="#fff" stroke-width="1" fill="none" opacity=".5"/>
+  <text x="32" y="57.5" text-anchor="middle" fill="#802010" font-size="4.5" font-weight="600" font-family="sans-serif">6 OZ</text>
 </svg>`,
 
 shrimp: () => `<svg viewBox="0 0 64 64">
@@ -1168,12 +1326,52 @@ shrimp: () => `<svg viewBox="0 0 64 64">
 </svg>`,
 
 tofu: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="18" width="36" height="32" rx="4" fill="#F8F4E8" stroke="#D8D0B8" stroke-width="1.5"/>
-  <rect x="14" y="18" width="36" height="32" rx="4" fill="none" stroke="#E8E0C8" stroke-width="4" opacity=".3"/>
-  <line x1="32" y1="18" x2="32" y2="50" stroke="#E0D8C0" stroke-width="1" opacity=".5"/>
-  <line x1="14" y1="34" x2="50" y2="34" stroke="#E0D8C0" stroke-width="1" opacity=".5"/>
-  <text x="32" y="30" text-anchor="middle" fill="#9A9070" font-size="5.5" font-family="sans-serif">FIRM TOFU</text>
-  <text x="32" y="44" text-anchor="middle" fill="#9A9070" font-size="5" font-family="sans-serif">14 OZ</text>
+  <defs>
+    <linearGradient id="tofuBox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EEF4F0"/>
+      <stop offset="100%" stop-color="#D8E8DE"/>
+    </linearGradient>
+    <linearGradient id="tofuBlock" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDFCF8"/>
+      <stop offset="100%" stop-color="#EDE8D8"/>
+    </linearGradient>
+    <linearGradient id="tofuWater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D8EEF8" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="#B8D8EE" stop-opacity=".9"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="58" rx="19" ry="2.5" fill="#B8C8B8" opacity=".3"/>
+  <!-- outer packaging box -->
+  <rect x="9" y="11" width="46" height="47" rx="5" fill="url(#tofuBox)" stroke="#A8C4B0" stroke-width="1.5"/>
+  <!-- top band with brand text -->
+  <rect x="9" y="11" width="46" height="13" rx="5" fill="#4A9060"/>
+  <rect x="9" y="20" width="46" height="4" fill="#3A7848"/>
+  <text x="32" y="19" text-anchor="middle" fill="#E8F8EE" font-size="5.5" font-weight="700" font-family="sans-serif">FIRM TOFU</text>
+  <!-- clear window showing tofu in water -->
+  <rect x="12" y="27" width="40" height="27" rx="3" fill="url(#tofuWater)" stroke="#9AB8C8" stroke-width="1"/>
+  <!-- water level shimmer -->
+  <path d="M13 30 Q32 28 51 30" stroke="#C8E8F8" stroke-width="1.5" fill="none" opacity=".7"/>
+  <!-- tofu block — white/cream cube with slight 3D perspective -->
+  <rect x="16" y="31" width="32" height="20" rx="2" fill="url(#tofuBlock)" stroke="#D8D0C0" stroke-width="1"/>
+  <!-- top face highlight -->
+  <rect x="16" y="31" width="32" height="4" rx="2" fill="#FEFDFB" opacity=".7"/>
+  <!-- tofu porous texture — small holes/bubbles -->
+  <circle cx="22" cy="38" r="1.2" fill="#E8E0D0" opacity=".7"/>
+  <circle cx="28" cy="36" r="1" fill="#E8E0D0" opacity=".6"/>
+  <circle cx="34" cy="39" r="1.3" fill="#E8E0D0" opacity=".7"/>
+  <circle cx="40" cy="37" r="1" fill="#E8E0D0" opacity=".6"/>
+  <circle cx="25" cy="43" r="1.2" fill="#E8E0D0" opacity=".6"/>
+  <circle cx="31" cy="45" r="1" fill="#E8E0D0" opacity=".5"/>
+  <circle cx="38" cy="44" r="1.1" fill="#E8E0D0" opacity=".6"/>
+  <circle cx="20" cy="44" r="1" fill="#E8E0D0" opacity=".5"/>
+  <circle cx="44" cy="42" r="1.2" fill="#E8E0D0" opacity=".6"/>
+  <!-- water pool at bottom -->
+  <rect x="12" y="47" width="40" height="7" rx="3" fill="#B8D4E8" opacity=".5"/>
+  <path d="M14 48 Q32 46 50 48" stroke="#D0E8F4" stroke-width="1" fill="none" opacity=".7"/>
+  <!-- package glare -->
+  <path d="M12 28 Q32 25 52 28" stroke="#fff" stroke-width="1" fill="none" opacity=".4"/>
+  <!-- weight label bottom -->
+  <text x="32" y="57.5" text-anchor="middle" fill="#3A7848" font-size="4.5" font-weight="600" font-family="sans-serif">14 OZ ORGANIC</text>
 </svg>`,
 
 // ── BAKERY ───────────────────────────────────────────────
