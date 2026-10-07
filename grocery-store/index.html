@@ -94,6 +94,67 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);min-
 .cart-tier-badge.standard{background:#EBF5FB;color:#1A5FA0;}
 .cart-tier-badge.premium {background:#F5EEF8;color:#6A3A9A;}
 
+/* ── Responsive ───────────────────────────────────────────── */
+
+/* Tablet: compress stat pills */
+@media (max-width:960px){
+  .stat{min-width:64px;padding:4px 10px;}
+  .stat .sv{font-size:15px;}
+  .stat .sl{font-size:9px;}
+  .nav-stats{gap:6px;}
+  .topbar h1{font-size:17px;}
+}
+
+/* iPad portrait + large phones */
+@media (max-width:768px){
+  /* Topbar wraps to 2 rows */
+  .topbar{height:auto;flex-wrap:wrap;padding:10px 16px;gap:8px;}
+  .topbar>div:first-child{flex:1;min-width:0;}
+  .nav-stats{width:100%;justify-content:space-between;gap:6px;}
+  .stat{flex:1;min-width:0;padding:4px 6px;}
+  .stat .sv{font-size:14px;}
+  .stat[style*="min-width:120px"]{min-width:0!important;}
+
+  /* Sidebar → horizontal scroll tab bar */
+  .layout{grid-template-columns:1fr;}
+  .sidebar{position:static;height:auto;border-right:none;border-bottom:2px solid var(--bdr);
+           overflow-x:auto;overflow-y:visible;white-space:nowrap;display:flex;
+           align-items:center;padding:6px 12px;gap:4px;}
+  .sidebar-title{display:none;}
+  .sidebar>div{margin-top:0!important;border-top:none!important;padding-top:0!important;display:contents;}
+  .ab{display:inline-flex;white-space:nowrap;padding:7px 12px;font-size:12px;
+      flex-shrink:0;border-radius:20px;border:1.5px solid var(--bdr);}
+  .ab:hover{background:var(--bg);}
+  .ab.active{border-right:none;background:var(--greenl);color:var(--green);border-color:var(--greenbdr);}
+
+  /* Main content */
+  .main{padding:14px 14px;}
+  #home-content{padding:6px 0 24px!important;}
+
+  /* Cart */
+  .cart-layout{grid-template-columns:1fr;}
+}
+
+/* Mobile phones */
+@media (max-width:480px){
+  /* Rating scale bars: hide fixed-width bars on small screens */
+  .rating-bar-col{display:none!important;}
+
+  .topbar h1{font-size:15px;}
+  .topbar p{display:none;}
+  /* Hide the separator line between logo and title */
+  .topbar>div:first-child>div[style*="width:1px"]{display:none!important;}
+  /* Stat pills: hide "Quality Rating" label on very narrow */
+  #stat-rating .sl{display:none;}
+  #stat-rating{min-width:0!important;}
+
+  /* Items grid: 2 columns minimum */
+  .items-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));}
+
+  /* Home page 4-col → 2-col */
+  .how-it-works-grid{grid-template-columns:repeat(2,1fr)!important;}
+}
+
 </style>
 </head>
 <body>
@@ -189,7 +250,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);min-
 
         <!-- HOW IT WORKS -->
         <h2 style="font-size:17px;font-weight:600;color:var(--txt);margin:0 0 12px">How It Works</h2>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px">
+        <div class="how-it-works-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px">
           <div style="background:#fff;border-radius:12px;padding:16px 12px;text-align:center;border:1.5px solid #e0e0e0">
             <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px">1</div>
             <div style="font-size:12px;font-weight:600;margin-bottom:4px">Read Recipe Cards</div>
@@ -224,7 +285,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);min-
 <!-- RATING SCALE -->
         <h2 style="font-family:'Poppins',sans-serif;font-size:17px;font-weight:600;color:var(--txt);margin:0 0 6px">What You're Aiming For</h2>
         <p style="font-family:'Poppins',sans-serif;font-size:12.5px;color:var(--muted);margin:0 0 12px">Add up your quality points to find your restaurant rating. More Premium items = higher quality!</p>
-        <div style="background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;overflow:hidden;margin-bottom:22px"><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#F8F8F8"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">🚚</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#666666">Food Truck</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">0-34 points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden"><div style="height:100%;border-radius:5px;width:18%;background:#94A3B8"></div></div></div><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#ffffff"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">🍽️</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#2C2547">Neighborhood Bistro</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">35-45 points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden"><div style="height:100%;border-radius:5px;width:38%;background:#4BAE8A"></div></div></div><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#F8F8F8"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">⭐</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#2C2547">Upscale Restaurant</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">46-54 points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden"><div style="height:100%;border-radius:5px;width:56%;background:#2980B9"></div></div></div><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#FFFBE8"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">🌟</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#8A6A00">Fine Dining</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">55-61 points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden"><div style="height:100%;border-radius:5px;width:74%;background:#F5C842"></div></div></div><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#F3EFFC"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">🏆</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#5A2A9A">Michelin Star</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">62+ points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden"><div style="height:100%;border-radius:5px;width:100%;background:#7C5CBF"></div></div></div>
+        <div style="background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;overflow:hidden;margin-bottom:22px"><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#F8F8F8"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">🚚</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#666666">Food Truck</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">0-34 points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden" class="rating-bar-col"><div style="height:100%;border-radius:5px;width:18%;background:#94A3B8"></div></div></div><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#ffffff"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">🍽️</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#2C2547">Neighborhood Bistro</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">35-45 points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden" class="rating-bar-col"><div style="height:100%;border-radius:5px;width:38%;background:#4BAE8A"></div></div></div><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#F8F8F8"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">⭐</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#2C2547">Upscale Restaurant</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">46-54 points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden" class="rating-bar-col"><div style="height:100%;border-radius:5px;width:56%;background:#2980B9"></div></div></div><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#FFFBE8"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">🌟</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#8A6A00">Fine Dining</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">55-61 points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden" class="rating-bar-col"><div style="height:100%;border-radius:5px;width:74%;background:#F5C842"></div></div></div><div style="display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid #f0f0f0;background:#F3EFFC"><div style="font-size:20px;width:28px;text-align:center;flex-shrink:0">🏆</div><div style="flex:1;min-width:0"><div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#5A2A9A">Michelin Star</div><div style="font-family:'Poppins',sans-serif;font-size:11px;color:#888;margin-top:1px">62+ points</div></div><div style="width:160px;flex-shrink:0;height:9px;border-radius:5px;background:#eee;overflow:hidden" class="rating-bar-col"><div style="height:100%;border-radius:5px;width:100%;background:#7C5CBF"></div></div></div>
         </div>
         <!-- NAVIGATION TIP -->
         <div style="background:var(--greenl);border:2px solid var(--green);border-radius:14px;padding:20px 22px;margin-bottom:22px;text-align:center">
