@@ -13,14 +13,14 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;font-size:15px;}
-.topbar{background:var(--green);color:#fff;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
-.topbar h1{font-size:20px;font-weight:600;}
-.topbar p{font-size:12px;opacity:.8;margin-top:2px;}
+.topbar{background:#fff;color:var(--txt);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.1);border-bottom:1px solid var(--bdr);}
+.topbar h1{font-size:20px;font-weight:600;color:#2C2547;}
+.topbar p{font-size:12px;color:var(--muted);margin-top:2px;}
 .nav-stats{display:flex;gap:10px;}
-.stat{background:rgba(255,255,255,.15);border-radius:20px;padding:5px 16px;text-align:center;min-width:80px;}
-.stat.over{background:rgba(163,45,45,.6);}
-.stat .sv{font-size:17px;font-weight:600;display:block;}
-.stat .sl{font-size:10px;opacity:.8;display:block;text-transform:uppercase;letter-spacing:.05em;}
+.stat{background:#f5f6f0;border:1px solid var(--bdr);border-radius:20px;padding:5px 16px;text-align:center;min-width:80px;}
+.stat.over{background:#FDECEA;border-color:#f5c6c6;}
+.stat .sv{font-size:17px;font-weight:600;display:block;color:#2C2547;}
+.stat .sl{font-size:10px;color:var(--muted);display:block;text-transform:uppercase;letter-spacing:.05em;}
 .layout{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 68px);}
 .sidebar{background:#fff;border-right:1px solid var(--bdr);padding:14px 0;position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto;}
 .sidebar-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:0 16px;margin-bottom:8px;}
@@ -32,7 +32,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);min-
 .ac{display:none;}
 .ac.active{display:block;}
 .aisle-header h2{font-size:22px;font-weight:600;margin-bottom:16px;}
-.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px;}
 .ic{background:var(--card);border:2px solid var(--bdr);border-radius:14px;overflow:hidden;transition:border-color .2s,box-shadow .2s;}
 .ic:hover{box-shadow:0 2px 12px rgba(0,0,0,.1);}
 .ic.selected{border-color:var(--green);box-shadow:0 0 0 3px rgba(45,106,79,.15);}
@@ -75,7 +75,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);min-
 .tier-wrap{padding:8px 10px 6px;border-top:1px solid var(--bdr);}
 .tier-label{font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;text-align:center;}
 .tier-btns{display:flex;gap:4px;align-items:stretch;}
-.tier-btn{flex:1;min-width:0;padding:5px 2px;border-radius:7px;border:1.5px solid #ddd;background:#fafafa;cursor:pointer;font-family:'Poppins',sans-serif;font-size:9px;font-weight:600;text-align:center;transition:all .15s;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;word-break:break-word;}
+.tier-btn{flex:1;padding:5px 4px;border-radius:7px;border:1.5px solid #ddd;background:#fafafa;cursor:pointer;font-family:'Poppins',sans-serif;font-size:9.5px;font-weight:600;text-align:center;transition:all .15s;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .tier-btn:hover{border-color:#aaa;background:#f0f0f0;}
 .tier-btn.sel-budget  {background:#EAF7EE;border-color:#4BAE8A;color:#1E6644;}
 .tier-btn.sel-standard{background:#EBF5FB;border-color:#2980B9;color:#1A5FA0;}
@@ -134,7 +134,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);min-
   <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#hdrBarGrad)"/>
   <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="#7C5CBF" letter-spacing="5">OF THE FUTURE</text>
 </svg>
-    <div style="width:1px;height:36px;background:rgba(255,255,255,0.3);margin:0 16px"></div>
+    <div style="width:1px;height:36px;background:var(--bdr);margin:0 16px"></div>
     <div>
       <h1>🛒 Dinner Party Budget Challenge</h1>
       <p>Pick your ingredients and stay within your $75.00 budget!</p>
@@ -3101,7 +3101,7 @@ function buildCard(id){
   const tierBtns = [0,1,2].map(t => `
     <button class="tier-btn" id="tb-${id}-${t}" onclick="selectTier('${id}',${t})">
       <span class="tier-icon">${TIER_ICONS[t]}</span>
-      <span style="font-size:9px;display:block;font-weight:600">${TIER_NAMES[t]}</span>
+      <span style="font-size:9px;display:block;font-weight:600;white-space:nowrap">${TIER_NAMES[t]}</span>
       <span class="tier-price">$${prices[t].toFixed(2)}</span>
       <span class="tier-price" style="color:#888">${ptsArr[t]}pt</span>
     </button>`).join('');
