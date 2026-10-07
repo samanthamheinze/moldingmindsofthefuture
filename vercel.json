@@ -1,14 +1,13 @@
 {
   "rewrites": [
     {
-      "source": "/",
-      "has": [{ "type": "host", "value": "grocerystore.moldingmindsofthefuture.com" }],
-      "destination": "/grocery-store/"
-    },
-    {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "grocerystore.moldingmindsofthefuture.com" }],
       "destination": "/grocery-store/$1"
+    },
+    {
+      "source": "/",
+      "destination": "/home/"
     }
   ]
 }
