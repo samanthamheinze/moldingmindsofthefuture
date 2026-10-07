@@ -100,32 +100,43 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);min-
 
 <div class="topbar">
   <div style="display:flex;align-items:center;gap:10px">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 270" width="38" height="38" style="flex-shrink:0">
-  <line x1="150" y1="22" x2="150" y2="4" stroke="#F5C842" stroke-width="3.2" stroke-linecap="round"/>
-  <line x1="181" y1="27" x2="192" y2="12" stroke="#F5C842" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="119" y1="27" x2="108" y2="12" stroke="#F5C842" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="208" y1="42" x2="221" y2="30" stroke="#F5C842" stroke-width="2.1" stroke-linecap="round" opacity="0.85"/>
-  <line x1="92" y1="42" x2="79" y2="30" stroke="#F5C842" stroke-width="2.1" stroke-linecap="round" opacity="0.85"/>
-  <line x1="228" y1="64" x2="244" y2="57" stroke="#F5C842" stroke-width="1.7" stroke-linecap="round" opacity="0.65"/>
-  <line x1="72" y1="64" x2="56" y2="57" stroke="#F5C842" stroke-width="1.7" stroke-linecap="round" opacity="0.65"/>
-  <path d="M150 22 C110 22 84 52 84 92 C84 118 98 138 116 148 L116 178 C116 184 120 188 126 188 L174 188 C180 188 184 184 184 178 L184 148 C202 138 216 118 216 92 C216 52 190 22 150 22Z" fill="rgba(255,255,255,0.25)"/>
-  <circle cx="150" cy="92" r="46" fill="#4A90D9"/>
-  <ellipse cx="150" cy="92" rx="46" ry="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-  <line x1="150" y1="46" x2="150" y2="138" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-  <path d="M128 76 C133 69 143 69 147 76 C150 81 147 90 141 90 C135 90 126 86 128 76Z" fill="rgba(75,174,138,0.92)"/>
-  <path d="M153 82 C158 75 168 77 170 84 C172 90 168 96 163 95 C158 94 152 89 153 82Z" fill="rgba(75,174,138,0.88)"/>
-  <path d="M132 103 C137 99 143 101 143 107 C143 113 138 115 135 113 C130 111 130 107 132 103Z" fill="rgba(75,174,138,0.78)"/>
-  <circle cx="150" cy="24" r="7" fill="#F5C842"/>
-  <circle cx="150" cy="24" r="3.5" fill="#FFD700"/>
-  <rect x="138" y="187" width="24" height="14" rx="7" fill="rgba(255,255,255,0.3)"/>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 130" width="160" height="43" style="flex-shrink:0">
+  <defs>
+    <linearGradient id="hdrBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#7C5CBF"/>
+      <stop offset="50%"  stop-color="#4A90D9"/>
+      <stop offset="100%" stop-color="#4BAE8A"/>
+    </linearGradient>
+  </defs>
+  <line x1="65" y1="12" x2="65" y2="2"   stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"/>
+  <line x1="82" y1="16" x2="90" y2="7"   stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="48" y1="16" x2="40" y2="7"   stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="96" y1="27" x2="106" y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+  <line x1="34" y1="27" x2="24"  y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+  <line x1="108" y1="42" x2="119" y2="38" stroke="#F5C842" stroke-width="1.4" stroke-linecap="round" opacity="0.55"/>
+  <line x1="22"  y1="42" x2="11"  y2="38" stroke="#F5C842" stroke-width="1.4" stroke-linecap="round" opacity="0.55"/>
+  <path d="M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z" fill="rgba(255,255,255,0.25)"/>
+  <path d="M65 12 C85 12 98 28 98 48 L32 48 C32 28 45 12 65 12Z" fill="rgba(255,255,255,0.12)" opacity="0.55"/>
+  <circle cx="65" cy="48" r="24" fill="#4A90D9"/>
+  <ellipse cx="65" cy="48" rx="24" ry="10.5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
+  <ellipse cx="65" cy="40" rx="19" ry="7"    fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <ellipse cx="65" cy="56" rx="19" ry="7"    fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <line x1="65" y1="24" x2="65" y2="72" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
+  <path d="M53 26 Q46 48 53 70" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <path d="M77 26 Q84 48 77 70" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <path d="M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z" fill="rgba(75,174,138,0.92)"/>
+  <path d="M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z" fill="rgba(75,174,138,0.88)"/>
+  <path d="M55 55 C58 52 62 53 62 57 C62 60 59 61 57 60 C54 59 54 57 55 55Z" fill="rgba(75,174,138,0.78)"/>
+  <circle cx="65" cy="13" r="5"   fill="#F5C842"/>
+  <circle cx="65" cy="13" r="2.5" fill="#FFD700"/>
+  <rect x="59" y="97" width="12" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+  <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#ffffff">Molding Minds</text>
+  <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#hdrBarGrad)"/>
+  <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="rgba(255,255,255,0.75)" letter-spacing="5">OF THE FUTURE</text>
 </svg>
-    <div style="display:flex;flex-direction:column;line-height:1.1">
-  <span style="font-size:14px;font-weight:600;color:#fff;letter-spacing:0.01em">Molding Minds</span>
-  <span style="font-size:9px;font-weight:400;color:rgba(255,255,255,0.75);letter-spacing:4px;text-transform:uppercase">of the future</span>
-</div>
     <div style="width:1px;height:36px;background:rgba(255,255,255,0.3);margin:0 16px"></div>
     <div>
-      <h1>🛒 Molding Minds of the Future</h1>
+      <h1>🛒 Dinner Party Budget Challenge</h1>
       <p>Pick your ingredients and stay within your $75.00 budget!</p>
     </div>
   </div>
@@ -2905,7 +2916,7 @@ const STORE = {
 // ═══════════════════════════════════════════════════════
 const ITEMS = {
   // ── PRODUCE ──────────────────────────────────────────
-  tomatoes:       {name:"Roma Tomatoes",      aisle:"produce", tiers:[[1.98,2.98,4.98],[1,3,5],["Store brand romas","On-the-vine tomatoes","Heirloom tomatoes"]]},
+  tomatoes:       {name:"Roma Tomatoes",      aisle:"produce", tiers:[[1.98,2.98,4.98],[1,3,5],["Store brand romas","On the vine tomatoes","Heirloom tomatoes"]]},
   avocados:       {name:"Avocados (4)",        aisle:"produce", tiers:[[3.98,5.48,7.98],[1,3,5],["Small Haas avocados","Large ripe Haas","Organic Haas avocados"]]},
   lettuce:        {name:"Lettuce",             aisle:"produce", tiers:[[0.98,1.98,3.48],[1,2,4],["Iceberg lettuce","Romaine heart","Organic butter lettuce"]]},
   cucumber:       {name:"Cucumber (2)",        aisle:"produce", tiers:[[1.28,1.98,3.48],[1,2,4],["Regular cucumbers","English cucumbers","Organic English cucumbers"]]},
@@ -2924,34 +2935,34 @@ const ITEMS = {
   mint:           {name:"Fresh Mint",           aisle:"produce", tiers:[[0.98,1.98,3.48],[1,2,4],["Dried mint","Fresh mint bunch","Organic fresh mint"]]},
   mushrooms:      {name:"Mushrooms (8 oz)",     aisle:"produce", tiers:[[1.98,2.98,5.98],[1,3,5],["White button","Baby bella","Mixed wild mushrooms"]]},
   kalamata_olives:{name:"Kalamata Olives",      aisle:"produce", tiers:[[1.98,3.48,5.98],[1,3,5],["Canned black olives","Kalamata in brine","Imported Greek kalamata"]]},
-  garlic:         {name:"Garlic",               aisle:"produce", tiers:[[0.48,0.78,1.98],[1,2,3],["Pre-minced jar","Fresh garlic bulb","Organic garlic bulb"]]},
+  garlic:         {name:"Garlic",               aisle:"produce", tiers:[[0.48,0.78,1.98],[1,2,3],["Pre minced jar","Fresh garlic bulb","Organic garlic bulb"]]},
   onion:          {name:"Onion",                aisle:"produce", tiers:[[0.98,1.48,2.98],[1,2,3],["Yellow onion","Sweet Vidalia onion","Organic yellow onion"]]},
   lime:           {name:"Limes (3)",            aisle:"produce", tiers:[[0.98,1.98,3.48],[1,2,4],["Conventional limes","Fresh limes","Organic limes"]]},
   shredded_cabbage:{name:"Shredded Cabbage, 2 cups",aisle:"produce",tiers:[[1.48,2.48,3.98],[1,2,4],["Bagged coleslaw mix","Fresh green cabbage","Organic napa cabbage"]]},
   lemon:          {name:"Single Lemon (1)",      aisle:"produce", tiers:[[0.68,0.98,1.98],[1,2,3],["Conventional lemon","Large fresh lemon","Organic lemon"]]},
 
   // ── DAIRY & EGGS ─────────────────────────────────────
-  eggs:           {name:"Eggs (12 count)",      aisle:"dairy", tiers:[[2.48,3.98,5.98],[1,3,5],["Store brand large","Cage-free large eggs","Organic free-range"]]},
+  eggs:           {name:"Eggs (12 count)",      aisle:"dairy", tiers:[[2.48,3.98,5.98],[1,3,5],["Store brand large","Cage free large eggs","Organic free range"]]},
   butter:         {name:"Butter (1 lb)",        aisle:"dairy", tiers:[[2.98,3.98,5.98],[1,3,5],["Store brand unsalted","Name brand butter","Imported cultured butter"]]},
   milk:           {name:"Whole Milk (½ gal)",   aisle:"dairy", tiers:[[1.98,2.98,4.98],[1,2,4],["Store brand whole milk","Name brand whole milk","Organic whole milk"]]},
   heavy_cream:    {name:"Heavy Cream (1 pt)",   aisle:"dairy", tiers:[[2.48,3.48,5.98],[1,2,4],["Store brand","Name brand heavy cream","Organic heavy cream"]]},
   mozzarella:     {name:"Mozzarella (2 cups)",  aisle:"dairy", tiers:[[3.98,5.98,8.98],[1,3,5],["Store brand shredded","Name brand shredded","Fresh mozzarella balls"]]},
-  parmesan:       {name:"Parmesan (1 cup)",     aisle:"dairy", tiers:[[2.48,3.98,9.98],[1,3,5],["Store brand grated","Name brand parmesan","Parmigiano-Reggiano"]]},
+  parmesan:       {name:"Parmesan (1 cup)",     aisle:"dairy", tiers:[[2.48,3.98,9.98],[1,3,5],["Store brand grated","Name brand parmesan","Parmigiano Reggiano"]]},
   cheddar:        {name:"Cheddar (8 oz)",       aisle:"dairy", tiers:[[2.48,3.48,5.98],[1,3,5],["Store brand shredded","Name brand shredded","Aged sharp cheddar"]]},
   feta:           {name:"Feta Cheese (1 cup)",  aisle:"dairy", tiers:[[2.48,3.98,7.98],[1,3,5],["Store brand crumbled","Name brand crumbled","Authentic Greek barrel feta"]]},
-  american_cheese:{name:"American Cheese",      aisle:"dairy", tiers:[[1.98,2.98,4.98],[1,2,4],["Store brand slices","Name brand slices","Deli-sliced american"]]},
-  yogurt:         {name:"Plain Yogurt (32 oz)", aisle:"dairy", tiers:[[2.48,3.98,6.98],[1,2,4],["Store brand plain","Plain Greek yogurt","Organic whole-milk yogurt"]]},
+  american_cheese:{name:"American Cheese",      aisle:"dairy", tiers:[[1.98,2.98,4.98],[1,2,4],["Store brand slices","Name brand slices","Deli sliced american"]]},
+  yogurt:         {name:"Plain Yogurt (32 oz)", aisle:"dairy", tiers:[[2.48,3.98,6.98],[1,2,4],["Store brand plain","Plain Greek yogurt","Organic whole milk yogurt"]]},
   whipped_cream:  {name:"Whipped Cream (can)",  aisle:"dairy", tiers:[[1.98,2.98,4.48],[1,2,3],["Store brand","Name brand","Organic whipped cream"]]},
   string_cheese:  {name:"String Cheese (16 ct)",aisle:"dairy", tiers:[[3.98,5.98,8.98],[1,3,5],["Store brand","Name brand string cheese","Organic string cheese"]]},
 
   // ── PANTRY ───────────────────────────────────────────
   olive_oil:        {name:"Olive Oil (17 oz)",      aisle:"pantry", tiers:[[3.98,5.98,11.98],[1,3,5],["Store brand olive oil","Name brand olive oil","Imported extra virgin"]]},
   vegetable_oil:    {name:"Vegetable Oil (48 oz)",   aisle:"pantry", tiers:[[2.48,3.98,6.98],[1,2,3],["Store brand","Name brand veg oil","Avocado oil"]]},
-  flour:            {name:"All-Purpose Flour (5 lb)",aisle:"pantry", tiers:[[2.48,3.48,6.98],[1,2,3],["Store brand flour","Name brand flour","Artisan bread flour"]]},
+  flour:            {name:"All Purpose Flour (5 lb)",aisle:"pantry", tiers:[[2.48,3.48,6.98],[1,2,3],["Store brand flour","Name brand flour","Artisan bread flour"]]},
   sugar:            {name:"Sugar (4 lb)",            aisle:"pantry", tiers:[[1.98,2.98,5.98],[1,2,3],["Store brand sugar","Cane sugar","Organic raw cane sugar"]]},
   brown_sugar:      {name:"Brown Sugar (2 lb)",      aisle:"pantry", tiers:[[1.48,2.48,4.98],[1,2,3],["Store brand","Name brand brown sugar","Organic brown sugar"]]},
-  baking_soda:      {name:"Baking Soda",             aisle:"pantry", tiers:[[0.68,0.98,1.98],[1,2,3],["Store brand","Name brand","Aluminum-free baking soda"]]},
-  baking_powder:    {name:"Baking Powder",           aisle:"pantry", tiers:[[0.98,1.48,2.98],[1,2,3],["Store brand","Name brand","Aluminum-free baking powder"]]},
+  baking_soda:      {name:"Baking Soda",             aisle:"pantry", tiers:[[0.68,0.98,1.98],[1,2,3],["Store brand","Name brand","Aluminum free baking soda"]]},
+  baking_powder:    {name:"Baking Powder",           aisle:"pantry", tiers:[[0.98,1.48,2.98],[1,2,3],["Store brand","Name brand","Aluminum free baking powder"]]},
   salt_pepper:      {name:"Salt & Pepper",           aisle:"pantry", tiers:[[0.98,1.98,5.98],[1,2,3],["Store brand","Name brand salt & pepper","Sea salt & cracked pepper"]]},
   italian_seasoning:{name:"Italian Seasoning",       aisle:"pantry", tiers:[[0.98,1.98,4.98],[1,2,4],["Store brand","Name brand","Organic herb blend"]]},
   cumin:            {name:"Ground Cumin",            aisle:"pantry", tiers:[[0.98,1.98,4.98],[1,2,4],["Store brand","Name brand cumin","Organic ground cumin"]]},
@@ -2959,19 +2970,19 @@ const ITEMS = {
   cinnamon:         {name:"Cinnamon",                aisle:"pantry", tiers:[[0.98,1.98,5.98],[1,2,4],["Store brand","Name brand cinnamon","Ceylon cinnamon"]]},
   vanilla_extract:  {name:"Vanilla Extract",         aisle:"pantry", tiers:[[0.98,2.98,11.98],[1,3,5],["Imitation vanilla","Pure vanilla extract","Madagascar bourbon vanilla"]]},
   cocoa_powder:     {name:"Cocoa Powder (8 oz)",     aisle:"pantry", tiers:[[1.98,2.98,6.98],[1,3,5],["Store brand","Name brand cocoa","Premium dutch cocoa"]]},
-  chocolate_chips:  {name:"Chocolate Chips (12 oz)", aisle:"pantry", tiers:[[2.48,3.98,6.98],[1,3,5],["Store brand semi-sweet","Name brand semi-sweet","Premium 60% dark chips"]]},
-  soy_sauce:        {name:"Soy Sauce (10 oz)",       aisle:"pantry", tiers:[[1.28,2.48,5.48],[1,2,4],["Store brand","Name brand soy sauce","Tamari gluten-free"]]},
+  chocolate_chips:  {name:"Chocolate Chips (12 oz)", aisle:"pantry", tiers:[[2.48,3.98,6.98],[1,3,5],["Store brand semi sweet","Name brand semi sweet","Premium 60% dark chips"]]},
+  soy_sauce:        {name:"Soy Sauce (10 oz)",       aisle:"pantry", tiers:[[1.28,2.48,5.48],[1,2,4],["Store brand","Name brand soy sauce","Tamari gluten free"]]},
   honey:            {name:"Honey (12 oz)",           aisle:"pantry", tiers:[[2.48,3.98,7.98],[1,2,4],["Store brand honey","Name brand honey","Local raw wildflower honey"]]},
   red_wine_vinegar: {name:"Red Wine Vinegar",        aisle:"pantry", tiers:[[1.28,2.48,4.98],[1,2,4],["Store brand","Name brand","Aged red wine vinegar"]]},
   oregano:          {name:"Dried Oregano",           aisle:"pantry", tiers:[[0.68,1.48,3.98],[1,2,3],["Store brand","Name brand oregano","Organic Greek oregano"]]},
-  hot_sauce:        {name:"Hot Sauce (12 oz)",       aisle:"pantry", tiers:[[1.28,2.48,5.98],[1,2,4],["Store brand","Name brand hot sauce","Small-batch hot sauce"]]},
+  hot_sauce:        {name:"Hot Sauce (12 oz)",       aisle:"pantry", tiers:[[1.28,2.48,5.98],[1,2,4],["Store brand","Name brand hot sauce","Small batch hot sauce"]]},
   ketchup_mustard:  {name:"Ketchup & Mustard",       aisle:"pantry", tiers:[[1.98,3.48,5.98],[1,2,3],["Store brand","Name brand","Artisan ketchup & mustard"]]},
   mayonnaise:       {name:"Mayonnaise (16 oz)",      aisle:"pantry", tiers:[[1.98,2.98,5.98],[1,2,4],["Store brand mayo","Name brand mayo","Avocado oil mayo"]]},
   peanut_butter:    {name:"Peanut Butter (16 oz)",   aisle:"pantry", tiers:[[1.98,3.48,6.98],[1,3,5],["Store brand","Name brand peanut butter","Natural peanut butter"]]},
-  marinara_sauce:   {name:"Marinara Sauce (jar)",    aisle:"pantry", tiers:[[1.48,2.98,6.98],[1,3,5],["Store brand","Name brand marinara","Premium small-batch marinara"]]},
+  marinara_sauce:   {name:"Marinara Sauce (jar)",    aisle:"pantry", tiers:[[1.48,2.98,6.98],[1,3,5],["Store brand","Name brand marinara","Premium small batch marinara"]]},
   pizza_sauce:      {name:"Pizza Sauce (14 oz)",     aisle:"pantry", tiers:[[0.98,1.98,5.98],[1,3,5],["Store brand","Name brand pizza sauce","San Marzano pizza sauce"]]},
   crushed_tomatoes: {name:"Crushed Tomatoes (28 oz)",aisle:"pantry", tiers:[[1.48,1.98,6.98],[1,3,5],["Store brand","Name brand","San Marzano DOP tomatoes"]]},
-  breadcrumbs:      {name:"Breadcrumbs (2 cups)",    aisle:"pantry", tiers:[[0.98,1.98,3.98],[1,2,3],["Store brand","Italian-style breadcrumbs","Homestyle panko"]]},
+  breadcrumbs:      {name:"Breadcrumbs (2 cups)",    aisle:"pantry", tiers:[[0.98,1.98,3.98],[1,2,3],["Store brand","Italian style breadcrumbs","Homestyle panko"]]},
   salsa:            {name:"Salsa (16 oz jar)",       aisle:"pantry", tiers:[[1.48,2.98,5.98],[1,2,4],["Store brand","Name brand chunky salsa","Fresh pico de gallo (deli)"]]},
   rice_cereal:      {name:"Crispy Rice Cereal",      aisle:"pantry", tiers:[[1.98,2.98,4.98],[1,2,3],["Store brand","Name brand crispy rice","Organic crispy brown rice"]]},
   marshmallows:     {name:"Mini Marshmallows",       aisle:"pantry", tiers:[[1.48,2.48,4.98],[1,2,3],["Store brand","Name brand mini mallows","Organic vanilla marshmallows"]]},
@@ -2980,26 +2991,26 @@ const ITEMS = {
   cooking_spray:    {name:"Cooking Spray",           aisle:"pantry", tiers:[[1.98,2.98,4.98],[1,2,3],["Store brand","Name brand spray","Avocado oil spray"]]},
 
   // ── PROTEIN ──────────────────────────────────────────
-  ground_beef:    {name:"Ground Beef (2 lb)",     aisle:"protein", tiers:[[5.98,8.98,13.98],[1,3,5],["80/20 ground beef","85/15 lean ground beef","Organic grass-fed"]]},
-  chicken_breast: {name:"Chicken Breast (2 lb)",  aisle:"protein", tiers:[[5.98,7.98,12.98],[1,3,5],["Conventional","Natural no-antibiotics","Organic free-range"]]},
-  chicken_wings:  {name:"Chicken Wings (4 lb)",   aisle:"protein", tiers:[[6.98,9.98,14.98],[1,3,5],["Conventional wings","Natural chicken wings","Organic free-range wings"]]},
-  chicken_thighs: {name:"Chicken Thighs (2 lb)",  aisle:"protein", tiers:[[4.98,6.98,11.98],[1,3,5],["Conventional bone-in","Natural boneless","Organic free-range thighs"]]},
-  bacon:          {name:"Bacon (8 strips)",        aisle:"protein", tiers:[[3.48,4.98,8.98],[1,3,5],["Store brand bacon","Thick-cut bacon","Natural uncured bacon"]]},
-  turkey_deli:    {name:"Deli Turkey (1 lb)",      aisle:"protein", tiers:[[3.48,5.48,8.98],[1,3,5],["Store brand deli turkey","Name brand deli turkey","Premium deli-sliced"]]},
+  ground_beef:    {name:"Ground Beef (2 lb)",     aisle:"protein", tiers:[[5.98,8.98,13.98],[1,3,5],["80/20 ground beef","85/15 lean ground beef","Organic grass fed"]]},
+  chicken_breast: {name:"Chicken Breast (2 lb)",  aisle:"protein", tiers:[[5.98,7.98,12.98],[1,3,5],["Conventional","Natural no antibiotics","Organic free range"]]},
+  chicken_wings:  {name:"Chicken Wings (4 lb)",   aisle:"protein", tiers:[[6.98,9.98,14.98],[1,3,5],["Conventional wings","Natural chicken wings","Organic free range wings"]]},
+  chicken_thighs: {name:"Chicken Thighs (2 lb)",  aisle:"protein", tiers:[[4.98,6.98,11.98],[1,3,5],["Conventional bone in","Natural boneless","Organic free range thighs"]]},
+  bacon:          {name:"Bacon (8 strips)",        aisle:"protein", tiers:[[3.48,4.98,8.98],[1,3,5],["Store brand bacon","Thick cut bacon","Natural uncured bacon"]]},
+  turkey_deli:    {name:"Deli Turkey (1 lb)",      aisle:"protein", tiers:[[3.48,5.48,8.98],[1,3,5],["Store brand deli turkey","Name brand deli turkey","Premium deli sliced"]]},
   pepperoni:      {name:"Pepperoni (6 oz)",        aisle:"protein", tiers:[[1.98,3.48,6.98],[1,3,5],["Store brand","Name brand pepperoni","Natural uncured pepperoni"]]},
-  tofu:           {name:"Firm Tofu (14 oz)",       aisle:"protein", tiers:[[1.48,2.48,4.98],[1,2,4],["Store brand firm tofu","Name brand firm tofu","Organic extra-firm tofu"]]},
+  tofu:           {name:"Firm Tofu (14 oz)",       aisle:"protein", tiers:[[1.48,2.48,4.98],[1,2,4],["Store brand firm tofu","Name brand firm tofu","Organic extra firm tofu"]]},
 
   // ── BAKERY ───────────────────────────────────────────
   baguette:       {name:"Baguette (2 loaves)",    aisle:"bakery", tiers:[[1.98,3.48,5.98],[1,3,5],["Store brand French bread","Bakery baguette","Fresh sourdough baguette"]]},
   burger_buns:    {name:"Hamburger Buns (8 pk)",  aisle:"bakery", tiers:[[1.48,2.48,4.98],[1,2,4],["Store brand plain buns","Name brand soft buns","Artisan brioche buns"]]},
   sandwich_bread: {name:"Sandwich Bread (loaf)",  aisle:"bakery", tiers:[[1.48,2.48,4.98],[1,2,4],["Store brand white bread","Name brand wheat bread","Bakery sourdough loaf"]]},
   pizza_dough:    {name:"Pizza Dough (2 balls)",   aisle:"bakery", tiers:[[2.48,4.98,7.98],[1,3,5],["Store brand pizza dough","Refrigerated pizza dough","Fresh bakery dough"]]},
-  corn_tortillas: {name:"Corn Tortillas (24 pk)", aisle:"bakery", tiers:[[1.98,2.98,5.98],[1,2,4],["Store brand","Name brand corn tortillas","Organic stone-ground"]]},
-  tortilla_chips: {name:"Tortilla Chips (13 oz)", aisle:"bakery", tiers:[[1.98,3.48,5.98],[1,2,4],["Store brand","Name brand restaurant-style","Grain-free chips"]]},
+  corn_tortillas: {name:"Corn Tortillas (24 pk)", aisle:"bakery", tiers:[[1.98,2.98,5.98],[1,2,4],["Store brand","Name brand corn tortillas","Organic stone ground"]]},
+  tortilla_chips: {name:"Tortilla Chips (13 oz)", aisle:"bakery", tiers:[[1.98,3.48,5.98],[1,2,4],["Store brand","Name brand restaurant style","Grain free chips"]]},
   spring_roll_wrappers:{name:"Spring Roll Wrappers, 16 ct",aisle:"bakery",tiers:[[1.98,2.98,5.48],[1,2,3],["Store brand wrappers","Name brand wrappers","Fresh handmade wrappers"]]},
 
   // ── GRAINS & PASTA ───────────────────────────────────
-  pasta:           {name:"Pasta / Spaghetti (2 lb)",aisle:"grains", tiers:[[1.48,2.48,5.98],[1,3,5],["Store brand spaghetti","Name brand spaghetti","Bronze-cut artisan pasta"]]},
+  pasta:           {name:"Pasta / Spaghetti (2 lb)",aisle:"grains", tiers:[[1.48,2.48,5.98],[1,3,5],["Store brand spaghetti","Name brand spaghetti","Bronze cut artisan pasta"]]},
   jasmine_rice:    {name:"Jasmine Rice (5 lb)",       aisle:"grains", tiers:[[2.48,3.98,7.98],[1,2,4],["Store brand jasmine","Name brand jasmine","Thai hom mali jasmine"]]},
   rice_noodles:    {name:"Rice Vermicelli (8 oz)",   aisle:"grains", tiers:[[1.48,1.98,4.98],[1,2,4],["Store brand","Name brand rice noodles","Organic brown rice noodles"]]},
   sweet_rice_flour:{name:"Sweet Rice Flour (Mochiko)",aisle:"grains",tiers:[[2.98,3.98,7.98],[1,3,5],["Store brand","Name brand mochiko","Organic sweet rice flour"]]},
@@ -3008,8 +3019,8 @@ const ITEMS = {
   // ── DRINKS & MIXERS ──────────────────────────────────
   lemons_drink:       {name:"Lemons for Juicing (12)",  aisle:"drinks", tiers:[[2.98,3.98,5.98],[1,3,5],["Conventional lemons","Fresh large lemons","Organic Meyer lemons"]]},
   cranberry_juice:    {name:"Cranberry Juice (2 L)",     aisle:"drinks", tiers:[[2.48,3.98,6.98],[1,2,4],["Store brand cranberry","Cranberry cocktail","100% pure cranberry"]]},
-  pineapple_juice:    {name:"Pineapple Juice (2 L)",     aisle:"drinks", tiers:[[1.98,2.98,5.98],[1,2,4],["Store brand","Name brand pineapple juice","Fresh-squeezed pineapple"]]},
-  lemon_lime_soda:    {name:"Lemon-Lime Soda (2 L)",     aisle:"drinks", tiers:[[1.48,2.48,4.98],[1,2,3],["Store brand soda","Name brand soda","Natural lemon-lime soda"]]},
+  pineapple_juice:    {name:"Pineapple Juice (2 L)",     aisle:"drinks", tiers:[[1.98,2.98,5.98],[1,2,4],["Store brand","Name brand pineapple juice","Fresh squeezed pineapple"]]},
+  lemon_lime_soda:    {name:"Lemon Lime Soda (2 L)",     aisle:"drinks", tiers:[[1.48,2.48,4.98],[1,2,3],["Store brand soda","Name brand soda","Natural lemon lime soda"]]},
   frozen_lemonade:    {name:"Frozen Lemonade Conc.",     aisle:"drinks", tiers:[[0.98,1.98,3.98],[1,2,4],["Store brand","Name brand lemonade","Organic lemonade concentrate"]]},
   frozen_strawberries:{name:"Frozen Strawberries (4 c)", aisle:"drinks", tiers:[[2.48,3.98,5.98],[1,2,4],["Store brand frozen","Name brand frozen","Organic frozen strawberries"]]},
   black_tea_bags:     {name:"Black Tea Bags (8)",        aisle:"drinks", tiers:[[0.98,1.98,4.98],[1,2,4],["Store brand black tea","Name brand black tea","Ceylon black tea"]]},
