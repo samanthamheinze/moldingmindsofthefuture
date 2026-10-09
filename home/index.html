@@ -1246,6 +1246,120 @@
     }
     .tool-tpt-link:hover { color: var(--purple); }
 
+    /* ─── What's New Section ─── */
+    #whats-new {
+      background: linear-gradient(160deg, #FFF8F0 0%, #FFFDF9 55%, #FFF2E6 100%);
+      padding: clamp(72px, 9vw, 120px) clamp(20px, 5vw, 64px);
+      position: relative;
+      overflow: hidden;
+    }
+    #whats-new::before {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,169,78,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .whats-new-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .whats-new-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, rgba(245,169,78,0.18), rgba(245,200,66,0.12));
+      border: 1px solid rgba(245,169,78,0.38);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9A5C00;
+      margin-bottom: 20px;
+    }
+    .whats-new-badge .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #F5A94E;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .whats-new-headline {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .whats-new-sub {
+      font-size: 16px;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
+    .whats-new-features {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px 20px;
+      margin-bottom: 34px;
+    }
+    .whats-new-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 14px;
+      color: var(--dark);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+    .whats-new-features li::before {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 19px; height: 19px;
+      border-radius: 50%;
+      background: rgba(245,169,78,0.18);
+      color: #C87020;
+      font-size: 10px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .whats-new-thumbnails {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .wnt-img {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(44,37,71,0.13);
+      aspect-ratio: 1 / 1;
+    }
+    .wnt-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s var(--ease);
+    }
+    .wnt-img:hover img { transform: scale(1.04); }
+    @media (max-width: 900px) {
+      .whats-new-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 680px) {
+      .whats-new-features { grid-template-columns: 1fr; }
+    }
+
     /* ─── Responsive extras ─── */
     @media (max-width: 900px) {
       .assessment-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1312,9 +1426,9 @@
       </svg>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
+      <li><a href="#whats-new"  onclick="ga4('nav_click',{link:'whats_new'})">What's New</a></li>
       <li><a href="#resources"  onclick="ga4('nav_click',{link:'resources'})">Resources</a></li>
       <li><a href="#tools"      onclick="ga4('nav_click',{link:'tools'})">Tools</a></li>
-      <li><a href="#assessment" onclick="ga4('nav_click',{link:'assessment'})">Assessments</a></li>
       <li><a href="#about"      onclick="ga4('nav_click',{link:'about'})">About</a></li>
       <li><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="nav-cta" onclick="ga4('nav_click',{link:'cta'})">Shop My Products on TPT</a></li>
     </ul>
@@ -1347,11 +1461,11 @@
     </h1>
     <p class="hero-sub">Learning tools and curriculum resources for teachers, tutors, parents, and homeschoolers, built by an educator who knows exactly what students need.</p>
     <div class="hero-actions">
-      <a href="#assessment" class="btn-primary" onclick="ga4('hero_cta_click',{cta:'see_assessment'})">
-        See the Math Assessment
+      <a href="#whats-new" class="btn-primary" onclick="ga4('hero_cta_click',{cta:'see_math_bundle'})">
+        See the 2nd Grade Math Bundle
       </a>
       <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="btn-outline" onclick="ga4('hero_cta_click',{cta:'tpt_store'})">
-        Shop resources on TPT
+        Shop all resources on TPT
       </a>
     </div>
     <div class="hero-trust" aria-label="Trust signals">
@@ -1359,6 +1473,49 @@
       <div class="trust-chip"><span class="trust-chip-dot"></span>K-5 Reading Assessment · Now on TPT</div>
       <div class="trust-chip"><span class="trust-chip-dot"></span>K-8 Resources · Math + SEL + ELA</div>
     </div>
+  </div>
+</section>
+
+<!-- ─── What's New ─── -->
+<section id="whats-new" aria-label="What's New: Complete 2nd Grade Math Bundle">
+  <div class="whats-new-inner">
+
+    <div class="whats-new-text reveal">
+      <div class="whats-new-badge"><span class="badge-dot"></span>What's New</div>
+      <h2 class="whats-new-headline">The Complete 2nd Grade Math Bundle</h2>
+      <p class="whats-new-sub">Every 2nd grade math standard in one place — 26 differentiated worksheet sets at three levels (Mild, Medium, Spicy), 25+ carnival-themed games and centers, and a bonus Teacher Toolkit with pacing calendars, class trackers, and pre &amp; post assessments. Over 400 print-and-go pages, built for real classrooms.</p>
+
+      <ul class="whats-new-features">
+        <li>26 differentiated worksheet sets</li>
+        <li>3 levels: below, at &amp; above grade</li>
+        <li>25+ carnival games &amp; centers</li>
+        <li>Covers 2.OA, 2.NBT, 2.MD &amp; 2.G</li>
+        <li>Bonus Teacher Toolkit included</li>
+        <li>Pre &amp; post assessments</li>
+        <li>400+ printable pages</li>
+        <li>Common Core aligned</li>
+      </ul>
+
+      <a href="https://www.teacherspayteachers.com/Product/2nd-Grade-Math-Bundle-All-Standards-Differentiated-Worksheets-Centers-Review-17891628" target="_blank" rel="noopener" class="btn-outline" onclick="ga4('whats_new_cta_click',{product:'2nd_grade_math_bundle'})">
+        Get it on TPT
+      </a>
+    </div>
+
+    <div class="whats-new-thumbnails reveal d2">
+      <div class="wnt-img">
+        <img src="/images/math-bundle-1.png" alt="Complete 2nd Grade Math Bundle — all standards in one bundle" loading="lazy" width="600" height="600">
+      </div>
+      <div class="wnt-img">
+        <img src="/images/math-bundle-2.png" alt="One standard, three levels: Mild, Medium, Spicy differentiation" loading="lazy" width="600" height="600">
+      </div>
+      <div class="wnt-img">
+        <img src="/images/math-bundle-3.png" alt="25+ carnival-themed games and centers for every 2nd grade domain" loading="lazy" width="600" height="600">
+      </div>
+      <div class="wnt-img">
+        <img src="/images/math-bundle-4.png" alt="Bonus Teacher Toolkit — pacing calendar, trackers, and assessments" loading="lazy" width="600" height="600">
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1546,6 +1703,12 @@
     </div>
 
     <div class="tpt-grid">
+
+      <!-- ── FEATURED BUNDLE ── -->
+      <a href="https://www.teacherspayteachers.com/Product/2nd-Grade-Math-Bundle-All-Standards-Differentiated-Worksheets-Centers-Review-17891628" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'2nd_grade_bundle'})" style="border-color:rgba(245,169,78,0.45);box-shadow:0 0 0 3px rgba(245,169,78,0.10);">
+        <div class="tpt-thumb tpt-thumb--life" style="background:linear-gradient(145deg,#C87020,#F5A94E);"><span class="tpt-cat">Math Bundle</span><span class="tpt-cat-sub">All Standards · 2nd</span></div>
+        <div class="tpt-body"><div class="tpt-grade" style="color:#C87020;">⭐ Featured · Grade 2</div><div class="tpt-title">Complete 2nd Grade Math Bundle: All Standards</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
 
       <!-- ── ASSESSMENTS ── -->
       <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="tpt-card reveal" data-category="assessment" onclick="ga4('tpt_click',{id:'math_diag'})">
