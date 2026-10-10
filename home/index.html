@@ -149,7 +149,7 @@
       --shadow-lg:    0 14px 44px rgba(44,37,71,0.11);
       --radius:       22px;
       --radius-sm:    14px;
-      --nav-h:        72px;
+      --nav-h:        94px;
       --ease:         cubic-bezier(0.4,0,0.2,1);
     }
 
@@ -244,7 +244,9 @@
       text-decoration: none;
       flex-shrink: 0;
     }
-    .nav-logo svg { display: block; }
+    .nav-logo svg { display: block; width: 330px; height: auto; }
+    @media (max-width: 680px) { .nav-logo svg { width: 230px; } }
+    @media (max-width: 400px) { .nav-logo svg { width: 190px; } }
 
     .nav-links {
       display: flex;
@@ -1467,7 +1469,7 @@
 <nav id="main-nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo" onclick="ga4('nav_click',{link:'home'})" aria-label="Molding Minds of the Future, home">
-      <svg viewBox="0 0 480 130" width="165" height="45" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 480 130" width="330" height="89" xmlns="http://www.w3.org/2000/svg">
         <line x1="65" y1="12" x2="65" y2="2"   stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"/>
         <line x1="82" y1="16" x2="90" y2="7"   stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
         <line x1="48" y1="16" x2="40" y2="7"   stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
@@ -1499,7 +1501,7 @@
           </linearGradient>
         </defs>
         <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#navgrad)"/>
-        <text x="124" y="80" font-family="'Poppins','Segoe UI',sans-serif" font-weight="300" font-size="10" fill="rgba(44,37,71,0.50)" letter-spacing="5">OF THE FUTURE</text>
+        <text x="124" y="82" font-family="'Poppins','Segoe UI',sans-serif" font-weight="400" font-size="13" fill="rgba(44,37,71,0.55)" letter-spacing="4.5">OF THE FUTURE</text>
       </svg>
     </a>
     <ul class="nav-links" role="navigation" aria-label="Main navigation">
