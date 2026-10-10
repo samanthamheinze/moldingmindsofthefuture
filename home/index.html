@@ -1353,11 +1353,88 @@
       transition: transform 0.35s var(--ease);
     }
     .wnt-img:hover img { transform: scale(1.04); }
+    #whats-new-phonics {
+      background: linear-gradient(160deg, #EEF8F2 0%, #F5FBF8 55%, #E8F4FD 100%);
+      padding: clamp(72px, 9vw, 120px) clamp(20px, 5vw, 64px);
+      position: relative;
+      overflow: hidden;
+    }
+    #whats-new-phonics::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(75,174,138,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .whats-new-phonics-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, rgba(75,174,138,0.16), rgba(74,144,217,0.10));
+      border: 1px solid rgba(75,174,138,0.35);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2A7A5A;
+      margin-bottom: 20px;
+    }
+    .whats-new-phonics-badge .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4BAE8A;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .whats-new-phonics-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .whats-new-phonics-features {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px 20px;
+      margin-bottom: 34px;
+    }
+    .whats-new-phonics-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 14px;
+      color: var(--dark);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+    .whats-new-phonics-features li::before {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 19px; height: 19px;
+      border-radius: 50%;
+      background: rgba(75,174,138,0.16);
+      color: var(--green-dark);
+      font-size: 10px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
     @media (max-width: 900px) {
       .whats-new-inner { grid-template-columns: 1fr; gap: 40px; }
+      .whats-new-phonics-inner { grid-template-columns: 1fr; gap: 40px; }
+      .phonics-text-col { order: -1; }
     }
     @media (max-width: 680px) {
       .whats-new-features { grid-template-columns: 1fr; }
+      .whats-new-phonics-features { grid-template-columns: 1fr; }
     }
 
     /* ─── Responsive extras ─── */
@@ -1514,6 +1591,49 @@
       <div class="wnt-img">
         <img src="/images/math-bundle-4.png" alt="Bonus Teacher Toolkit — pacing calendar, trackers, and assessments" loading="lazy" width="600" height="600">
       </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── What's New: Phonics Bundle ─── -->
+<section id="whats-new-phonics" aria-label="What's New: Sound Safari Phonics Bundle Level 1">
+  <div class="whats-new-phonics-inner">
+
+    <div class="whats-new-thumbnails reveal">
+      <div class="wnt-img">
+        <img src="/images/phonics-bundle-1.png" alt="Sound Safari Set 3 — Beginning Blends l, r, s with 105 slides and printables" loading="lazy" width="600" height="600">
+      </div>
+      <div class="wnt-img">
+        <img src="/images/phonics-bundle-2.png" alt="Sound Safari Set 2 — Digraphs ck, wh, ng with slides and printables" loading="lazy" width="600" height="600">
+      </div>
+      <div class="wnt-img">
+        <img src="/images/phonics-bundle-3.png" alt="A full phonics lesson slide by slide — warm-up, blending, word chains, dictation" loading="lazy" width="600" height="600">
+      </div>
+      <div class="wnt-img">
+        <img src="/images/phonics-bundle-4.png" alt="83 printable pages per set — teaching tools, daily practice, decodable passages, centers, games" loading="lazy" width="600" height="600">
+      </div>
+    </div>
+
+    <div class="phonics-text-col reveal d2">
+      <div class="whats-new-phonics-badge"><span class="badge-dot"></span>What's New</div>
+      <h2 class="whats-new-headline">Sound Safari Phonics Bundle — Level 1</h2>
+      <p class="whats-new-sub">Fifty days of explicit, systematic phonics in one ready-to-teach bundle. All 5 Sound Safari sets — digraphs, beginning blends, ending blends, and double letters — each following the same 10-day routine so students learn the format once and focus entirely on the new sounds. Every lesson includes phonemic awareness, mouth cues, blending practice, word chains, heart words, decodable sentences, and dictation.</p>
+
+      <ul class="whats-new-phonics-features">
+        <li>5 complete Sound Safari sets</li>
+        <li>50 days of phonics lessons</li>
+        <li>525 slides with teacher scripts</li>
+        <li>415 printable pages (color + B&amp;W)</li>
+        <li>20 decodable passages</li>
+        <li>Games, centers &amp; parent letters</li>
+        <li>Pre &amp; post assessments</li>
+        <li>Exclusive Level 1 bonus pack</li>
+      </ul>
+
+      <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Digraphs-Blends-Double-Letters-Level-1-17902598" target="_blank" rel="noopener" class="btn-primary" onclick="ga4('whats_new_cta_click',{product:'phonics_bundle_l1'})">
+        Get it on TPT
+      </a>
     </div>
 
   </div>
@@ -1704,7 +1824,11 @@
 
     <div class="tpt-grid">
 
-      <!-- ── FEATURED BUNDLE ── -->
+      <!-- ── FEATURED BUNDLES ── -->
+      <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Digraphs-Blends-Double-Letters-Level-1-17902598" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'phonics_bundle_l1'})" style="border-color:rgba(75,174,138,0.45);box-shadow:0 0 0 3px rgba(75,174,138,0.09);">
+        <div class="tpt-thumb tpt-thumb--sel-elem" style="background:linear-gradient(145deg,#1A6647,#4BAE8A);"><span class="tpt-cat">Phonics Bundle</span><span class="tpt-cat-sub">Science of Reading · K–2</span></div>
+        <div class="tpt-body"><div class="tpt-grade" style="color:var(--green-dark);">⭐ Featured · Grades K–2</div><div class="tpt-title">Sound Safari Phonics Bundle Level 1: Digraphs, Blends &amp; More</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
+      </a>
       <a href="https://www.teacherspayteachers.com/Product/2nd-Grade-Math-Bundle-All-Standards-Differentiated-Worksheets-Centers-Review-17891628" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'2nd_grade_bundle'})" style="border-color:rgba(245,169,78,0.45);box-shadow:0 0 0 3px rgba(245,169,78,0.10);">
         <div class="tpt-thumb tpt-thumb--life" style="background:linear-gradient(145deg,#C87020,#F5A94E);"><span class="tpt-cat">Math Bundle</span><span class="tpt-cat-sub">All Standards · 2nd</span></div>
         <div class="tpt-body"><div class="tpt-grade" style="color:#C87020;">⭐ Featured · Grade 2</div><div class="tpt-title">Complete 2nd Grade Math Bundle: All Standards</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
