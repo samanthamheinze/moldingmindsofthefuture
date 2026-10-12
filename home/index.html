@@ -397,22 +397,7 @@
       background: radial-gradient(circle, rgba(106,170,216,0.07) 0%, transparent 68%);
       top: 40%; left: 20%; animation-delay: -3s;
     }
-    .hero-floats {
-      position: absolute; inset: 0; pointer-events: none;
-    }
-    .fi {
-      position: absolute;
-      width: clamp(42px, 5vw, 68px);
-      height: clamp(42px, 5vw, 68px);
-      user-select: none;
-      animation: float 5s ease-in-out infinite;
-    }
-    .fi:nth-child(1) { top: 16%; left:  8%; animation-delay: 0s; }
-    .fi:nth-child(2) { top: 20%; right:  9%; animation-delay: -1.5s; animation-name: float2; }
-    .fi:nth-child(3) { bottom: 26%; left: 11%; animation-delay: -3s; }
-    .fi:nth-child(4) { bottom: 20%; right:  7%; animation-delay: -0.7s; animation-name: float2; }
-    .fi:nth-child(5) { top: 55%; left:  4%; animation-delay: -2.2s; width: clamp(28px, 3vw, 46px); height: clamp(28px, 3vw, 46px); }
-    .fi:nth-child(6) { top: 42%; right:  4%; animation-delay: -4s;  width: clamp(28px, 3vw, 46px); height: clamp(28px, 3vw, 46px); }
+    .hero-floats { display: none; }
 
     .hero-content {
       position: relative; z-index: 1;
@@ -1178,24 +1163,13 @@
       pointer-events: none; z-index: 0; user-select: none;
     }
     .bg-chars span {
-      position: absolute; font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-weight: 400; line-height: 1;
-      pointer-events: none; user-select: none;
+      position: absolute; font-family: 'Poppins', 'Nunito', sans-serif; font-weight: 800;
+      line-height: 1; pointer-events: none; user-select: none;
     }
     .hero-floats { z-index: 2; }
     .hero-content { position: relative; z-index: 3; }
     .tools-inner, .tpt-inner { position: relative; z-index: 1; }
 
-    /* ─── Hero floating letter pills ─── */
-    .fi {
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .fi-char {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: clamp(18px, 2.5vw, 30px);
-      line-height: 1; font-weight: 400;
-    }
 
     /* ─── TPT filter tabs ─── */
     .filter-tabs {
@@ -2276,8 +2250,8 @@
 
   // ─── Background character scatter ───
   (function() {
-    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklm0123456789+−×÷=?!★◆';
-    var colors = ['#4BAE8A','#7C5CBF','#6AAAD8','#F5C842','#389070','#A07FD6'];
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+×÷=?';
+    var colors = ['#4BAE8A','#7C5CBF','#6AAAD8','#F5A94E','#389070','#A07FD6'];
     var seed = 7919;
     function rand() { seed = (seed * 1664525 + 1013904223) | 0; return (seed >>> 0) / 4294967295; }
     function fill(id, count) {
@@ -2286,18 +2260,18 @@
       for (var i = 0; i < count; i++) {
         var s = document.createElement('span');
         s.textContent = chars.charAt(Math.floor(rand() * chars.length));
-        s.style.left      = (rand() * 100) + '%';
-        s.style.top       = (rand() * 100) + '%';
-        s.style.fontSize  = (14 + rand() * 36) + 'px';
-        s.style.opacity   = (0.08 + rand() * 0.10).toFixed(3);
-        s.style.transform = 'rotate(' + ((rand() - 0.5) * 50) + 'deg)';
+        s.style.left      = (rand() * 96) + '%';
+        s.style.top       = (rand() * 96) + '%';
+        s.style.fontSize  = (80 + rand() * 140) + 'px';
+        s.style.opacity   = (0.04 + rand() * 0.05).toFixed(3);
+        s.style.transform = 'rotate(' + ((rand() - 0.5) * 24) + 'deg)';
         s.style.color     = colors[Math.floor(rand() * colors.length)];
         el.appendChild(s);
       }
     }
-    fill('heroBgChars',      90);
-    fill('toolsBgChars',     45);
-    fill('resourcesBgChars', 55);
+    fill('heroBgChars',      28);
+    fill('toolsBgChars',     16);
+    fill('resourcesBgChars', 20);
   })();
 
   // ─── TPT filter tabs ───
