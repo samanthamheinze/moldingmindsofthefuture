@@ -487,10 +487,16 @@
     .hbd-name {
       font-family: 'Nunito', sans-serif;
       font-weight: 900;
-      font-size: clamp(36px, 5.5vw, 64px);
-      color: var(--dark);
+      font-size: clamp(20px, 2.8vw, 36px);
+      white-space: nowrap;
       line-height: 1.0;
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(130deg, var(--green) 0%, var(--blue) 50%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% auto;
+      animation: shimmer 4s linear infinite;
     }
     .hbd-tagline {
       font-family: 'Poppins', sans-serif;
