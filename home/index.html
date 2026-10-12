@@ -1208,6 +1208,9 @@
     }
     .filter-tab:hover { border-color: var(--purple); color: var(--purple); }
     .filter-tab.active { background: var(--purple); color: #fff; border-color: var(--purple); }
+    .filter-tab--bundle { border-color: var(--gold); color: #b8860b; font-weight: 700; }
+    .filter-tab--bundle:hover { background: rgba(245,200,66,0.12); border-color: var(--gold); color: #8a6400; }
+    .filter-tab--bundle.active { background: var(--gold); color: var(--dark); border-color: var(--gold); }
     .tpt-card[hidden] { display: none !important; }
 
     /* ─── Tool card dual-action ─── */
@@ -1778,6 +1781,7 @@
 
     <div class="filter-tabs reveal d3">
       <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab filter-tab--bundle" data-filter="bundle">Bundle Deals</button>
       <button class="filter-tab" data-filter="assessment">Assessments</button>
       <button class="filter-tab" data-filter="math">Math</button>
       <button class="filter-tab" data-filter="sel">SEL</button>
@@ -1788,11 +1792,11 @@
     <div class="tpt-grid">
 
       <!-- ── FEATURED BUNDLES ── -->
-      <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Digraphs-Blends-Double-Letters-Level-1-17902598" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'phonics_bundle_l1'})" style="border-color:rgba(75,174,138,0.45);box-shadow:0 0 0 3px rgba(75,174,138,0.09);">
+      <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Digraphs-Blends-Double-Letters-Level-1-17902598" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela bundle" onclick="ga4('tpt_click',{id:'phonics_bundle_l1'})" style="border-color:rgba(75,174,138,0.45);box-shadow:0 0 0 3px rgba(75,174,138,0.09);">
         <div class="tpt-thumb tpt-thumb--sel-elem" style="background:linear-gradient(145deg,#1A6647,#4BAE8A);"><span class="tpt-cat">Phonics Bundle</span><span class="tpt-cat-sub">Science of Reading · K–2</span></div>
         <div class="tpt-body"><div class="tpt-grade" style="color:var(--green-dark);">⭐ Featured · Grades K–2</div><div class="tpt-title">Sound Safari Phonics Bundle Level 1: Digraphs, Blends &amp; More</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
-      <a href="https://www.teacherspayteachers.com/Product/2nd-Grade-Math-Bundle-All-Standards-Differentiated-Worksheets-Centers-Review-17891628" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'2nd_grade_bundle'})" style="border-color:rgba(245,169,78,0.45);box-shadow:0 0 0 3px rgba(245,169,78,0.10);">
+      <a href="https://www.teacherspayteachers.com/Product/2nd-Grade-Math-Bundle-All-Standards-Differentiated-Worksheets-Centers-Review-17891628" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math bundle" onclick="ga4('tpt_click',{id:'2nd_grade_bundle'})" style="border-color:rgba(245,169,78,0.45);box-shadow:0 0 0 3px rgba(245,169,78,0.10);">
         <div class="tpt-thumb tpt-thumb--life" style="background:linear-gradient(145deg,#C87020,#F5A94E);"><span class="tpt-cat">Math Bundle</span><span class="tpt-cat-sub">All Standards · 2nd</span></div>
         <div class="tpt-body"><div class="tpt-grade" style="color:#C87020;">⭐ Featured · Grade 2</div><div class="tpt-title">Complete 2nd Grade Math Bundle: All Standards</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
@@ -2302,7 +2306,8 @@
       btn.classList.add('active');
       var filter = btn.dataset.filter;
       document.querySelectorAll('.tpt-card[data-category]').forEach(function(card) {
-        card.hidden = (filter !== 'all' && card.dataset.category !== filter);
+        var cats = card.dataset.category.split(' ');
+        card.hidden = (filter !== 'all' && !cats.includes(filter));
       });
     });
   });
