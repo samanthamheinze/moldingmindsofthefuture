@@ -751,6 +751,7 @@
       font-size: 62px;
       position: relative;
       flex-shrink: 0;
+      overflow: hidden;
     }
     .tpt-price-tag {
       position: absolute;
@@ -1153,6 +1154,7 @@
     .tpt-thumb--life       { background: linear-gradient(145deg,#9A7500,#F5C842); color:#2C2547; }
     .tpt-thumb--ela        { background: linear-gradient(145deg,#2C2547,#7C5CBF); color:#fff; }
     .tpt-thumb--worksheet  { background: linear-gradient(145deg,#0D5C40,#38A07A); color:#fff; }
+    .tpt-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .tool-preview-reading {
       margin: -36px -30px 22px; height: 162px; border-radius: 12px 12px 0 0;
       background: linear-gradient(150deg,#EDF5F0,#D4EBF8);
@@ -1785,21 +1787,21 @@
 
       <!-- ── FEATURED BUNDLES ── -->
       <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Digraphs-Blends-Double-Letters-Level-1-17902598" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela bundle" onclick="ga4('tpt_click',{id:'phonics_bundle_l1'})" style="border-color:rgba(75,174,138,0.45);box-shadow:0 0 0 3px rgba(75,174,138,0.09);">
-        <div class="tpt-thumb tpt-thumb--sel-elem" style="background:linear-gradient(145deg,#1A6647,#4BAE8A);"><span class="tpt-cat">Phonics Bundle</span><span class="tpt-cat-sub">Science of Reading · K–2</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/phonics_bundle_l1.png" alt="Sound Safari Phonics Bundle Level 1" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade" style="color:var(--green-dark);">⭐ Featured · Grades K–2</div><div class="tpt-title">Sound Safari Phonics Bundle Level 1: Digraphs, Blends &amp; More</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/2nd-Grade-Math-Bundle-All-Standards-Differentiated-Worksheets-Centers-Review-17891628" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math bundle" onclick="ga4('tpt_click',{id:'2nd_grade_bundle'})" style="border-color:rgba(245,169,78,0.45);box-shadow:0 0 0 3px rgba(245,169,78,0.10);">
-        <div class="tpt-thumb tpt-thumb--life" style="background:linear-gradient(145deg,#C87020,#F5A94E);"><span class="tpt-cat">Math Bundle</span><span class="tpt-cat-sub">All Standards · 2nd</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/2nd_grade_bundle.png" alt="Complete 2nd Grade Math Bundle" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade" style="color:#C87020;">⭐ Featured · Grade 2</div><div class="tpt-title">Complete 2nd Grade Math Bundle: All Standards</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
 
       <!-- ── ASSESSMENTS ── -->
       <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="tpt-card reveal" data-category="assessment" onclick="ga4('tpt_click',{id:'math_diag'})">
-        <div class="tpt-thumb tpt-thumb--assessment"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Assessment · K–5</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/math_diag.png" alt="K-5 Adaptive Math Diagnostic Assessment" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades K–5</div><div class="tpt-title">K-5 Adaptive Math Diagnostic Assessment</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Adaptive-Reading-Diagnostic-Assessment-K-5-Tutors-Teachers-Homeschool-17678575" target="_blank" rel="noopener" class="tpt-card reveal" data-category="assessment" onclick="ga4('tpt_click',{id:'reading_diag'})">
-        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Assessment · K–5</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/reading_diag.png" alt="Adaptive Reading Diagnostic Assessment" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades K–5</div><div class="tpt-title">Adaptive Reading Diagnostic Assessment</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
 
@@ -1825,7 +1827,7 @@
         <div class="tpt-body"><div class="tpt-grade">Grade 2</div><div class="tpt-title">Arrays and Repeated Addition</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Elapsed-Time-Task-Cards-Anchor-Chart-Differentiated-Grade-3-17265642" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'elapsed_time'})">
-        <div class="tpt-thumb tpt-thumb--worksheet"><span class="tpt-cat">Math</span><span class="tpt-cat-sub">Time · 3rd</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/elapsed_time.png" alt="Elapsed Time Task Cards" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grade 3</div><div class="tpt-title">Elapsed Time Task Cards &amp; Anchor Chart</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Differentiated-Measurement-Tools-Worksheets-2nd-Grade-2MDA1-17249160" target="_blank" rel="noopener" class="tpt-card reveal" data-category="math" onclick="ga4('tpt_click',{id:'measurement'})">
@@ -1915,7 +1917,7 @@
 
       <!-- ── SEL ── -->
       <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-BUNDLE-3rd-4th-5th-Grade-24-Week-Social-Emotional-Learning-17426053" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'sel_bundle'})">
-        <div class="tpt-thumb tpt-thumb--sel-elem"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">Bundle · 3–5</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/sel_bundle.png" alt="SEL Curriculum Bundle 24-Week Program" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">SEL Curriculum Bundle: 24-Week Program (Vol 1 &amp; 2)</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-3rd-4th-5th-Grade-Social-Emotional-Learning-Lessons-Vol-1-17249965" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'sel_vol1'})">
@@ -1927,7 +1929,7 @@
         <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">SEL Curriculum Vol 2</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/IB-PYP-Learner-Profile-Attributes-Posters-Task-Cards-Self-Assessment-K-2-17562458" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ib_pyp'})">
-        <div class="tpt-thumb tpt-thumb--sel-elem"><span class="tpt-cat">SEL</span><span class="tpt-cat-sub">IB PYP · K–2</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/ib_pyp.png" alt="IB PYP Learner Profile" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades K–2</div><div class="tpt-title">IB PYP Learner Profile: Posters, Task Cards &amp; Self-Assessment</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Yearlong-Curriculum-Bundle-Grades-6-to-8-School-Counseling-17483753" target="_blank" rel="noopener" class="tpt-card reveal" data-category="sel" onclick="ga4('tpt_click',{id:'ms_sel_bundle'})">
@@ -1973,7 +1975,7 @@
 
       <!-- ── ELA ── -->
       <a href="https://www.teacherspayteachers.com/Product/Nonfiction-Reading-Response-for-any-Book-Grades-2-4-Text-Features-Main-Idea-17327255" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'nonfic_response'})">
-        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Reading · 2–4</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/nonfic_response.png" alt="Nonfiction Reading Response" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades 2–4</div><div class="tpt-title">Nonfiction Reading Response for Any Book</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Making-Inferences-With-Evidence-2nd-3rd-Grade-Reading-Passages-17220832" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'inferences_ev'})">
@@ -1985,7 +1987,7 @@
         <div class="tpt-body"><div class="tpt-grade">Grades 2–3</div><div class="tpt-title">Making Inferences Activity: Passages &amp; Textual Evidence</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Reading-Response-Questions-Fiction-Nonfiction-Any-Book-No-Prep-3-5-16198501" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'reading_response'})">
-        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Reading · 3–5</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/reading_response.png" alt="Reading Response Questions Fiction and Nonfiction" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades 3–5</div><div class="tpt-title">Reading Response Questions: Fiction &amp; Nonfiction</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Higher-Order-Thinking-Question-Ladder-Blooms-Taxonomy-Critical-Thinking-16104572" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'hot_ladder'})">
@@ -2001,7 +2003,7 @@
         <div class="tpt-body"><div class="tpt-grade">Grades K–2</div><div class="tpt-title">Phonics Bookmarks: Vowel Teams &amp; Digraphs</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Descriptive-Writing-Worksheets-Sensory-Details-Figurative-Language-Grades-2-5-17754098" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'desc_writing_bundle'})">
-        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Writing · 2–5</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/desc_writing_bundle.png" alt="Descriptive Writing Bundle" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades 2–5</div><div class="tpt-title">Descriptive Writing Bundle: Sensory Details &amp; Figurative Language</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Making-Connections-Worksheets-Bundle-Text-to-Self-Text-to-Text-Text-to-World-17754526" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'making_connections_bundle'})">
@@ -2017,25 +2019,25 @@
         <div class="tpt-body"><div class="tpt-grade">Grades 2–5</div><div class="tpt-title">Fiction Reading Comprehension: 20 Skills for Any Book</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Thinking-Routines-20-Critical-Thinking-Discussion-Cards-for-Any-Subject-Grade-17806559" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'thinking_routines'})">
-        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Critical Thinking</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/thinking_routines.png" alt="Thinking Routines Discussion Cards" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades K–8</div><div class="tpt-title">Thinking Routines: 20 Critical Thinking Discussion Cards</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/FREE-Digraph-sh-Lesson-Science-of-Reading-Phonics-Slides-Worksheets-Mats-17855477" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'sound_safari_free'})">
-        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Phonics · K–2</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/sound_safari_free.png" alt="FREE Sound Safari Digraph sh" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades K–2</div><div class="tpt-title">FREE Sound Safari: Digraph sh Phonics Lesson</div><div class="tpt-footer"><span class="tpt-price-label" style="color:var(--green);">Free</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Digraphs-sh-ch-th-Science-of-Reading-Phonics-Unit-Slides-Decodables-Games-17855678" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'sound_safari_digraphs'})">
-        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Phonics · K–2</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/sound_safari_digraphs.png" alt="Sound Safari Digraphs sh ch th" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades K–2</div><div class="tpt-title">Sound Safari: Digraphs sh, ch, th Phonics Unit</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/Beginning-Blends-Science-of-Reading-Phonics-Unit-Slides-Decodables-Games-17870322" target="_blank" rel="noopener" class="tpt-card reveal" data-category="ela" onclick="ga4('tpt_click',{id:'sound_safari_blends'})">
-        <div class="tpt-thumb tpt-thumb--ela"><span class="tpt-cat">ELA</span><span class="tpt-cat-sub">Phonics · K–2</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/sound_safari_blends.png" alt="Sound Safari Beginning Blends" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades K–2</div><div class="tpt-title">Sound Safari: Beginning Blends Phonics Unit</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
 
       <!-- ── MORE ── -->
       <a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-17868925" target="_blank" rel="noopener" class="tpt-card reveal" data-category="more" onclick="ga4('tpt_click',{id:'grocery_store'})">
-        <div class="tpt-thumb tpt-thumb--life"><span class="tpt-cat">Life Skills</span><span class="tpt-cat-sub">Project · 3–6</span></div>
+        <div class="tpt-thumb"><img src="/images/tpt/grocery_store.png" alt="Financial Literacy Grocery Store Project" loading="lazy"></div>
         <div class="tpt-body"><div class="tpt-grade">Grades 3–6</div><div class="tpt-title">Financial Literacy: Grocery Store Budgeting Project</div><div class="tpt-footer"><span class="tpt-price-label">View on TPT</span></div></div>
       </a>
       <a href="https://www.teacherspayteachers.com/Product/FREE-Digital-Mind-Map-Graphic-Organizer-IB-Key-Concepts-Sentence-Stems-3-5-16423686" target="_blank" rel="noopener" class="tpt-card reveal" data-category="more" onclick="ga4('tpt_click',{id:'mind_map'})">
