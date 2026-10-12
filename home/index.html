@@ -1008,10 +1008,25 @@
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
-      padding: 36px 32px 32px;
+      padding: 0 0 32px;
       display: flex;
       flex-direction: column;
       box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .diag-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .diag-card-body {
+      padding: 28px 32px 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
     .diag-subject {
       display: inline-flex;
@@ -1645,37 +1660,43 @@
     <div class="diag-grid">
 
       <div class="diag-card reveal d2">
-        <div class="diag-subject diag-reading">Reading</div>
-        <h3 class="diag-title">K-5 Reading Diagnostic Assessment</h3>
-        <p class="diag-desc">Finds exactly where a student should start across Foundational Skills, Reading Literature, and Informational Text — each area assessed independently. Includes a timed fluency check compared to Hasbrouck &amp; Tindal research norms, not a made-up cutoff.</p>
-        <ul class="diag-features">
-          <li>Adapts up or down based on student responses</li>
-          <li>Grade-level placement across 3 reading areas independently</li>
-          <li>Timed fluency check with research-based norms</li>
-          <li>Every mastered standard listed individually</li>
-          <li>Ready-to-copy parent note in plain language</li>
-          <li>Full question-by-question log</li>
-          <li>Downloadable PDF report</li>
-          <li>Progress saves automatically</li>
-        </ul>
-        <a href="https://www.teacherspayteachers.com/Product/Adaptive-Reading-Diagnostic-Assessment-K-5-Tutors-Teachers-Homeschool-17678575" target="_blank" rel="noopener" class="btn-primary diag-btn" onclick="ga4('assessment_cta_click',{cta:'reading_tpt'})">Get it on TPT</a>
+        <img src="/images/reading-diagnostic-questions.jpg" alt="Example reading diagnostic questions" class="diag-img" loading="lazy">
+        <div class="diag-card-body">
+          <div class="diag-subject diag-reading">Reading</div>
+          <h3 class="diag-title">K-5 Reading Diagnostic Assessment</h3>
+          <p class="diag-desc">Finds exactly where a student should start across Foundational Skills, Reading Literature, and Informational Text — each area assessed independently. Includes a timed fluency check compared to Hasbrouck &amp; Tindal research norms, not a made-up cutoff.</p>
+          <ul class="diag-features">
+            <li>Adapts up or down based on student responses</li>
+            <li>Grade-level placement across 3 reading areas independently</li>
+            <li>Timed fluency check with research-based norms</li>
+            <li>Every mastered standard listed individually</li>
+            <li>Ready-to-copy parent note in plain language</li>
+            <li>Full question-by-question log</li>
+            <li>Downloadable PDF report</li>
+            <li>Progress saves automatically</li>
+          </ul>
+          <a href="https://www.teacherspayteachers.com/Product/Adaptive-Reading-Diagnostic-Assessment-K-5-Tutors-Teachers-Homeschool-17678575" target="_blank" rel="noopener" class="btn-primary diag-btn" onclick="ga4('assessment_cta_click',{cta:'reading_tpt'})">Get it on TPT</a>
+        </div>
       </div>
 
       <div class="diag-card reveal d3">
-        <div class="diag-subject diag-math">Math</div>
-        <h3 class="diag-title">K-5 Math Diagnostic Assessment</h3>
-        <p class="diag-desc">Pinpoints exactly where a student should start across Number &amp; Operations, Measurement, Data, Geometry, and Fractions — each domain assessed independently. A student can be ahead in one area and still building in another, and this tool finds both.</p>
-        <ul class="diag-features">
-          <li>Adapts up or down based on student responses</li>
-          <li>Grade-level placement for all 5 math domains independently</li>
-          <li>Every mastered standard listed individually</li>
-          <li>Recommended starting point per domain</li>
-          <li>Ready-to-copy parent note in plain language</li>
-          <li>Full question-by-question log</li>
-          <li>Downloadable PDF report</li>
-          <li>Progress saves automatically</li>
-        </ul>
-        <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="btn-primary diag-btn" onclick="ga4('assessment_cta_click',{cta:'math_tpt'})">Get it on TPT</a>
+        <img src="/images/math-diagnostic-questions.jpg" alt="Example math diagnostic questions" class="diag-img" loading="lazy">
+        <div class="diag-card-body">
+          <div class="diag-subject diag-math">Math</div>
+          <h3 class="diag-title">K-5 Math Diagnostic Assessment</h3>
+          <p class="diag-desc">Pinpoints exactly where a student should start across Number &amp; Operations, Measurement, Data, Geometry, and Fractions — each domain assessed independently. A student can be ahead in one area and still building in another, and this tool finds both.</p>
+          <ul class="diag-features">
+            <li>Adapts up or down based on student responses</li>
+            <li>Grade-level placement for all 5 math domains independently</li>
+            <li>Every mastered standard listed individually</li>
+            <li>Recommended starting point per domain</li>
+            <li>Ready-to-copy parent note in plain language</li>
+            <li>Full question-by-question log</li>
+            <li>Downloadable PDF report</li>
+            <li>Progress saves automatically</li>
+          </ul>
+          <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="btn-primary diag-btn" onclick="ga4('assessment_cta_click',{cta:'math_tpt'})">Get it on TPT</a>
+        </div>
       </div>
 
     </div>
@@ -1734,12 +1755,12 @@
           </div>
           <div class="gm-total">Total: $21.44 / $45.00</div>
         </div>
-        <span class="tool-badge badge-new">Free to Use</span>
-        <div class="tool-name">Grocery Store Math</div>
-        <p class="tool-desc">Students plan a dinner party on a budget, picking ingredients, comparing prices, and managing totals. Real-world math that sticks because it matters. Perfect for grades 2 and up.</p>
+        <span class="tool-badge badge-new">Free to Try</span>
+        <div class="tool-name">Grocery Store Financial Literacy Project</div>
+        <p class="tool-desc">A real-world financial literacy project for grades 3–6. Students shop an online grocery store on a budget, comparing prices and managing totals. The interactive online shopping tool is free to use right on this site — and the full project (lesson plans, worksheets, extension activities, and all accompanying PDFs) is available on TPT.</p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-top:auto;">
-          <a href="https://grocerystore.moldingmindsofthefuture.com/" class="tool-link" onclick="ga4('tool_click',{tool:'grocery_store'})">Try the Tool <span class="tool-arrow">→</span></a>
-          <a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-17868925" target="_blank" rel="noopener" class="tool-link" style="color:var(--green);font-size:13px;" onclick="ga4('tool_click',{tool:'grocery_store_guide'})">Get the Activity Guide on TPT <span class="tool-arrow">→</span></a>
+          <a href="https://grocerystore.moldingmindsofthefuture.com/" class="tool-link" onclick="ga4('tool_click',{tool:'grocery_store'})">Try the Online Store for Free <span class="tool-arrow">→</span></a>
+          <a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-17868925" target="_blank" rel="noopener" class="tool-link" style="color:var(--green);font-size:13px;" onclick="ga4('tool_click',{tool:'grocery_store_guide'})">Get the Full Project on TPT <span class="tool-arrow">→</span></a>
         </div>
       </div>
 
