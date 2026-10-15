@@ -373,8 +373,10 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(150deg, #D8F2E8 0%, #EFF9F5 40%, #F5FBFF 70%, #EDE8F8 100%);
-      background-size: 400% 400%;
+      background:
+        linear-gradient(150deg, rgba(216,242,232,0.92) 0%, rgba(239,249,245,0.90) 40%, rgba(245,251,255,0.90) 70%, rgba(237,232,248,0.92) 100%),
+        url('/images/hero-classroom.jpg') center / cover no-repeat;
+      background-size: 400% 400%, cover;
       animation: gradientShift 14s ease infinite;
     }
     .hero-blob {
