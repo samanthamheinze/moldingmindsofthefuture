@@ -374,7 +374,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(150deg, rgba(216,242,232,0.92) 0%, rgba(239,249,245,0.90) 40%, rgba(245,251,255,0.90) 70%, rgba(237,232,248,0.92) 100%),
+        linear-gradient(150deg, rgba(216,242,232,0.78) 0%, rgba(239,249,245,0.75) 40%, rgba(245,251,255,0.75) 70%, rgba(237,232,248,0.78) 100%),
         url('/images/hero-classroom.jpg') center / cover no-repeat;
       background-size: 400% 400%, cover;
       animation: gradientShift 14s ease infinite;
@@ -1159,16 +1159,8 @@
     .rdg-line:nth-child(3) { width:65%; }
     .rdg-line:nth-child(4) { width:75%; }
 
-    /* ─── Background character scatter ─── */
     #tools, #resources { position: relative; overflow: hidden; }
-    .bg-chars {
-      position: absolute; inset: 0; overflow: hidden;
-      pointer-events: none; z-index: 0; user-select: none;
-    }
-    .bg-chars span {
-      position: absolute; font-family: 'Poppins', 'Nunito', sans-serif; font-weight: 800;
-      line-height: 1; pointer-events: none; user-select: none;
-    }
+    .bg-chars { display: none; }
     .hero-floats { z-index: 2; }
     .hero-content { position: relative; z-index: 3; }
     .tools-inner, .tpt-inner { position: relative; z-index: 1; }
@@ -2251,31 +2243,6 @@
     }, { threshold: 0.2 }).observe(toolsEl);
   }
 
-  // ─── Background character scatter ───
-  (function() {
-    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+×÷=?';
-    var colors = ['#4BAE8A','#7C5CBF','#6AAAD8','#F5A94E','#389070','#A07FD6'];
-    var seed = 7919;
-    function rand() { seed = (seed * 1664525 + 1013904223) | 0; return (seed >>> 0) / 4294967295; }
-    function fill(id, count) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      for (var i = 0; i < count; i++) {
-        var s = document.createElement('span');
-        s.textContent = chars.charAt(Math.floor(rand() * chars.length));
-        s.style.left      = (rand() * 96) + '%';
-        s.style.top       = (rand() * 96) + '%';
-        s.style.fontSize  = (80 + rand() * 140) + 'px';
-        s.style.opacity   = (0.04 + rand() * 0.05).toFixed(3);
-        s.style.transform = 'rotate(' + ((rand() - 0.5) * 24) + 'deg)';
-        s.style.color     = colors[Math.floor(rand() * colors.length)];
-        el.appendChild(s);
-      }
-    }
-    fill('heroBgChars',      28);
-    fill('toolsBgChars',     16);
-    fill('resourcesBgChars', 20);
-  })();
 
   // ─── TPT filter tabs ───
   document.querySelectorAll('.filter-tab').forEach(function(btn) {
