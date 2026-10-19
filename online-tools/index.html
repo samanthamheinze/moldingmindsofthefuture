@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Tools | Molding Minds of the Future</title>
+  <meta name="description" content="Free and low-cost interactive online tools — adaptive reading and math diagnostics, grocery store financial literacy, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:#4BAE8A; --green-dark:#389070; --purple:#7C5CBF; --purple-dark:#6348A8;
+      --blue:#4A90D9; --blue-dark:#3378C0; --gold:#F5C842; --dark:#2C2547;
+      --mid:#5E5878; --muted:#9B98B0; --white:#ffffff; --bg:#F8F7FC; --border:#E8E4F3;
+      --radius:16px; --shadow-sm:0 2px 12px rgba(44,37,71,0.07); --shadow-md:0 8px 32px rgba(44,37,71,0.12);
+      --nav-h:116px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); }
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: #fff;
+      border-bottom: 2px solid rgba(124,92,191,0.18); z-index: 200;
+      display: flex; align-items: center; padding: 0 clamp(20px,5vw,64px);
+      box-shadow: 0 2px 20px rgba(44,37,71,0.08);
+    }
+    .nav-inner { width: 100%; max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo svg { display: block; width: 300px; height: auto; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 600; color: var(--mid); padding: 8px 14px; border-radius: 10px; transition: background 0.2s, color 0.2s; }
+    .nav-links a:hover { background: rgba(124,92,191,0.10); color: var(--purple-dark); }
+    .nav-links a.active { color: var(--purple-dark); font-weight: 700; }
+    .nav-cta { background: var(--purple) !important; color: #fff !important; border-radius: 10px; padding: 10px 18px !important; font-weight: 700 !important; font-size: 13px !important; }
+    .nav-cta:hover { background: var(--purple-dark) !important; }
+    @media (max-width: 900px) { .nav-links { display: none; } }
+    @media (max-width: 680px) { .nav-logo svg { width: 220px; } }
+
+    .page-header {
+      padding: calc(var(--nav-h) + 56px) clamp(20px,5vw,64px) 60px;
+      background: linear-gradient(150deg,#E8F1FD 0%,#EDE8F8 50%,#E8F5EF 100%);
+      text-align: center;
+    }
+    .page-label { font-size:11px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:14px; }
+    .page-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:clamp(32px,5vw,56px); color:var(--dark); line-height:1.1; letter-spacing:-1px; margin-bottom:18px; }
+    .page-sub { font-size:clamp(16px,1.8vw,18px); color:var(--mid); font-weight:500; max-width:600px; margin:0 auto 16px; line-height:1.7; }
+
+    section { padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
+    section:nth-child(even) { background: #fff; }
+    .section-inner { max-width: 1140px; margin: 0 auto; }
+
+    .tool-card {
+      background: #fff; border: 1.5px solid var(--border); border-radius: 20px;
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      display: grid; grid-template-columns: 340px 1fr;
+      margin-bottom: 40px; transition: box-shadow 0.2s;
+    }
+    .tool-card:hover { box-shadow: var(--shadow-md); }
+    .tool-img { overflow: hidden; }
+    .tool-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tool-img-ph {
+      width: 100%; height: 100%; min-height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 22px;
+      color: rgba(255,255,255,0.92); text-align: center; padding: 32px;
+      line-height: 1.3;
+    }
+    .tool-body { padding: 40px 40px 36px; display: flex; flex-direction: column; justify-content: center; }
+    .tool-badge {
+      display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 100px;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.10em; text-transform: uppercase;
+      margin-bottom: 16px; width: fit-content;
+    }
+    .tool-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(22px,2.5vw,30px); color: var(--dark); line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.5px; }
+    .tool-desc { font-size: 15px; color: var(--mid); line-height: 1.75; margin-bottom: 24px; }
+    .tool-features { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 9px; }
+    .tool-features li { font-size: 14px; font-weight: 600; color: var(--dark); display: flex; align-items: flex-start; gap: 10px; }
+    .tool-features li::before { content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; font-size: 11px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+    .tool-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 14px; padding: 13px 24px; border-radius: 12px; transition: background 0.2s, transform 0.15s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-blue:hover { background: var(--blue-dark); }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-green:hover { background: var(--green-dark); }
+    .btn-outline { border: 2px solid var(--border); color: var(--mid); }
+    .btn-outline:hover { background: rgba(124,92,191,0.06); color: var(--purple-dark); border-color: var(--purple); }
+
+    .tpt-note {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600; color: var(--muted);
+      background: rgba(155,152,176,0.10); padding: 6px 14px; border-radius: 8px;
+    }
+
+    .audience-tabs { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
+    .audience-tab {
+      padding: 8px 20px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer;
+      border: 1.5px solid var(--border); color: var(--mid); background: #fff; transition: all 0.2s;
+    }
+    .audience-tab:hover { border-color: var(--purple); color: var(--purple-dark); }
+
+    @media (max-width: 820px) {
+      .tool-card { grid-template-columns: 1fr; }
+      .tool-img-ph { min-height: 180px; }
+      .tool-body { padding: 28px; }
+    }
+    @media (max-width: 680px) {
+      .tool-body { padding: 22px; }
+    }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.80); padding: 48px clamp(20px,5vw,64px) 32px; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; margin-top: 32px; font-size: 13px; color: rgba(255,255,255,0.45); text-align: center; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Molding Minds of the Future, home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 115" width="300" height="72">
+        <line x1="65" y1="12" x2="65" y2="2" stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="82" y1="16" x2="90" y2="7" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="48" y1="16" x2="40" y2="7" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z" fill="#EDE8F8"/>
+        <circle cx="65" cy="48" r="24" fill="#4A90D9"/>
+        <path d="M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z" fill="rgba(75,174,138,0.92)"/>
+        <path d="M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z" fill="rgba(75,174,138,0.88)"/>
+        <circle cx="65" cy="13" r="5" fill="#F5C842"/>
+        <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="28" fill="#2C2547">Molding Minds</text>
+        <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7C5CBF"/><stop offset="50%" stop-color="#4A90D9"/><stop offset="100%" stop-color="#4BAE8A"/></linearGradient></defs>
+        <rect x="124" y="60" width="210" height="2.5" rx="1.5" fill="url(#ng)"/>
+        <text x="124" y="78" font-family="'Poppins','Segoe UI',sans-serif" font-weight="400" font-size="12" fill="rgba(44,37,71,0.55)" letter-spacing="4.5">OF THE FUTURE</text>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/educators/">For Educators</a></li>
+      <li><a href="/molding-minds-at-home/">Molding Minds at Home</a></li>
+      <li><a href="/online-tools/" class="active">Online Tools</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="nav-cta">Shop on TPT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <p class="page-label">Interactive · Adaptive · Actionable</p>
+  <h1 class="page-title">Online Tools</h1>
+  <p class="page-sub">Adaptive diagnostics and interactive projects you can use at home or in the classroom — no prep required.</p>
+</div>
+
+<!-- ── Reading Diagnostic ── -->
+<section>
+  <div class="section-inner">
+    <p style="font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:28px;">Diagnostics</p>
+
+    <div class="tool-card">
+      <div class="tool-img">
+        <img src="/images/tpt/reading_diag.png" alt="K-5 Reading Diagnostic Assessment">
+      </div>
+      <div class="tool-body">
+        <span class="tool-badge" style="background:rgba(74,144,217,0.12);color:#3378C0;">K–5 Reading</span>
+        <h2 class="tool-title">Adaptive Reading Diagnostic Assessment</h2>
+        <p class="tool-desc">Finds exactly where each student or child is in phonics, fluency, and comprehension — then provides a clear report on what to work on next. Adapts based on every answer, so no two students take the same path.</p>
+        <ul class="tool-features" style="--check-color:var(--blue);">
+          <li style="--c:var(--blue)">Self-paced, works independently</li>
+          <li>Covers all K–5 reading standards</li>
+          <li>Includes parent and teacher-friendly report</li>
+          <li>Great for beginning-of-year placement or mid-year check-ins</li>
+          <li>Works at home or in the classroom</li>
+        </ul>
+        <div class="tool-actions">
+          <a href="https://www.teacherspayteachers.com/Product/Adaptive-Reading-Diagnostic-Assessment-K-5-Tutors-Teachers-Homeschool-17678575" target="_blank" rel="noopener" class="btn btn-blue">Get it on TPT →</a>
+          <span class="tpt-note">Available on TeachersPayTeachers</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Math Diagnostic ── -->
+    <div class="tool-card">
+      <div class="tool-img">
+        <img src="/images/tpt/math_diag.png" alt="K-5 Math Diagnostic Assessment">
+      </div>
+      <div class="tool-body">
+        <span class="tool-badge" style="background:rgba(75,174,138,0.12);color:#389070;">K–5 Math</span>
+        <h2 class="tool-title">Adaptive Math Diagnostic Assessment</h2>
+        <p class="tool-desc">Pinpoints exactly where each student is across every math domain — operations, fractions, geometry, measurement, and more. The diagnostic adapts based on each response, so it's accurate without being overwhelming.</p>
+        <ul class="tool-features">
+          <li>Covers all K–5 math standards by domain</li>
+          <li>Adaptive — follows each student's answers</li>
+          <li>Standard-by-standard results</li>
+          <li>Works for classroom placement, tutoring, or home use</li>
+          <li>Results show exactly which skills to target next</li>
+        </ul>
+        <div class="tool-actions">
+          <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" rel="noopener" class="btn btn-green">Get it on TPT →</a>
+          <span class="tpt-note">Available on TeachersPayTeachers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Grocery Store ── -->
+<section>
+  <div class="section-inner">
+    <p style="font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;">Financial Literacy Tool</p>
+
+    <div class="tool-card" style="border-color:rgba(245,200,66,0.35);">
+      <div class="tool-img">
+        <img src="/images/tpt/grocery_store.png" alt="Financial Literacy Grocery Store">
+      </div>
+      <div class="tool-body">
+        <span class="tool-badge" style="background:rgba(245,200,66,0.15);color:#B89400;">Free · Grades 3–6</span>
+        <h2 class="tool-title">Interactive Grocery Store</h2>
+        <p class="tool-desc">Students shop a real interactive grocery store on a budget — comparing prices, managing a total, and making spending decisions just like in real life. No login, no download, completely free to use right now.</p>
+        <ul class="tool-features">
+          <li>Completely free — no purchase needed</li>
+          <li>Students manage a real budget</li>
+          <li>Teaches comparison shopping, estimation, and money sense</li>
+          <li>Works on any device — tablet, laptop, or phone</li>
+          <li>Full project with worksheets available on TPT</li>
+        </ul>
+        <div class="tool-actions">
+          <a href="https://grocerystore.moldingmindsofthefuture.com/" target="_blank" rel="noopener" class="btn btn-green">Open the Free Store →</a>
+          <a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-17868925" target="_blank" rel="noopener" class="btn btn-outline">Full Project on TPT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── For Educators CTA ── -->
+<section style="background:linear-gradient(135deg,#2C2547,#452070);color:#fff;text-align:center;">
+  <div class="section-inner">
+    <p style="font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.50);margin-bottom:12px;">Using these in the classroom?</p>
+    <h2 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(24px,3vw,36px);margin-bottom:14px;">Pair with your full curriculum</h2>
+    <p style="font-size:clamp(15px,1.6vw,17px);color:rgba(255,255,255,0.72);max-width:540px;margin:0 auto 32px;line-height:1.7;">Educators use the diagnostics for class-wide placement, then reach for the phonics bundles, math sets, and SEL curriculum to fill every gap they find.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+      <a href="/educators/" style="display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;font-weight:800;font-size:14px;padding:13px 24px;border-radius:12px;">Explore Educator Resources →</a>
+      <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);color:#fff;font-weight:700;font-size:14px;padding:13px 24px;border-radius:12px;border:1px solid rgba(255,255,255,0.20);">Browse the Full TPT Store</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <span>© 2026 Molding Minds of the Future. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
