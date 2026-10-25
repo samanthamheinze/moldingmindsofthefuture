@@ -1,0 +1,72 @@
+import { getSql } from '../_lib/db.js';
+import { requireAdmin } from '../_lib/auth.js';
+
+const VALID_AUDIENCES = new Set(['parent', 'educator', 'all']);
+
+export default async function handler(req, res) {
+  if (!requireAdmin(req, res)) return;
+
+  const sql = getSql();
+
+  if (req.method === 'GET') {
+    let rows;
+    try {
+      rows = await sql`
+        SELECT id, audience, subject, status, recipient_count, created_at, sent_at
+        FROM campaigns
+        ORDER BY created_at DESC
+      `;
+    } catch (err) {
+      console.error('admin/campaigns GET: query failed', err);
+      res.status(500).json({ ok: false, error: 'server_error' });
+      return;
+    }
+    res.status(200).json({ ok: true, campaigns: rows });
+    return;
+  }
+
+  if (req.method === 'POST') {
+    let body = req.body;
+    if (typeof body === 'string') {
+      try {
+        body = JSON.parse(body);
+      } catch {
+        body = {};
+      }
+    }
+    if (!body || typeof body !== 'object') body = {};
+
+    const { audience, subject, html_body, freebie_url } = body;
+
+    if (!VALID_AUDIENCES.has(audience)) {
+      res.status(400).json({ ok: false, error: 'invalid_audience' });
+      return;
+    }
+    if (typeof subject !== 'string' || !subject.trim()) {
+      res.status(400).json({ ok: false, error: 'invalid_subject' });
+      return;
+    }
+    if (typeof html_body !== 'string' || !html_body.trim()) {
+      res.status(400).json({ ok: false, error: 'invalid_html_body' });
+      return;
+    }
+
+    let rows;
+    try {
+      rows = await sql`
+        INSERT INTO campaigns (audience, subject, html_body, freebie_url, status)
+        VALUES (${audience}, ${subject}, ${html_body}, ${freebie_url ?? null}, 'draft')
+        RETURNING *
+      `;
+    } catch (err) {
+      console.error('admin/campaigns POST: insert failed', err);
+      res.status(500).json({ ok: false, error: 'server_error' });
+      return;
+    }
+
+    res.status(201).json({ ok: true, campaign: rows[0] });
+    return;
+  }
+
+  res.status(405).json({ ok: false, error: 'method_not_allowed' });
+}

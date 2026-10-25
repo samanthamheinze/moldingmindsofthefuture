@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — Molding Minds of the Future</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #4BAE8A;
+    --purple: #7C5CBF;
+    --dark: #2C2547;
+    --bg: #f5f3fa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    font-family: 'Nunito', Arial, sans-serif;
+    color: var(--dark);
+  }
+  header {
+    background: var(--dark);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header h1 {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0;
+  }
+  header h1 .accent-green { color: var(--green); }
+  header h1 .accent-purple { color: var(--purple); }
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #eee6f7;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(44, 37, 71, 0.06);
+  }
+  .card h2 {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 16px;
+    margin: 0 0 16px;
+    color: var(--dark);
+  }
+  label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 12px 0 4px;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd3ef;
+    border-radius: 10px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--dark);
+  }
+  textarea { min-height: 160px; resize: vertical; }
+  button, a.button {
+    display: inline-block;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    cursor: pointer;
+    color: #ffffff;
+    background: var(--green);
+    text-decoration: none;
+    margin-top: 16px;
+  }
+  button.secondary { background: var(--purple); }
+  button.danger { background: #c0564a; }
+  button:disabled { opacity: 0.6; cursor: not-allowed; }
+  .error-msg { color: #c0564a; font-size: 13px; margin-top: 8px; display: none; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .stat-box {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .stat-box .num {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--purple);
+  }
+  .stat-box .label { font-size: 12px; color: var(--dark); opacity: 0.8; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #eee6f7; }
+  th { font-family: 'Poppins', Arial, sans-serif; font-size: 12px; color: var(--dark); }
+  .status-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .status-draft { background: #eee6f7; color: var(--purple); }
+  .status-sending { background: #fdf0d9; color: #a3700a; }
+  .status-sent { background: #e2f5ec; color: #1f7a56; }
+  .status-failed { background: #fbe4e1; color: #c0564a; }
+  .top-actions { display: flex; align-items: center; gap: 12px; }
+  .top-actions a, .top-actions button { margin-top: 0; }
+  #progress-msg { font-size: 13px; margin-top: 10px; color: var(--dark); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Molding Minds <span class="accent-green">of the</span> <span class="accent-purple">Future</span> — Admin</h1>
+  <div class="top-actions" id="header-actions" hidden>
+    <a class="button" href="/api/admin/leads/export">Export CSV</a>
+    <button class="danger" id="logout-btn" type="button">Logout</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="card" id="login-section" hidden>
+    <h2>Admin Login</h2>
+    <form id="login-form">
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+      <button type="submit">Log in</button>
+      <div class="error-msg" id="login-error">Incorrect password.</div>
+    </form>
+  </section>
+
+  <div id="dashboard" hidden>
+
+    <section class="card" id="stats-card">
+      <h2>Subscriber Stats</h2>
+      <div class="stats-grid" id="stats-grid">
+        <div class="stat-box"><div class="num" id="stat-parent-active">—</div><div class="label">Parent · Active</div></div>
+        <div class="stat-box"><div class="num" id="stat-educator-active">—</div><div class="label">Educator · Active</div></div>
+        <div class="stat-box"><div class="num" id="stat-both-active">—</div><div class="label">Both · Active</div></div>
+        <div class="stat-box"><div class="num" id="stat-parent-unsub">—</div><div class="label">Parent · Unsubscribed</div></div>
+        <div class="stat-box"><div class="num" id="stat-educator-unsub">—</div><div class="label">Educator · Unsubscribed</div></div>
+        <div class="stat-box"><div class="num" id="stat-both-unsub">—</div><div class="label">Both · Unsubscribed</div></div>
+        <div class="stat-box"><div class="num" id="stat-total-active">—</div><div class="label">Total Active</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Compose Newsletter</h2>
+      <form id="compose-form">
+        <label for="compose-audience">Audience</label>
+        <select id="compose-audience" required>
+          <option value="parent">Parents</option>
+          <option value="educator">Educators</option>
+          <option value="all">Everyone</option>
+        </select>
+
+        <label for="compose-subject">Subject</label>
+        <input type="text" id="compose-subject" placeholder="This month's update from MMOTF" required>
+
+        <label for="compose-body">Body (HTML or plain text)</label>
+        <textarea id="compose-body" placeholder="Write your newsletter content here..." required></textarea>
+
+        <label for="compose-freebie">Freebie URL (optional)</label>
+        <input type="url" id="compose-freebie" placeholder="https://moldingmindsofthefuture.com/...">
+
+        <button type="submit">Save Draft</button>
+        <div class="error-msg" id="compose-error"></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Campaigns</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Audience</th>
+            <th>Status</th>
+            <th>Recipients</th>
+            <th>Created</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="campaigns-body">
+          <tr><td colspan="6">Loading…</td></tr>
+        </tbody>
+      </table>
+      <div id="progress-msg"></div>
+    </section>
+
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var loginSection = document.getElementById('login-section');
+  var dashboard = document.getElementById('dashboard');
+  var headerActions = document.getElementById('header-actions');
+  var loginForm = document.getElementById('login-form');
+  var loginError = document.getElementById('login-error');
+  var logoutBtn = document.getElementById('logout-btn');
+  var composeForm = document.getElementById('compose-form');
+  var composeError = document.getElementById('compose-error');
+  var campaignsBody = document.getElementById('campaigns-body');
+  var progressMsg = document.getElementById('progress-msg');
+
+  function showDashboard() {
+    loginSection.hidden = true;
+    dashboard.hidden = false;
+    headerActions.hidden = false;
+    loadStats();
+    loadCampaigns();
+  }
+
+  function showLogin() {
+    loginSection.hidden = false;
+    dashboard.hidden = true;
+    headerActions.hidden = true;
+  }
+
+  async function loadStats() {
+    try {
+      var res = await fetch('/api/admin/stats');
+      if (res.status === 401) { showLogin(); return; }
+      var data = await res.json();
+      if (!data.ok) return;
+      document.getElementById('stat-parent-active').textContent = data.counts.parent.active;
+      document.getElementById('stat-educator-active').textContent = data.counts.educator.active;
+      document.getElementById('stat-both-active').textContent = data.counts.both.active;
+      document.getElementById('stat-parent-unsub').textContent = data.counts.parent.unsubscribed;
+      document.getElementById('stat-educator-unsub').textContent = data.counts.educator.unsubscribed;
+      document.getElementById('stat-both-unsub').textContent = data.counts.both.unsubscribed;
+      document.getElementById('stat-total-active').textContent = data.counts.total_active;
+    } catch (err) {
+      console.error('loadStats failed', err);
+    }
+  }
+
+  function statusTagHtml(status) {
+    return '<span class="status-tag status-' + status + '">' + status + '</span>';
+  }
+
+  async function loadCampaigns() {
+    try {
+      var res = await fetch('/api/admin/campaigns');
+      if (res.status === 401) { showLogin(); return; }
+      var data = await res.json();
+      if (!data.ok) return;
+      renderCampaigns(data.campaigns);
+    } catch (err) {
+      console.error('loadCampaigns failed', err);
+    }
+  }
+
+  function renderCampaigns(campaigns) {
+    if (!campaigns.length) {
+      campaignsBody.innerHTML = '<tr><td colspan="6">No campaigns yet.</td></tr>';
+      return;
+    }
+    campaignsBody.innerHTML = campaigns.map(function (c) {
+      var created = c.created_at ? new Date(c.created_at).toLocaleDateString() : '';
+      var actionCell = '';
+      if (c.status === 'draft' || c.status === 'sending') {
+        actionCell = '<button type="button" class="send-btn" data-id="' + c.id + '">Send</button>';
+      } else {
+        actionCell = '—';
+      }
+      return '<tr>' +
+        '<td>' + escapeHtml(c.subject) + '</td>' +
+        '<td>' + escapeHtml(c.audience) + '</td>' +
+        '<td>' + statusTagHtml(c.status) + '</td>' +
+        '<td>' + c.recipient_count + '</td>' +
+        '<td>' + created + '</td>' +
+        '<td>' + actionCell + '</td>' +
+        '</tr>';
+    }).join('');
+
+    document.querySelectorAll('.send-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { sendCampaign(btn.getAttribute('data-id'), btn); });
+    });
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str == null ? '' : str;
+    return div.innerHTML;
+  }
+
+  async function sendCampaign(id, btn) {
+    btn.disabled = true;
+    var totalSent = 0;
+    try {
+      while (true) {
+        var res = await fetch('/api/admin/campaigns/' + id + '/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ limit: 50 }),
+        });
+        if (res.status === 401) { showLogin(); return; }
+        var data = await res.json();
+        if (!data.ok) {
+          progressMsg.textContent = 'Send failed: ' + (data.error || 'unknown error');
+          break;
+        }
+        totalSent += data.sent_this_batch;
+        progressMsg.textContent = 'Sent ' + totalSent + ' so far, ' + data.remaining + ' remaining...';
+        if (data.remaining === 0) {
+          progressMsg.textContent = 'Done! Sent ' + totalSent + ' emails.';
+          break;
+        }
+      }
+    } catch (err) {
+      console.error('sendCampaign failed', err);
+      progressMsg.textContent = 'Send failed — see console.';
+    } finally {
+      btn.disabled = false;
+      loadCampaigns();
+    }
+  }
+
+  loginForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    loginError.style.display = 'none';
+    var password = document.getElementById('login-password').value;
+    try {
+      var res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: password }),
+      });
+      var data = await res.json();
+      if (data.ok) {
+        document.getElementById('login-password').value = '';
+        showDashboard();
+      } else {
+        loginError.style.display = 'block';
+      }
+    } catch (err) {
+      console.error('login failed', err);
+      loginError.style.display = 'block';
+    }
+  });
+
+  logoutBtn.addEventListener('click', async function () {
+    try {
+      await fetch('/api/admin/logout', { method: 'POST' });
+    } catch (err) {
+      console.error('logout failed', err);
+    }
+    showLogin();
+  });
+
+  composeForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    composeError.style.display = 'none';
+    var payload = {
+      audience: document.getElementById('compose-audience').value,
+      subject: document.getElementById('compose-subject').value,
+      html_body: document.getElementById('compose-body').value,
+      freebie_url: document.getElementById('compose-freebie').value || null,
+    };
+    try {
+      var res = await fetch('/api/admin/campaigns', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (res.status === 401) { showLogin(); return; }
+      var data = await res.json();
+      if (!data.ok) {
+        composeError.textContent = 'Could not save draft: ' + (data.error || 'unknown error');
+        composeError.style.display = 'block';
+        return;
+      }
+      composeForm.reset();
+      loadCampaigns();
+    } catch (err) {
+      console.error('save draft failed', err);
+      composeError.textContent = 'Could not save draft — see console.';
+      composeError.style.display = 'block';
+    }
+  });
+
+  // On load: probe auth state via /api/admin/stats.
+  (async function init() {
+    try {
+      var res = await fetch('/api/admin/stats');
+      if (res.status === 401) {
+        showLogin();
+      } else {
+        showDashboard();
+      }
+    } catch (err) {
+      console.error('init auth check failed', err);
+      showLogin();
+    }
+  })();
+})();
+</script>
+
+</body>
+</html>

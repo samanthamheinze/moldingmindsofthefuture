@@ -112,6 +112,7 @@
       </svg>
     </a>
     <ul class="nav-links">
+      <li><a href="/">Home</a></li>
       <li><a href="/educators/">For Educators</a></li>
       <li><a href="/molding-minds-at-home/" class="active">Molding Minds at Home</a></li>
       <li><a href="/online-tools/">Online Tools</a></li>
@@ -125,7 +126,7 @@
   <p class="page-label">For Parents &amp; Families</p>
   <h1 class="page-title">Molding Minds at Home</h1>
   <p class="page-sub">You don't need to be a teacher to support your child's learning. These tools help you understand exactly where your child is, what to do next, and how to make learning feel natural at home.</p>
-  <a href="/online-tools/" class="btn-primary">Start with a Free Diagnostic →</a>
+  <a href="/online-tools/" class="btn-primary">Start with a Diagnostic →</a>
 </div>
 
 <!-- ── Know where your child stands ── -->
@@ -151,7 +152,7 @@
     </div>
     <a href="/online-tools/" class="btn-primary btn-green">Explore all Online Tools</a>
 
-    @media (max-width:680px) { div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; } }
+    <style>@media (max-width:680px) { div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; } }</style>
   </div>
 </section>
 
@@ -259,6 +260,411 @@
     </div>
   </div>
 </footer>
+
+<!-- POPUP START -->
+<div id="mm-leadcapture">
+  <div class="mmlc-modal" role="dialog" aria-modal="true">
+    <div class="mmlc-topbar"></div>
+    <button type="button" class="mmlc-close" aria-label="Close">&times;</button>
+
+    <div class="mmlc-body">
+      <div class="mmlc-header">
+        <img class="mmlc-headshot" src="https://fp2rkiiunnay2t9v.public.blob.vercel-storage.com/assets/samantha-headshot-v2.png" alt="Samantha Heinze">
+        <div class="mmlc-header-text">
+          <div class="mmlc-eyebrow">JOIN THE MOLDING MINDS COMMUNITY</div>
+          <h2 class="mmlc-heading">Get a free resource, made for you</h2>
+        </div>
+      </div>
+      <p class="mmlc-sub">Pick one and we'll send it straight to your inbox. Plus a new freebie every month.</p>
+
+      <div class="mmlc-cards">
+        <button type="button" class="mmlc-card" id="mmlc-card-parent" data-audience="parent">
+          <span class="mmlc-badge">FREE</span>
+          <img class="mmlc-card-img" src="https://fp2rkiiunnay2t9v.public.blob.vercel-storage.com/assets/learning-through-play-preview.png" alt="Learning Through Play Sample Week">
+          <div class="mmlc-card-text">
+            <div class="mmlc-card-who">I'm a parent or homeschooler</div>
+            <div class="mmlc-card-title">Learning Through Play Sample Week</div>
+            <div class="mmlc-card-meta">5 days of 10 minute activities</div>
+          </div>
+        </button>
+        <button type="button" class="mmlc-card" id="mmlc-card-educator" data-audience="educator">
+          <span class="mmlc-badge">FREE</span>
+          <img class="mmlc-card-img" src="https://fp2rkiiunnay2t9v.public.blob.vercel-storage.com/assets/sound-safari-preview.png" alt="Sound Safari Decodable Passages">
+          <div class="mmlc-card-text">
+            <div class="mmlc-card-who">I'm an educator or tutor</div>
+            <div class="mmlc-card-title">Sound Safari Decodable Passages</div>
+            <div class="mmlc-card-meta">12 passages &middot; Grades K to 2</div>
+          </div>
+        </button>
+      </div>
+
+      <button type="button" class="mmlc-both" id="mmlc-both">
+        <span>Teach and parent? <strong>Get both free resources</strong></span>
+      </button>
+
+      <form id="mmlc-form" class="mmlc-form" novalidate hidden>
+        <div class="mmlc-form-title" id="mmlc-form-title">Where should we send your resource?</div>
+        <div class="mmlc-form-row">
+          <input type="text" id="mmlc-name" name="name" required autocomplete="given-name" placeholder="First name" class="mmlc-input">
+          <input type="email" id="mmlc-email" name="email" required autocomplete="email" placeholder="Email address" class="mmlc-input">
+        </div>
+
+        <!-- Honeypot: off-screen (not display:none / type=hidden) -->
+        <div class="mmlc-hp-wrap" aria-hidden="true">
+          <label for="mmlc-website">Website</label>
+          <input type="text" id="mmlc-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="mmlc-consent-label">
+          <input type="checkbox" id="mmlc-consent" class="mmlc-consent-checkbox">
+          <span>I agree to receive monthly emails (and occasional updates) from Molding Minds of the Future, and I agree to the <a href="/privacy/" target="_blank" rel="noopener">Terms of Use &amp; Privacy Policy</a>.</span>
+        </label>
+
+        <div class="mmlc-error" id="mmlc-error" hidden></div>
+
+        <button type="submit" class="mmlc-submit" id="mmlc-submit">Send my free resource</button>
+        <div class="mmlc-reassure">No spam, ever. Unsubscribe anytime.</div>
+      </form>
+
+      <div class="mmlc-success" id="mmlc-success" hidden>
+        <div class="mmlc-success-title">Check your inbox &#128156;</div>
+        <div class="mmlc-success-sub" id="mmlc-success-sub">Your free resource is on the way. We're so glad you're here.</div>
+      </div>
+
+      <div class="mmlc-signature">Made with love by Samantha Heinze, creator at Molding Minds of the Future</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #mm-leadcapture, #mm-leadcapture * { box-sizing: border-box; }
+
+  #mm-leadcapture {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 37, 71, 0.55);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+  #mm-leadcapture.mmlc-open { display: flex; }
+
+  #mm-leadcapture .mmlc-modal {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 30px 80px rgba(44, 37, 71, 0.35);
+  }
+  #mm-leadcapture .mmlc-topbar { height: 6px; background: #4BAE8A; }
+
+  #mm-leadcapture .mmlc-close {
+    position: absolute;
+    top: 22px; right: 22px;
+    width: 34px; height: 34px;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    color: #8A86A0;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #mm-leadcapture .mmlc-close:hover { background: rgba(44, 37, 71, 0.06); }
+
+  #mm-leadcapture .mmlc-body { padding: 40px 48px 36px; display: flex; flex-direction: column; gap: 24px; }
+  @media (max-width: 560px) {
+    #mm-leadcapture .mmlc-body { padding: 32px 22px 28px; gap: 20px; }
+  }
+
+  #mm-leadcapture .mmlc-header { display: flex; align-items: center; gap: 16px; }
+  #mm-leadcapture .mmlc-headshot { width: 56px; height: 56px; border-radius: 50%; border: 3px solid #E6F5EE; flex: 0 0 auto; display: block; }
+  #mm-leadcapture .mmlc-header-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  #mm-leadcapture .mmlc-eyebrow { font: 600 12px/1 'Poppins', sans-serif; letter-spacing: 2.5px; color: #2F8A68; }
+  #mm-leadcapture .mmlc-heading {
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: clamp(22px, 4.5vw, 32px);
+    line-height: 1.1; letter-spacing: -0.5px; color: #2C2547; margin: 0;
+  }
+  #mm-leadcapture .mmlc-sub { font-size: 16px; line-height: 1.6; color: #4A4560; margin: -8px 0 0; }
+
+  #mm-leadcapture .mmlc-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  #mm-leadcapture .mmlc-card {
+    position: relative;
+    display: flex; flex-direction: column; gap: 14px;
+    padding: 14px 14px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    appearance: none; -webkit-appearance: none;
+    font: inherit; text-align: left;
+    background: #ffffff; border: 2px solid #E7E4EE;
+    box-shadow: 0 4px 14px rgba(44, 37, 71, 0.06);
+    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+  #mm-leadcapture .mmlc-card:hover { transform: translateY(-2px); }
+  #mm-leadcapture .mmlc-card.mmlc-selected {
+    background: #F0FAF6; border-color: #4BAE8A; box-shadow: 0 10px 24px rgba(75, 174, 138, 0.22);
+  }
+  #mm-leadcapture .mmlc-badge {
+    position: absolute; top: 14px; right: 14px; z-index: 2;
+    background: #FFC94A; color: #2C2547; border-radius: 999px;
+    padding: 5px 11px; font: 700 11px/1 'Poppins', sans-serif; letter-spacing: 1.5px;
+  }
+  #mm-leadcapture .mmlc-card-img { width: 100%; aspect-ratio: 9 / 5; object-fit: cover; border-radius: 14px; display: block; }
+  #mm-leadcapture .mmlc-card-text { display: flex; flex-direction: column; gap: 4px; }
+  #mm-leadcapture .mmlc-card-who { font: 800 18px/1.25 'Nunito', sans-serif; color: #2C2547; }
+  #mm-leadcapture .mmlc-card-title { font: 600 14px/1.4 'Poppins', sans-serif; color: #2F8A68; }
+  #mm-leadcapture .mmlc-card-meta { font: 400 13px/1.4 'Poppins', sans-serif; color: #6B6785; }
+
+  #mm-leadcapture .mmlc-both {
+    display: flex; align-items: center; justify-content: center;
+    height: 50px; margin-top: -8px;
+    border-radius: 999px; cursor: pointer; font: inherit;
+    background: #ffffff; border: 2px dashed #DCEFE6;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  #mm-leadcapture .mmlc-both.mmlc-selected { background: #F0FAF6; border: 2px solid #4BAE8A; border-style: solid; }
+  #mm-leadcapture .mmlc-both span { font: 600 15px/1.3 'Poppins', sans-serif; color: #2C2547; }
+  #mm-leadcapture .mmlc-both strong { color: #2F8A68; font-weight: 700; }
+
+  #mm-leadcapture .mmlc-form {
+    display: flex; flex-direction: column; gap: 14px;
+    background: #F0FAF6; border-radius: 20px; padding: 22px 24px;
+  }
+  #mm-leadcapture .mmlc-form-title { font: 700 16px/1.4 'Nunito', sans-serif; color: #2C2547; }
+  #mm-leadcapture .mmlc-form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  #mm-leadcapture .mmlc-input {
+    height: 50px; border: 1.5px solid #DCEFE6; border-radius: 999px;
+    padding: 0 20px; font: 400 15px 'Poppins', sans-serif; color: #2C2547;
+    background: #ffffff; outline: none; width: 100%;
+  }
+  #mm-leadcapture .mmlc-input:focus { border-color: #4BAE8A; }
+
+  #mm-leadcapture .mmlc-hp-wrap { position: absolute; left: -5000px; top: -5000px; width: 1px; height: 1px; overflow: hidden; }
+
+  #mm-leadcapture .mmlc-consent-label {
+    display: flex; align-items: flex-start; gap: 9px;
+    font-family: 'Poppins', sans-serif; font-size: 12.5px; line-height: 1.55;
+    color: #6B6785; cursor: pointer;
+  }
+  #mm-leadcapture .mmlc-consent-checkbox { flex-shrink: 0; width: 17px; height: 17px; margin-top: 2px; accent-color: #4BAE8A; cursor: pointer; }
+  #mm-leadcapture .mmlc-consent-label a { color: #2F8A68; font-weight: 700; }
+
+  #mm-leadcapture .mmlc-error {
+    background: rgba(201, 68, 68, 0.1); color: #A33333;
+    font-size: 13.5px; line-height: 1.5; padding: 10px 12px; border-radius: 8px;
+  }
+
+  #mm-leadcapture .mmlc-submit {
+    height: 54px; border: none; appearance: none; -webkit-appearance: none;
+    border-radius: 999px; background: #4BAE8A; color: #ffffff;
+    font: 700 17px 'Poppins', sans-serif; cursor: pointer;
+    box-shadow: 0 8px 20px rgba(75, 174, 138, 0.35);
+    transition: filter 0.15s, transform 0.15s;
+  }
+  #mm-leadcapture .mmlc-submit:hover { filter: brightness(0.95); }
+  #mm-leadcapture .mmlc-submit:disabled { opacity: 0.65; cursor: default; }
+  #mm-leadcapture .mmlc-reassure { font: 400 12px/1.4 'Poppins', sans-serif; color: #6B6785; text-align: center; }
+
+  #mm-leadcapture .mmlc-success {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    background: #F0FAF6; border-radius: 20px; padding: 26px 24px; text-align: center;
+  }
+  #mm-leadcapture .mmlc-success-title { font: 800 22px/1.2 'Nunito', sans-serif; color: #2C2547; }
+  #mm-leadcapture .mmlc-success-sub { font: 400 15px/1.6 'Poppins', sans-serif; color: #4A4560; max-width: 420px; }
+
+  #mm-leadcapture .mmlc-signature { font: italic 400 13px/1.5 'Poppins', sans-serif; color: #8A86A0; text-align: center; }
+</style>
+
+<script>
+(function () {
+  // ──────────────────────────────────────────────────────────────────
+  // Suppression: shown up to MAX_SHOWS times total (across pages/tabs)
+  // unless/until the visitor subscribes, after which it never shows
+  // again. Same keys/behavior on every page — this is now one popup,
+  // not a per-page variant.
+  // ──────────────────────────────────────────────────────────────────
+  var SUBSCRIBED_KEY = 'mm_popup_subscribed';
+  var SHOWN_COUNT_KEY = 'mm_popup_shown_count';
+  var MAX_SHOWS = 3;
+  var SHOW_DELAY_MS = 5000;
+  var SOURCE = 'popup_parent';
+
+  if (typeof window.ga4 !== 'function') {
+    window.ga4 = function (event, params) {
+      if (typeof gtag !== 'undefined') gtag('event', event, params);
+    };
+  }
+
+  function isSubscribed() {
+    try { return localStorage.getItem(SUBSCRIBED_KEY) === '1'; }
+    catch (e) { return false; }
+  }
+  function markSubscribed() {
+    try { localStorage.setItem(SUBSCRIBED_KEY, '1'); }
+    catch (e) {}
+  }
+  function getShownCount() {
+    try { return parseInt(localStorage.getItem(SHOWN_COUNT_KEY) || '0', 10) || 0; }
+    catch (e) { return 0; }
+  }
+  function incrementShownCount() {
+    try { localStorage.setItem(SHOWN_COUNT_KEY, String(getShownCount() + 1)); }
+    catch (e) {}
+  }
+
+  if (isSubscribed() || getShownCount() >= MAX_SHOWS) return;
+
+  var RESOURCE = {
+    parent: { title: 'Learning Through Play Sample Week', verb: 'is' },
+    educator: { title: 'Sound Safari Decodable Passages', verb: 'is' },
+    both: { title: 'two free resources', verb: 'are' }
+  };
+
+  var modal, cardParent, cardEducator, bothBtn, form, formTitle,
+      nameInput, emailInput, hpInput, consentInput, errorEl, submitBtn,
+      successEl, successSub;
+  var selected = null; // 'parent' | 'educator' | 'both' | null
+  var submitted = false;
+
+  function updateCardStates() {
+    cardParent.classList.toggle('mmlc-selected', selected === 'parent' || selected === 'both');
+    cardEducator.classList.toggle('mmlc-selected', selected === 'educator' || selected === 'both');
+    bothBtn.classList.toggle('mmlc-selected', selected === 'both');
+  }
+
+  function select(aud) {
+    selected = aud;
+    submitted = false;
+    updateCardStates();
+    var r = RESOURCE[aud];
+    formTitle.textContent = 'Where should we send your ' + r.title + '?';
+    form.hidden = false;
+    successEl.hidden = true;
+    ga4('popup_audience_picked', { audience: aud });
+  }
+
+  function hideError() { errorEl.hidden = true; errorEl.textContent = ''; }
+  function showError(msg) { errorEl.hidden = false; errorEl.textContent = msg; }
+
+  function openModal() {
+    modal.classList.add('mmlc-open');
+    document.body.style.overflow = 'hidden';
+    incrementShownCount();
+    ga4('popup_shown', {});
+  }
+
+  function hideModal() {
+    modal.classList.remove('mmlc-open');
+    document.body.style.overflow = '';
+  }
+
+  function dismiss() {
+    if (!submitted) {
+      ga4('popup_dismissed', { audience: selected || 'unknown', page: SOURCE });
+    }
+    hideModal();
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    hideError();
+
+    if (!selected) { showError('Please choose a resource above first.'); return; }
+
+    var name = nameInput.value.trim();
+    if (!name) { showError('Please enter your first name.'); return; }
+
+    var email = emailInput.value.trim();
+    if (!email) { showError('Please enter your email address.'); return; }
+
+    if (!consentInput.checked) {
+      showError('Please agree to the Terms of Use & Privacy Policy to continue.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        audience: selected,
+        source: SOURCE,
+        consent: true,
+        hp: hpInput.value,
+        hp_time_ms: 5000
+      })
+    }).then(function (res) {
+      return res.json().catch(function () { return { ok: false, error: 'bad_response' }; });
+    }).then(function (data) {
+      submitBtn.disabled = false;
+      if (data && data.ok) {
+        submitted = true;
+        markSubscribed();
+        ga4('popup_submitted', { audience: selected, page: SOURCE });
+        var r = RESOURCE[selected];
+        successSub.innerHTML = 'Your ' + r.title + ' ' + r.verb + ' on the way. We\'re so glad you\'re here.';
+        form.hidden = true;
+        successEl.hidden = false;
+      } else {
+        showError((data && data.error) || 'Something went wrong. Please try again.');
+      }
+    }).catch(function () {
+      submitBtn.disabled = false;
+      showError('Network error — please check your connection and try again.');
+    });
+  }
+
+  function init() {
+    modal = document.getElementById('mm-leadcapture');
+    if (!modal) return;
+
+    cardParent = document.getElementById('mmlc-card-parent');
+    cardEducator = document.getElementById('mmlc-card-educator');
+    bothBtn = document.getElementById('mmlc-both');
+    form = document.getElementById('mmlc-form');
+    formTitle = document.getElementById('mmlc-form-title');
+    nameInput = document.getElementById('mmlc-name');
+    emailInput = document.getElementById('mmlc-email');
+    hpInput = document.getElementById('mmlc-website');
+    consentInput = document.getElementById('mmlc-consent');
+    errorEl = document.getElementById('mmlc-error');
+    submitBtn = document.getElementById('mmlc-submit');
+    successEl = document.getElementById('mmlc-success');
+    successSub = document.getElementById('mmlc-success-sub');
+
+    modal.querySelector('.mmlc-close').addEventListener('click', dismiss);
+    modal.addEventListener('click', function (e) { if (e.target === modal) dismiss(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('mmlc-open')) dismiss();
+    });
+
+    cardParent.addEventListener('click', function () { select('parent'); });
+    cardEducator.addEventListener('click', function () { select('educator'); });
+    bothBtn.addEventListener('click', function () { select('both'); });
+
+    form.addEventListener('submit', handleSubmit);
+
+    openModal();
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(init, SHOW_DELAY_MS);
+  });
+})();
+</script>
+<!-- POPUP END -->
 
 </body>
 </html>

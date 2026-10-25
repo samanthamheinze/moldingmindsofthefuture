@@ -9,5 +9,8 @@
       "source": "/",
       "destination": "/home/"
     }
-  ]
+  ],
+  "functions": {
+    "api/admin/campaigns/[id]/send.js": { "maxDuration": 60 }
+  }
 }
