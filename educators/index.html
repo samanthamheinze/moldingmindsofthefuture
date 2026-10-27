@@ -1,487 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Educators | Molding Minds of the Future</title>
-  <meta name="description" content="Classroom-ready phonics, math, SEL, and financial literacy resources for teachers, tutors, and homeschoolers.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --green:       #4BAE8A;
-      --green-dark:  #389070;
-      --purple:      #7C5CBF;
-      --purple-dark: #6348A8;
-      --blue:        #4A90D9;
-      --gold:        #F5C842;
-      --dark:        #2C2547;
-      --mid:         #5E5878;
-      --muted:       #9B98B0;
-      --white:       #ffffff;
-      --bg:          #F8F7FC;
-      --border:      #E8E4F3;
-      --radius:      16px;
-      --shadow-sm:   0 2px 12px rgba(44,37,71,0.07);
-      --shadow-md:   0 8px 32px rgba(44,37,71,0.12);
-      --nav-h:       116px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); }
-    a { text-decoration: none; color: inherit; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Educators | Molding Minds of the Future</title>
+<meta name="description" content="Classroom-ready phonics, math, SEL, and financial literacy resources for teachers, tutors, and homeschoolers.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='10 0 120 115'%3E%3Cline x1='65' y1='12' x2='65' y2='2' stroke='%23F5C842' stroke-width='2.8' stroke-linecap='round'/%3E%3Cline x1='82' y1='16' x2='90' y2='7' stroke='%23F5C842' stroke-width='2.2' stroke-linecap='round'/%3E%3Cline x1='48' y1='16' x2='40' y2='7' stroke='%23F5C842' stroke-width='2.2' stroke-linecap='round'/%3E%3Cline x1='96' y1='27' x2='106' y2='19' stroke='%23F5C842' stroke-width='1.8' stroke-linecap='round' opacity='.8'/%3E%3Cline x1='34' y1='27' x2='24' y2='19' stroke='%23F5C842' stroke-width='1.8' stroke-linecap='round' opacity='.8'/%3E%3Cpath d='M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z' fill='%23EDE8F8'/%3E%3Cpath d='M65 12 C85 12 98 28 98 48 L32 48 C32 28 45 12 65 12Z' fill='%23D4C8F0' opacity='.55'/%3E%3Ccircle cx='65' cy='48' r='24' fill='%234A90D9'/%3E%3Cellipse cx='65' cy='48' rx='24' ry='10.5' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='1.3'/%3E%3Cline x1='65' y1='24' x2='65' y2='72' stroke='rgba(255,255,255,0.5)' stroke-width='1.3'/%3E%3Cpath d='M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z' fill='rgba(75,174,138,0.92)'/%3E%3Cpath d='M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z' fill='rgba(75,174,138,0.88)'/%3E%3Ccircle cx='65' cy='13' r='5' fill='%23F5C842'/%3E%3Ccircle cx='65' cy='13' r='2.5' fill='%23FFD700'/%3E%3Crect x='59' y='97' width='12' height='8' rx='4' fill='%23D4C8F0'/%3E%3C/svg%3E">
 
-    /* ── Nav ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--nav-h); background: #fff;
-      border-bottom: 2px solid rgba(75,174,138,0.18);
-      z-index: 200; display: flex; align-items: center;
-      padding: 0 clamp(20px,5vw,64px);
-      box-shadow: 0 2px 20px rgba(44,37,71,0.08);
-    }
-    .nav-inner {
-      width: 100%; max-width: 1180px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 20px;
-    }
-    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
-    .nav-logo svg { display: block; width: 300px; height: auto; }
-    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-    .nav-links a {
-      font-size: 14px; font-weight: 600; color: var(--mid);
-      padding: 8px 14px; border-radius: 10px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .nav-links a:hover { background: rgba(75,174,138,0.10); color: var(--green-dark); }
-    .nav-links a.active { color: var(--green-dark); font-weight: 700; }
-    .nav-cta {
-      background: var(--green); color: #fff !important;
-      border-radius: 10px; padding: 10px 18px !important;
-      font-weight: 700 !important; font-size: 13px !important;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--green-dark) !important; }
-    @media (max-width: 900px) { .nav-links { display: none; } }
-    @media (max-width: 680px) { .nav-logo svg { width: 220px; } }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FBF6EC;font-family:Poppins,sans-serif;color:#2C2547} a{color:#2A7A5A;text-decoration:none} a:hover{color:#4BAE8A} *{box-sizing:border-box}</style>
 
-    /* ── Page header ── */
-    .page-header {
-      padding: calc(var(--nav-h) + 56px) clamp(20px,5vw,64px) 60px;
-      background: linear-gradient(150deg,#D8F2E8 0%,#EFF9F5 50%,#EDE8F8 100%);
-      text-align: center;
-    }
-    .page-label {
-      font-size: 11px; font-weight: 800; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--green-dark); margin-bottom: 14px;
-    }
-    .page-title {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: clamp(32px,5vw,56px); color: var(--dark); line-height: 1.1;
-      letter-spacing: -1px; margin-bottom: 18px;
-    }
-    .page-sub {
-      font-size: clamp(16px,1.8vw,18px); color: var(--mid); font-weight: 500;
-      max-width: 580px; margin: 0 auto 36px; line-height: 1.7;
-    }
-
-    /* ── Sections ── */
-    section { padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
-    section:nth-child(even) { background: #fff; }
-    .section-inner { max-width: 1140px; margin: 0 auto; }
-    .section-label {
-      font-size: 11px; font-weight: 800; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--green-dark); margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: clamp(26px,3.5vw,40px); color: var(--dark);
-      letter-spacing: -0.5px; margin-bottom: 14px;
-    }
-    .section-sub {
-      font-size: clamp(15px,1.6vw,17px); color: var(--mid); font-weight: 500;
-      max-width: 620px; line-height: 1.7; margin-bottom: 48px;
-    }
-
-    /* ── Featured hero product (Sound Safari) ── */
-    .featured-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
-    }
-    .featured-img { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
-    .featured-img img { width: 100%; display: block; }
-    .featured-badge {
-      display: inline-block; background: var(--gold); color: var(--dark);
-      font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 4px 14px; border-radius: 99px;
-      margin-bottom: 16px;
-    }
-    .featured-title {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: clamp(24px,3vw,36px); color: var(--dark);
-      line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.5px;
-    }
-    .featured-desc { font-size: 16px; color: var(--mid); line-height: 1.7; margin-bottom: 24px; }
-    .featured-features { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
-    .featured-features li {
-      font-size: 14px; font-weight: 600; color: var(--dark);
-      display: flex; align-items: flex-start; gap: 10px;
-    }
-    .featured-features li::before {
-      content: '✓'; display: inline-flex; align-items: center; justify-content: center;
-      width: 20px; height: 20px; border-radius: 50%;
-      background: rgba(75,174,138,0.15); color: var(--green);
-      font-size: 11px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--green); color: #fff; font-weight: 800; font-size: 15px;
-      padding: 14px 28px; border-radius: 12px; transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 8px;
-      border: 2px solid var(--border); color: var(--mid); font-weight: 700; font-size: 14px;
-      padding: 12px 24px; border-radius: 12px; transition: border-color 0.2s, color 0.2s;
-      margin-left: 12px;
-    }
-    .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
-
-    /* ── Product card grid ── */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .product-card {
-      background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius);
-      overflow: hidden; display: flex; flex-direction: column;
-      box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .card-thumb { height: 200px; overflow: hidden; flex-shrink: 0; }
-    .card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .card-thumb-placeholder {
-      height: 200px; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 6px;
-    }
-    .card-body { padding: 18px 18px 20px; flex: 1; display: flex; flex-direction: column; }
-    .card-grade {
-      font-size: 11px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.10em; color: var(--muted); margin-bottom: 6px;
-    }
-    .card-title { font-weight: 800; font-size: 15px; color: var(--dark); line-height: 1.4; flex: 1; margin-bottom: 14px; }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; }
-    .card-link {
-      font-weight: 800; font-size: 13px; color: var(--green);
-      display: inline-flex; align-items: center; gap: 4px;
-    }
-    .card-link:hover { color: var(--green-dark); }
-    .card-free { font-weight: 800; font-size: 13px; color: var(--green); }
-
-    /* ── Section divider ── */
-    .section-divider { height: 2px; background: var(--border); max-width: 1140px; margin: 0 auto; }
-
-    /* ── SEL section highlight ── */
-    .sel-highlight {
-      background: linear-gradient(135deg,#EFF9F5 0%,#F0ECFB 100%);
-      border-radius: 20px; padding: 40px; margin-bottom: 40px;
-      display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
-    }
-    .sel-highlight-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(20px,2.5vw,28px); color: var(--dark); margin-bottom: 10px; }
-    .sel-highlight-desc { font-size: 15px; color: var(--mid); line-height: 1.7; }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--dark); color: rgba(255,255,255,0.80);
-      padding: 48px clamp(20px,5vw,64px) 32px;
-    }
-    .footer-inner { max-width: 1140px; margin: 0 auto; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; margin-top: 32px;
-      font-size: 13px; color: rgba(255,255,255,0.45); text-align: center;
-    }
-
-    @media (max-width: 760px) {
-      .featured-grid { grid-template-columns: 1fr; }
-      .sel-highlight { grid-template-columns: 1fr; }
-    }
-  </style>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GP97LNPLCS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GP97LNPLCS', {
+    page_title: 'Molding Minds of the Future - Educators',
+    page_location: window.location.href
+  });
+</script>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="Molding Minds of the Future, home">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 115" width="300" height="72">
-        <line x1="65" y1="12" x2="65" y2="2" stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"/>
-        <line x1="82" y1="16" x2="90" y2="7" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
-        <line x1="48" y1="16" x2="40" y2="7" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"/>
-        <path d="M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z" fill="#EDE8F8"/>
-        <circle cx="65" cy="48" r="24" fill="#4A90D9"/>
-        <path d="M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z" fill="rgba(75,174,138,0.92)"/>
-        <path d="M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z" fill="rgba(75,174,138,0.88)"/>
-        <circle cx="65" cy="13" r="5" fill="#F5C842"/>
-        <text x="124" y="52" font-family="'Poppins','Segoe UI',sans-serif" font-weight="800" font-size="28" fill="#2C2547">Molding Minds</text>
-        <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7C5CBF"/><stop offset="50%" stop-color="#4A90D9"/><stop offset="100%" stop-color="#4BAE8A"/></linearGradient></defs>
-        <rect x="124" y="60" width="210" height="2.5" rx="1.5" fill="url(#ng)"/>
-        <text x="124" y="78" font-family="'Poppins','Segoe UI',sans-serif" font-weight="400" font-size="12" fill="rgba(44,37,71,0.55)" letter-spacing="4.5">OF THE FUTURE</text>
-      </svg>
-    </a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/educators/" class="active">For Educators</a></li>
-      <li><a href="/molding-minds-at-home/">Molding Minds at Home</a></li>
-      <li><a href="/online-tools/">Online Tools</a></li>
-      <li><a href="/#about">About</a></li>
-      <li><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="nav-cta">Shop on TPT</a></li>
-    </ul>
+<div style="background:#FBF6EC;overflow:hidden;color:#2C2547">
+
+<header style="position:sticky;top:0;z-index:30;background:rgba(251,246,236,0.9);backdrop-filter:blur(12px);border-bottom:1px solid #EFE6D2">
+  <div style="max-width:1200px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <a href="/"><img src="assets/logo-horizontal-light.svg" alt="Molding Minds of the Future" style="height:46px;display:block"></a>
+    <nav style="display:flex;gap:26px;align-items:center;flex-wrap:wrap;font:600 16px Fredoka,sans-serif">
+      <a href="/educators/" style="color:#2A7A5A;border-bottom:3px solid #4BAE8A;padding-bottom:2px">Educators</a>
+      <a href="/molding-minds-at-home/" style="color:#2C2547">Families</a>
+      <a href="/freebie/educator/" style="color:#2C2547">Free Resources</a>
+      <a href="/#about" style="color:#2C2547">About</a>
+      <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" style="background:#4BAE8A;color:#fff;border-radius:12px;padding:11px 20px;transform:rotate(-2deg);box-shadow:3px 3px 0 #2C2547;display:inline-block" style-hover="filter:brightness(0.94);color:#fff">Shop on TPT ↑</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- Page Header -->
-<div class="page-header">
-  <p class="page-label">For Teachers · Tutors · Homeschoolers</p>
-  <h1 class="page-title">Resources Built for the Classroom</h1>
-  <p class="page-sub">Everything here has been tested with real students across real classrooms. Grab-and-go phonics, math, SEL, and financial literacy — ready the day you download.</p>
-  <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" class="btn-primary">Browse All Resources on TPT</a>
-</div>
-
-<!-- ── Sound Safari: Featured ── -->
-<section>
-  <div class="section-inner">
-    <p class="section-label">Featured · Science of Reading Phonics</p>
-    <h2 class="section-title">Sound Safari Phonics Bundles</h2>
-    <p class="section-sub">Structured, explicit phonics that follows the Science of Reading. Each set uses the same 10-day routine so students master the format once — and then focus entirely on the sounds.</p>
-
-    <!-- Level 1 Bundle — hero featured -->
-    <div class="featured-grid" style="margin-bottom:56px;">
-      <div class="featured-img">
-        <img src="/images/tpt/phonics_bundle_l1.png" alt="Sound Safari Level 1 Bundle">
-      </div>
-      <div>
-        <span class="featured-badge">⭐ Best Seller</span>
-        <h3 class="featured-title">Sound Safari Phonics Bundle: Level 1</h3>
-        <p class="featured-desc">50 days of systematic phonics in one ready-to-teach bundle — digraphs, beginning blends, ending blends, and double letters. All 5 sets follow the same routine so you teach the format once.</p>
-        <ul class="featured-features">
-          <li>525 slides with built-in teacher scripts</li>
-          <li>415 printable pages (color + B&W)</li>
-          <li>20 decodable passages</li>
-          <li>Games, centers &amp; parent letters included</li>
-          <li>Pre &amp; post assessments</li>
-          <li>Exclusive Level 1 bonus pack</li>
-        </ul>
-        <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Digraphs-Blends-Double-Letters-Level-1-17902598" target="_blank" rel="noopener" class="btn-primary">Get the Bundle on TPT</a>
-      </div>
+<section style="position:relative;background:#FBF6EC;overflow:hidden">
+  <div style="position:absolute;left:-160px;top:-120px;width:460px;height:460px;border-radius:50%;background:rgba(245,200,66,0.16)"></div>
+  <div style="position:absolute;right:-140px;bottom:-160px;width:440px;height:440px;border-radius:50%;background:rgba(75,174,138,0.13)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:64px 32px 80px;display:flex;flex-wrap:wrap-reverse;gap:48px 56px;align-items:center">
+    <div style="position:relative;flex:1.7 1 600px;display:flex;justify-content:center;align-items:flex-start;gap:0;padding:10px 0 20px">
+      <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" style="position:relative;flex:0 0 40%;margin-top:40px;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;color:#5B4596;text-decoration:none;transform:rotate(-5deg)" style-hover="transform:rotate(-5deg) translateY(-6px)"><div style="position:relative;width:100%;background:#fff;padding:8px;box-shadow:0 18px 38px rgba(44,37,71,0.22)"><div style="position:absolute;top:-11px;left:50%;margin-left:-40px;width:80px;height:24px;background:rgba(75,174,138,0.55);z-index:2"></div><img src="Sound%20Safari%20Complete%20Thumbnails/Sound-Safari-Complete-1-Cover.png" alt="Sound Safari digraphs unit" style="width:100%;display:block"></div><span style="font:700 26px/1 Caveat,cursive">phonics</span></a>
+      <a href="https://www.teacherspayteachers.com/Product/Multiplication-Fact-Fluency-Games-Escape-Room-Flash-Cards-Trackers-0-to-12-18070911" target="_blank" rel="noopener" style="position:relative;flex:0 0 42%;margin-left:-11%;margin-right:-11%;margin-top:0px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;color:#5B4596;text-decoration:none;transform:rotate(1deg)" style-hover="transform:rotate(1deg) translateY(-6px)"><div style="position:relative;width:100%;background:#fff;padding:8px;box-shadow:0 18px 38px rgba(44,37,71,0.22)"><div style="position:absolute;top:-11px;left:50%;margin-left:-40px;width:80px;height:24px;background:rgba(245,200,66,0.75);z-index:2"></div><img src="exports/thumbnails/1%20Level%20Up%20Multiplication%20Cover.png" alt="Level Up Multiplication Fact Fluency" style="width:100%;display:block"></div><span style="font:700 26px/1 Caveat,cursive">math</span></a>
+      <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" style="position:relative;flex:0 0 40%;margin-top:40px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;color:#5B4596;text-decoration:none;transform:rotate(5deg)" style-hover="transform:rotate(5deg) translateY(-6px)"><div style="position:relative;width:100%;background:#fff;padding:8px;box-shadow:0 18px 38px rgba(44,37,71,0.22)"><div style="position:absolute;top:-11px;left:50%;margin-left:-40px;width:80px;height:24px;background:rgba(255,127,107,0.5);z-index:2"></div><img src="exports/fiction-toolkit-thumbnails/thumbnail-1-cover.png" alt="Fiction Comprehension Skills Toolkit" style="width:100%;display:block"></div><span style="font:700 26px/1 Caveat,cursive">reading</span></a>
     </div>
-
-    <!-- Individual sets -->
-    <h3 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:22px;color:var(--dark);margin-bottom:24px;">Individual Sound Safari Sets</h3>
-    <div class="card-grid">
-      <a href="https://www.teacherspayteachers.com/Product/FREE-Digraph-sh-Lesson-Science-of-Reading-Phonics-Slides-Worksheets-Mats-17855477" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/sound_safari_free.png" alt="FREE Sound Safari Digraph sh"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades K–2 · Free Sampler</div>
-          <div class="card-title">FREE Sound Safari: Digraph sh Phonics Lesson</div>
-          <div class="card-footer"><span class="card-free">Free</span></div>
-        </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/Digraphs-sh-ch-th-Science-of-Reading-Phonics-Unit-Slides-Decodables-Games-17855678" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/sound_safari_digraphs.png" alt="Sound Safari Digraphs sh ch th"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades K–2 · Set 1</div>
-          <div class="card-title">Sound Safari: Digraphs sh, ch, th Phonics Unit</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/Beginning-Blends-Science-of-Reading-Phonics-Unit-Slides-Decodables-Games-17870322" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/sound_safari_blends.png" alt="Sound Safari Beginning Blends"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades K–2 · Set 3</div>
-          <div class="card-title">Sound Safari: Beginning Blends Phonics Unit</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
+    <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:20px">
+      <div style="align-self:flex-start;background:#fff;color:#5B4596;border:2px solid #2C2547;border-radius:999px;padding:9px 16px;font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;transform:rotate(-1.5deg);box-shadow:3px 3px 0 #2C2547">FOR TEACHERS AND TUTORS</div>
+      <h1 style="margin:0;font:900 clamp(42px,5.4vw,64px)/1.03 Nunito,sans-serif;letter-spacing:-2px;text-wrap:balance">Engaging. Differentiated. <span style="position:relative;display:inline-block">Ready to use.<svg viewBox="0 0 300 24" preserveAspectRatio="none" style="position:absolute;left:0;bottom:-10px;width:100%;height:18px"><path d="M4 16 C 80 4, 180 4, 296 14" stroke="#4BAE8A" stroke-width="8" fill="none" stroke-linecap="round"></path></svg></span></h1>
+      <div style="font:700 30px/1 Caveat,cursive;color:#7C5CBF;transform:rotate(-1.5deg)">Spark curiosity. Watch them think.</div>
+      <p style="margin:0;font:400 17px/1.7 Poppins,sans-serif;color:#4A4560;text-wrap:pretty">Learning tools and curriculum resources built by a teacher with students in mind first: engaging, hands on, and designed so every learner has a way in. Ready the day you download them.</p>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <a href="#diagnostics" style="background:#4BAE8A;color:#fff;border-radius:14px;padding:16px 24px;font:600 18px/1 Fredoka,sans-serif;box-shadow:4px 4px 0 #2C2547" style-hover="filter:brightness(0.94);color:#fff">See the diagnostics</a>
+        <a href="#library" style="background:#FFE88A;color:#2C2547;padding:16px 22px;font:600 18px/1 Fredoka,sans-serif;transform:rotate(2deg);box-shadow:0 6px 14px rgba(44,37,71,0.15)" style-hover="color:#2C2547;filter:brightness(0.97)">Browse resources</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── 2nd Grade Math ── -->
-<section>
-  <div class="section-inner">
-    <p class="section-label">Featured · Math</p>
-    <h2 class="section-title">2nd Grade Math: All Standards</h2>
-    <p class="section-sub">Differentiated worksheets, centers, and review activities covering every 2nd grade math standard — all in one bundle so you're never scrambling for resources mid-unit.</p>
+<section style="background:#fff;border-top:1px solid #EFE6D2;border-bottom:1px solid #EFE6D2">
+  <div style="max-width:1200px;margin:0 auto;padding:56px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px">
+    <div style="display:flex;gap:16px;align-items:flex-start"><span style="flex:none;width:56px;height:56px;border-radius:18px;background:#FFF0EE;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 26px/1 Fredoka,sans-serif;color:#C05A4A;transform:rotate(-6deg);box-shadow:3px 3px 0 #2C2547">★</span><div><div style="font:900 22px/1.2 Nunito,sans-serif">Engaging</div><div style="font:400 15px/1.6 Poppins,sans-serif;color:#4A4560">Escape rooms, carnival games, live online stores, and quests. Students ask to keep going.</div></div></div>
+    <div style="display:flex;gap:16px;align-items:flex-start"><span style="flex:none;width:56px;height:56px;border-radius:18px;background:#EEE8FA;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 22px/1 Fredoka,sans-serif;color:#5B4596;transform:rotate(5deg);box-shadow:3px 3px 0 #2C2547">1·2·3</span><div><div style="font:900 22px/1.2 Nunito,sans-serif">Differentiated</div><div style="font:400 15px/1.6 Poppins,sans-serif;color:#4A4560">Many sets include support and challenge options, so you can meet different learners with the same activity.</div></div></div>
+    <div style="display:flex;gap:16px;align-items:flex-start"><span style="flex:none;width:56px;height:56px;border-radius:18px;background:#E3F4EC;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 26px/1 Fredoka,sans-serif;color:#2A7A5A;transform:rotate(-3deg);box-shadow:3px 3px 0 #2C2547">✓</span><div><div style="font:900 22px/1.2 Nunito,sans-serif">Ready to use</div><div style="font:400 15px/1.6 Poppins,sans-serif;color:#4A4560">Print and go pages, teacher scripts, and answer keys. Use it the day you download it.</div></div></div>
+    <div style="display:flex;gap:16px;align-items:flex-start"><span style="flex:none;width:56px;height:56px;border-radius:18px;background:#FFF3DC;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 28px/1 Fredoka,sans-serif;color:#8A6000;transform:rotate(4deg);box-shadow:3px 3px 0 #2C2547">?</span><div><div style="font:900 22px/1.2 Nunito,sans-serif">Thought provoking</div><div style="font:400 15px/1.6 Poppins,sans-serif;color:#4A4560">Questions that ask "why?" and "how do you know?" so students explain their thinking and grow into curious learners.</div></div></div>
+  </div>
+</section>
 
-    <div class="featured-grid">
-      <div>
-        <span class="featured-badge">⭐ Best Seller</span>
-        <h3 class="featured-title">Complete 2nd Grade Math Bundle: All Standards</h3>
-        <p class="featured-desc">Every 2nd grade math standard covered with differentiated worksheets and center activities. Three levels per skill so every student has exactly what they need.</p>
-        <ul class="featured-features">
-          <li>All 2nd grade CCSS math standards</li>
-          <li>Differentiated at three levels per skill</li>
-          <li>Print-and-go worksheets + centers</li>
-          <li>Review activities included</li>
-        </ul>
-        <a href="https://www.teacherspayteachers.com/Product/2nd-Grade-Math-Bundle-All-Standards-Differentiated-Worksheets-Centers-Review-17891628" target="_blank" rel="noopener" class="btn-primary">Get it on TPT</a>
-      </div>
-      <div class="featured-img">
-        <img src="/images/tpt/2nd_grade_bundle.png" alt="Complete 2nd Grade Math Bundle">
-      </div>
-    </div>
-
-    <!-- Elapsed time card -->
-    <div style="margin-top:40px;">
-      <div class="card-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));">
-        <a href="https://www.teacherspayteachers.com/Product/Elapsed-Time-Task-Cards-Anchor-Chart-Differentiated-Grade-3-17265642" target="_blank" rel="noopener" class="product-card">
-          <div class="card-thumb"><img src="/images/tpt/elapsed_time.png" alt="Elapsed Time Task Cards"></div>
-          <div class="card-body">
-            <div class="card-grade">Grade 3 · Math</div>
-            <div class="card-title">Elapsed Time Task Cards &amp; Anchor Chart</div>
-            <div class="card-footer"><span class="card-link">View on TPT →</span></div>
+<section id="sound-safari" style="position:relative;background:#E3F4EC;border-top:1px solid #CFEADC;border-bottom:1px solid #CFEADC;overflow:hidden">
+  <div style="position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:2px solid rgba(75,174,138,0.25)"></div>
+  <div style="position:absolute;left:-140px;bottom:-140px;width:440px;height:440px;border-radius:50%;background:rgba(245,200,66,0.16)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:110px 32px 96px;display:flex;flex-direction:column;gap:64px">
+    <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+      <div style="position:relative;flex:1.2 1 480px;margin-top:70px">
+        <img src="assets/sound-safari/image-1-3.png" alt="Sound Safari elephant" style="position:absolute;left:18px;top:-104px;width:120px;z-index:2">
+        <img src="assets/sound-safari-3/image-1-5.png" alt="Sound Safari flamingo" style="position:absolute;left:132px;top:-112px;width:100px;z-index:2">
+        <img src="assets/sound-safari-3/image-86-2.png" alt="Sound Safari toucan" style="position:absolute;right:120px;top:-92px;width:100px;z-index:2">
+        <img src="assets/sound-safari/image-13-3.png" alt="Sound Safari lion" style="position:absolute;right:10px;top:-100px;width:118px;z-index:2">
+        <div style="position:absolute;left:236px;top:-132px;background:#fff;border:2px solid #2C2547;border-radius:18px;padding:9px 14px;font:700 22px/1.1 Caveat,cursive;color:#5B4596;transform:rotate(-3deg);z-index:3;box-shadow:3px 3px 0 #2C2547">Come on the safari!</div>
+        <div style="position:relative;background:#fff;border:3px solid #2C2547;border-radius:30px;padding:34px 32px 30px;box-shadow:7px 7px 0 #4BAE8A;display:flex;flex-direction:column;gap:16px">
+          <div style="align-self:flex-start;background:#F5C842;color:#2C2547;border:2px solid #2C2547;border-radius:999px;padding:9px 16px;font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;transform:rotate(-2deg)">K TO 2 · SCIENCE OF READING PHONICS</div>
+          <h2 style="margin:0;font:900 clamp(38px,5vw,58px)/1.02 Nunito,sans-serif;letter-spacing:-1.5px;text-wrap:balance">Meet the Sound Safari series</h2>
+          <p style="margin:0;font:400 17px/1.7 Poppins,sans-serif;color:#4A4560;text-wrap:pretty">A complete phonics program your students will beg to keep going with. Every set is a full 10 day unit with one easy routine, and a crew of safari animals cheering kids on through every sound.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));gap:12px">
+            <div style="background:#E3F4EC;border-radius:16px;padding:14px;text-align:center"><div style="font:900 34px/1 Nunito,sans-serif;color:#2A7A5A">4</div><div style="font:600 13px/1.3 Poppins,sans-serif">bundles ready now</div></div>
+            <div style="background:#EEE8FA;border-radius:16px;padding:14px;text-align:center"><div style="font:900 34px/1 Nunito,sans-serif;color:#5B4596">10</div><div style="font:600 13px/1.3 Poppins,sans-serif">days in every set</div></div>
+            <div style="background:#FFF3DC;border-radius:16px;padding:14px;text-align:center"><div style="font:900 34px/1 Nunito,sans-serif;color:#8A6000">100+</div><div style="font:600 13px/1.3 Poppins,sans-serif">slides per set</div></div>
           </div>
-        </a>
+          <div style="display:flex;align-items:center;gap:12px;background:#FFF0EE;border:2px dashed #FF7F6B;border-radius:16px;padding:12px 16px"><span style="font-size:26px">🐾</span><span style="font:600 16px/1.4 Poppins,sans-serif"><b style="font:900 17px Nunito,sans-serif;color:#C05A4A">More is coming soon!</b> New levels are on the way, so the safari keeps growing with your readers.</span></div>
+        </div>
+      </div>
+      <div style="flex:0 1 360px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:14px">
+        <div style="position:relative;width:min(100%,330px);background:#2C2547;border-radius:36px;padding:10px;box-shadow:0 24px 50px rgba(44,37,71,0.3);transform:rotate(2deg)">
+          <div id="ss-reel-wrap" style="position:relative;width:100%;aspect-ratio:9/16;border-radius:28px;overflow:hidden;background:#F0FAF6">
+            <video id="ss-reel-0" src="https://fp2rkiiunnay2t9v.public.blob.vercel-storage.com/sound-safari-bundle-reel.mp4" muted loop playsinline controls style="width:100%;height:100%;border-radius:28px;display:block;object-fit:cover;background:#000"></video>
+            <video id="ss-reel-1" src="https://fp2rkiiunnay2t9v.public.blob.vercel-storage.com/sound-safari-level1-reel.mp4" muted loop playsinline controls style="width:100%;height:100%;border-radius:28px;display:none;object-fit:cover;background:#000;position:absolute;inset:0"></video>
+            <video id="ss-reel-2" src="https://fp2rkiiunnay2t9v.public.blob.vercel-storage.com/sound-safari-level2-reel.mp4" muted loop playsinline controls style="width:100%;height:100%;border-radius:28px;display:none;object-fit:cover;background:#000;position:absolute;inset:0"></video>
+          </div>
+          <img src="assets/sound-safari/image-1-5.png" alt="" style="position:absolute;left:-58px;bottom:30px;width:110px;transform:rotate(-8deg)">
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+          <button type="button" class="ss-reel-btn" data-reel="0" style="border:2px solid #2C2547;border-radius:999px;padding:9px 16px;font:600 15px/1 Fredoka,sans-serif;cursor:pointer;background:#4BAE8A;color:#fff">Safari reel</button>
+          <button type="button" class="ss-reel-btn" data-reel="1" style="border:2px solid #2C2547;border-radius:999px;padding:9px 16px;font:600 15px/1 Fredoka,sans-serif;cursor:pointer;background:#fff;color:#2C2547">Level 1 reel</button>
+          <button type="button" class="ss-reel-btn" data-reel="2" style="border:2px solid #2C2547;border-radius:999px;padding:9px 16px;font:600 15px/1 Fredoka,sans-serif;cursor:pointer;background:#fff;color:#2C2547">Level 2 reel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;color:#2A7A5A">INSIDE EVERY SET</div><h3 style="margin:0;font:900 clamp(28px,3.4vw,38px)/1.1 Nunito,sans-serif;letter-spacing:-1px">Everything you need to teach each sound</h3></div>
+        <div style="font:700 24px/1.1 Caveat,cursive;color:#7C5CBF;transform:rotate(-3deg)">color and black and white!</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:24px">
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:12px;box-shadow:4px 4px 0 #4BAE8A;display:flex;flex-direction:column;gap:10px;transform:rotate(-1deg)"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#F0FAF6;border:1px solid #DCEFE5"><img src="Sound%20Safari%20Complete%20Thumbnails/Sound-Safari-Complete-2-Slides.png" alt="Slideshows" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font:900 19px/1.15 Nunito,sans-serif">Slideshows</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">A full slideshow for every day, ready to teach in PowerPoint or Google Slides.</div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:12px;box-shadow:4px 4px 0 #7C5CBF;display:flex;flex-direction:column;gap:10px;transform:rotate(1deg)"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#F0FAF6;border:1px solid #DCEFE5"><img src="Sound%20Safari%20Complete%20Thumbnails/Sound-Safari-Complete-3-Presenter-Notes.png" alt="Speaker notes" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font:900 19px/1.15 Nunito,sans-serif">Speaker notes</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Teacher scripts in the notes, so you always know exactly what to say.</div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:12px;box-shadow:4px 4px 0 #4A90D9;display:flex;flex-direction:column;gap:10px;transform:rotate(-0.5deg)"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#F0FAF6;border:1px solid #DCEFE5"><img src="assets/sound-safari-full/print-31.png" alt="Worksheets" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font:900 19px/1.15 Nunito,sans-serif">Worksheets</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Track It, Write It, and Show What You Know pages for daily practice.</div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:12px;box-shadow:4px 4px 0 #F5C842;display:flex;flex-direction:column;gap:10px;transform:rotate(1deg)"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#F0FAF6;border:1px solid #DCEFE5"><img src="assets/sound-safari-full/print-74.png" alt="Games" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font:900 19px/1.15 Nunito,sans-serif">Games</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Roll and Read, Bump, and Safari Path Race keep practice playful.</div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:12px;box-shadow:4px 4px 0 #FF7F6B;display:flex;flex-direction:column;gap:10px;transform:rotate(0.6deg)"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#F0FAF6;border:1px solid #DCEFE5"><img src="assets/sound-safari-full/print-19.png" alt="Activities and centers" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font:900 19px/1.15 Nunito,sans-serif">Activities and centers</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Sorts, clip cards, color by sound, and write the room.</div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:12px;box-shadow:4px 4px 0 #4BAE8A;display:flex;flex-direction:column;gap:10px;transform:rotate(-1deg)"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#F0FAF6;border:1px solid #DCEFE5"><img src="assets/sound-safari-full/print-72.png" alt="Decodable mini books" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font:900 19px/1.15 Nunito,sans-serif">Decodable mini books</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Stories with comprehension questions that use only the sounds taught.</div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:12px;box-shadow:4px 4px 0 #7C5CBF;display:flex;flex-direction:column;gap:10px;transform:rotate(0.8deg)"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#F0FAF6;border:1px solid #DCEFE5"><img src="assets/sound-safari-full/print-4.png" alt="Plans and trackers" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><div style="font:900 19px/1.15 Nunito,sans-serif">Plans and trackers</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">A 10 day plan, pre and post checks, a data tracker, and a small group planner.</div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:12px;box-shadow:4px 4px 0 #4A90D9;display:flex;flex-direction:column;gap:10px;transform:rotate(-0.6deg)"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#F0FAF6;border:1px solid #DCEFE5"><img src="assets/sound-safari-full/print-81.png" alt="Certificates" style="width:100%;height:100%;object-fit:contain;object-position:top;display:block"></div><div style="font:900 19px/1.15 Nunito,sans-serif">Certificates</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Celebrate every reader who finishes the set.</div></div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;color:#2A7A5A">THE BUNDLES</div>
+      <h3 style="margin:0;font:900 clamp(28px,3.4vw,38px)/1.1 Nunito,sans-serif;letter-spacing:-1px">Pick a level, or grow through all four</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:28px">
+        <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Digraphs-Blends-Double-Letters-Sets-1-5-17902598" target="_blank" rel="noopener" style="position:relative;background:#fff;border:2px solid #2C2547;border-radius:24px;padding:58px 20px 20px;box-shadow:5px 5px 0 #4BAE8A;display:flex;flex-direction:column;gap:10px;color:#2C2547;text-decoration:none;transform:rotate(-1deg);margin-top:46px" style-hover="color:#2C2547;transform:rotate(-1deg) translateY(-5px)"><img src="assets/sound-safari/image-1-3.png" alt="" style="position:absolute;top:-62px;right:10px;width:112px;height:112px;object-fit:contain"><span style="position:absolute;top:-16px;left:18px;background:#4BAE8A;color:#fff;border:2px solid #2C2547;border-radius:999px;padding:8px 16px;font:700 16px/1 Fredoka,sans-serif;box-shadow:2px 2px 0 #2C2547">LEVEL 1</span><div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A7A5A">SETS 1 TO 5</div><div style="font:900 22px/1.15 Nunito,sans-serif">Digraphs, blends, and double letters</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">sh ch th</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">ck wh ng</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">blends</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">nk</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">ff ll ss</span></div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Complete 10 day sets plus a bundle bonus: a level check, mixed review stories, a class tracker, and a graduate certificate.</div><span style="margin-top:auto;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A">See the Level 1 bundle ↑</span></a>
+        <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Silent-e-Endings-Soft-c-g-Level-2-17926419" target="_blank" rel="noopener" style="position:relative;background:#fff;border:2px solid #2C2547;border-radius:24px;padding:58px 20px 20px;box-shadow:5px 5px 0 #7C5CBF;display:flex;flex-direction:column;gap:10px;color:#2C2547;text-decoration:none;transform:rotate(1deg);margin-top:46px" style-hover="color:#2C2547;transform:rotate(1deg) translateY(-5px)"><img src="assets/sound-safari-3/image-1-5.png" alt="" style="position:absolute;top:-62px;right:10px;width:112px;height:112px;object-fit:contain"><span style="position:absolute;top:-16px;left:18px;background:#7C5CBF;color:#fff;border:2px solid #2C2547;border-radius:999px;padding:8px 16px;font:700 16px/1 Fredoka,sans-serif;box-shadow:2px 2px 0 #2C2547">LEVEL 2</span><div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#5B4596">SETS 6 TO 10</div><div style="font:900 22px/1.15 Nunito,sans-serif">Magic e, endings, and bigger words</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">magic e</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">endings</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">2 syllables</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">soft c and g</span></div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Complete 10 day sets plus a bundle bonus: a level check, mixed review stories, a class tracker, and a graduate certificate.</div><span style="margin-top:auto;font:600 16px/1 Fredoka,sans-serif;color:#5B4596">See the Level 2 bundle ↑</span></a>
+        <a href="https://www.teacherspayteachers.com/Product/Vowel-Teams-and-Bossy-R-Science-of-Reading-Phonics-Bundle-Sets-11-17-17994027" target="_blank" rel="noopener" style="position:relative;background:#fff;border:2px solid #2C2547;border-radius:24px;padding:58px 20px 20px;box-shadow:5px 5px 0 #4A90D9;display:flex;flex-direction:column;gap:10px;color:#2C2547;text-decoration:none;transform:rotate(-0.6deg);margin-top:46px" style-hover="color:#2C2547;transform:rotate(-0.6deg) translateY(-5px)"><img src="assets/sound-safari-3/image-86-2.png" alt="" style="position:absolute;top:-62px;right:10px;width:112px;height:112px;object-fit:contain"><span style="position:absolute;top:-16px;left:18px;background:#4A90D9;color:#fff;border:2px solid #2C2547;border-radius:999px;padding:8px 16px;font:700 16px/1 Fredoka,sans-serif;box-shadow:2px 2px 0 #2C2547">LEVEL 3</span><div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A65A8">SETS 11 TO 17</div><div style="font:900 22px/1.15 Nunito,sans-serif">Vowel teams and bossy R</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">vowel teams</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">bossy R</span></div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Complete 10 day sets plus a bundle bonus: a level check, mixed review stories, a class tracker, and a graduate certificate.</div><span style="margin-top:auto;font:600 16px/1 Fredoka,sans-serif;color:#2A65A8">See the Level 3 bundle ↑</span></a>
+        <a href="https://www.teacherspayteachers.com/Product/Science-of-Reading-Phonics-Bundle-Diphthongs-Silent-Letters-Prefixes-More-18069455" target="_blank" rel="noopener" style="position:relative;background:#fff;border:2px solid #2C2547;border-radius:24px;padding:58px 20px 20px;box-shadow:5px 5px 0 #FF7F6B;display:flex;flex-direction:column;gap:10px;color:#2C2547;text-decoration:none;transform:rotate(0.8deg);margin-top:46px" style-hover="color:#2C2547;transform:rotate(0.8deg) translateY(-5px)"><img src="assets/sound-safari/image-13-3.png" alt="" style="position:absolute;top:-62px;right:10px;width:112px;height:112px;object-fit:contain"><span style="position:absolute;top:-16px;left:18px;background:#FF7F6B;color:#fff;border:2px solid #2C2547;border-radius:999px;padding:8px 16px;font:700 16px/1 Fredoka,sans-serif;box-shadow:2px 2px 0 #2C2547">LEVEL 4</span><div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#C05A4A">SETS 18 AND UP</div><div style="font:900 22px/1.15 Nunito,sans-serif">Diphthongs, silent letters, prefixes, and more</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">ou ow</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">oi oy</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">prefixes</span><span style="background:#fff;border:2px solid #2C2547;border-radius:10px;padding:5px 10px;font:700 15px/1 Fredoka,sans-serif">silent letters</span></div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Complete 10 day sets plus a bundle bonus: a level check, mixed review stories, a class tracker, and a graduate certificate.</div><span style="margin-top:auto;font:600 16px/1 Fredoka,sans-serif;color:#C05A4A">See the Level 4 bundle ↑</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SEL ── -->
-<section>
-  <div class="section-inner">
-    <p class="section-label">Social Emotional Learning</p>
-    <h2 class="section-title">SEL Curriculum</h2>
-    <p class="section-sub">Year-long SEL programs with zero prep — full lesson plans, discussion prompts, and student activities included for both elementary and middle school.</p>
-
-    <div class="card-grid">
-      <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-BUNDLE-3rd-4th-5th-Grade-24-Week-Social-Emotional-Learning-17426053" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/sel_bundle.png" alt="SEL Curriculum Bundle"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades 3–5 · Bundle</div>
-          <div class="card-title">SEL Curriculum Bundle: 24-Week Program (Vol 1 &amp; 2)</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-3rd-4th-5th-Grade-Social-Emotional-Learning-Lessons-Vol-1-17249965" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb" style="background:linear-gradient(145deg,#155C43,#4BAE8A);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:900;font-family:'Nunito',sans-serif;">SEL Vol 1</div>
-        <div class="card-body">
-          <div class="card-grade">Grades 3–5</div>
-          <div class="card-title">SEL Curriculum Vol 1</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-3rd-4th-5th-Grade-Social-Emotional-Learning-Lessons-Vol-2-17425737" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb" style="background:linear-gradient(145deg,#155C43,#4BAE8A);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:900;font-family:'Nunito',sans-serif;">SEL Vol 2</div>
-        <div class="card-body">
-          <div class="card-grade">Grades 3–5</div>
-          <div class="card-title">SEL Curriculum Vol 2</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Yearlong-Curriculum-Bundle-Grades-6-to-8-School-Counseling-17483753" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb" style="background:linear-gradient(145deg,#1A4E8A,#4A90D9);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:900;font-family:'Nunito',sans-serif;text-align:center;padding:20px;">Middle School SEL Bundle</div>
-        <div class="card-body">
-          <div class="card-grade">Grades 6–8 · Bundle</div>
-          <div class="card-title">Middle School SEL Yearlong Curriculum Bundle</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/IB-PYP-Learner-Profile-Attributes-Posters-Task-Cards-Self-Assessment-K-2-17562458" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/ib_pyp.png" alt="IB PYP Learner Profile"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades K–2 · IB PYP</div>
-          <div class="card-title">IB PYP Learner Profile: Posters, Task Cards &amp; Self-Assessment</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
+<section id="diagnostics" style="max-width:1200px;margin:0 auto;padding:80px 32px 40px">
+  <div style="position:relative;background:#E3F4EC;border-radius:32px;padding:clamp(28px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:40px;align-items:center">
+    <div style="position:absolute;top:-18px;left:48px;background:#F5C842;color:#2C2547;border-radius:999px;padding:10px 18px;font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;transform:rotate(-3deg);box-shadow:3px 3px 0 #2C2547">TUTORS, START HERE</div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h2 style="margin:0;font:900 clamp(30px,3.8vw,42px)/1.08 Nunito,sans-serif;letter-spacing:-1px;text-wrap:balance">Not sure where a student is? Find out in one session.</h2>
+      <p style="margin:0;font:400 17px/1.7 Poppins,sans-serif;color:#4A4560;text-wrap:pretty">My adaptive K to 5 math and reading diagnostics are the perfect first session for tutors. Students answer online, and the test adjusts until it finds their level in every skill. You walk away knowing exactly what to teach, with a report you can share with families.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px 18px"><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>A clear plan from day one</div><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>A parent friendly report</div><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>Retest to show progress</div><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>Works for new students too</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <a href="https://www.teacherspayteachers.com/Product/K-5-Adaptive-Math-Diagnostic-Assessment-Placement-Test-for-Tutors-Homeschool-17661843" target="_blank" style="background:#fff;border-radius:20px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;color:#2C2547;box-shadow:4px 4px 0 #2C2547;border:2px solid #2C2547;transform:rotate(-1deg)" style-hover="color:#2C2547;transform:rotate(-1deg) translateY(-3px)"><div style="display:flex;flex-direction:column;gap:6px"><span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A7A5A">GRADES K TO 5</span><span style="font:900 24px/1.1 Nunito,sans-serif">Math Diagnostic</span></div><span style="font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;white-space:nowrap">See it on TPT ↑</span></a>
+      <a href="https://www.teacherspayteachers.com/Product/Adaptive-Reading-Diagnostic-Assessment-K-5-Tutors-Teachers-Homeschool-17678575" target="_blank" style="background:#fff;border-radius:20px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;color:#2C2547;box-shadow:4px 4px 0 #2C2547;border:2px solid #2C2547;transform:rotate(1deg)" style-hover="color:#2C2547;transform:rotate(1deg) translateY(-3px)"><div style="display:flex;flex-direction:column;gap:6px"><span style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#5B4596">GRADES K TO 5</span><span style="font:900 24px/1.1 Nunito,sans-serif">Reading Diagnostic</span></div><span style="font:600 16px/1 Fredoka,sans-serif;color:#5B4596;white-space:nowrap">See it on TPT ↑</span></a>
+      <div style="font:700 22px/1.2 Caveat,cursive;color:#7C5CBF;text-align:center;transform:rotate(-1.5deg);margin-top:18px">great for teachers at the start of the year too</div>
+    </div>
+    <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:16px;margin-top:8px">
+      <div style="font:900 24px/1.15 Nunito,sans-serif">How it works, in 3 simple steps</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:22px">
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:16px;box-shadow:4px 4px 0 #4BAE8A;display:flex;flex-direction:column;gap:12px;transform:rotate(-0.8deg)"><div style="display:flex;gap:12px;align-items:center"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#4BAE8A;color:#fff;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 20px/1 Fredoka,sans-serif">1</span><div style="font:900 19px/1.15 Nunito,sans-serif">Enter a name and grade</div></div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Made for tutors, teachers, and homeschool parents. The assessment adapts from there.</div><div style="flex:1;min-height:170px;border-radius:14px;overflow:hidden;background:#F7F5FB;border:1px solid #E6E1EE;display:flex;align-items:center;justify-content:center"><img src="assets/site/diag-start.png" alt="Math diagnostic start screen" style="width:100%;height:100%;max-height:220px;object-fit:cover;object-position:top;display:block"></div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:16px;box-shadow:4px 4px 0 #7C5CBF;display:flex;flex-direction:column;gap:12px;transform:rotate(0.6deg)"><div style="display:flex;gap:12px;align-items:center"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#7C5CBF;color:#fff;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 20px/1 Fredoka,sans-serif">2</span><div style="font:900 19px/1.15 Nunito,sans-serif">It climbs or steps back</div></div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Questions get easier or harder until it finds where the student is in each subject area.</div><div style="flex:1;min-height:170px;border-radius:14px;overflow:hidden;background:#F7F5FB;border:1px solid #E6E1EE;display:flex;align-items:center;justify-content:center"><div style="width:100%;padding:16px;display:flex;flex-direction:column;gap:10px"><div style="height:6px;border-radius:3px;background:#E6E1EE;overflow:hidden"><div style="width:38%;height:100%;background:#7C5CBF"></div></div><div style="font:800 15px/1.3 Nunito,sans-serif;text-align:center">What number has 3 hundreds, 5 tens, and 2 ones?</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="background:#fff;border:2px solid #E1D8C4;border-radius:10px;padding:8px;text-align:center;font:700 15px/1 Poppins,sans-serif">253</div><div style="background:#fff;border:2px solid #E1D8C4;border-radius:10px;padding:8px;text-align:center;font:700 15px/1 Poppins,sans-serif">325</div><div style="background:#fff;border:2px solid #4BAE8A;border-radius:10px;padding:8px;text-align:center;font:700 15px/1 Poppins,sans-serif">352</div><div style="background:#fff;border:2px solid #E1D8C4;border-radius:10px;padding:8px;text-align:center;font:700 15px/1 Poppins,sans-serif">532</div></div><div style="display:flex;justify-content:center;gap:8px;font:600 12px/1 Fredoka,sans-serif"><span style="background:#E3F4EC;color:#2A7A5A;border-radius:999px;padding:5px 10px">correct: climb ↑</span><span style="background:#FFF0EE;color:#C05A4A;border-radius:999px;padding:5px 10px">missed: step back ↓</span></div></div></div></div>
+        <div style="background:#fff;border:2px solid #2C2547;border-radius:22px;padding:16px;box-shadow:4px 4px 0 #F5C842;display:flex;flex-direction:column;gap:12px;transform:rotate(-0.5deg)"><div style="display:flex;gap:12px;align-items:center"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#F5C842;color:#fff;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 20px/1 Fredoka,sans-serif">3</span><div style="font:900 19px/1.15 Nunito,sans-serif">Get a personalized report</div></div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">A grade level placement for every area, plus the exact standard to teach next.</div><div style="flex:1;min-height:170px;border-radius:14px;overflow:hidden;background:#F7F5FB;border:1px solid #E6E1EE;display:flex;align-items:center;justify-content:center"><img src="assets/site/diag-report.png" alt="Recommended starting points report" style="width:100%;height:100%;max-height:220px;object-fit:cover;object-position:top left;display:block"></div></div>
+      </div>
+      <div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560;text-align:center;font-style:italic">These screenshots are from the math diagnostic. The reading diagnostic works the exact same way.</div>
     </div>
   </div>
 </section>
 
-<!-- ── Financial Literacy ── -->
-<section>
-  <div class="section-inner">
-    <p class="section-label">Financial Literacy &amp; Life Skills</p>
-    <h2 class="section-title">Real-World Learning Projects</h2>
-    <p class="section-sub">Students shop a real online grocery store, manage a budget, and make financial decisions. The interactive tool is free to use — the full project with lesson plans and PDFs is on TPT.</p>
-
-    <div class="card-grid">
-      <a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-17868925" target="_blank" rel="noopener" class="product-card" style="border-color:rgba(245,200,66,0.5);box-shadow:0 0 0 3px rgba(245,200,66,0.10);">
-        <div class="card-thumb"><img src="/images/tpt/grocery_store.png" alt="Financial Literacy Grocery Store Project"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades 3–6 · Life Skills</div>
-          <div class="card-title">Financial Literacy: Grocery Store Budgeting Project</div>
-          <div class="card-footer"><span class="card-link">Get Full Project on TPT →</span></div>
-        </div>
-      </a>
+<section id="spotlight" style="max-width:1200px;margin:0 auto;padding:88px 32px 40px;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:10px;max-width:720px">
+    <div style="font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;color:#5B4596">MATH FAVORITES</div>
+    <h2 style="margin:0;font:900 clamp(32px,4vw,46px)/1.06 Nunito,sans-serif;letter-spacing:-1px;text-wrap:balance">Math they'll actually ask for</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:40px">
+    <div style="position:relative;background:#fff;border:2px solid #2C2547;border-radius:30px;padding:28px;box-shadow:6px 6px 0 #F5C842;display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:24px;align-items:center">
+      <div style="background:#2C2547;border-radius:28px;padding:8px;box-shadow:0 18px 36px rgba(44,37,71,0.25);transform:rotate(-2deg)"><video poster="assets/site/fact-fluency-poster-2.png" preload="auto" src="https://fp2rkiiunnay2t9v.public.blob.vercel-storage.com/fact-fluency-reel.mp4#t=2" autoplay="" muted="" loop="" playsinline="" controls="" style="width:100%;aspect-ratio:9/16;border-radius:22px;display:block;object-fit:cover;background:#000"></video></div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#8A6000">GRADES 3 AND 4 · FACT FLUENCY</div>
+        <div style="font:900 30px/1.08 Nunito,sans-serif">Level Up Multiplication</div>
+        <div style="font:700 22px/1.2 Caveat,cursive;color:#7C5CBF">like a video game for times tables</div>
+        <div style="font:400 15px/1.65 Poppins,sans-serif;color:#4A4560">Students unlock 13 levels, learn Cheat Codes (smart strategies that make tricky facts easy), beat speed runs, and track their own progress from 0s to 12s.</div>
+        <div style="display:flex;flex-direction:column;gap:7px"><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>Games and an escape room</div><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>Cheat Codes: kid friendly strategies for every fact</div><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>Student trackers that build ownership</div></div>
+        <a href="https://www.teacherspayteachers.com/Product/Multiplication-Fact-Fluency-Games-Escape-Room-Flash-Cards-Trackers-0-to-12-18070911" target="_blank" rel="noopener" style="align-self:flex-start;background:#F5C842;color:#2C2547;border:2px solid #2C2547;border-radius:14px;padding:14px 20px;font:600 17px/1 Fredoka,sans-serif;box-shadow:4px 4px 0 #2C2547;margin-top:4px" style-hover="color:#2C2547;filter:brightness(0.96)">See fact fluency ↑</a>
+      </div>
     </div>
+    <div style="position:relative;background:#fff;border:2px solid #2C2547;border-radius:30px;padding:28px;box-shadow:6px 6px 0 #4BAE8A;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px 26px;align-items:center">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;align-self:center"><a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-16319304" target="_blank" rel="noopener" style="position:relative;display:block;aspect-ratio:4/5;border-radius:20px;overflow:hidden;box-shadow:0 18px 36px rgba(44,37,71,0.22);transform:rotate(1.5deg);width:100%;background:#2E3A33">
+        <div class="chef-slide" role="img" aria-label="Head chef and money manager" style="position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 0.6s;background-image:url(&quot;assets/site/chef-1.jpeg&quot;);opacity:1"></div><div class="chef-slide" role="img" aria-label="Plan a 4 course menu" style="position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 0.6s;background-image:url(&quot;assets/site/chef-2.jpeg&quot;);opacity:0"></div><div class="chef-slide" role="img" aria-label="Shop a real online grocery store" style="position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 0.6s;background-image:url(&quot;assets/site/chef-3.jpeg&quot;);opacity:0"></div><div class="chef-slide" role="img" aria-label="Everything you need, ready to print" style="position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 0.6s;background-image:url(&quot;assets/site/chef-4.jpeg&quot;);opacity:0"></div><div class="chef-slide" role="img" aria-label="Real world math they will remember" style="position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 0.6s;background-image:url(&quot;assets/site/chef-5.jpeg&quot;);opacity:0"></div>
+      </a><div style="display:flex;gap:8px;justify-content:center">
+          <button type="button" class="chef-dot" data-slide="0" aria-label="Show slide" style="width:12px;height:12px;border-radius:50%;border:2px solid #2C2547;padding:0;cursor:pointer;background:#4BAE8A"></button><button type="button" class="chef-dot" data-slide="1" aria-label="Show slide" style="width:12px;height:12px;border-radius:50%;border:2px solid #2C2547;padding:0;cursor:pointer;background:#fff"></button><button type="button" class="chef-dot" data-slide="2" aria-label="Show slide" style="width:12px;height:12px;border-radius:50%;border:2px solid #2C2547;padding:0;cursor:pointer;background:#fff"></button><button type="button" class="chef-dot" data-slide="3" aria-label="Show slide" style="width:12px;height:12px;border-radius:50%;border:2px solid #2C2547;padding:0;cursor:pointer;background:#fff"></button><button type="button" class="chef-dot" data-slide="4" aria-label="Show slide" style="width:12px;height:12px;border-radius:50%;border:2px solid #2C2547;padding:0;cursor:pointer;background:#fff"></button>
+        </div></div>
 
-    <div style="margin-top:24px;padding:20px 28px;background:rgba(75,174,138,0.08);border-radius:14px;border:1.5px solid rgba(75,174,138,0.25);">
-      <p style="font-size:15px;font-weight:600;color:var(--dark);">🛒 The online grocery store is free to use right now — no account needed.</p>
-      <a href="https://grocerystore.moldingmindsofthefuture.com/" target="_blank" rel="noopener" style="font-size:14px;font-weight:700;color:var(--green);margin-top:8px;display:inline-block;">Try the free store →</a>
+      <div style="display:flex;flex-direction:column;gap:12px"><div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A7A5A">GRADES 3 TO 6 · FINANCIAL LITERACY</div>
+        <div style="font:900 30px/1.08 Nunito,sans-serif">Chef on a Budget</div>
+        <div style="font:700 22px/1.2 Caveat,cursive;color:#7C5CBF">head chef and money manager</div>
+        <div style="font:400 15px/1.65 Poppins,sans-serif;color:#4A4560">Students plan a 4 course dinner party for 8 with a $75 budget, shopping a real online grocery store to earn the Michelin Star.</div>
+        <div style="display:flex;flex-direction:column;gap:7px"><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>24 recipe cards and a live online store</div><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>Adding decimals, budgeting, and trade offs</div><div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.5 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span>Teacher guide and answer key</div></div></div>
+      <div style="grid-column:1 / -1;width:100%;display:flex;flex-direction:column;align-items:center;gap:14px">
+        <a href="https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-16319304" target="_blank" rel="noopener" style="align-self:stretch;text-align:center;background:#4BAE8A;color:#fff;border:2px solid #2C2547;border-radius:18px;padding:20px 26px;font:700 22px/1 Fredoka,sans-serif;box-shadow:5px 5px 0 #2C2547" style-hover="filter:brightness(0.94);color:#fff">See Chef on a Budget ↑</a>
+        <a href="https://grocerystore.moldingmindsofthefuture.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;background:#E6F0FB;border:2px solid #2C2547;border-radius:14px;padding:10px 14px;color:#2C2547;text-decoration:none;font:700 14px/1.25 Nunito,sans-serif" style-hover="color:#2C2547;transform:translateY(-2px)">🛒 Sneak peek of the online grocery store <span style="background:#4A90D9;color:#fff;border-radius:999px;padding:5px 10px;font:600 13px/1 Fredoka,sans-serif;white-space:nowrap">Try it free</span></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── ELA ── -->
-<section>
-  <div class="section-inner">
-    <p class="section-label">Reading &amp; Writing</p>
-    <h2 class="section-title">ELA Resources</h2>
-    <p class="section-sub">Reading response, inference practice, writing activities, and critical thinking tools that work with any book — no prep required.</p>
+<section id="library" style="max-width:1200px;margin:0 auto;padding:72px 32px;display:flex;flex-direction:column;gap:34px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:660px">
+      <div style="font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;color:#5B4596">CURRICULUM RESOURCES</div>
+      <h2 style="margin:0;font:900 clamp(32px,4vw,44px)/1.08 Nunito,sans-serif;letter-spacing:-1px;text-wrap:balance">Grab what your class needs next</h2>
+      <p style="margin:0;font:400 17px/1.7 Poppins,sans-serif;color:#4A4560">Pick the resource that meets your students right where they are. These are just a few favorites, and there are so many more on my TPT store!</p>
+    </div>
+    <div style="font:700 26px/1.1 Caveat,cursive;color:#7C5CBF;transform:rotate(-3deg)">made with kids in mind ♡</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px">
+    <button type="button" class="lib-tab" data-cat="All" style="border:2px solid #2C2547;border-radius:999px;padding:10px 18px;font:600 16px/1 Fredoka,sans-serif;cursor:pointer;background:#4BAE8A;color:#fff;box-shadow:3px 3px 0 #2C2547">All (18)</button>
+      <button type="button" class="lib-tab" data-cat="Math" style="border:2px solid #2C2547;border-radius:999px;padding:10px 18px;font:600 16px/1 Fredoka,sans-serif;cursor:pointer;background:#fff;color:#2C2547;box-shadow:none">Math (4)</button>
+      <button type="button" class="lib-tab" data-cat="ELA" style="border:2px solid #2C2547;border-radius:999px;padding:10px 18px;font:600 16px/1 Fredoka,sans-serif;cursor:pointer;background:#fff;color:#2C2547;box-shadow:none">ELA (6)</button>
+      <button type="button" class="lib-tab" data-cat="AI and SEL" style="border:2px solid #2C2547;border-radius:999px;padding:10px 18px;font:600 16px/1 Fredoka,sans-serif;cursor:pointer;background:#fff;color:#2C2547;box-shadow:none">AI and SEL (4)</button>
+      <button type="button" class="lib-tab" data-cat="Financial Literacy" style="border:2px solid #2C2547;border-radius:999px;padding:10px 18px;font:600 16px/1 Fredoka,sans-serif;cursor:pointer;background:#fff;color:#2C2547;box-shadow:none">Financial Literacy (2)</button>
+      <button type="button" class="lib-tab" data-cat="IB PYP" style="border:2px solid #2C2547;border-radius:999px;padding:10px 18px;font:600 16px/1 Fredoka,sans-serif;cursor:pointer;background:#fff;color:#2C2547;box-shadow:none">IB PYP (2)</button>
+    </div>
+  <div id="lib-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:36px 28px;padding-top:10px">
+      <div role="link" tabindex="0" class="prod-card" data-cat="Math" onclick="window.open('https://www.teacherspayteachers.com/Product/Multiplication-Fact-Fluency-Games-Escape-Room-Flash-Cards-Trackers-0-to-12-18070911','_blank','noopener')" aria-label="Level Up Multiplication on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(200,180,240,0.85);z-index:2"></div><div role="img" aria-label="Level Up Multiplication" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/thumbnails/1%20Level%20Up%20Multiplication%20Cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A7A5A">GRADES 3 AND 4 · MATH</div><div style="font:900 20px/1.15 Nunito,sans-serif">Level Up Multiplication</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Students unlock one fact family at a time, like levels in a video game, and track their own progress.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">games</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">escape room</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">trackers</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="Math" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="2nd Grade Math Bundle on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(0.8deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(245,200,66,0.7);z-index:2"></div><div role="img" aria-label="2nd Grade Math Bundle" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;assets/site/2nd-grade-math-bundle.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A7A5A">GRADE 2 · MATH BUNDLE</div><div style="font:900 20px/1.15 Nunito,sans-serif">2nd Grade Math Bundle</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Every 2nd grade math standard in one bundle: 26 worksheet sets in mild, medium, and spicy, 25+ carnival games and centers, and a teacher toolkit.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">400 pages</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">mild, medium, spicy</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">games and centers</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="ELA" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Sight Word Movement Cards on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-0.6deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(75,174,138,0.5);z-index:2"></div><div role="img" aria-label="Sight Word Movement Cards" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;assets/site/sight-word-movement-cards.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#5B4596">K TO 2 · SIGHT WORDS</div><div style="font:900 20px/1.15 Nunito,sans-serif">Sight Word Movement Cards</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Each letter is a movement! Kids spell and act out 179 Dolch sight words, so reading practice becomes a workout.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">179 words</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">printable and PowerPoint</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">color and B&amp;W</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="Math" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Carnival Review: 2.OA on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(255,127,107,0.45);z-index:2"></div><div role="img" aria-label="Carnival Review: 2.OA" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/carnival-review-thumbnails/Carnival-Review-1-Cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A7A5A">GRADE 2 · MATH</div><div style="font:900 20px/1.15 Nunito,sans-serif">Carnival Review: 2.OA</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">34 print and go pages that review every 2.OA standard with read the room, centers, and color by code.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">review</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">centers</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">answer keys</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="Math" onclick="window.open('https://www.teacherspayteachers.com/Product/Elapsed-Time-Task-Cards-Anchor-Chart-Differentiated-Grade-3-17265642','_blank','noopener')" aria-label="Elapsed Time Task Cards on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(200,180,240,0.85);z-index:2"></div><div role="img" aria-label="Elapsed Time Task Cards" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/elapsed-time/01-cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A7A5A">GRADE 3 · MATH</div><div style="font:900 20px/1.15 Nunito,sans-serif">Elapsed Time Task Cards</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">40 task cards in mild, medium, and spicy levels, plus an anchor chart to teach the strategy.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">3 levels</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">40 cards</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">anchor chart</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="ELA" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Sound Safari: Digraphs on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(0.8deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(245,200,66,0.7);z-index:2"></div><div role="img" aria-label="Sound Safari: Digraphs" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;Sound%20Safari%20Complete%20Thumbnails/Sound-Safari-Complete-1-Cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#5B4596">K AND 1 · PHONICS</div><div style="font:900 20px/1.15 Nunito,sans-serif">Sound Safari: Digraphs</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">The sh, ch, and th unit is just the start! There are plenty more Sound Safari sets and 4 bundles to grow through.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">science of reading</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">scripted</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">color and B&amp;W</span></div><div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:auto"><a href="#sound-safari" onclick="event.stopPropagation()" style="background:#E3F4EC;border:2px solid #2C2547;border-radius:999px;padding:8px 12px;font:600 14px/1 Fredoka,sans-serif;color:#2C2547">See all the sets &uarr;</a><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="background:#4BAE8A;border:2px solid #2C2547;border-radius:999px;padding:8px 12px;font:600 14px/1 Fredoka,sans-serif;color:#fff">Get it on TPT &uarr;</a></div></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="ELA" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Fiction Comprehension Toolkit on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-0.6deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(75,174,138,0.5);z-index:2"></div><div role="img" aria-label="Fiction Comprehension Toolkit" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/fiction-toolkit-thumbnails/thumbnail-1-cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#5B4596">READING · ANY FICTION BOOK</div><div style="font:900 20px/1.15 Nunito,sans-serif">Fiction Comprehension Toolkit</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">20 story skill worksheets and exit tickets that work with any fiction book on your shelf.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">any book</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">exit tickets</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">print and go</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="ELA" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Descriptive Writing Bundle on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(255,127,107,0.45);z-index:2"></div><div role="img" aria-label="Descriptive Writing Bundle" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/descriptive-writing/1-cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#5B4596">WRITING</div><div style="font:900 20px/1.15 Nunito,sans-serif">Descriptive Writing Bundle</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">15 fun worksheets that teach show, don&#x27;t tell with all five senses and figurative language.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">15 worksheets</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">five senses</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">print and go</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="ELA" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Making Connections on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(200,180,240,0.85);z-index:2"></div><div role="img" aria-label="Making Connections" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/making-connections/1-cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#5B4596">READING · ANY BOOK</div><div style="font:900 20px/1.15 Nunito,sans-serif">Making Connections</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">18 pages to teach text to self, text to text, and text to world with sorting cards and organizers.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">3 connection types</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">any book</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">organizers</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="ELA" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Literature Circle Roles on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(0.8deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(245,200,66,0.7);z-index:2"></div><div role="img" aria-label="Literature Circle Roles" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/lit-circle-roles-thumbs/1-main-cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#5B4596">BOOK CLUBS · ANY FICTION BOOK</div><div style="font:900 20px/1.15 Nunito,sans-serif">Literature Circle Roles</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">10 role sheets that give every student a clear job in book club discussions.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">10 roles</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">any fiction book</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">book clubs</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="AI and SEL" onclick="window.open('https://www.teacherspayteachers.com/Product/Middle-School-SEL-Yearlong-Curriculum-Bundle-Grades-6-to-8-School-Counseling-17483753','_blank','noopener')" aria-label="Middle School SEL Curriculum on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-0.6deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(75,174,138,0.5);z-index:2"></div><div role="img" aria-label="Middle School SEL Curriculum" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/ms-sel/ms-sel-1a-rainbow-title.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#C05A4A">GRADES 6 TO 8 · SEL</div><div style="font:900 20px/1.15 Nunito,sans-serif">Middle School SEL Curriculum</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">A yearlong bundle with 50 no prep lessons across 10 topics, built for advisory and counseling.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">50 lessons</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">10 topics</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">any order</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="AI and SEL" onclick="window.open('https://www.teacherspayteachers.com/Product/SEL-Curriculum-BUNDLE-3rd-4th-5th-Grade-24-Week-Social-Emotional-Learning-17426053','_blank','noopener')" aria-label="SEL Curriculum: 24 Weeks on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(255,127,107,0.45);z-index:2"></div><div role="img" aria-label="SEL Curriculum: 24 Weeks" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;assets/site/sel-bundle-3-5.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#C05A4A">GRADES 3 TO 5 · SEL</div><div style="font:900 20px/1.15 Nunito,sans-serif">SEL Curriculum: 24 Weeks</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Two volumes of weekly social emotional lessons that build a calm, kind classroom community.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">24 weeks</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">2 volumes</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">bundle</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="AI and SEL" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Trait Buddies Craft on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(200,180,240,0.85);z-index:2"></div><div role="img" aria-label="Trait Buddies Craft" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/trait-buddies-thumbnails/1a-cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#C05A4A">CHARACTER EDUCATION</div><div style="font:900 20px/1.15 Nunito,sans-serif">Trait Buddies Craft</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Students build a paper person, choosing a trait and a reason on every fold. Ready for display.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">craft</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">writing</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">display banners</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="Financial Literacy" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Financial Literacy Unit on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(0.8deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(245,200,66,0.7);z-index:2"></div><div role="img" aria-label="Financial Literacy Unit" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;Bundle%20Thumbnails%20PNG/Financial-Literacy-Bundle-1-Cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A65A8">GRADES 3 TO 5 · ECONOMICS</div><div style="font:900 20px/1.15 Nunito,sans-serif">Financial Literacy Unit</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Five hands on lessons on needs, wants, saving, trading, and taxes on Planet Nova, plus a bonus pack.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">5 lessons</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">slides</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">worksheets</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="Financial Literacy" onclick="window.open('https://www.teacherspayteachers.com/Product/Financial-Literacy-Project-Grades-3-6-Life-Skills-Grocery-Store-Budgeting-16319304','_blank','noopener')" aria-label="Chef on a Budget on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-0.6deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(75,174,138,0.5);z-index:2"></div><div role="img" aria-label="Chef on a Budget" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;Chef%20on%20a%20Budget%20Thumbnails/Financial-Literacy-1-Cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A65A8">GRADES 3 TO 6 · LIFE SKILLS</div><div style="font:900 20px/1.15 Nunito,sans-serif">Chef on a Budget</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Students plan a dinner party with a $75 budget using a live online store and 24 recipe cards.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">online store</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">recipe cards</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">answer key</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="AI and SEL" onclick="window.open('https://www.teacherspayteachers.com/Product/AI-Literacy-Unit-3rd-4th-5th-Grade-Digital-Citizenship-Lessons-Google-Slides-17764456','_blank','noopener')" aria-label="Code Crew: AI Literacy on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(255,127,107,0.45);z-index:2"></div><div role="img" aria-label="Code Crew: AI Literacy" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;assets/ai-byte-pin.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#C05A4A">GRADES 3 TO 5 · AI LITERACY</div><div style="font:900 20px/1.15 Nunito,sans-serif">Code Crew: AI Literacy</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">A 10 day, print and go unit on what AI is, how it works, and how to use it responsibly.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">10 days</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">no devices</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">teacher slides</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="IB PYP" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="IB Exhibition Set on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(-1.2deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(200,180,240,0.85);z-index:2"></div><div role="img" aria-label="IB Exhibition Set" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/ib-exhibition-thumbnails/Thumbnail%201%20Cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#8A6000">IB PYP · GRADE 5</div><div style="font:900 20px/1.15 Nunito,sans-serif">IB Exhibition Set</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">Student journal, teacher guide, mentor pack, and family pack for the whole Exhibition journey.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">100+ pages</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">journal</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">family pack</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+      <div role="link" tabindex="0" class="prod-card" data-cat="IB PYP" onclick="window.open('https://www.teacherspayteachers.com/store/molding-minds-of-the-future','_blank','noopener')" aria-label="Thinking Routines on TPT" style="color:#2C2547;cursor:pointer;position:relative;background:#fff;border-radius:22px;padding:14px 14px 18px;box-shadow:0 12px 28px rgba(44,37,71,0.1);display:flex;flex-direction:column;gap:10px;transform:rotate(0.8deg)" style-hover="transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,37,71,0.16)"><div style="position:absolute;top:-12px;left:50%;margin-left:-42px;width:84px;height:24px;background:rgba(245,200,66,0.7);z-index:2"></div><div role="img" aria-label="Thinking Routines" style="width:100%;aspect-ratio:1/1;border-radius:12px;background-color:#FBF6EC;background-size:cover;background-position:top;background-image:url(&quot;exports/thinking-routines/Thumbnail%201%20Cover.png&quot;)"></div><div style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#8A6000">INQUIRY · ANY SUBJECT</div><div style="font:900 20px/1.15 Nunito,sans-serif">Thinking Routines</div><div style="font:400 14px/1.55 Poppins,sans-serif;color:#4A4560">20 routine cards and a slideshow to spark curiosity, dig deeper, and see every side.</div><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">20 routines</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">slideshow</span><span style="background:#FBF6EC;border:1px solid #EFE6D2;border-radius:999px;padding:5px 10px;font:600 12px/1 Poppins,sans-serif;color:#4A4560">any subject</span></div><span style="margin-top:auto;align-self:flex-start;font:600 16px/1 Fredoka,sans-serif;color:#2A7A5A;border-bottom:2px solid #A7E1CB;padding-bottom:3px">View on TPT &uarr;</span></div>
+  </div>
+  <div style="align-self:stretch;background:#FFF3DC;border:2px dashed #D4A800;border-radius:24px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:10px"><div style="display:flex;flex-direction:column;gap:6px"><div style="font:900 24px/1.15 Nunito,sans-serif">Looking for something else? There's so much more!</div><div style="font:400 15px/1.6 Poppins,sans-serif;color:#4A4560">Math, reading, writing, SEL, financial literacy, IB PYP, and new resources added all the time.</div></div><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" style="background:#4BAE8A;color:#fff;border:2px solid #2C2547;border-radius:14px;padding:16px 24px;font:600 18px/1 Fredoka,sans-serif;box-shadow:4px 4px 0 #2C2547" style-hover="filter:brightness(0.94);color:#fff">Shop the full TPT store ↑</a></div>
+</section>
 
-    <div class="card-grid">
-      <a href="https://www.teacherspayteachers.com/Product/Nonfiction-Reading-Response-for-any-Book-Grades-2-4-Text-Features-Main-Idea-17327255" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/nonfic_response.png" alt="Nonfiction Reading Response"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades 2–4 · ELA</div>
-          <div class="card-title">Nonfiction Reading Response for Any Book</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
+
+<section id="future" style="max-width:1200px;margin:0 auto;padding:96px 32px 40px;display:flex;flex-direction:column;gap:44px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px 48px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="align-self:flex-start;background:#4BAE8A;color:#fff;border-radius:999px;padding:10px 18px;font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;transform:rotate(-3deg);box-shadow:3px 3px 0 #2C2547">BEYOND THE BASICS</div>
+      <h2 style="margin:0;font:900 clamp(34px,4.4vw,50px)/1.05 Nunito,sans-serif;letter-spacing:-1.5px;text-wrap:balance">The skills kids need for the world they're growing up in</h2>
+    </div>
+    <p style="margin:0;font:400 17px/1.7 Poppins,sans-serif;color:#4A4560;text-wrap:pretty">Reading and math matter. So does knowing how to manage big feelings, work with others, and think carefully about the AI tools showing up everywhere. These topics are more relevant than ever, and these resources make them easy and fun to teach.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:40px">
+    <div style="position:relative;background:#E6F0FB;border:2px solid #2C2547;border-radius:30px;padding:30px;box-shadow:6px 6px 0 #4A90D9;display:flex;flex-direction:column;gap:18px;transform:rotate(-0.6deg)">
+      <div style="position:absolute;top:-16px;right:30px;background:#F5C842;color:#2C2547;border:2px solid #2C2547;border-radius:999px;padding:8px 16px;font:600 15px/1 Fredoka,sans-serif;transform:rotate(5deg)">new!</div>
+      <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:22px;align-items:center">
+        <a href="https://www.teacherspayteachers.com/Product/AI-Literacy-Unit-3rd-4th-5th-Grade-Digital-Citizenship-Lessons-Google-Slides-17764456" target="_blank" rel="noopener" style="display:block;background:#fff;padding:8px;transform:rotate(-3deg);box-shadow:0 12px 26px rgba(44,37,71,0.18);aspect-ratio:1/1"><img src="assets/ai-byte-pin.png" alt="Code Crew AI Literacy: Ever wondered how to talk with kids about AI?" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></a>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#2A65A8">GRADES 3 TO 5 · AI LITERACY</div>
+          <div style="font:900 28px/1.1 Nunito,sans-serif">Code Crew: AI Literacy Unit</div>
+          <div style="font:700 21px/1.2 Caveat,cursive;color:#7C5CBF">"Is it AI... or not?"</div>
         </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/Reading-Response-Questions-Fiction-Nonfiction-Any-Book-No-Prep-3-5-16198501" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/reading_response.png" alt="Reading Response Question Menus"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades 3–5 · ELA</div>
-          <div class="card-title">Reading Response Questions: Fiction &amp; Nonfiction</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
+      </div>
+      <div style="font:400 16px/1.65 Poppins,sans-serif;color:#4A4560">Your students already meet AI in voice assistants, video suggestions, and photo filters. This 10 day unit helps them understand what AI is, how it makes guesses, and how to use it safely, honestly, and responsibly, guided by Byte the robot.</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font:900 18px/1.2 Nunito,sans-serif">Why it matters now</div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.55 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span><span>Kids are using AI before anyone has taught them how it works</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.55 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span><span>Builds the habit of asking "Is this true? Who made it?"</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.55 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span><span>No devices or AI accounts needed, and it works whether or not your school allows AI</span></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px"><span style="background:#fff;color:#2A65A8;border-radius:999px;padding:6px 12px;font:600 13px/1 Poppins,sans-serif">10 days</span><span style="background:#fff;color:#2A65A8;border-radius:999px;padding:6px 12px;font:600 13px/1 Poppins,sans-serif">print and go</span><span style="background:#fff;color:#2A65A8;border-radius:999px;padding:6px 12px;font:600 13px/1 Poppins,sans-serif">teacher slides</span><span style="background:#fff;color:#2A65A8;border-radius:999px;padding:6px 12px;font:600 13px/1 Poppins,sans-serif">ISTE aligned</span></div>
+      <a href="https://www.teacherspayteachers.com/Product/AI-Literacy-Unit-3rd-4th-5th-Grade-Digital-Citizenship-Lessons-Google-Slides-17764456" target="_blank" rel="noopener" style="align-self:flex-start;background:#4A90D9;color:#fff;border-radius:14px;padding:15px 22px;font:600 17px/1 Fredoka,sans-serif;box-shadow:4px 4px 0 #2C2547;margin-top:auto" style-hover="filter:brightness(0.94);color:#fff">See the AI unit ↑</a>
+    </div>
+    <div style="position:relative;background:#FFF0EE;border:2px solid #2C2547;border-radius:30px;padding:30px;box-shadow:6px 6px 0 #FF7F6B;display:flex;flex-direction:column;gap:18px;transform:rotate(0.6deg)">
+      <div style="position:absolute;top:-14px;left:40%;width:110px;height:30px;background:rgba(75,174,138,0.5);transform:rotate(-4deg)"></div>
+      <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:22px;align-items:center">
+        <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Yearlong-Curriculum-Bundle-Grades-6-to-8-School-Counseling-17483753" target="_blank" rel="noopener" style="display:block;background:#fff;padding:8px;transform:rotate(3deg);box-shadow:0 12px 26px rgba(44,37,71,0.18)"><img src="exports/ms-sel/ms-sel-1a-rainbow-title.png" alt="Middle School SEL Yearlong Curriculum" style="width:100%;display:block"></a>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font:700 12px/1 Poppins,sans-serif;letter-spacing:2px;color:#C05A4A">GRADES 3 TO 8 · SEL</div>
+          <div style="font:900 28px/1.1 Nunito,sans-serif">Social emotional learning</div>
+          <div style="font:700 21px/1.2 Caveat,cursive;color:#7C5CBF">calm kids learn better</div>
         </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/Thinking-Routines-20-Critical-Thinking-Discussion-Cards-for-Any-Subject-Grade-17806559" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/thinking_routines.png" alt="Thinking Routines"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades K–8</div>
-          <div class="card-title">Thinking Routines: 20 Critical Thinking Discussion Cards</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
-      <a href="https://www.teacherspayteachers.com/Product/Descriptive-Writing-Worksheets-Sensory-Details-Figurative-Language-Grades-2-5-17754098" target="_blank" rel="noopener" class="product-card">
-        <div class="card-thumb"><img src="/images/tpt/desc_writing_bundle.png" alt="Descriptive Writing Bundle"></div>
-        <div class="card-body">
-          <div class="card-grade">Grades 2–5 · Writing</div>
-          <div class="card-title">Descriptive Writing Bundle: Sensory Details &amp; Figurative Language</div>
-          <div class="card-footer"><span class="card-link">View on TPT →</span></div>
-        </div>
-      </a>
+      </div>
+      <div style="font:400 16px/1.65 Poppins,sans-serif;color:#4A4560">Students can't focus on fractions when they're overwhelmed, left out, or stuck in a conflict. My SEL lessons give you a simple weekly routine for feelings, friendships, resilience, and stress, ready to teach in advisory, morning meeting, or counseling.</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font:900 18px/1.2 Nunito,sans-serif">Why it matters now</div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.55 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span><span>A calmer, kinder classroom means more time for learning</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.55 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span><span>Gives students words and tools for big feelings</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.55 Poppins,sans-serif"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 13px/1 Fredoka,sans-serif">✓</span><span>Covers real issues kids face, like social media and peer pressure</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:auto">
+        <a href="https://www.teacherspayteachers.com/Product/SEL-Curriculum-BUNDLE-3rd-4th-5th-Grade-24-Week-Social-Emotional-Learning-17426053" target="_blank" rel="noopener" style="background:#fff;border:2px solid #2C2547;border-radius:16px;padding:14px 16px;color:#2C2547;display:flex;flex-direction:column;gap:5px" style-hover="color:#2C2547;transform:translateY(-3px)"><span style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#C05A4A">GRADES 3 TO 5</span><span style="font:900 18px/1.15 Nunito,sans-serif">24 week SEL program</span><span style="font:600 14px/1 Fredoka,sans-serif;color:#C05A4A">See it ↑</span></a>
+        <a href="https://www.teacherspayteachers.com/Product/Middle-School-SEL-Yearlong-Curriculum-Bundle-Grades-6-to-8-School-Counseling-17483753" target="_blank" rel="noopener" style="background:#fff;border:2px solid #2C2547;border-radius:16px;padding:14px 16px;color:#2C2547;display:flex;flex-direction:column;gap:5px" style-hover="color:#2C2547;transform:translateY(-3px)"><span style="font:700 11px/1 Poppins,sans-serif;letter-spacing:2px;color:#C05A4A">GRADES 6 TO 8</span><span style="font:900 18px/1.15 Nunito,sans-serif">Yearlong middle school SEL</span><span style="font:600 14px/1 Fredoka,sans-serif;color:#C05A4A">See it ↑</span></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── Online Tools CTA ── -->
-<section style="background:linear-gradient(135deg,#2C2547,#452070);color:#fff;text-align:center;">
-  <div class="section-inner">
-    <p style="font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.60);margin-bottom:12px;">Online Tools</p>
-    <h2 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(24px,3vw,36px);margin-bottom:14px;">Adaptive Diagnostic Assessments</h2>
-    <p style="font-size:clamp(15px,1.6vw,17px);color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto 32px;line-height:1.7;">Find exactly where each student stands — reading and math diagnostics that adapt to every response and return a full placement report.</p>
-    <a href="/online-tools/" class="btn-primary" style="background:var(--green);margin-right:12px;">Explore Online Tools</a>
+<section id="samantha" style="max-width:1200px;margin:0 auto;padding:88px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px;align-items:center">
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div style="font:700 13px/1 Poppins,sans-serif;letter-spacing:2.5px;color:#2A7A5A">FROM ONE EDUCATOR TO ANOTHER</div>
+    <h2 style="margin:0;font:900 clamp(32px,4vw,44px)/1.08 Nunito,sans-serif;letter-spacing:-1px;text-wrap:balance">I made the resources I wished I had on day one</h2>
+    <p style="margin:0;font:400 17px/1.7 Poppins,sans-serif;color:#4A4560;text-wrap:pretty">I'm Samantha. I've taught for 10+ years in the US, China, Germany, Brazil, India, and the UAE, trained future teachers as a university adjunct professor, and supported schools as an academic administrator. Everything here comes from that work, and every resource starts with the same question: what will make kids excited to learn?</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <span style="background:#fff;border-radius:999px;padding:10px 16px;box-shadow:0 6px 16px rgba(44,37,71,0.08);font:600 14px/1 Poppins,sans-serif">🌍 6 countries</span>
+      <span style="background:#fff;border-radius:999px;padding:10px 16px;box-shadow:0 6px 16px rgba(44,37,71,0.08);font:600 14px/1 Poppins,sans-serif">🎓 IB PYP certified</span>
+      <span style="background:#fff;border-radius:999px;padding:10px 16px;box-shadow:0 6px 16px rgba(44,37,71,0.08);font:600 14px/1 Poppins,sans-serif">🏛️ University adjunct professor</span>
+      <span style="background:#fff;border-radius:999px;padding:10px 16px;box-shadow:0 6px 16px rgba(44,37,71,0.08);font:600 14px/1 Poppins,sans-serif">🧭 Academic administrator</span>
+    </div>
+  </div>
+  <div style="position:relative;min-height:420px">
+    <div style="position:absolute;right:10%;top:0;width:66%;max-width:360px;background:#fff;padding:14px 14px 56px;box-shadow:0 18px 40px rgba(44,37,71,0.2);transform:rotate(3deg)">
+      <img src="assets/site/samantha-classroom-original.jpeg" alt="Samantha in her classroom holding a student's drawing of her" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;display:block">
+      <div style="position:absolute;left:0;right:0;bottom:14px;text-align:center;font:700 26px/1 Caveat,cursive;color:#4A4560">drawn by one of my students ♡</div>
+    </div>
+    <div style="position:absolute;right:36%;top:-12px;width:120px;height:32px;background:rgba(200,180,240,0.85);transform:rotate(-5deg)"></div>
+    <div style="position:absolute;left:0;bottom:30px;background:#F5C842;border:2px solid #2C2547;border-radius:50%;width:132px;height:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-10deg);box-shadow:4px 4px 0 #2C2547"><div style="font:900 40px/1 Nunito,sans-serif">10+</div><div style="font:600 14px/1.15 Fredoka,sans-serif">years<br>teaching</div></div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-bottom">
-      <span>© 2026 Molding Minds of the Future. All rights reserved.</span>
+<section style="max-width:1200px;margin:0 auto;padding:0 32px 96px">
+  <div style="position:relative;background:#4BAE8A;border-radius:32px;padding:clamp(32px,5vw,56px);display:flex;align-items:center;gap:36px;flex-wrap:wrap;overflow:hidden">
+    <div style="position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;border:2px solid rgba(255,255,255,0.25)"></div>
+    <div style="position:absolute;right:-30px;top:-30px;width:180px;height:180px;border-radius:50%;border:2px solid rgba(255,255,255,0.25)"></div>
+    <svg viewBox="0 0 140 140" width="140" height="140" style="flex:none;transform:rotate(-5deg)" aria-hidden="true"><rect x="22" y="96" width="96" height="18" rx="5" fill="#7C5CBF" stroke="#2C2547" stroke-width="4"></rect><rect x="30" y="80" width="84" height="18" rx="5" fill="#F5C842" stroke="#2C2547" stroke-width="4"></rect><path d="M38 86 H100" stroke="#2C2547" stroke-width="2.5" stroke-linecap="round" opacity=".35"></path><path d="M30 102 H108" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".5"></path><path d="M70 40 C52 28 34 40 38 60 C41 74 54 82 70 78 C86 82 99 74 102 60 C106 40 88 28 70 40Z" fill="#F2545B" stroke="#2C2547" stroke-width="4" stroke-linejoin="round"></path><path d="M70 40 C70 32 72 26 76 20" fill="none" stroke="#2C2547" stroke-width="4" stroke-linecap="round"></path><path d="M76 26 C84 16 96 18 98 22 C92 30 82 32 76 26Z" fill="#7DD3A8" stroke="#2C2547" stroke-width="3.5" stroke-linejoin="round"></path><path d="M50 50 Q47 58 50 64" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"></path><path d="M20 30 l6 6 M120 26 l-6 7 M126 62 h-9 M14 64 h9" stroke="#fff" stroke-width="4" stroke-linecap="round"></path></svg>
+    <div style="position:relative;flex:1 1 420px;display:flex;flex-direction:column;gap:12px">
+      <div style="font:900 clamp(30px,3.6vw,40px)/1.1 Nunito,sans-serif;color:#fff;letter-spacing:-1px">Thank you so much for being here.</div>
+      <div style="font:400 17px/1.7 Poppins,sans-serif;color:#fff;max-width:720px">We pour so much heart and effort into our students. I hope these resources help them learn, grow, and have fun along the way, and make your days a little easier too.</div>
+      <div style="font:700 28px/1 Caveat,cursive;color:#FFE88A;transform:rotate(-2deg);align-self:flex-start;margin-top:4px">with love, Samantha</div>
     </div>
+    <div style="position:relative;display:flex;gap:14px;flex-wrap:wrap">
+      <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" style="background:#fff;color:#2C2547;border-radius:14px;padding:16px 24px;font:600 18px/1 Fredoka,sans-serif;box-shadow:4px 4px 0 #2C2547" style-hover="color:#2C2547;transform:translateY(-2px)"><span style="display:inline-flex;align-items:center;gap:10px">Visit my TPT store<svg viewBox="0 0 32 30" width="24" height="22" aria-hidden="true"><path d="M16 27 C6 20 2.5 14 4 9 C5.5 4 11 3 14 6.5 C15 7.6 15.6 8.6 16 9.6 C16.6 8.4 17.4 7.2 18.6 6.2 C22 3.4 27.4 4.6 28.4 9.6 C29.4 14.6 25 20.4 16 27Z" fill="#F5C842" stroke="#2C2547" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"></path><path d="M9 10.5 C8.6 12 9 13.4 9.8 14.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"></path></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid #EFE6D2;background:#F6F0E2">
+  <div style="max-width:1200px;margin:0 auto;padding:36px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+    <img src="assets/logo-horizontal-light.svg" alt="Molding Minds of the Future" style="height:40px">
+    <div style="display:flex;gap:22px;flex-wrap:wrap;font:600 15px Fredoka,sans-serif">
+      <a href="/educators/">Educators</a><a href="/molding-minds-at-home/">Families</a><a href="/freebie/educator/">Free Resources</a><a href="/#about">About</a><a href="https://www.instagram.com/moldingmindsofthefuture/" target="_blank">Instagram</a><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank">TPT Store</a>
+    </div>
+    <div style="font:400 13px Poppins,sans-serif;color:#6B6785">© 2026 Molding Minds of the Future</div>
   </div>
 </footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('[style-hover]').forEach(function(el){
+    var base = el.getAttribute('style') || '';
+    var hover = el.getAttribute('style-hover');
+    el.addEventListener('mouseenter', function(){ el.style.cssText = base + ';' + hover; });
+    el.addEventListener('mouseleave', function(){ el.style.cssText = base; });
+  });
+
+  function wireVideos(){
+    document.querySelectorAll('video').forEach(function(v){
+      if (v.dataset.mm) return;
+      v.dataset.mm = '1';
+      v.muted = true; v.loop = true; v.playsInline = true;
+      v.addEventListener('ended', function(){ v.currentTime = 0; v.play().catch(function(){}); });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function(entries){
+          entries.forEach(function(en){
+            if (en.isIntersecting) v.play().catch(function(){});
+            else v.pause();
+          });
+        }, { threshold: 0.3 }).observe(v);
+      } else {
+        v.play().catch(function(){});
+      }
+    });
+  }
+  wireVideos();
+
+  var reelBtns = document.querySelectorAll('.ss-reel-btn');
+  var reels = {
+    '0': document.getElementById('ss-reel-0'),
+    '1': document.getElementById('ss-reel-1'),
+    '2': document.getElementById('ss-reel-2')
+  };
+  reelBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var which = btn.getAttribute('data-reel');
+      reelBtns.forEach(function(b){
+        var on = b === btn;
+        b.style.background = on ? '#4BAE8A' : '#fff';
+        b.style.color = on ? '#fff' : '#2C2547';
+      });
+      Object.keys(reels).forEach(function(key){
+        var v = reels[key];
+        if (key === which) {
+          v.style.display = 'block'; v.style.position = 'static';
+          v.play().catch(function(){});
+        } else {
+          v.style.display = 'none'; v.style.position = 'absolute';
+          v.pause();
+        }
+      });
+    });
+  });
+
+  var slides = document.querySelectorAll('.chef-slide');
+  var dots = document.querySelectorAll('.chef-dot');
+  var chefIdx = 0, chefTimer;
+  function showChefSlide(i){
+    chefIdx = i;
+    slides.forEach(function(s, idx){ s.style.opacity = idx === i ? '1' : '0'; });
+    dots.forEach(function(d, idx){ d.style.background = idx === i ? '#4BAE8A' : '#fff'; });
+  }
+  function startChefTimer(){
+    clearInterval(chefTimer);
+    chefTimer = setInterval(function(){ showChefSlide((chefIdx + 1) % slides.length); }, 3500);
+  }
+  if (slides.length) {
+    dots.forEach(function(d){
+      d.addEventListener('click', function(e){
+        e.preventDefault();
+        showChefSlide(parseInt(d.getAttribute('data-slide'), 10));
+        startChefTimer();
+      });
+    });
+    startChefTimer();
+  }
+
+  var tabBtns = document.querySelectorAll('.lib-tab');
+  var cards = document.querySelectorAll('.prod-card');
+  tabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var cat = btn.getAttribute('data-cat');
+      tabBtns.forEach(function(b){
+        var on = b === btn;
+        b.style.background = on ? '#4BAE8A' : '#fff';
+        b.style.color = on ? '#fff' : '#2C2547';
+        b.style.boxShadow = on ? '3px 3px 0 #2C2547' : 'none';
+      });
+      cards.forEach(function(c){
+        c.style.display = (cat === 'All' || c.getAttribute('data-cat') === cat) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
 
 <!-- POPUP START -->
 <div id="mm-leadcapture">
