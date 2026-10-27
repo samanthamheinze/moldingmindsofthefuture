@@ -126,6 +126,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    a { text-decoration: none; }
+
     /* ─── Design Tokens ─── */
     :root {
       --green-dark:   #4BAE8A;
@@ -212,71 +214,6 @@
     .d3 { transition-delay: 0.24s; }
     .d4 { transition-delay: 0.32s; }
     .d5 { transition-delay: 0.40s; }
-
-    /* ─── Nav ─── */
-    nav {
-      position: fixed;
-      top: 38px; left: 0; right: 0;
-      height: var(--nav-h);
-      background: #ffffff;
-      border-bottom: 2px solid rgba(75,174,138,0.18);
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      padding: 0 clamp(20px, 5vw, 64px);
-      transition: box-shadow 0.3s var(--ease);
-    }
-    nav.scrolled { box-shadow: 0 2px 20px rgba(44,37,71,0.10); }
-
-    .nav-inner {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-    .nav-logo svg { display: block; width: 330px; height: auto; }
-    @media (max-width: 680px) { .nav-logo svg { width: 230px; } }
-    @media (max-width: 400px) { .nav-logo svg { width: 190px; } }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--dark);
-      padding: 8px 16px;
-      border-radius: 99px;
-      transition: background 0.2s, color 0.2s;
-      white-space: nowrap;
-    }
-    .nav-links a:hover { background: rgba(75,174,138,0.10); color: var(--green-dark); }
-    .nav-cta {
-      background: var(--purple) !important;
-      color: var(--white) !important;
-      font-weight: 700 !important;
-      font-family: 'Poppins', sans-serif !important;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s !important;
-    }
-    .nav-cta:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 22px rgba(124,92,191,0.45) !important;
-      background: var(--purple-light) !important;
-    }
 
     /* ─── Buttons ─── */
     .btn-primary {
@@ -895,79 +832,6 @@
       font-size: 15px;
       color: var(--mid);
       line-height: 1.75;
-    }
-
-    /* ─── Footer ─── */
-    footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.65);
-      padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 64px);
-    }
-    .footer-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-    }
-    @media (max-width: 620px) {
-      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-      .nav-links { display: none; }
-    }
-    .footer-logo {
-      margin-bottom: 12px;
-    }
-    .footer-tagline { font-size: 14px; line-height: 1.65; max-width: 270px; }
-    .footer-love { font-size: 13px; font-style: italic; opacity: 0.55; margin-top: 10px; }
-    .footer-col-title {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.40);
-      margin-bottom: 16px;
-    }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-links a {
-      color: rgba(255,255,255,0.60);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-
-    .footer-social { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
-    .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      width: fit-content;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.80);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 99px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .footer-social a:nth-child(1):hover { background: #E1306C; color: #fff; border-color: #E1306C; }
-    .footer-social a:nth-child(2):hover { background: #E60023; color: #fff; border-color: #E60023; }
-    .footer-social a:nth-child(3):hover { background: #1877F2; color: #fff; border-color: #1877F2; }
-
-    .footer-bottom {
-      max-width: 1180px;
-      margin: 36px auto 0;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 13px;
     }
 
     /* ─── Featured Assessment Section ─── */
