@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  
+  <line x1="100" y1="24" x2="100" y2="8" stroke="#F5C842" stroke-width="3.5" stroke-linecap="round"></line>
+  <line x1="124" y1="29" x2="133" y2="16" stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"></line>
+  <line x1="76" y1="29" x2="67" y2="16" stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"></line>
+  <line x1="144" y1="42" x2="155" y2="32" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round" opacity="0.8"></line>
+  <line x1="56" y1="42" x2="45" y2="32" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round" opacity="0.8"></line>
+  <line x1="160" y1="62" x2="173" y2="57" stroke="#F5C842" stroke-width="1.7" stroke-linecap="round" opacity="0.6"></line>
+  <line x1="40" y1="62" x2="27" y2="57" stroke="#F5C842" stroke-width="1.7" stroke-linecap="round" opacity="0.6"></line>
+  <path d="M100 24 C72 24 54 44 54 70 C54 88 63 101 76 108 L76 128 C76 133 79 136 83 136 L117 136 C121 136 124 133 124 128 L124 108 C137 101 146 88 146 70 C146 44 128 24 100 24Z" fill="#EDE8F8"></path>
+  <path d="M100 24 C128 24 146 44 146 70 L54 70 C54 44 72 24 100 24Z" fill="#D4C8F0" opacity="0.55"></path>
+  <circle cx="100" cy="70" r="34" fill="#4A90D9"></circle>
+  <ellipse cx="100" cy="70" rx="34" ry="15" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"></ellipse>
+  <ellipse cx="100" cy="58" rx="27" ry="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"></ellipse>
+  <ellipse cx="100" cy="82" rx="27" ry="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"></ellipse>
+  <line x1="100" y1="36" x2="100" y2="104" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"></line>
+  <path d="M80 38 Q70 70 80 102" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"></path>
+  <path d="M120 38 Q130 70 120 102" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"></path>
+  <path d="M82 58 C87 51 96 51 99 58 C102 63 99 71 94 71 C88 71 81 67 82 58Z" fill="rgba(75,174,138,0.92)"></path>
+  <path d="M101 64 C106 57 115 59 117 66 C119 72 116 78 110 77 C105 76 100 71 101 64Z" fill="rgba(75,174,138,0.88)"></path>
+  <path d="M85 80 C89 76 95 78 95 83 C95 88 91 90 88 88 C84 87 84 83 85 80Z" fill="rgba(75,174,138,0.78)"></path>
+  <circle cx="100" cy="25" r="8" fill="#F5C842"></circle>
+  <circle cx="100" cy="25" r="4" fill="#FFD700"></circle>
+  <rect x="91" y="135" width="18" height="11" rx="5.5" fill="#D4C8F0"></rect>
+</svg>
