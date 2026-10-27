@@ -108,7 +108,6 @@
       <div style="font:900 26px/1.15 Nunito,sans-serif">Check your inbox!</div>
       <div style="font:700 24px/1.2 Caveat,cursive;color:#7C5CBF">So glad you're here.</div>
       <div id="fr-success-links" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:4px"></div>
-      <button type="button" id="fr-reset" style="background:none;border:none;padding:0;font:600 15px/1 Fredoka,sans-serif;color:#2A7A5A;cursor:pointer">Pick another freebie</button>
     </div>
   </div>
 </section>
@@ -204,7 +203,6 @@
   var submitBtn = document.getElementById('fr-submit');
   var successEl = document.getElementById('fr-success');
   var successLinks = document.getElementById('fr-success-links');
-  var resetBtn = document.getElementById('fr-reset');
 
   var TITLES = {
     parent: 'Where should I send your Learning Through Play Sample Week?',
@@ -296,16 +294,6 @@
       submitBtn.disabled = false;
       showError('Network error — please check your connection and try again.');
     });
-  });
-
-  resetBtn.addEventListener('click', function () {
-    selected = null;
-    nameInput.value = '';
-    emailInput.value = '';
-    consentInput.checked = false;
-    form.hidden = false;
-    successEl.hidden = true;
-    paintSelection();
   });
 
   paintSelection();
