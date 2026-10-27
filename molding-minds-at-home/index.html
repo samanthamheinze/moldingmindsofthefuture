@@ -7,89 +7,7 @@
   <meta name="description" content="Learning resources for parents supporting their children at home — diagnostics, phonics, financial literacy, and Pre-K activities.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --green:#4BAE8A; --green-dark:#389070; --purple:#7C5CBF; --purple-dark:#6348A8;
-      --blue:#4A90D9; --gold:#F5C842; --dark:#2C2547; --mid:#5E5878; --muted:#9B98B0;
-      --white:#ffffff; --bg:#F8F7FC; --border:#E8E4F3;
-      --radius:16px; --shadow-sm:0 2px 12px rgba(44,37,71,0.07); --shadow-md:0 8px 32px rgba(44,37,71,0.12);
-      --nav-h:116px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); }
-    a { text-decoration: none; color: inherit; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: #fff;
-      border-bottom: 2px solid rgba(124,92,191,0.18); z-index: 200;
-      display: flex; align-items: center; padding: 0 clamp(20px,5vw,64px);
-      box-shadow: 0 2px 20px rgba(44,37,71,0.08);
-    }
-    .nav-inner { width: 100%; max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
-    .nav-logo svg { display: block; width: 300px; height: auto; }
-    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-    .nav-links a { font-size: 14px; font-weight: 600; color: var(--mid); padding: 8px 14px; border-radius: 10px; transition: background 0.2s, color 0.2s; }
-    .nav-links a:hover { background: rgba(124,92,191,0.10); color: var(--purple-dark); }
-    .nav-links a.active { color: var(--purple-dark); font-weight: 700; }
-    .nav-cta { background: var(--purple) !important; color: #fff !important; border-radius: 10px; padding: 10px 18px !important; font-weight: 700 !important; font-size: 13px !important; }
-    .nav-cta:hover { background: var(--purple-dark) !important; }
-    @media (max-width: 900px) { .nav-links { display: none; } }
-    @media (max-width: 680px) { .nav-logo svg { width: 220px; } }
-
-    .page-header {
-      padding: calc(var(--nav-h) + 56px) clamp(20px,5vw,64px) 60px;
-      background: linear-gradient(150deg,#EDE8F8 0%,#F5F2FD 50%,#E8F5EF 100%);
-      text-align: center;
-    }
-    .page-label { font-size:11px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--purple); margin-bottom:14px; }
-    .page-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:clamp(32px,5vw,56px); color:var(--dark); line-height:1.1; letter-spacing:-1px; margin-bottom:18px; }
-    .page-sub { font-size:clamp(16px,1.8vw,18px); color:var(--mid); font-weight:500; max-width:580px; margin:0 auto 36px; line-height:1.7; }
-
-    section { padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
-    section:nth-child(even) { background: #fff; }
-    .section-inner { max-width: 1140px; margin: 0 auto; }
-    .section-label { font-size:11px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--purple); margin-bottom:10px; }
-    .section-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:clamp(26px,3.5vw,40px); color:var(--dark); letter-spacing:-0.5px; margin-bottom:14px; }
-    .section-sub { font-size:clamp(15px,1.6vw,17px); color:var(--mid); font-weight:500; max-width:620px; line-height:1.7; margin-bottom:48px; }
-
-    .featured-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
-    .featured-img { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-md); }
-    .featured-img img { width:100%; display:block; }
-    .featured-badge { display:inline-block; background:var(--purple); color:#fff; font-size:11px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:4px 14px; border-radius:99px; margin-bottom:16px; }
-    .featured-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:clamp(22px,2.8vw,32px); color:var(--dark); line-height:1.2; margin-bottom:14px; letter-spacing:-0.5px; }
-    .featured-desc { font-size:16px; color:var(--mid); line-height:1.7; margin-bottom:24px; }
-    .featured-features { list-style:none; margin-bottom:28px; display:flex; flex-direction:column; gap:8px; }
-    .featured-features li { font-size:14px; font-weight:600; color:var(--dark); display:flex; align-items:flex-start; gap:10px; }
-    .featured-features li::before { content:'✓'; display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:rgba(124,92,191,0.15); color:var(--purple); font-size:11px; font-weight:900; flex-shrink:0; margin-top:1px; }
-
-    .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--purple); color:#fff; font-weight:800; font-size:15px; padding:14px 28px; border-radius:12px; transition:background 0.2s, transform 0.15s; }
-    .btn-primary:hover { background:var(--purple-dark); transform:translateY(-2px); }
-    .btn-green { background:var(--green) !important; }
-    .btn-green:hover { background:var(--green-dark) !important; }
-
-    .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:24px; }
-    .product-card { background:#fff; border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); transition:transform 0.2s, box-shadow 0.2s; }
-    .product-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
-    .card-thumb { height:200px; overflow:hidden; flex-shrink:0; }
-    .card-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-    .card-thumb-ph { height:200px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; font-weight:900; font-family:'Nunito',sans-serif; text-align:center; padding:20px; }
-    .card-body { padding:18px 18px 20px; flex:1; display:flex; flex-direction:column; }
-    .card-grade { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.10em; color:var(--muted); margin-bottom:6px; }
-    .card-title { font-weight:800; font-size:15px; color:var(--dark); line-height:1.4; flex:1; margin-bottom:14px; }
-    .card-footer { display:flex; align-items:center; }
-    .card-link { font-weight:800; font-size:13px; color:var(--purple); }
-    .card-link:hover { color:var(--purple-dark); }
-    .card-free { font-weight:800; font-size:13px; color:var(--green); }
-
-    .info-box { padding:20px 28px; border-radius:14px; border:1.5px solid; margin-top:24px; }
-
-    footer { background:var(--dark); color:rgba(255,255,255,0.80); padding:48px clamp(20px,5vw,64px) 32px; }
-    .footer-inner { max-width:1140px; margin:0 auto; }
-    .footer-bottom { border-top:1px solid rgba(255,255,255,0.12); padding-top:20px; margin-top:32px; font-size:13px; color:rgba(255,255,255,0.45); text-align:center; }
-
-    @media (max-width:760px) { .featured-grid { grid-template-columns:1fr; } }
-  </style>
+  <style>body{margin:0;background:#FBF6EC;font-family:Poppins,sans-serif;color:#2C2547} a{color:#5B4596;text-decoration:none} a:hover{color:#7C5CBF} *{box-sizing:border-box}</style>
 </head>
 
 <body>
@@ -97,13 +15,46 @@
 
 <header style="position:sticky;top:0;z-index:30;background:rgba(251,246,236,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #EFE6D2">
   <div style="max-width:1200px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-    <a href="/"><img src="/educators/assets/logo-horizontal-light.svg" alt="Molding Minds of the Future" style="height:46px;display:block"></a>
+    <a href="/" style="flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 130" role="img" aria-label="Molding Minds of the Future" style="height:64px;width:236px;display:block;flex:none">
+  <line x1="65" y1="12" x2="65" y2="2" stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"></line>
+  <line x1="82" y1="16" x2="90" y2="7" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"></line>
+  <line x1="48" y1="16" x2="40" y2="7" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"></line>
+  <line x1="96" y1="27" x2="106" y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"></line>
+  <line x1="34" y1="27" x2="24" y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"></line>
+  <line x1="108" y1="42" x2="119" y2="38" stroke="#F5C842" stroke-width="1.4" stroke-linecap="round" opacity="0.55"></line>
+  <line x1="22" y1="42" x2="11" y2="38" stroke="#F5C842" stroke-width="1.4" stroke-linecap="round" opacity="0.55"></line>
+  <path d="M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z" fill="#EDE8F8"></path>
+  <path d="M65 12 C85 12 98 28 98 48 L32 48 C32 28 45 12 65 12Z" fill="#D4C8F0" opacity="0.55"></path>
+  <circle cx="65" cy="48" r="24" fill="#4A90D9"></circle>
+  <ellipse cx="65" cy="48" rx="24" ry="10.5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"></ellipse>
+  <ellipse cx="65" cy="40" rx="19" ry="7" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"></ellipse>
+  <ellipse cx="65" cy="56" rx="19" ry="7" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"></ellipse>
+  <line x1="65" y1="24" x2="65" y2="72" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"></line>
+  <path d="M53 26 Q46 48 53 70" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"></path>
+  <path d="M77 26 Q84 48 77 70" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"></path>
+  <path d="M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z" fill="rgba(75,174,138,0.92)"></path>
+  <path d="M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z" fill="rgba(75,174,138,0.88)"></path>
+  <path d="M55 55 C58 52 62 53 62 57 C62 60 59 61 57 60 C54 59 54 57 55 55Z" fill="rgba(75,174,138,0.78)"></path>
+  <circle cx="65" cy="13" r="5" fill="#F5C842"></circle>
+  <circle cx="65" cy="13" r="2.5" fill="#FFD700"></circle>
+  <rect x="59" y="97" width="12" height="8" rx="4" fill="#D4C8F0"></rect>
+  <text x="124" y="52" font-family="Poppins,'Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#2C2547">Molding Minds</text>
+  <defs>
+    <linearGradient id="bargrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C5CBF"></stop>
+      <stop offset="50%" stop-color="#4A90D9"></stop>
+      <stop offset="100%" stop-color="#4BAE8A"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#bargrad)"></rect>
+  <text x="124" y="80" font-family="Poppins,'Segoe UI',sans-serif" font-weight="300" font-size="10" fill="#7C5CBF" letter-spacing="5">OF THE FUTURE</text>
+</svg></a>
     <nav style="display:flex;gap:26px;align-items:center;flex-wrap:wrap;font:600 16px Fredoka,sans-serif">
       <a href="/" style="color:#2C2547">Home</a>
       <a href="/educators/" style="color:#2C2547">Educators</a>
       <a href="/molding-minds-at-home/" style="color:#5B4596;border-bottom:3px solid #7C5CBF;padding-bottom:2px">Families</a>
-      <a href="/freebie/parent/" style="color:#2C2547">Free Resources</a>
-      <a href="/#about" style="color:#2C2547">About</a>
+      <a href="/free-resources/" style="color:#2C2547">Free Resources</a>
+      <a href="/about/" style="color:#2C2547">About</a>
       <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" style="background:#4BAE8A;color:#fff;border-radius:12px;padding:11px 20px;transform:rotate(-2deg);box-shadow:3px 3px 0 #2C2547;display:inline-block" style-hover="filter:brightness(0.94);color:#fff">Shop on TPT</a>
     </nav>
   </div>
@@ -124,7 +75,7 @@
       </div>
       <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:4px">
         <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" style="background:#7C5CBF;color:#fff;border-radius:14px;padding:17px 26px;font:600 19px/1 Fredoka,sans-serif;box-shadow:4px 4px 0 #2C2547" style-hover="filter:brightness(0.94);color:#fff">Shop on TPT</a>
-        <a href="/freebie/parent/" style="background:#FFE88A;color:#2C2547;padding:17px 24px;font:600 19px/1 Fredoka,sans-serif;transform:rotate(2deg);box-shadow:0 6px 14px rgba(44,37,71,0.15)" style-hover="color:#2C2547">Get a free resource</a>
+        <a href="/free-resources/" style="background:#FFE88A;color:#2C2547;padding:17px 24px;font:600 19px/1 Fredoka,sans-serif;transform:rotate(2deg);box-shadow:0 6px 14px rgba(44,37,71,0.15)" style-hover="color:#2C2547">Get a free resource</a>
       </div>
     </div>
     <div style="flex:1 1 440px;position:relative;padding:20px 10px 30px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));align-items:start">
@@ -141,7 +92,7 @@
   <div style="max-width:1200px;margin:0 auto;padding:44px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px">
     <div style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:54px;height:54px;border-radius:16px;background:#EEE8FA;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 40px/1 Fredoka,sans-serif;color:#5B4596;transform:rotate(-5deg);box-shadow:3px 3px 0 #2C2547">☺</span><div><div style="font:900 19px/1.2 Nunito,sans-serif">Fun and engaging</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">So much fun it doesn't feel like learning.</div></div></div>
     <div style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:54px;height:54px;border-radius:16px;background:#E6F0FB;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 24px/1 Fredoka,sans-serif;color:#2A65A8;transform:rotate(4deg);box-shadow:3px 3px 0 #2C2547">✓</span><div><div style="font:900 19px/1.2 Nunito,sans-serif">Step by step guides</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Know exactly what to say and do.</div></div></div>
-    <div style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:54px;height:54px;border-radius:16px;background:#EEE8FA;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 24px/1 Fredoka,sans-serif;color:#5B4596;transform:rotate(-3deg);box-shadow:3px 3px 0 #2C2547">★</span><div><div style="font:900 19px/1.2 Nunito,sans-serif">Grow together</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Learning moments you share as a family.</div></div></div>
+    <div style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:54px;height:54px;border-radius:16px;background:#EEE8FA;border:2px solid #2C2547;display:flex;align-items:center;justify-content:center;font:700 24px/1 Fredoka,sans-serif;color:#5B4596;transform:rotate(-3deg);box-shadow:3px 3px 0 #2C2547"><svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true"><path d="M12 31h16l-2 7H14z" fill="#E8A23A" stroke="#2C2547" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 31c0-6 .5-11-.5-16" fill="none" stroke="#2C2547" stroke-width="2.2" stroke-linecap="round"/><path d="M19.6 20C14 20 9 16 8 9c7 0 11.5 4 11.6 11z" fill="#4BAE8A" stroke="#2C2547" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 15c1-6 5-10 12-10-.5 7-5 10.5-12 10z" fill="#A7E1CB" stroke="#2C2547" stroke-width="2.2" stroke-linejoin="round"/></svg></span><div><div style="font:900 19px/1.2 Nunito,sans-serif">Grow together</div><div style="font:400 14px/1.5 Poppins,sans-serif;color:#4A4560">Learning moments you share as a family.</div></div></div>
   </div>
 </section>
 
@@ -224,15 +175,64 @@
       <div style="font:400 17px/1.7 Poppins,sans-serif;color:#fff">Showing up for your child matters more than any worksheet. Start with one activity tonight, and have fun learning together.</div>
       <div style="font:700 28px/1 Caveat,cursive;color:#FFE88A;transform:rotate(-2deg);align-self:flex-start">with love, Samantha</div>
     </div>
-    <div style="position:relative;flex:none;width:210px;height:210px;margin:0 auto;border-radius:50%;border:4px solid #fff;box-shadow:5px 5px 0 #2C2547;overflow:hidden;transform:rotate(3deg);background:#E8A23A"><img src="/molding-minds-at-home/assets/site/samantha-families.jpeg" alt="Samantha" style="width:100%;height:100%;object-fit:cover;object-position:50% 0%;transform:scale(1.25);transform-origin:50% 10%;display:block"></div>
+    <div style="position:relative;flex:none;width:160px;margin:0 auto;background:#fff;padding:8px 8px 8px;box-shadow:5px 5px 0 #2C2547;border:2px solid #2C2547;transform:rotate(3deg)"><img src="/molding-minds-at-home/assets/site/samantha-families-2.jpg" alt="Samantha" style="width:100%;aspect-ratio:260/440;object-fit:cover;display:block"></div>
   </div>
 </section>
 
-<footer style="border-top:1px solid #EFE6D2;background:#F6F0E2">
-  <div style="max-width:1200px;margin:0 auto;padding:36px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
-    <img src="/educators/assets/logo-horizontal-light.svg" alt="Molding Minds of the Future" style="height:40px">
-    <div style="display:flex;gap:22px;flex-wrap:wrap;font:600 15px Fredoka,sans-serif"><a href="/">Home</a><a href="/educators/">Educators</a><a href="/molding-minds-at-home/">Families</a><a href="/freebie/parent/">Free Resources</a><a href="/#about">About</a><a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank">TPT Store</a></div>
-    <div style="font:400 13px Poppins,sans-serif;color:#6B6785">© 2026 Molding Minds of the Future</div>
+<footer style="background:#F6F0E2;border-top:1px solid #EFE6D2">
+  <div style="max-width:1200px;margin:0 auto;padding:32px 32px 24px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+      <a href="/" style="flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 130" role="img" aria-label="Molding Minds of the Future" style="height:52px;width:192px;display:block;flex:none">
+  <line x1="65" y1="12" x2="65" y2="2" stroke="#F5C842" stroke-width="2.8" stroke-linecap="round"></line>
+  <line x1="82" y1="16" x2="90" y2="7" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"></line>
+  <line x1="48" y1="16" x2="40" y2="7" stroke="#F5C842" stroke-width="2.2" stroke-linecap="round"></line>
+  <line x1="96" y1="27" x2="106" y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"></line>
+  <line x1="34" y1="27" x2="24" y2="19" stroke="#F5C842" stroke-width="1.8" stroke-linecap="round" opacity="0.8"></line>
+  <line x1="108" y1="42" x2="119" y2="38" stroke="#F5C842" stroke-width="1.4" stroke-linecap="round" opacity="0.55"></line>
+  <line x1="22" y1="42" x2="11" y2="38" stroke="#F5C842" stroke-width="1.4" stroke-linecap="round" opacity="0.55"></line>
+  <path d="M65 12 C45 12 32 28 32 48 C32 60 39 70 49 76 L49 92 C49 96 51 98 54 98 L76 98 C79 98 81 96 81 92 L81 76 C91 70 98 60 98 48 C98 28 85 12 65 12Z" fill="#EDE8F8"></path>
+  <path d="M65 12 C85 12 98 28 98 48 L32 48 C32 28 45 12 65 12Z" fill="#D4C8F0" opacity="0.55"></path>
+  <circle cx="65" cy="48" r="24" fill="#4A90D9"></circle>
+  <ellipse cx="65" cy="48" rx="24" ry="10.5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"></ellipse>
+  <ellipse cx="65" cy="40" rx="19" ry="7" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"></ellipse>
+  <ellipse cx="65" cy="56" rx="19" ry="7" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"></ellipse>
+  <line x1="65" y1="24" x2="65" y2="72" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"></line>
+  <path d="M53 26 Q46 48 53 70" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"></path>
+  <path d="M77 26 Q84 48 77 70" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"></path>
+  <path d="M54 40 C57 36 63 36 65 40 C67 43 65 48 61 48 C57 48 53 45 54 40Z" fill="rgba(75,174,138,0.92)"></path>
+  <path d="M67 44 C70 40 76 41 77 45 C78 48 76 51 73 50 C70 49 66 47 67 44Z" fill="rgba(75,174,138,0.88)"></path>
+  <path d="M55 55 C58 52 62 53 62 57 C62 60 59 61 57 60 C54 59 54 57 55 55Z" fill="rgba(75,174,138,0.78)"></path>
+  <circle cx="65" cy="13" r="5" fill="#F5C842"></circle>
+  <circle cx="65" cy="13" r="2.5" fill="#FFD700"></circle>
+  <rect x="59" y="97" width="12" height="8" rx="4" fill="#D4C8F0"></rect>
+  <text x="124" y="52" font-family="Poppins,'Segoe UI',sans-serif" font-weight="800" font-size="30" fill="#2C2547">Molding Minds</text>
+  <defs>
+    <linearGradient id="bargrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C5CBF"></stop>
+      <stop offset="50%" stop-color="#4A90D9"></stop>
+      <stop offset="100%" stop-color="#4BAE8A"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="124" y="62" width="230" height="2.5" rx="1.5" fill="url(#bargrad)"></rect>
+  <text x="124" y="80" font-family="Poppins,'Segoe UI',sans-serif" font-weight="300" font-size="10" fill="#7C5CBF" letter-spacing="5">OF THE FUTURE</text>
+</svg></a>
+      <div style="display:flex;align-items:center;gap:clamp(10px,1.6vw,22px);flex-wrap:wrap">
+        <nav style="display:flex;gap:clamp(10px,1.4vw,20px);flex-wrap:wrap;align-items:center;font:600 15px Fredoka,sans-serif">
+          <a href="/" style="color:#2C2547">Home</a><a href="/educators/" style="color:#2C2547">Educators</a><a href="/molding-minds-at-home/" style="color:#2C2547">Families</a><a href="/free-resources/" style="color:#2C2547">Free Resources</a><a href="/about/" style="color:#2C2547">About</a>
+        </nav>
+        <a href="https://www.teacherspayteachers.com/store/molding-minds-of-the-future" target="_blank" rel="noopener" style="background:#4BAE8A;color:#fff;border-radius:12px;padding:10px 18px;font:600 15px/1 Fredoka,sans-serif;transform:rotate(-2deg);box-shadow:3px 3px 0 #2C2547;white-space:nowrap">Shop on TPT</a>
+        <div style="display:flex;gap:8px;align-items:center">
+          <a href="https://www.instagram.com/moldingmindsofthefuture/" target="_blank" rel="noopener" aria-label="Instagram" style="width:38px;height:38px;border-radius:10px;background:#fff;border:2px solid #2C2547;box-shadow:3px 3px 0 #2C2547;display:flex;align-items:center;justify-content:center"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" style="width:18px;height:18px;display:block"></a>
+          <a href="https://pin.it/5vnqliDAi" target="_blank" rel="noopener" aria-label="Pinterest" style="width:38px;height:38px;border-radius:10px;background:#fff;border:2px solid #2C2547;box-shadow:3px 3px 0 #2C2547;display:flex;align-items:center;justify-content:center"><img src="https://cdn.simpleicons.org/pinterest/BD081C" alt="Pinterest" style="width:18px;height:18px;display:block"></a>
+          <a href="https://www.facebook.com/profile.php?id=61588932573453" target="_blank" rel="noopener" aria-label="Facebook" style="width:38px;height:38px;border-radius:10px;background:#fff;border:2px solid #2C2547;box-shadow:3px 3px 0 #2C2547;display:flex;align-items:center;justify-content:center"><img src="https://cdn.simpleicons.org/facebook/0866FF" alt="Facebook" style="width:18px;height:18px;display:block"></a>
+          <a href="mailto:samantha@moldingmindsofthefuture.com" target="_blank" rel="noopener" aria-label="Email" style="width:38px;height:38px;border-radius:10px;background:#fff;border:2px solid #2C2547;box-shadow:3px 3px 0 #2C2547;display:flex;align-items:center;justify-content:center"><img src="https://cdn.simpleicons.org/maildotru/2C2547" alt="Email" style="width:18px;height:18px;display:block"></a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-top:14px;border-top:2px dashed #E4DCC8">
+      <div style="font:400 13px Poppins,sans-serif;color:#6B6785">© 2026 Molding Minds of the Future</div>
+      <div style="display:flex;align-items:center;gap:8px;font:700 20px/1 Caveat,cursive;color:#5B4596">made with love <svg viewBox="0 0 60 54" width="18" height="16" aria-hidden="true" style="display:block;flex:none"><path d="M30 50C18 41 5 31 5 18 5 10 11 4 18 4c5 0 9 3 12 8 3-5 7-8 12-8 7 0 13 6 13 14 0 13-13 23-25 32z" fill="#F5C842" stroke="#2C2547" stroke-width="3.5" stroke-linejoin="round"/></svg></div>
+    </div>
   </div>
 </footer>
 </div>
