@@ -21,7 +21,7 @@
 <div style="background:#FBF6EC;overflow:hidden;color:#2C2547">
 
 <header style="position:sticky;top:0;z-index:30;background:rgba(251,246,236,0.9);backdrop-filter:blur(12px);border-bottom:1px solid #EFE6D2">
-  <div style="max-width:1200px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:nowrap">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
     <a href="/" style="flex:none"><img src="/educators/assets/logo-horizontal-light.svg" alt="Molding Minds of the Future" style="height:64px;width:auto;display:block"></a>
     <nav style="display:flex;gap:clamp(14px,2vw,26px);align-items:center;justify-content:flex-end;flex-wrap:wrap;font:600 16px Fredoka,sans-serif">
       <a href="/" style="color:#2C2547">Home</a>
@@ -103,7 +103,7 @@
       <div style="font:400 13px/1.5 Poppins,sans-serif;color:#4A4560;text-align:center">No spam, ever. Unsubscribe anytime.</div>
     </form>
 
-    <div id="fr-success" hidden style="display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;padding:10px 0">
+    <div id="fr-success" hidden style="display:none;flex-direction:column;gap:12px;align-items:center;text-align:center;padding:10px 0">
       <div style="width:60px;height:60px;border-radius:50%;background:#4BAE8A;color:#fff;display:flex;align-items:center;justify-content:center;font:700 30px/1 Fredoka,sans-serif;box-shadow:3px 3px 0 #2C2547">✓</div>
       <div style="font:900 26px/1.15 Nunito,sans-serif">Check your inbox!</div>
       <div style="font:700 24px/1.2 Caveat,cursive;color:#7C5CBF">So glad you're here.</div>
@@ -276,7 +276,9 @@
       if (data && data.ok) {
         if (typeof window.ga4 === 'function') window.ga4('free_resources_signup_submitted', { audience: selected });
         form.hidden = true;
+        form.style.display = 'none';
         successEl.hidden = false;
+        successEl.style.display = 'flex';
         successLinks.innerHTML = '';
         var auds = selected === 'both' ? ['parent', 'educator'] : [selected];
         auds.forEach(function (aud) {
