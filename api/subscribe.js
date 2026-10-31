@@ -77,6 +77,21 @@ export default async function handler(req, res) {
     return;
   }
 
+  if (row) {
+    try {
+      const { syncLeadToSheet } = await import('./_lib/sheetsSync.js');
+      await syncLeadToSheet({
+        email: row.email,
+        name: row.name,
+        audience: row.audience,
+        status: row.status,
+        created_at: row.created_at,
+      });
+    } catch (err) {
+      console.error('subscribe: sheet sync failed', err);
+    }
+  }
+
   // row.welcome_email_sent_at reflects the pre-existing value, since this
   // upsert never writes that column itself — so "null here" means "never
   // sent before," whether the lead was just inserted or just reactivated.
