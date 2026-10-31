@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       SELECT COALESCE(utm_source, 'direct / unknown') AS source, audience, count(*)::int AS count
       FROM leads
       WHERE status = 'active'
-      GROUP BY source, audience
+      GROUP BY COALESCE(utm_source, 'direct / unknown'), audience
       ORDER BY count DESC
     `;
   } catch (err) {
