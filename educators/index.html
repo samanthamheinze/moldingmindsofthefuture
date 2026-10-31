@@ -774,6 +774,22 @@
   var SHOW_DELAY_MS = 5000;
   var SOURCE = 'popup_educators';
 
+  // Capture utm_* params (if present) into sessionStorage so they survive
+  // navigation to another page before the visitor actually signs up.
+  (function captureUtm() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (key) {
+        var val = params.get(key);
+        if (val) sessionStorage.setItem('mm_' + key, val);
+      });
+    } catch (e) {}
+  })();
+  function getStoredUtm(key) {
+    try { return sessionStorage.getItem('mm_' + key) || null; }
+    catch (e) { return null; }
+  }
+
   if (typeof window.ga4 !== 'function') {
     window.ga4 = function (event, params) {
       if (typeof gtag !== 'undefined') gtag('event', event, params);
@@ -879,7 +895,10 @@
         source: SOURCE,
         consent: true,
         hp: hpInput.value,
-        hp_time_ms: 5000
+        hp_time_ms: 5000,
+        utm_source: getStoredUtm('utm_source'),
+        utm_medium: getStoredUtm('utm_medium'),
+        utm_campaign: getStoredUtm('utm_campaign')
       })
     }).then(function (res) {
       return res.json().catch(function () { return { ok: false, error: 'bad_response' }; });

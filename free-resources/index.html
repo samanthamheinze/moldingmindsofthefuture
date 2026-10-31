@@ -193,6 +193,22 @@
   var pageLoadedAt = Date.now();
   var selected = null; // 'parent' | 'educator' | 'both'
 
+  // Capture utm_* params (if present) into sessionStorage so they survive
+  // navigation to another page before the visitor actually signs up.
+  (function captureUtm() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (key) {
+        var val = params.get(key);
+        if (val) sessionStorage.setItem('mm_' + key, val);
+      });
+    } catch (e) {}
+  })();
+  function getStoredUtm(key) {
+    try { return sessionStorage.getItem('mm_' + key) || null; }
+    catch (e) { return null; }
+  }
+
   var pickParent = document.getElementById('fr-pick-parent');
   var pickEducator = document.getElementById('fr-pick-educator');
   var pickBoth = document.getElementById('fr-pick-both');
@@ -270,7 +286,10 @@
         source: 'free_resources_page_' + selected,
         consent: true,
         hp: hpInput.value,
-        hp_time_ms: Date.now() - pageLoadedAt
+        hp_time_ms: Date.now() - pageLoadedAt,
+        utm_source: getStoredUtm('utm_source'),
+        utm_medium: getStoredUtm('utm_medium'),
+        utm_campaign: getStoredUtm('utm_campaign')
       })
     }).then(function (res) {
       return res.json().catch(function () { return { ok: false, error: 'bad_response' }; });

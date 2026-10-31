@@ -1,5 +1,6 @@
 import welcomeParentHtml from './templates/welcome-parent.js';
 import welcomeEducatorHtml from './templates/welcome-educator.js';
+import { wrapTptLinks } from './tracking.js';
 
 const RESEND_API_URL = 'https://api.resend.com/emails';
 
@@ -63,7 +64,7 @@ const WELCOME_EMAILS = {
 
 // Called by api/subscribe.js via a dynamic import('./_lib/email.js') —
 // keep this signature and file path exactly as-is for that integration.
-export async function sendWelcomeEmail({ email, audience, unsubscribeToken }) {
+export async function sendWelcomeEmail({ email, audience, unsubscribeToken, leadId }) {
   const entry = WELCOME_EMAILS[audience];
   if (!entry) {
     throw new Error(`sendWelcomeEmail: unknown audience "${audience}"`);
@@ -71,7 +72,8 @@ export async function sendWelcomeEmail({ email, audience, unsubscribeToken }) {
 
   const siteUrl = process.env.SITE_URL || '';
   const unsubscribeUrl = `${siteUrl}/api/unsubscribe?token=${unsubscribeToken}`;
-  const html = entry.html.split('{{UNSUBSCRIBE_URL}}').join(unsubscribeUrl);
+  let html = entry.html.split('{{UNSUBSCRIBE_URL}}').join(unsubscribeUrl);
+  html = wrapTptLinks(html, { source: `welcome_${audience}`, leadId });
 
   return sendEmail({ to: email, subject: entry.subject, html });
 }

@@ -12,9 +12,16 @@ export default async function handler(req, res) {
     let rows;
     try {
       rows = await sql`
-        SELECT id, audience, subject, status, recipient_count, created_at, sent_at
-        FROM campaigns
-        ORDER BY created_at DESC
+        SELECT c.id, c.audience, c.subject, c.status, c.recipient_count, c.created_at, c.sent_at,
+          c.scheduled_for, COALESCE(clk.click_count, 0)::int AS click_count
+        FROM campaigns c
+        LEFT JOIN (
+          SELECT campaign_id, count(*) AS click_count
+          FROM clicks
+          WHERE campaign_id IS NOT NULL
+          GROUP BY campaign_id
+        ) clk ON clk.campaign_id = c.id
+        ORDER BY c.created_at DESC
       `;
     } catch (err) {
       console.error('admin/campaigns GET: query failed', err);
@@ -36,7 +43,7 @@ export default async function handler(req, res) {
     }
     if (!body || typeof body !== 'object') body = {};
 
-    const { audience, subject, html_body, freebie_url } = body;
+    const { audience, subject, html_body, freebie_url, scheduled_for } = body;
 
     if (!VALID_AUDIENCES.has(audience)) {
       res.status(400).json({ ok: false, error: 'invalid_audience' });
@@ -50,12 +57,20 @@ export default async function handler(req, res) {
       res.status(400).json({ ok: false, error: 'invalid_html_body' });
       return;
     }
+    let scheduledForValue = null;
+    if (typeof scheduled_for === 'string' && scheduled_for.trim()) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(scheduled_for.trim())) {
+        res.status(400).json({ ok: false, error: 'invalid_scheduled_for' });
+        return;
+      }
+      scheduledForValue = scheduled_for.trim();
+    }
 
     let rows;
     try {
       rows = await sql`
-        INSERT INTO campaigns (audience, subject, html_body, freebie_url, status)
-        VALUES (${audience}, ${subject}, ${html_body}, ${freebie_url ?? null}, 'draft')
+        INSERT INTO campaigns (audience, subject, html_body, freebie_url, status, scheduled_for)
+        VALUES (${audience}, ${subject}, ${html_body}, ${freebie_url ?? null}, 'draft', ${scheduledForValue})
         RETURNING *
       `;
     } catch (err) {
