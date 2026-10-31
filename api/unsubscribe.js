@@ -91,11 +91,20 @@ export default async function handler(req, res) {
   if (token) {
     try {
       const sql = getSql();
-      await sql`
+      const rows = await sql`
         UPDATE leads
         SET status = 'unsubscribed', unsubscribed_at = now()
         WHERE unsubscribe_token = ${token} AND status != 'unsubscribed'
+        RETURNING email, name, audience, status, created_at
       `;
+      if (rows[0]) {
+        try {
+          const { syncLeadToSheet } = await import('./_lib/sheetsSync.js');
+          await syncLeadToSheet(rows[0]);
+        } catch (syncErr) {
+          console.error('unsubscribe: sheet sync failed', syncErr);
+        }
+      }
     } catch (err) {
       // Never let a lookup/update failure surface to the visitor — the page
       // must always render the same friendly confirmation regardless of
