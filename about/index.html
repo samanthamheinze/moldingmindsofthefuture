@@ -205,5 +205,18 @@
   </div>
 </footer>
 </div>
+<script>
+(function () {
+  // Capture utm_* params (if present) into sessionStorage so they survive
+  // navigation to another page before the visitor actually signs up.
+  try {
+    var params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (key) {
+      var val = params.get(key);
+      if (val) sessionStorage.setItem('mm_' + key, val);
+    });
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>

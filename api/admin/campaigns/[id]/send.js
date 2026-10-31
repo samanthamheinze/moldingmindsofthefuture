@@ -2,6 +2,7 @@ import { getSql } from '../../../_lib/db.js';
 import { requireAdmin } from '../../../_lib/auth.js';
 import { sendEmail } from '../../../_lib/email.js';
 import { wrapEmail } from '../../../_lib/emailTemplate.js';
+import { wrapTptLinks } from '../../../_lib/tracking.js';
 
 const DEFAULT_LIMIT = 200;
 const CONCURRENCY = 5;
@@ -106,7 +107,7 @@ export default async function handler(req, res) {
     await Promise.all(
       batch.map(async (lead) => {
         const unsubscribeUrl = `${siteUrl}/api/unsubscribe?token=${lead.unsubscribe_token}`;
-        const html = wrapEmail({
+        let html = wrapEmail({
           subject: campaign.subject,
           bodyHtml:
             campaign.html_body +
@@ -115,6 +116,7 @@ export default async function handler(req, res) {
               : ''),
           unsubscribeUrl,
         });
+        html = wrapTptLinks(html, { source: 'campaign', campaignId: id, leadId: lead.id });
 
         try {
           const messageId = await sendEmail({ to: lead.email, subject: campaign.subject, html });

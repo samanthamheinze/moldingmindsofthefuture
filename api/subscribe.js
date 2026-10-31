@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   }
   if (!body || typeof body !== 'object') body = {};
 
-  const { audience: rawAudience, source, hp, hp_time_ms, consent } = body;
+  const { audience: rawAudience, source, hp, hp_time_ms, consent, utm_source, utm_medium, utm_campaign } = body;
 
   // Bot check happens before validation errors are surfaced, but we still
   // need a normalized email/audience shape to decide what "suspected" means.
@@ -51,13 +51,18 @@ export default async function handler(req, res) {
     return;
   }
 
+  const normalizeUtm = (v) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, 100) : null);
+  const utmSource = normalizeUtm(utm_source);
+  const utmMedium = normalizeUtm(utm_medium);
+  const utmCampaign = normalizeUtm(utm_campaign);
+
   const sql = getSql();
 
   let row;
   try {
     const rows = await sql`
-      INSERT INTO leads (email, name, audience, source, status, terms_accepted_at)
-      VALUES (${email}, ${name}, ${audience}, ${source ?? null}, 'active', now())
+      INSERT INTO leads (email, name, audience, source, status, terms_accepted_at, utm_source, utm_medium, utm_campaign)
+      VALUES (${email}, ${name}, ${audience}, ${source ?? null}, 'active', now(), ${utmSource}, ${utmMedium}, ${utmCampaign})
       ON CONFLICT (email) DO UPDATE
         SET name = excluded.name,
             audience = excluded.audience,
@@ -87,6 +92,7 @@ export default async function handler(req, res) {
           email: row.email,
           audience: aud,
           unsubscribeToken: row.unsubscribe_token,
+          leadId: row.id,
         });
       }
       await sql`

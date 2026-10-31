@@ -66,6 +66,7 @@
   input[type="text"],
   input[type="password"],
   input[type="url"],
+  input[type="date"],
   select,
   textarea {
     width: 100%;
@@ -128,6 +129,7 @@
   .status-sending { background: #fdf0d9; color: #a3700a; }
   .status-sent { background: #e2f5ec; color: #1f7a56; }
   .status-failed { background: #fbe4e1; color: #c0564a; }
+  .due-tag { background: #fbe4e1; color: #c0564a; }
   .top-actions { display: flex; align-items: center; gap: 12px; }
   .top-actions a, .top-actions button { margin-top: 0; }
   #progress-msg { font-size: 13px; margin-top: 10px; color: var(--dark); }
@@ -190,9 +192,28 @@
         <label for="compose-freebie">Freebie URL (optional)</label>
         <input type="url" id="compose-freebie" placeholder="https://moldingmindsofthefuture.com/...">
 
+        <label for="compose-scheduled">Scheduled send date (optional reminder — you still click Send)</label>
+        <input type="date" id="compose-scheduled">
+
         <button type="submit">Save Draft</button>
         <div class="error-msg" id="compose-error"></div>
       </form>
+    </section>
+
+    <section class="card">
+      <h2>Channel Performance</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Audience</th>
+            <th>Signups</th>
+          </tr>
+        </thead>
+        <tbody id="channels-body">
+          <tr><td colspan="3">Loading…</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="card">
@@ -204,12 +225,14 @@
             <th>Audience</th>
             <th>Status</th>
             <th>Recipients</th>
+            <th>Clicks</th>
             <th>Created</th>
+            <th>Scheduled</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody id="campaigns-body">
-          <tr><td colspan="6">Loading…</td></tr>
+          <tr><td colspan="8">Loading…</td></tr>
         </tbody>
       </table>
       <div id="progress-msg"></div>
@@ -230,6 +253,7 @@
   var composeForm = document.getElementById('compose-form');
   var composeError = document.getElementById('compose-error');
   var campaignsBody = document.getElementById('campaigns-body');
+  var channelsBody = document.getElementById('channels-body');
   var progressMsg = document.getElementById('progress-msg');
 
   function showDashboard() {
@@ -238,6 +262,7 @@
     headerActions.hidden = false;
     loadStats();
     loadCampaigns();
+    loadChannels();
   }
 
   function showLogin() {
@@ -268,6 +293,32 @@
     return '<span class="status-tag status-' + status + '">' + status + '</span>';
   }
 
+  async function loadChannels() {
+    try {
+      var res = await fetch('/api/admin/channels');
+      if (res.status === 401) { showLogin(); return; }
+      var data = await res.json();
+      if (!data.ok) return;
+      renderChannels(data.channels);
+    } catch (err) {
+      console.error('loadChannels failed', err);
+    }
+  }
+
+  function renderChannels(channels) {
+    if (!channels.length) {
+      channelsBody.innerHTML = '<tr><td colspan="3">No signups yet.</td></tr>';
+      return;
+    }
+    channelsBody.innerHTML = channels.map(function (row) {
+      return '<tr>' +
+        '<td>' + escapeHtml(row.source) + '</td>' +
+        '<td>' + escapeHtml(row.audience) + '</td>' +
+        '<td>' + row.count + '</td>' +
+        '</tr>';
+    }).join('');
+  }
+
   async function loadCampaigns() {
     try {
       var res = await fetch('/api/admin/campaigns');
@@ -282,9 +333,10 @@
 
   function renderCampaigns(campaigns) {
     if (!campaigns.length) {
-      campaignsBody.innerHTML = '<tr><td colspan="6">No campaigns yet.</td></tr>';
+      campaignsBody.innerHTML = '<tr><td colspan="8">No campaigns yet.</td></tr>';
       return;
     }
+    var today = new Date().toISOString().slice(0, 10);
     campaignsBody.innerHTML = campaigns.map(function (c) {
       var created = c.created_at ? new Date(c.created_at).toLocaleDateString() : '';
       var actionCell = '';
@@ -293,12 +345,18 @@
       } else {
         actionCell = '—';
       }
+      var scheduledCell = c.scheduled_for ? escapeHtml(c.scheduled_for) : '—';
+      if (c.scheduled_for && c.status === 'draft' && c.scheduled_for <= today) {
+        scheduledCell += ' <span class="status-tag due-tag">Due</span>';
+      }
       return '<tr>' +
         '<td>' + escapeHtml(c.subject) + '</td>' +
         '<td>' + escapeHtml(c.audience) + '</td>' +
         '<td>' + statusTagHtml(c.status) + '</td>' +
         '<td>' + c.recipient_count + '</td>' +
+        '<td>' + c.click_count + '</td>' +
         '<td>' + created + '</td>' +
+        '<td>' + scheduledCell + '</td>' +
         '<td>' + actionCell + '</td>' +
         '</tr>';
     }).join('');
@@ -386,6 +444,7 @@
       subject: document.getElementById('compose-subject').value,
       html_body: document.getElementById('compose-body').value,
       freebie_url: document.getElementById('compose-freebie').value || null,
+      scheduled_for: document.getElementById('compose-scheduled').value || null,
     };
     try {
       var res = await fetch('/api/admin/campaigns', {
