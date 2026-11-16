@@ -2984,5 +2984,42 @@ document.getElementById('topBarLogo').innerHTML = LOGO_SVG;
   render();
 })();
 </script>
+<script>
+  // Require a student name before the assessment starts; the report and the tutor
+  // script both read awkwardly with a blank name.
+  (function () {
+    var MSG_ID = 'studentNameRequiredMsg';
+    function showMessage(input) {
+      var msg = document.getElementById(MSG_ID);
+      if (!msg) {
+        msg = document.createElement('div');
+        msg.id = MSG_ID;
+        msg.setAttribute('role', 'alert');
+        msg.style.cssText = 'margin:6px 0 10px;font:600 13px/1.4 Poppins,sans-serif;color:#A32D2D';
+        msg.textContent = "Please enter the student's name first so it appears on the report.";
+        input.insertAdjacentElement('afterend', msg);
+      }
+      input.style.borderColor = '#A32D2D';
+      input.focus();
+    }
+    document.addEventListener('input', function (e) {
+      if (e.target && e.target.id === 'studentNameInput' && e.target.value.trim()) {
+        var msg = document.getElementById(MSG_ID);
+        if (msg) msg.remove();
+        e.target.style.borderColor = '';
+      }
+    }, true);
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('button') : null;
+      if (!btn || !/^start assessment/i.test(btn.textContent.trim())) return;
+      var input = document.getElementById('studentNameInput');
+      if (input && !input.value.trim()) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        showMessage(input);
+      }
+    }, true);
+  })();
+</script>
 </body>
 </html>
