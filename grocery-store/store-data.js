@@ -1,2490 +1,526 @@
 (function(){
 const SVG = {
-
-// ── PRODUCE ─────────────────────────────────────────────
-
-tomatoes: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="tomG1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#F05060"/><stop offset="100%" stop-color="#B81820"/></radialGradient>
-    <radialGradient id="tomG2" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#E84050"/><stop offset="100%" stop-color="#A01018"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="22" ry="2.5" fill="#A89888" opacity=".25"/>
-  <ellipse cx="38" cy="36" rx="13" ry="14" fill="url(#tomG2)" stroke="#901010" stroke-width=".8"/>
-  <path d="M38 22 Q36 17 38 14" stroke="#2A7010" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M37 20 Q33 15 31 13" stroke="#3A8018" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M39 20 Q43 15 45 13" stroke="#3A8018" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="33" cy="29" rx="4.5" ry="3" fill="#F87080" opacity=".35"/>
-  <ellipse cx="25" cy="40" rx="14" ry="15" fill="url(#tomG1)" stroke="#A01018" stroke-width="1"/>
-  <path d="M25 25 Q23 18 25 15" stroke="#2A7010" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M24 22 Q20 16 18 14" stroke="#3A8018" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M26 22 Q30 16 32 14" stroke="#3A8018" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <circle cx="25" cy="54" r="3" fill="#A01018" opacity=".4"/>
-  <ellipse cx="20" cy="32" rx="5" ry="4" fill="#FF9090" opacity=".3" transform="rotate(-15 20 32)"/>
-  <circle cx="20" cy="32" r="2.5" fill="#fff" opacity=".22"/>
-  <circle cx="33" cy="28" r="2" fill="#fff" opacity=".18"/>
-</svg>`,
-
-avocados: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="avocI" cx="45%" cy="40%" r="60%"><stop offset="0%" stop-color="#F0F0A8"/><stop offset="60%" stop-color="#C8E060"/><stop offset="100%" stop-color="#A8C840"/></radialGradient>
-    <radialGradient id="avocO" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#4A7028"/><stop offset="100%" stop-color="#1E3A10"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="22" ry="2.5" fill="#A89888" opacity=".25"/>
-  <path d="M10 40 Q9 28 14 20 Q18 14 23 14 Q28 14 31 20 Q34 28 33 40 Q32 50 23 52 Q14 50 10 40Z" fill="url(#avocO)" stroke="#1A3008" stroke-width="1"/>
-  <path d="M12 40 Q11 29 16 22 Q20 16 23 16 Q28 16 30 22 Q33 30 32 40" fill="#3A6020" opacity=".45"/>
-  <path d="M23 14 Q22 9 23 7" stroke="#4A6820" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <ellipse cx="17" cy="24" rx="3" ry="5" fill="#6A9038" opacity=".35" transform="rotate(-10 17 24)"/>
-  <path d="M34 42 Q33 30 38 22 Q42 15 47 15 Q52 15 55 22 Q58 30 57 42 Q56 52 47 54 Q38 52 34 42Z" fill="url(#avocO)" stroke="#1A3008" stroke-width="1"/>
-  <path d="M36 42 Q35 31 40 24 Q44 18 47 18 Q52 18 54 24 Q57 31 56 42 Q55 50 47 52 Q39 50 36 42Z" fill="url(#avocI)"/>
-  <ellipse cx="47" cy="38" rx="8" ry="9" fill="#7A4018" stroke="#5A2808" stroke-width="1"/>
-  <ellipse cx="44" cy="35" rx="3" ry="3.5" fill="#A05830" opacity=".45"/>
-  <path d="M37 42 Q36 32 41 26 Q45 20 47 20 Q51 20 53 26" fill="#F8F0B0" opacity=".18"/>
-</svg>`,
-
-onion: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="onionG" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#F8F0D8"/><stop offset="60%" stop-color="#E8D890"/><stop offset="100%" stop-color="#C8A858"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="18" ry="2.5" fill="#B0A890" opacity=".25"/>
-  <path d="M14 44 Q12 34 17 26 Q22 18 32 17 Q42 18 47 26 Q52 34 50 44 Q48 54 32 56 Q16 54 14 44Z" fill="url(#onionG)" stroke="#C0A060" stroke-width="1.2"/>
-  <path d="M16 42 Q15 32 20 24 Q26 17 32 17" stroke="#D8B868" stroke-width=".8" fill="none" opacity=".6"/>
-  <path d="M48 42 Q49 32 44 24 Q38 17 32 17" stroke="#D8B868" stroke-width=".8" fill="none" opacity=".6"/>
-  <ellipse cx="24" cy="28" rx="5" ry="7" fill="#FFF8E8" opacity=".38" transform="rotate(-10 24 28)"/>
-  <ellipse cx="32" cy="56" rx="5" ry="2" fill="#B89050" opacity=".5"/>
-  <line x1="29" y1="57" x2="27" y2="60" stroke="#A87840" stroke-width=".8" stroke-linecap="round" opacity=".55"/>
-  <line x1="32" y1="58" x2="32" y2="61" stroke="#A87840" stroke-width=".8" stroke-linecap="round" opacity=".55"/>
-  <line x1="35" y1="57" x2="37" y2="60" stroke="#A87840" stroke-width=".8" stroke-linecap="round" opacity=".55"/>
-  <path d="M28 17 Q26 9 28 5" stroke="#4A8828" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M32 17 Q31 10 32 6" stroke="#5A9830" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M36 17 Q38 9 36 5" stroke="#4A8828" stroke-width="2" fill="none" stroke-linecap="round"/>
-</svg>`,
-
-garlic: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="garlicG" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#FDFAF0"/><stop offset="70%" stop-color="#F0E8D0"/><stop offset="100%" stop-color="#D8C8A0"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="17" ry="2.5" fill="#B0A890" opacity=".25"/>
-  <path d="M16 44 Q14 34 18 26 Q24 18 32 17 Q40 18 46 26 Q50 34 48 44 Q46 54 32 56 Q18 54 16 44Z" fill="url(#garlicG)" stroke="#D0C090" stroke-width="1.2"/>
-  <path d="M32 17 Q30 30 32 44" stroke="#D8C080" stroke-width="1.2" fill="none" opacity=".65"/>
-  <path d="M32 17 Q25 26 22 40" stroke="#D8C080" stroke-width="1" fill="none" opacity=".55"/>
-  <path d="M32 17 Q39 26 42 40" stroke="#D8C080" stroke-width="1" fill="none" opacity=".55"/>
-  <path d="M32 17 Q20 28 18 40" stroke="#D8C080" stroke-width=".8" fill="none" opacity=".4"/>
-  <path d="M32 17 Q44 28 46 40" stroke="#D8C080" stroke-width=".8" fill="none" opacity=".4"/>
-  <path d="M18 40 Q17 30 22 22 Q28 16 32 17" stroke="#E0D0A0" stroke-width=".7" fill="none" opacity=".5" stroke-dasharray="2,2"/>
-  <ellipse cx="23" cy="26" rx="4" ry="6" fill="#FFFAF0" opacity=".45" transform="rotate(-15 23 26)"/>
-  <path d="M32 17 Q31 10 32 7" stroke="#9A8A48" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M30 11 Q27 7 26 5" stroke="#7A9838" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M34 11 Q37 7 38 5" stroke="#7A9838" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <line x1="29" y1="56" x2="27" y2="59" stroke="#C0A878" stroke-width=".8" stroke-linecap="round" opacity=".6"/>
-  <line x1="32" y1="56" x2="32" y2="60" stroke="#C0A878" stroke-width=".8" stroke-linecap="round" opacity=".6"/>
-  <line x1="35" y1="56" x2="37" y2="59" stroke="#C0A878" stroke-width=".8" stroke-linecap="round" opacity=".6"/>
-</svg>`,
-
-lime: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="limeO" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#7AD040"/><stop offset="100%" stop-color="#3A8810"/></radialGradient>
-    <radialGradient id="limeI" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#D8F080"/><stop offset="100%" stop-color="#90CC40"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="22" ry="2.5" fill="#909880" opacity=".25"/>
-  <circle cx="22" cy="38" r="15" fill="url(#limeO)" stroke="#2A7008" stroke-width=".8"/>
-  <path d="M22 23 Q21 18 22 15" stroke="#1A6008" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="17" cy="28" rx="4" ry="3" fill="#90D840" opacity=".35" transform="rotate(-20 17 28)"/>
-  <circle cx="17" cy="28" r="2" fill="#fff" opacity=".18"/>
-  <ellipse cx="42" cy="40" rx="16" ry="16" fill="url(#limeO)" stroke="#2A7008" stroke-width="1"/>
-  <ellipse cx="42" cy="40" rx="14" ry="14" fill="url(#limeI)"/>
-  <ellipse cx="42" cy="40" rx="14" ry="14" fill="none" stroke="#C8E870" stroke-width="2.5"/>
-  <line x1="42" y1="26" x2="42" y2="54" stroke="#5A9820" stroke-width=".8" opacity=".55"/>
-  <line x1="28" y1="40" x2="56" y2="40" stroke="#5A9820" stroke-width=".8" opacity=".55"/>
-  <line x1="32" y1="30" x2="52" y2="50" stroke="#5A9820" stroke-width=".7" opacity=".45"/>
-  <line x1="52" y1="30" x2="32" y2="50" stroke="#5A9820" stroke-width=".7" opacity=".45"/>
-  <circle cx="42" cy="40" r="3" fill="#A8DC50" opacity=".65"/>
-  <ellipse cx="34" cy="33" rx="4" ry="3" fill="#fff" opacity=".18" transform="rotate(-30 34 33)"/>
-</svg>`,
-
-lettuce: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="letG" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#B8E870"/><stop offset="100%" stop-color="#68B030"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="22" ry="2.5" fill="#909880" opacity=".25"/>
-  <path d="M10 44 Q6 36 10 26 Q14 16 20 14 Q26 12 28 18 Q28 12 34 12 Q40 12 40 18 Q44 12 48 16 Q54 24 54 36 Q54 44 48 50 Q40 56 32 56 Q22 56 16 52 Q12 48 10 44Z" fill="#4A9820" stroke="#3A8018" stroke-width=".8"/>
-  <path d="M14 44 Q12 36 16 26 Q20 18 26 16 Q30 14 32 18 Q34 14 38 16 Q44 20 46 30 Q48 40 44 48 Q38 54 32 54 Q24 54 18 50 Q15 48 14 44Z" fill="#60B030"/>
-  <path d="M18 44 Q16 36 20 28 Q24 22 30 20 Q32 18 34 20 Q38 22 40 30 Q42 38 38 46 Q34 52 32 52 Q26 52 22 48 Q20 46 18 44Z" fill="url(#letG)"/>
-  <path d="M22 44 Q20 36 24 30 Q28 24 32 23 Q36 24 38 30 Q40 36 38 44 Q36 50 32 51 Q28 50 25 46 Q23 45 22 44Z" fill="#D8F098"/>
-  <path d="M32 23 Q31 30 32 44" stroke="#90C848" stroke-width=".8" fill="none" opacity=".55"/>
-  <path d="M24 26 Q26 32 28 42" stroke="#80B838" stroke-width=".7" fill="none" opacity=".45"/>
-  <path d="M40 26 Q38 32 36 42" stroke="#80B838" stroke-width=".7" fill="none" opacity=".45"/>
-  <ellipse cx="24" cy="28" rx="4" ry="6" fill="#DEFF90" opacity=".22" transform="rotate(-10 24 28)"/>
-</svg>`,
-
-cucumber: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="cucG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4A9030"/><stop offset="40%" stop-color="#6AB840"/><stop offset="100%" stop-color="#3A7820"/></linearGradient>
-    <linearGradient id="cucG2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3A8028"/><stop offset="40%" stop-color="#5AA038"/><stop offset="100%" stop-color="#2A6818"/></linearGradient>
-  </defs>
-  <ellipse cx="33" cy="58" rx="22" ry="2.5" fill="#909880" opacity=".25"/>
-  <path d="M10 46 Q8 38 14 22 Q18 12 22 10 Q26 10 28 14 Q30 20 28 30 Q26 42 24 50 Q22 56 18 56 Q14 54 10 46Z" fill="url(#cucG2)" stroke="#2A6810" stroke-width="1" transform="rotate(8 20 33)"/>
-  <line x1="14" y1="22" x2="18" y2="50" stroke="#2A6818" stroke-width=".8" opacity=".35" transform="rotate(8 20 33)"/>
-  <line x1="18" y1="20" x2="22" y2="52" stroke="#2A6818" stroke-width=".8" opacity=".3" transform="rotate(8 20 33)"/>
-  <ellipse cx="16" cy="10" rx="3" ry="4" fill="#2A6810" transform="rotate(8 16 10)"/>
-  <path d="M28 52 Q24 44 28 28 Q32 14 36 10 Q40 8 44 12 Q48 18 46 32 Q44 46 40 54 Q38 60 34 60 Q30 58 28 52Z" fill="url(#cucG1)" stroke="#286010" stroke-width="1"/>
-  <line x1="30" y1="26" x2="30" y2="56" stroke="#2A6818" stroke-width=".8" opacity=".35"/>
-  <line x1="34" y1="22" x2="34" y2="58" stroke="#2A6818" stroke-width=".8" opacity=".35"/>
-  <line x1="38" y1="22" x2="38" y2="55" stroke="#2A6818" stroke-width=".8" opacity=".3"/>
-  <ellipse cx="40" cy="10" rx="3.5" ry="4" fill="#286010"/>
-  <circle cx="32" cy="30" r="1.5" fill="#3A7820" opacity=".45"/>
-  <circle cx="36" cy="38" r="1.5" fill="#3A7820" opacity=".45"/>
-  <circle cx="32" cy="46" r="1.5" fill="#3A7820" opacity=".45"/>
-  <path d="M30 14 Q33 11 37 14" stroke="#A0D860" stroke-width="2" fill="none" opacity=".45" stroke-linecap="round"/>
-</svg>`,
-
-carrots: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="carG1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F89030"/><stop offset="100%" stop-color="#E05810"/></linearGradient>
-    <linearGradient id="carG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F07820"/><stop offset="100%" stop-color="#D04808"/></linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="18" ry="2.5" fill="#C0A880" opacity=".25"/>
-  <path d="M18 10 Q16 22 16 34 Q16 46 20 54 Q22 58 24 56 Q26 54 24 44 Q22 34 22 22 Q22 12 20 10Z" fill="url(#carG2)" stroke="#C04808" stroke-width=".8"/>
-  <path d="M16 20 Q19 21 22 20" stroke="#D06018" stroke-width=".8" fill="none" opacity=".5"/>
-  <path d="M16 30 Q19 31 22 30" stroke="#D06018" stroke-width=".8" fill="none" opacity=".5"/>
-  <path d="M16 40 Q19 41 22 40" stroke="#D06018" stroke-width=".8" fill="none" opacity=".5"/>
-  <path d="M36 8 Q34 20 34 32 Q34 46 38 55 Q40 60 43 58 Q46 56 44 46 Q42 34 42 22 Q42 10 40 8Z" fill="url(#carG1)" stroke="#C84808" stroke-width=".8"/>
-  <path d="M34 18 Q38 19 42 18" stroke="#D06820" stroke-width=".8" fill="none" opacity=".5"/>
-  <path d="M34 28 Q38 29 42 28" stroke="#D06820" stroke-width=".8" fill="none" opacity=".5"/>
-  <path d="M34 40 Q38 41 42 40" stroke="#D06820" stroke-width=".8" fill="none" opacity=".5"/>
-  <path d="M17 10 Q14 4 16 2" stroke="#4A9020" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M19 9 Q18 3 20 1" stroke="#5AA028" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-  <path d="M21 9 Q23 3 22 0" stroke="#4A9020" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M37 8 Q35 2 36 0" stroke="#5AA028" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M39 7 Q39 1 40 0" stroke="#6AB030" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-  <path d="M41 8 Q44 3 44 1" stroke="#5AA028" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M17 14 Q18 26 18 38" stroke="#F0B060" stroke-width="2" fill="none" opacity=".35" stroke-linecap="round"/>
-  <path d="M37 12 Q38 24 38 38" stroke="#F0B060" stroke-width="2" fill="none" opacity=".35" stroke-linecap="round"/>
-</svg>`,
-
-bell_pepper: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="bpG" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#5AB030"/><stop offset="100%" stop-color="#2A6A10"/></radialGradient>
-    <radialGradient id="bpY" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#F8D828"/><stop offset="100%" stop-color="#C89808"/></radialGradient>
-    <radialGradient id="bpR" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#F04030"/><stop offset="100%" stop-color="#A81010"/></radialGradient>
-  </defs>
-  <path d="M8 30 Q7 21 12 17 Q16 14 19 16 Q22 14 25 17 Q30 21 28 30 Q29 40 24 45 Q19 48 14 45 Q8 40 8 30" fill="url(#bpG)"/>
-  <path d="M10 30 Q9 22 14 18 Q19 15 24 18 Q28 22 27 30" fill="#70C040" opacity=".3"/>
-  <rect x="17" y="9" width="4" height="8" rx="2" fill="#2A6010"/>
-  <path d="M19 13 Q16 9 14 8" stroke="#2A6010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <circle cx="12" cy="26" r="2" fill="#fff" opacity=".28"/>
-  <path d="M36 30 Q35 21 40 17 Q44 14 47 16 Q50 14 53 17 Q58 21 56 30 Q57 40 52 45 Q47 48 42 45 Q36 40 36 30" fill="url(#bpY)"/>
-  <path d="M38 30 Q37 22 42 18 Q47 15 52 18 Q56 22 55 30" fill="#F8E858" opacity=".3"/>
-  <rect x="45" y="9" width="4" height="8" rx="2" fill="#A88010"/>
-  <path d="M47 13 Q50 9 52 8" stroke="#A88010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <circle cx="41" cy="26" r="2" fill="#fff" opacity=".28"/>
-  <path d="M22 34 Q21 24 27 19 Q31 16 35 18 Q39 16 43 19 Q48 24 46 34 Q47 45 41 50 Q35 54 29 50 Q22 45 22 34" fill="url(#bpR)"/>
-  <path d="M24 34 Q23 25 29 21 Q35 18 41 21 Q46 25 45 34" fill="#F86050" opacity=".3"/>
-  <rect x="33" y="11" width="4" height="8" rx="2" fill="#8A1010"/>
-  <path d="M35 15 Q32 11 30 10" stroke="#8A1010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <circle cx="27" cy="30" r="2.5" fill="#fff" opacity=".3"/>
-  <circle cx="40" cy="30" r="2" fill="#fff" opacity=".28"/>
-  <circle cx="49" cy="27" r="1.5" fill="#fff" opacity=".25"/>
-</svg>`,
-
-broccoli: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="brocD" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#58A840"/><stop offset="100%" stop-color="#2A7020"/></radialGradient>
-    <radialGradient id="brocM" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#70C050"/><stop offset="100%" stop-color="#3A9028"/></radialGradient>
-    <radialGradient id="brocL" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#90D860"/><stop offset="100%" stop-color="#50A838"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="8" ry="2.5" fill="#909880" opacity=".25"/>
-  <path d="M27 42 Q26 50 27 56 Q28 60 32 60 Q36 60 37 56 Q38 50 37 42Z" fill="#5A8C30" stroke="#3A6818" stroke-width=".8"/>
-  <path d="M29 44 Q29 52 30 57" stroke="#80B848" stroke-width="1.2" fill="none" opacity=".45" stroke-linecap="round"/>
-  <circle cx="20" cy="32" r="9" fill="url(#brocD)"/>
-  <circle cx="44" cy="32" r="9" fill="url(#brocD)"/>
-  <circle cx="32" cy="26" r="9" fill="url(#brocD)"/>
-  <circle cx="24" cy="36" r="8" fill="url(#brocM)"/>
-  <circle cx="40" cy="36" r="8" fill="url(#brocM)"/>
-  <circle cx="32" cy="28" r="10" fill="url(#brocL)"/>
-  <circle cx="28" cy="24" r="3.5" fill="#A8E070" opacity=".45"/>
-  <circle cx="36" cy="24" r="3" fill="#A8E070" opacity=".4"/>
-  <circle cx="32" cy="20" r="3" fill="#B8E878" opacity=".45"/>
-  <circle cx="24" cy="32" r="3" fill="#90C850" opacity=".35"/>
-  <circle cx="40" cy="32" r="3" fill="#90C850" opacity=".35"/>
-  <ellipse cx="30" cy="22" rx="5" ry="3.5" fill="#D0F098" opacity=".3" transform="rotate(-15 30 22)"/>
-</svg>`,
-
-strawberries: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="strG1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#F04858"/><stop offset="100%" stop-color="#B01828"/></radialGradient>
-    <radialGradient id="strG2" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#E03040"/><stop offset="100%" stop-color="#A01020"/></radialGradient>
-    <radialGradient id="strG3" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#F83050"/><stop offset="100%" stop-color="#C02038"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="22" ry="3" fill="#C0A890" opacity=".25"/>
-  <path d="M11 46 Q10 50 32 56 Q54 50 53 46Z" fill="#F0E0C8" stroke="#C8B090" stroke-width="1"/>
-  <ellipse cx="32" cy="46" rx="21" ry="5" fill="#E8D8C0" stroke="#C8B090" stroke-width="1"/>
-  <path d="M18 44 Q15 36 19 28 Q23 22 27 24 Q29 22 31 26 Q33 22 37 24 Q41 28 39 36 Q35 46 27 48 Q21 46 18 44Z" fill="url(#strG2)"/>
-  <circle cx="24" cy="34" r="1.2" fill="#F8D0D8" opacity=".65"/><circle cx="29" cy="30" r="1.1" fill="#F8D0D8" opacity=".65"/><circle cx="34" cy="34" r="1.1" fill="#F8D0D8" opacity=".6"/>
-  <path d="M22 25 Q20 21 22 19" stroke="#2A7010" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M27 24 Q26 20 24 18" stroke="#2A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M31 25 Q33 21 35 19" stroke="#2A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M14 48 Q11 40 15 32 Q19 26 23 28 Q25 26 27 30 Q29 26 33 28 Q37 32 35 40 Q31 50 23 52 Q17 50 14 48Z" fill="url(#strG1)"/>
-  <circle cx="19" cy="38" r="1.3" fill="#FFD0D8" opacity=".65"/><circle cx="24" cy="33" r="1.2" fill="#FFD0D8" opacity=".65"/><circle cx="29" cy="38" r="1.2" fill="#FFD0D8" opacity=".6"/><circle cx="21" cy="44" r="1.1" fill="#FFD0D8" opacity=".55"/>
-  <path d="M19 29 Q17 25 19 23" stroke="#2A7010" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M23 28 Q22 24 20 22" stroke="#2A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M27 29 Q29 25 31 23" stroke="#2A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="18" cy="34" rx="3" ry="4" fill="#FF8898" opacity=".28" transform="rotate(-10 18 34)"/>
-  <path d="M34 48 Q31 40 35 32 Q39 26 43 28 Q45 26 47 30 Q49 26 53 28 Q57 32 55 40 Q51 50 43 52 Q37 50 34 48Z" fill="url(#strG3)"/>
-  <circle cx="39" cy="38" r="1.3" fill="#FFD0D8" opacity=".65"/><circle cx="44" cy="33" r="1.2" fill="#FFD0D8" opacity=".65"/><circle cx="49" cy="38" r="1.2" fill="#FFD0D8" opacity=".6"/>
-  <path d="M39 29 Q37 25 39 23" stroke="#2A7010" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M43 28 Q42 24 40 22" stroke="#2A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M47 29 Q49 25 51 23" stroke="#2A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="38" cy="34" rx="3" ry="4" fill="#FF8898" opacity=".28" transform="rotate(-10 38 34)"/>
-</svg>`,
-
-watermelon: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="wmelR" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#3A8818"/><stop offset="50%" stop-color="#5AAA28"/><stop offset="100%" stop-color="#80C840"/></linearGradient>
-    <radialGradient id="wmelF" cx="50%" cy="70%" r="60%"><stop offset="0%" stop-color="#F83050"/><stop offset="85%" stop-color="#E81838"/><stop offset="100%" stop-color="#F83050"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="26" ry="3" fill="#90A880" opacity=".25"/>
-  <path d="M6 40 Q6 16 32 12 Q58 16 58 40Z" fill="url(#wmelR)"/>
-  <path d="M8 40 Q8 18 32 14 Q56 18 56 40Z" fill="#70BC30" opacity=".45"/>
-  <path d="M11 40 Q11 20 32 16 Q53 20 53 40Z" fill="#E8F8D8"/>
-  <path d="M14 40 Q14 23 32 19 Q50 23 50 40Z" fill="url(#wmelF)"/>
-  <path d="M16 40 Q16 26 32 22 Q42 24 46 32" fill="#FF6080" opacity=".28"/>
-  <ellipse cx="22" cy="33" rx="2.2" ry="3" fill="#1A1A1A" transform="rotate(-20 22 33)"/>
-  <ellipse cx="32" cy="29" rx="2.2" ry="3" fill="#1A1A1A"/>
-  <ellipse cx="42" cy="33" rx="2.2" ry="3" fill="#1A1A1A" transform="rotate(20 42 33)"/>
-  <ellipse cx="26" cy="37" rx="2" ry="3" fill="#1A1A1A" transform="rotate(-10 26 37)"/>
-  <ellipse cx="38" cy="37" rx="2" ry="3" fill="#1A1A1A" transform="rotate(10 38 37)"/>
-  <path d="M8 40 Q32 44 56 40" stroke="#C8F080" stroke-width="1" fill="none" opacity=".35"/>
-</svg>`,
-
-grapes: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="grpG1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#A060D8"/><stop offset="100%" stop-color="#5820A0"/></radialGradient>
-    <radialGradient id="grpG2" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#9050C8"/><stop offset="100%" stop-color="#4818A0"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="59" rx="20" ry="2.5" fill="#A090B0" opacity=".25"/>
-  <path d="M32 10 Q30 6 32 4" stroke="#6A7830" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M32 10 Q36 6 38 4" stroke="#6A7830" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <circle cx="22" cy="26" r="7.5" fill="url(#grpG2)"/>
-  <circle cx="36" cy="22" r="7.5" fill="url(#grpG2)"/>
-  <circle cx="16" cy="38" r="7.5" fill="url(#grpG1)"/>
-  <circle cx="30" cy="34" r="7.5" fill="url(#grpG1)"/>
-  <circle cx="44" cy="34" r="7.5" fill="url(#grpG2)"/>
-  <circle cx="23" cy="50" r="7.5" fill="url(#grpG1)"/>
-  <circle cx="38" cy="48" r="7.5" fill="url(#grpG2)"/>
-  <circle cx="19" cy="23" r="2.5" fill="#D0A0F0" opacity=".4"/>
-  <circle cx="33" cy="19" r="2.5" fill="#D0A0F0" opacity=".38"/>
-  <circle cx="13" cy="35" r="2.5" fill="#D0A0F0" opacity=".4"/>
-  <circle cx="27" cy="31" r="2.5" fill="#D0A0F0" opacity=".4"/>
-  <circle cx="41" cy="31" r="2.5" fill="#D0A0F0" opacity=".38"/>
-  <circle cx="20" cy="47" r="2.5" fill="#D0A0F0" opacity=".4"/>
-  <circle cx="35" cy="45" r="2.5" fill="#D0A0F0" opacity=".38"/>
-  <path d="M29 10 Q28 14 22 18 Q18 22 17 26" stroke="#6A8030" stroke-width="1.5" fill="none"/>
-  <path d="M32 10 Q31 15 30 20 Q29 24 28 28" stroke="#6A8030" stroke-width="1.5" fill="none"/>
-  <path d="M34 11 Q36 15 38 18 Q40 22 41 28" stroke="#6A8030" stroke-width="1.5" fill="none"/>
-</svg>`,
-
-kiwi: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="kiwiFz" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#9A7040"/><stop offset="100%" stop-color="#5A3818"/></radialGradient>
-    <radialGradient id="kiwiFl" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E8F870"/><stop offset="50%" stop-color="#B8E048"/><stop offset="100%" stop-color="#78B828"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="22" ry="2.5" fill="#A09080" opacity=".25"/>
-  <ellipse cx="20" cy="38" rx="13" ry="17" fill="url(#kiwiFz)" stroke="#3A2008" stroke-width="1"/>
-  <path d="M10 34 Q12 28 16 25" stroke="#7A5030" stroke-width="1.2" fill="none" opacity=".45"/>
-  <path d="M9 40 Q11 32 14 28" stroke="#7A5030" stroke-width="1" fill="none" opacity=".35"/>
-  <ellipse cx="16" cy="28" rx="3" ry="4" fill="#80582A" opacity=".35"/>
-  <ellipse cx="43" cy="38" rx="15" ry="18" fill="url(#kiwiFz)" stroke="#3A2008" stroke-width="1"/>
-  <ellipse cx="43" cy="38" rx="13" ry="16" fill="url(#kiwiFl)"/>
-  <ellipse cx="43" cy="38" rx="13" ry="16" fill="none" stroke="#E0F870" stroke-width="2.5"/>
-  <ellipse cx="43" cy="38" rx="4.5" ry="5.5" fill="#F8FFEC"/>
-  <line x1="43" y1="22" x2="43" y2="54" stroke="#3A6010" stroke-width=".8" opacity=".45"/>
-  <line x1="29" y1="38" x2="57" y2="38" stroke="#3A6010" stroke-width=".8" opacity=".45"/>
-  <line x1="33" y1="26" x2="53" y2="50" stroke="#3A6010" stroke-width=".7" opacity=".4"/>
-  <line x1="53" y1="26" x2="33" y2="50" stroke="#3A6010" stroke-width=".7" opacity=".4"/>
-  <line x1="36" y1="23" x2="50" y2="53" stroke="#3A6010" stroke-width=".6" opacity=".3"/>
-  <line x1="50" y1="23" x2="36" y2="53" stroke="#3A6010" stroke-width=".6" opacity=".3"/>
-  <ellipse cx="38" cy="29" rx="2" ry="2.8" fill="#2A1808" opacity=".75" transform="rotate(-30 38 29)"/>
-  <ellipse cx="48" cy="29" rx="2" ry="2.8" fill="#2A1808" opacity=".75" transform="rotate(30 48 29)"/>
-  <ellipse cx="32" cy="38" rx="2" ry="2.8" fill="#2A1808" opacity=".75"/>
-  <ellipse cx="54" cy="38" rx="2" ry="2.8" fill="#2A1808" opacity=".75"/>
-  <ellipse cx="38" cy="47" rx="2" ry="2.8" fill="#2A1808" opacity=".75" transform="rotate(30 38 47)"/>
-  <ellipse cx="48" cy="47" rx="2" ry="2.8" fill="#2A1808" opacity=".75" transform="rotate(-30 48 47)"/>
-  <ellipse cx="36" cy="28" rx="3" ry="2" fill="#fff" opacity=".18" transform="rotate(-30 36 28)"/>
-</svg>`,
-
-blueberries: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="blueG1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#4858C8"/><stop offset="100%" stop-color="#1A2888"/></radialGradient>
-    <radialGradient id="blueG2" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#3850C0"/><stop offset="100%" stop-color="#182080"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="22" ry="3" fill="#A090B8" opacity=".25"/>
-  <circle cx="20" cy="30" r="8.5" fill="url(#blueG2)"/>
-  <circle cx="34" cy="26" r="8.5" fill="url(#blueG2)"/>
-  <circle cx="47" cy="30" r="8" fill="url(#blueG2)"/>
-  <circle cx="15" cy="43" r="8.5" fill="url(#blueG1)"/>
-  <circle cx="30" cy="40" r="9" fill="url(#blueG1)"/>
-  <circle cx="45" cy="43" r="8.5" fill="url(#blueG1)"/>
-  <circle cx="22" cy="53" r="8" fill="url(#blueG2)"/>
-  <circle cx="40" cy="52" r="8" fill="url(#blueG2)"/>
-  <circle cx="20" cy="21.5" r="2.5" fill="none" stroke="#2030A0" stroke-width="1.5"/>
-  <circle cx="34" cy="17.5" r="2.5" fill="none" stroke="#2030A0" stroke-width="1.5"/>
-  <circle cx="47" cy="21.5" r="2" fill="none" stroke="#2030A0" stroke-width="1.5"/>
-  <circle cx="15" cy="34.5" r="2.5" fill="none" stroke="#2030A0" stroke-width="1.5"/>
-  <circle cx="30" cy="31" r="2.5" fill="none" stroke="#2030A0" stroke-width="1.5"/>
-  <circle cx="45" cy="34.5" r="2" fill="none" stroke="#2030A0" stroke-width="1.5"/>
-  <circle cx="22" cy="44.5" r="2" fill="none" stroke="#2030A0" stroke-width="1.5"/>
-  <circle cx="40" cy="43.5" r="2" fill="none" stroke="#2030A0" stroke-width="1.5"/>
-  <circle cx="17" cy="27" r="3" fill="#8090E8" opacity=".3"/>
-  <circle cx="31" cy="23" r="3" fill="#8090E8" opacity=".3"/>
-  <circle cx="44" cy="27" r="2.5" fill="#8090E8" opacity=".28"/>
-  <circle cx="12" cy="40" r="3" fill="#8090E8" opacity=".3"/>
-  <circle cx="27" cy="37" r="3" fill="#8090E8" opacity=".3"/>
-</svg>`,
-
-oranges: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="orgG1" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#F8A030"/><stop offset="100%" stop-color="#D86010"/></radialGradient>
-    <radialGradient id="orgG2" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#F09020"/><stop offset="100%" stop-color="#C85008"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="22" ry="2.5" fill="#C0A880" opacity=".25"/>
-  <circle cx="40" cy="38" r="14" fill="url(#orgG2)" stroke="#B84808" stroke-width=".8"/>
-  <circle cx="35" cy="32" r="1" fill="#E87010" opacity=".4"/><circle cx="44" cy="30" r="1" fill="#E87010" opacity=".4"/><circle cx="46" cy="38" r="1" fill="#E87010" opacity=".4"/>
-  <path d="M40 24 Q38 19 40 16" stroke="#3A7010" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M40 23 Q44 18 46 16" stroke="#3A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="35" cy="28" rx="4" ry="3" fill="#F8C070" opacity=".3" transform="rotate(-15 35 28)"/>
-  <circle cx="35" cy="28" r="2" fill="#fff" opacity=".2"/>
-  <circle cx="24" cy="40" r="15" fill="url(#orgG1)" stroke="#B84808" stroke-width="1"/>
-  <circle cx="24" cy="53" r="3.5" fill="#D86010" opacity=".45"/>
-  <circle cx="24" cy="53" r="2" fill="#B84808" opacity=".38"/>
-  <circle cx="18" cy="34" r="1.2" fill="#E08020" opacity=".38"/><circle cx="26" cy="32" r="1" fill="#E08020" opacity=".38"/><circle cx="30" cy="38" r="1.2" fill="#E08020" opacity=".38"/>
-  <path d="M24 25 Q22 19 24 16" stroke="#3A7010" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M23 19 Q18 15 18 12 Q18 9 22 9 Q26 9 25 13 Q24 16 22 19" fill="#4A8820"/>
-  <ellipse cx="18" cy="32" rx="5" ry="4" fill="#FFD080" opacity=".3" transform="rotate(-15 18 32)"/>
-  <circle cx="18" cy="32" r="2.5" fill="#fff" opacity=".22"/>
-</svg>`,
-
-bananas: () => `<svg viewBox="0 0 64 64">
-  <!-- stem -->
-  <path d="M28 10 Q30 7 34 8 Q36 10 32 12" fill="#5A4010" stroke="#3A2808" stroke-width="1"/>
-  <!-- banana 1 back -->
-  <path d="M18 48 Q12 36 16 24 Q20 16 28 14 Q34 14 34 24 Q32 36 26 46 Q22 50 18 48" fill="#D8B820" stroke="#B89810" stroke-width="1"/>
-  <!-- banana 2 -->
-  <path d="M28 50 Q22 38 24 26 Q28 16 36 14 Q42 14 42 24 Q42 36 36 48 Q32 52 28 50" fill="#F0D020" stroke="#D0B010" stroke-width="1"/>
-  <path d="M30 48 Q24 38 26 28 Q30 18 36 16 Q41 16 41 26" fill="#F8E040" opacity=".4"/>
-  <!-- banana 3 front -->
-  <path d="M38 50 Q32 40 34 28 Q38 18 46 18 Q52 20 50 32 Q48 44 42 52 Q40 54 38 50" fill="#F8E030" stroke="#D8C010" stroke-width="1.5"/>
-  <path d="M40 48 Q34 40 36 30 Q40 20 46 20 Q51 22 49 32" fill="#FFF060" opacity=".4"/>
-  <!-- tips -->
-  <path d="M18 48 Q16 52 16 54" stroke="#8B6A10" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M38 50 Q38 54 38 56" stroke="#8B6A10" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-</svg>`,
-
-ginger: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="ginG" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#E8B058"/><stop offset="100%" stop-color="#A87020"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="22" ry="3" fill="#C0A870" opacity=".25"/>
-  <path d="M16 42 Q12 34 16 26 Q20 18 28 20 Q34 18 36 24 Q40 18 46 24 Q52 30 48 40 Q44 48 36 48 Q32 50 28 48 Q20 48 16 42Z" fill="url(#ginG)" stroke="#8A5810" stroke-width="1"/>
-  <path d="M28 20 Q30 28 30 40" stroke="#C08828" stroke-width="1" fill="none" opacity=".45"/>
-  <path d="M36 24 Q38 30 36 44" stroke="#C08828" stroke-width=".8" fill="none" opacity=".38"/>
-  <path d="M16 34 Q20 32 26 33" stroke="#C09030" stroke-width=".8" fill="none" opacity=".45"/>
-  <path d="M38 28 Q42 30 46 32" stroke="#C09030" stroke-width=".8" fill="none" opacity=".45"/>
-  <path d="M16 38 Q10 38 8 42 Q8 48 12 48 Q18 48 18 42Z" fill="#D4A040" stroke="#8A5818" stroke-width=".8"/>
-  <path d="M12 40 Q10 42 10 46" stroke="#B88028" stroke-width=".7" fill="none" opacity=".38"/>
-  <path d="M42 22 Q44 14 48 12 Q54 12 54 18 Q54 24 48 24 Q44 24 42 22Z" fill="#D8A850" stroke="#8A5818" stroke-width=".8"/>
-  <path d="M46 14 Q50 14 52 18" stroke="#B88028" stroke-width=".7" fill="none" opacity=".38"/>
-  <path d="M18 38 Q20 36 22 38" stroke="#C89030" stroke-width=".7" fill="none" opacity=".45"/>
-  <path d="M32 40 Q34 38 36 40" stroke="#C89030" stroke-width=".7" fill="none" opacity=".45"/>
-  <ellipse cx="22" cy="26" rx="4" ry="5" fill="#F8D888" opacity=".3" transform="rotate(-10 22 26)"/>
-</svg>`,
-
-cilantro: () => `<svg viewBox="0 0 64 64">
-  <path d="M28 54 Q27 44 27 36" stroke="#3A7010" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M32 56 Q31 46 31 38" stroke="#4A8018" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M36 54 Q37 44 37 36" stroke="#3A7010" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M30 54 Q28 46 26 40" stroke="#3A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M34 54 Q36 46 38 40" stroke="#3A7010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <rect x="25" y="50" width="14" height="4" rx="2" fill="#E87830" opacity=".9"/>
-  <path d="M27 36 Q22 30 20 24" stroke="#4A8818" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M27 36 Q24 26 26 18" stroke="#4A8818" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M31 38 Q31 28 31 18" stroke="#5A9820" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-  <path d="M37 36 Q40 26 38 18" stroke="#4A8818" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M37 36 Q42 30 44 24" stroke="#4A8818" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M18 24 Q14 18 16 14 Q20 12 22 16 Q20 12 24 10 Q28 10 26 14 Q24 10 22 16 Q22 20 18 24Z" fill="#68B030"/>
-  <path d="M24 18 Q20 12 22 8 Q26 6 28 10 Q26 6 30 6 Q34 7 32 10 Q30 6 28 10 Q28 14 24 18Z" fill="#78C038"/>
-  <path d="M31 18 Q29 10 32 6 Q36 4 37 8 Q36 4 40 5 Q44 7 41 11 Q39 7 37 8 Q35 12 31 18Z" fill="#70B830"/>
-  <path d="M38 18 Q42 12 46 14 Q48 18 44 22 Q42 18 40 22 Q36 24 38 18Z" fill="#68B030"/>
-  <path d="M42 24 Q46 18 50 20 Q52 24 48 28 Q46 24 44 28 Q40 28 42 24Z" fill="#78C038"/>
-  <path d="M26 14 Q22 10 24 6 Q28 4 30 8 Q28 4 32 4 Q36 5 34 9 Q32 5 30 8 Q29 11 26 14Z" fill="#88D040" opacity=".8"/>
-</svg>`,
-
-basil: () => `<svg viewBox="0 0 64 64">
-  <path d="M32 58 Q31 50 32 42" stroke="#2A6810" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M32 42 Q30 34 32 26" stroke="#2A6810" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M32 26 Q31 18 32 12" stroke="#2A6810" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M14 44 Q12 36 17 30 Q22 25 28 28 Q26 34 26 42 Q20 46 14 44Z" fill="#3A8818" stroke="#286010" stroke-width=".8"/>
-  <path d="M50 44 Q52 36 47 30 Q42 25 36 28 Q38 34 38 42 Q44 46 50 44Z" fill="#3A8818" stroke="#286010" stroke-width=".8"/>
-  <path d="M20 32 Q22 36 24 42" stroke="#2A6810" stroke-width=".8" fill="none" opacity=".45"/>
-  <path d="M18 36 Q21 38 24 40" stroke="#2A6810" stroke-width=".6" fill="none" opacity=".38"/>
-  <path d="M16 30 Q14 22 20 16 Q26 12 30 16 Q28 22 28 30 Q22 34 16 30Z" fill="#509830" stroke="#307018" stroke-width=".8"/>
-  <path d="M48 30 Q50 22 44 16 Q38 12 34 16 Q36 22 36 30 Q42 34 48 30Z" fill="#509830" stroke="#307018" stroke-width=".8"/>
-  <path d="M44 18 Q42 22 38 28" stroke="#2A6810" stroke-width=".8" fill="none" opacity=".45"/>
-  <path d="M18 14 Q16 8 22 5 Q28 3 30 8 Q28 12 26 18 Q22 18 18 14Z" fill="#60A838" stroke="#387020" stroke-width=".8"/>
-  <path d="M46 14 Q48 8 42 5 Q36 3 34 8 Q36 12 38 18 Q42 18 46 14Z" fill="#60A838" stroke="#387020" stroke-width=".8"/>
-  <path d="M26 8 Q26 4 32 3 Q38 4 38 8 Q38 12 32 14 Q26 12 26 8Z" fill="#78C040"/>
-  <line x1="32" y1="4" x2="32" y2="13" stroke="#3A7018" stroke-width=".8" opacity=".55"/>
-  <ellipse cx="20" cy="22" rx="3" ry="4" fill="#A0D850" opacity=".28" transform="rotate(-10 20 22)"/>
-  <ellipse cx="44" cy="22" rx="3" ry="4" fill="#A0D850" opacity=".28" transform="rotate(10 44 22)"/>
-</svg>`,
-
-mint: () => `<svg viewBox="0 0 64 64">
-  <path d="M32 58 Q30 48 32 40" stroke="#188838" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M32 40 Q31 30 32 22" stroke="#188838" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M32 22 Q31 14 32 8" stroke="#188838" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M14 42 Q10 35 15 28 Q20 23 26 26 Q28 32 26 42 Q20 46 14 42Z" fill="#28A840" stroke="#109030" stroke-width=".8"/>
-  <path d="M50 42 Q54 35 49 28 Q44 23 38 26 Q36 32 38 42 Q44 46 50 42Z" fill="#28A840" stroke="#109030" stroke-width=".8"/>
-  <path d="M20 28 Q22 32 24 40" stroke="#109030" stroke-width=".8" fill="none" opacity=".45"/>
-  <path d="M44 28 Q42 32 40 40" stroke="#109030" stroke-width=".8" fill="none" opacity=".45"/>
-  <path d="M16 26 Q12 19 18 13 Q24 9 28 13 Q30 18 28 26 Q22 30 16 26Z" fill="#38B850" stroke="#18A030" stroke-width=".8"/>
-  <path d="M48 26 Q52 19 46 13 Q40 9 36 13 Q34 18 36 26 Q42 30 48 26Z" fill="#38B850" stroke="#18A030" stroke-width=".8"/>
-  <path d="M20 15 Q22 19 24 24" stroke="#10A030" stroke-width=".8" fill="none" opacity=".45"/>
-  <path d="M44 15 Q42 19 40 24" stroke="#10A030" stroke-width=".8" fill="none" opacity=".45"/>
-  <path d="M20 10 Q18 5 24 3 Q30 2 30 7 Q30 12 26 14 Q22 14 20 10Z" fill="#48C860" stroke="#20A838" stroke-width=".8"/>
-  <path d="M44 10 Q46 5 40 3 Q34 2 34 7 Q34 12 38 14 Q42 14 44 10Z" fill="#48C860" stroke="#20A838" stroke-width=".8"/>
-  <path d="M26 6 Q26 2 32 2 Q38 2 38 6 Q38 10 32 12 Q26 10 26 6Z" fill="#60D870"/>
-  <line x1="32" y1="2" x2="32" y2="11" stroke="#18A030" stroke-width=".8" opacity=".55"/>
-  <ellipse cx="20" cy="20" rx="2.5" ry="3.5" fill="#A0F0C8" opacity=".28" transform="rotate(-10 20 20)"/>
-  <ellipse cx="44" cy="20" rx="2.5" ry="3.5" fill="#A0F0C8" opacity=".28" transform="rotate(10 44 20)"/>
-</svg>`,
-
-mushrooms: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="mushG1" cx="35%" cy="25%" r="70%"><stop offset="0%" stop-color="#F0E0C8"/><stop offset="60%" stop-color="#D8C0A0"/><stop offset="100%" stop-color="#B89878"/></radialGradient>
-    <radialGradient id="mushG2" cx="35%" cy="25%" r="70%"><stop offset="0%" stop-color="#E8D8C0"/><stop offset="100%" stop-color="#C8A880"/></radialGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="20" ry="2.5" fill="#B0A090" opacity=".25"/>
-  <rect x="19" y="40" width="10" height="16" rx="3" fill="#F5ECD8" stroke="#D8C8A0" stroke-width=".8"/>
-  <rect x="21" y="40" width="4" height="16" rx="2" fill="#FFF8EC" opacity=".45"/>
-  <path d="M17 42 Q22 44 29 44" fill="#E8D8B8" stroke="#C8B090" stroke-width=".5"/>
-  <line x1="20" y1="42" x2="20" y2="44" stroke="#D0B888" stroke-width=".7" opacity=".55"/>
-  <line x1="23" y1="42" x2="23" y2="44" stroke="#D0B888" stroke-width=".7" opacity=".55"/>
-  <line x1="26" y1="42" x2="26" y2="44" stroke="#D0B888" stroke-width=".7" opacity=".55"/>
-  <path d="M12 42 Q10 30 19 22 Q24 17 29 17 Q34 17 39 24 Q44 32 40 42Z" fill="url(#mushG1)" stroke="#B89068" stroke-width="1"/>
-  <path d="M14 40 Q12 30 20 24 Q24 19 29 19 Q33 19 37 24" fill="#FFF4E8" opacity=".28"/>
-  <ellipse cx="24" cy="24" rx="5" ry="4" fill="#FFF8EE" opacity=".35" transform="rotate(-15 24 24)"/>
-  <rect x="40" y="44" width="9" height="13" rx="3" fill="#F5ECD8" stroke="#D8C8A0" stroke-width=".8"/>
-  <rect x="42" y="44" width="3.5" height="13" rx="2" fill="#FFF8EC" opacity=".45"/>
-  <path d="M34 44 Q32 33 40 25 Q44 20 49 20 Q54 20 57 27 Q60 34 58 44Z" fill="url(#mushG2)" stroke="#B89068" stroke-width="1"/>
-  <path d="M36 42 Q34 33 41 27 Q45 22 49 22 Q53 22 56 28" fill="#FFF4E8" opacity=".28"/>
-  <ellipse cx="43" cy="28" rx="4.5" ry="3.5" fill="#FFF8EE" opacity=".35" transform="rotate(-15 43 28)"/>
-  <circle cx="28" cy="32" r="2" fill="#D4B880" opacity=".38"/>
-  <circle cx="52" cy="32" r="1.8" fill="#C8A870" opacity=".35"/>
-</svg>`,
-
-kalamata_olives: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="olivG" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#7848A0"/><stop offset="100%" stop-color="#3A1860"/></radialGradient>
-    <linearGradient id="jarG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8F4EE"/><stop offset="100%" stop-color="#E8DED0"/></linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="18" ry="2.5" fill="#A09080" opacity=".25"/>
-  <path d="M14 26 Q12 54 16 58 Q20 62 32 62 Q44 62 48 58 Q52 54 50 26Z" fill="url(#jarG)" stroke="#C0B090" stroke-width="1.5"/>
-  <rect x="18" y="16" width="28" height="12" rx="3" fill="#EEE8DC" stroke="#C8B890" stroke-width="1.2"/>
-  <rect x="16" y="10" width="32" height="9" rx="4" fill="#708838"/>
-  <rect x="16" y="10" width="32" height="4" rx="4" fill="#8AAA48"/>
-  <text x="32" y="17" text-anchor="middle" fill="#E8F8C8" font-size="4.5" font-weight="700" font-family="sans-serif">KALAMATA</text>
-  <path d="M14 46 Q16 52 32 54 Q48 52 50 46Z" fill="#C8B888" opacity=".38"/>
-  <ellipse cx="22" cy="40" rx="7" ry="9" fill="url(#olivG)"/>
-  <ellipse cx="20" cy="37" rx="2.5" ry="3" fill="#A870C8" opacity=".35"/>
-  <ellipse cx="22" cy="41" rx="2" ry="2.5" fill="#2A1040" opacity=".55"/>
-  <ellipse cx="36" cy="38" rx="7" ry="9" fill="url(#olivG)"/>
-  <ellipse cx="34" cy="35" rx="2.5" ry="3" fill="#A870C8" opacity=".35"/>
-  <ellipse cx="36" cy="39" rx="2" ry="2.5" fill="#2A1040" opacity=".55"/>
-  <ellipse cx="46" cy="42" rx="5" ry="7" fill="url(#olivG)" opacity=".82"/>
-  <path d="M16 28 Q16 42 16 50" stroke="#fff" stroke-width="1.5" fill="none" opacity=".28" stroke-linecap="round"/>
-  <path d="M19 26 Q19 38 20 46" stroke="#fff" stroke-width="1" fill="none" opacity=".18" stroke-linecap="round"/>
-</svg>`,
-
-// ── DAIRY ─────────────────────────────────────────────────
-
-eggs: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dECarton" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D8CC98"/>
-      <stop offset="100%" stop-color="#B8A870"/>
-    </linearGradient>
-    <radialGradient id="dEShell" cx="35%" cy="30%" r="65%">
-      <stop offset="0%" stop-color="#FFFCF4"/>
-      <stop offset="100%" stop-color="#E8DCC0"/>
-    </radialGradient>
-    <linearGradient id="dETop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#6A9838"/>
-      <stop offset="100%" stop-color="#4A7820"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="22" ry="2.5" fill="#A89060" opacity=".3"/>
-  <rect x="10" y="30" width="44" height="22" rx="4" fill="url(#dECarton)" stroke="#A89060" stroke-width="1.5"/>
-  <path d="M10 30 Q10 20 32 18 Q54 20 54 30" fill="#C8B880" stroke="#A89060" stroke-width="1.5"/>
-  <rect x="10" y="30" width="44" height="8" fill="url(#dETop)"/>
-  <ellipse cx="21" cy="43" rx="8" ry="9" fill="url(#dEShell)" stroke="#D8C8A0" stroke-width=".8"/>
-  <ellipse cx="19" cy="40" rx="3" ry="3.5" fill="#FFFCF8" opacity=".5"/>
-  <ellipse cx="32" cy="43" rx="8" ry="9" fill="url(#dEShell)" stroke="#D8C8A0" stroke-width=".8"/>
-  <ellipse cx="30" cy="40" rx="3" ry="3.5" fill="#FFFCF8" opacity=".5"/>
-  <ellipse cx="43" cy="43" rx="8" ry="9" fill="url(#dEShell)" stroke="#D8C8A0" stroke-width=".8"/>
-  <ellipse cx="41" cy="40" rx="3" ry="3.5" fill="#FFFCF8" opacity=".5"/>
-</svg>`,
-
-butter: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dBBody" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFF8C8"/>
-      <stop offset="100%" stop-color="#F0DC80"/>
-    </linearGradient>
-    <linearGradient id="dBWrap" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F8E880"/>
-      <stop offset="100%" stop-color="#D8C040"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="55" rx="22" ry="3" fill="#C8A830" opacity=".25"/>
-  <rect x="8" y="26" width="48" height="20" rx="3" fill="url(#dBBody)" stroke="#C8A830" stroke-width="1.5"/>
-  <rect x="8" y="26" width="13" height="20" rx="3" fill="url(#dBWrap)"/>
-  <rect x="43" y="26" width="13" height="20" rx="3" fill="url(#dBWrap)"/>
-  <line x1="21" y1="26" x2="21" y2="46" stroke="#C8A830" stroke-width="1" opacity=".5"/>
-  <line x1="43" y1="26" x2="43" y2="46" stroke="#C8A830" stroke-width="1" opacity=".5"/>
-  <text x="32" y="35" text-anchor="middle" fill="#8A6010" font-size="5.5" font-weight="700" font-family="sans-serif">BUTTER</text>
-  <text x="32" y="42" text-anchor="middle" fill="#A07820" font-size="4.5" font-family="sans-serif">UNSALTED · 1 LB</text>
-  <rect x="22" y="27" width="6" height="18" rx="2" fill="#fff" opacity=".18"/>
-</svg>`,
-
-milk: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dMCarton" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#D8EEF8"/>
-      <stop offset="50%" stop-color="#EEF6FF"/>
-      <stop offset="100%" stop-color="#C8E0F0"/>
-    </linearGradient>
-    <linearGradient id="dMCap" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5898C8"/>
-      <stop offset="100%" stop-color="#3068A0"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="14" ry="2.5" fill="#3068A0" opacity=".2"/>
-  <rect x="18" y="20" width="28" height="36" rx="3" fill="url(#dMCarton)" stroke="#90C0E0" stroke-width="1.5"/>
-  <rect x="22" y="10" width="20" height="12" rx="3" fill="url(#dMCap)"/>
-  <rect x="18" y="20" width="28" height="10" fill="url(#dMCap)"/>
-  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">MILK</text>
-  <rect x="20" y="32" width="24" height="16" rx="2" fill="#fff" opacity=".55"/>
-  <text x="32" y="40" text-anchor="middle" fill="#2060A0" font-size="5.5" font-weight="600" font-family="sans-serif">WHOLE</text>
-  <text x="32" y="46" text-anchor="middle" fill="#4080B0" font-size="4.5" font-family="sans-serif">½ GAL</text>
-  <rect x="20" y="22" width="5" height="32" rx="2" fill="#fff" opacity=".2"/>
-</svg>`,
-
-heavy_cream: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dCCarton" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#F0E8D8"/>
-      <stop offset="50%" stop-color="#FFF8F0"/>
-      <stop offset="100%" stop-color="#E8D8C0"/>
-    </linearGradient>
-    <linearGradient id="dCCap" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D8A868"/>
-      <stop offset="100%" stop-color="#A87838"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="14" ry="2.5" fill="#A07030" opacity=".2"/>
-  <rect x="18" y="20" width="28" height="36" rx="3" fill="url(#dCCarton)" stroke="#D0B888" stroke-width="1.5"/>
-  <rect x="22" y="10" width="20" height="12" rx="3" fill="url(#dCCap)"/>
-  <rect x="18" y="20" width="28" height="10" fill="url(#dCCap)"/>
-  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">HEAVY</text>
-  <rect x="20" y="32" width="24" height="16" rx="2" fill="#fff" opacity=".5"/>
-  <text x="32" y="39" text-anchor="middle" fill="#8A5818" font-size="5" font-weight="600" font-family="sans-serif">HEAVY</text>
-  <text x="32" y="45" text-anchor="middle" fill="#8A5818" font-size="5" font-family="sans-serif">CREAM</text>
-  <text x="32" y="52" text-anchor="middle" fill="#A07040" font-size="4" font-family="sans-serif">1 PINT</text>
-  <rect x="20" y="22" width="5" height="32" rx="2" fill="#fff" opacity=".2"/>
-</svg>`,
-
-mozzarella: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dZBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFEF8"/>
-      <stop offset="100%" stop-color="#EEE8D0"/>
-    </linearGradient>
-    <linearGradient id="dZLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5DC49A"/>
-      <stop offset="100%" stop-color="#3A9070"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#8A7830" opacity=".2"/>
-  <rect x="10" y="10" width="44" height="48" rx="6" fill="url(#dZBag)" stroke="#C8C090" stroke-width="1.5"/>
-  <rect x="10" y="10" width="44" height="5" rx="6" fill="#C0BA88"/>
-  <rect x="12" y="13" width="40" height="2" rx="1" fill="#A0A070"/>
-  <rect x="12" y="17" width="40" height="16" rx="3" fill="url(#dZLabel)"/>
-  <text x="32" y="26" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">MOZZARELLA</text>
-  <text x="32" y="32" text-anchor="middle" fill="#D0F0E0" font-size="4" font-family="sans-serif">SHREDDED · 2 CUPS</text>
-  <path d="M14 42 Q20 38 26 42 Q32 46 38 42 Q44 38 50 42" stroke="#E8E0C0" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M14 48 Q22 44 28 48 Q34 52 40 48 Q45 44 50 48" stroke="#E0D8B8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M14 54 Q24 50 32 54 Q40 58 50 54" stroke="#D8D0B0" stroke-width="1" fill="none" stroke-linecap="round"/>
-</svg>`,
-
-parmesan: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dPTop" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#E8C068"/>
-      <stop offset="100%" stop-color="#C89040"/>
-    </linearGradient>
-    <linearGradient id="dPFront" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0C858"/>
-      <stop offset="100%" stop-color="#D8A840"/>
-    </linearGradient>
-    <linearGradient id="dPSide" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C89040"/>
-      <stop offset="100%" stop-color="#A87020"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="22" ry="3" fill="#A87020" opacity=".3"/>
-  <path d="M10 46 L28 14 L54 28 L54 46 Z" fill="url(#dPSide)"/>
-  <path d="M10 46 L54 46 L54 28 L10 28 Z" fill="url(#dPFront)"/>
-  <path d="M28 14 L10 28 L54 28 L54 14 Z" fill="url(#dPTop)"/>
-  <circle cx="22" cy="38" r="2.5" fill="#A07828" opacity=".5"/>
-  <circle cx="34" cy="35" r="2" fill="#A07828" opacity=".4"/>
-  <circle cx="28" cy="42" r="2" fill="#9A7020" opacity=".4"/>
-  <circle cx="42" cy="38" r="1.5" fill="#A07828" opacity=".4"/>
-  <circle cx="46" cy="32" r="1.5" fill="#C89040" opacity=".5"/>
-  <path d="M10 46 L54 46" stroke="#8A6018" stroke-width="2"/>
-  <text x="33" y="38" text-anchor="middle" fill="#7A4810" font-size="5" font-weight="600" font-family="sans-serif">PARMESAN</text>
-  <text x="32" y="56" text-anchor="middle" fill="#7A4810" font-size="4.5" font-family="sans-serif">WEDGE</text>
-</svg>`,
-
-cheddar: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dCHBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEF6E0"/>
-      <stop offset="100%" stop-color="#F0E0A0"/>
-    </linearGradient>
-    <linearGradient id="dCHLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#E0A030"/>
-      <stop offset="100%" stop-color="#B07818"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#A07818" opacity=".2"/>
-  <rect x="10" y="10" width="44" height="48" rx="6" fill="url(#dCHBag)" stroke="#D0A830" stroke-width="1.5"/>
-  <rect x="10" y="10" width="44" height="5" rx="6" fill="#D0A830"/>
-  <rect x="12" y="13" width="40" height="2" rx="1" fill="#A88020"/>
-  <rect x="12" y="17" width="40" height="16" rx="3" fill="url(#dCHLabel)"/>
-  <text x="32" y="26" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">CHEDDAR</text>
-  <text x="32" y="32" text-anchor="middle" fill="#FFF0C0" font-size="4" font-family="sans-serif">SHREDDED · 8 OZ</text>
-  <path d="M14 42 Q18 38 22 42 Q26 46 30 42 Q34 38 38 42 Q42 38 46 42 Q49 44 50 42" stroke="#F0C840" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M14 48 Q20 44 26 48 Q32 52 38 48 Q43 44 50 48" stroke="#EEC038" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M14 54 Q22 50 30 54 Q38 58 48 54" stroke="#E8B830" stroke-width="1" fill="none" stroke-linecap="round"/>
-</svg>`,
-
-feta: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dFCont" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFCF8"/>
-      <stop offset="100%" stop-color="#EEE8DC"/>
-    </linearGradient>
-    <linearGradient id="dFLid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#6898C0"/>
-      <stop offset="100%" stop-color="#4A6898"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="20" ry="3" fill="#4A6898" opacity=".2"/>
-  <rect x="12" y="26" width="40" height="30" rx="5" fill="url(#dFCont)" stroke="#C0B8A8" stroke-width="1.5"/>
-  <rect x="12" y="20" width="40" height="10" rx="5" fill="url(#dFLid)"/>
-  <text x="32" y="28" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">FETA</text>
-  <rect x="14" y="34" width="9" height="6" rx="2" fill="#F8F5EE" stroke="#D8D0C0" stroke-width=".5"/>
-  <rect x="16" y="42" width="7" height="5" rx="2" fill="#F8F5EE" stroke="#D8D0C0" stroke-width=".5"/>
-  <rect x="27" y="36" width="10" height="7" rx="2" fill="#F0ECE4" stroke="#D8D0C0" stroke-width=".5"/>
-  <rect x="30" y="44" width="8" height="5" rx="2" fill="#F8F5EE" stroke="#D8D0C0" stroke-width=".5"/>
-  <rect x="40" y="34" width="9" height="6" rx="2" fill="#F0ECE4" stroke="#D8D0C0" stroke-width=".5"/>
-  <rect x="38" y="43" width="7" height="5" rx="2" fill="#F8F5EE" stroke="#D8D0C0" stroke-width=".5"/>
-  <text x="32" y="57" text-anchor="middle" fill="#9A8868" font-size="4.5" font-family="sans-serif">CRUMBLED · 1 CUP</text>
-</svg>`,
-
-american_cheese: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dAPkg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F8E068"/>
-      <stop offset="100%" stop-color="#E0C040"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="22" ry="2.5" fill="#C8A020" opacity=".2"/>
-  <rect x="10" y="14" width="44" height="42" rx="5" fill="url(#dAPkg)" stroke="#D0A820" stroke-width="1.5"/>
-  <rect x="10" y="14" width="44" height="12" rx="5" fill="#C08818"/>
-  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">AMERICAN</text>
-  <text x="32" y="28" text-anchor="middle" fill="#FFE8A0" font-size="4" font-family="sans-serif">CHEESE SLICES</text>
-  <rect x="16" y="30" width="32" height="22" rx="2" fill="#F8D850" stroke="#E8C028" stroke-width=".5"/>
-  <line x1="16" y1="36" x2="48" y2="36" stroke="#E8C028" stroke-width=".8"/>
-  <line x1="16" y1="42" x2="48" y2="42" stroke="#E8C028" stroke-width=".8"/>
-  <line x1="16" y1="48" x2="48" y2="48" stroke="#E8C028" stroke-width=".8"/>
-  <rect x="18" y="31" width="12" height="4" rx="1" fill="#FFF8C8" opacity=".5"/>
-</svg>`,
-
-yogurt: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dYCup" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FAFAF8"/>
-      <stop offset="100%" stop-color="#EDE8E0"/>
-    </linearGradient>
-    <linearGradient id="dYLid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#E0D0C0"/>
-      <stop offset="100%" stop-color="#C8B8A0"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="4" fill="#C8B8A0" opacity=".3"/>
-  <path d="M14 26 L18 55 L46 55 L50 26 Z" fill="url(#dYCup)" stroke="#C8B8A0" stroke-width="1.5"/>
-  <ellipse cx="32" cy="26" rx="18" ry="5" fill="url(#dYLid)" stroke="#B0A090" stroke-width="1.5"/>
-  <path d="M48 24 L54 20 Q56 22 54 24 L50 26" fill="#C8B8A0"/>
-  <text x="32" y="42" text-anchor="middle" fill="#8A7858" font-size="4.5" font-family="sans-serif">PLAIN</text>
-  <text x="32" y="49" text-anchor="middle" fill="#9A8868" font-size="4" font-family="sans-serif">32 OZ</text>
-  <rect x="16" y="28" width="4" height="24" rx="2" fill="#fff" opacity=".2"/>
-</svg>`,
-
-whipped_cream: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dWCan" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#C8C8E0"/>
-      <stop offset="50%" stop-color="#F0F0F8"/>
-      <stop offset="100%" stop-color="#B8B8D0"/>
-    </linearGradient>
-    <linearGradient id="dWLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#8080C0"/>
-      <stop offset="100%" stop-color="#5050A0"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="11" ry="3" fill="#5050A0" opacity=".2"/>
-  <rect x="22" y="22" width="20" height="34" rx="8" fill="url(#dWCan)" stroke="#A0A0C0" stroke-width="1.5"/>
-  <rect x="22" y="33" width="20" height="14" fill="url(#dWLabel)"/>
-  <text x="32" y="40" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">WHIPPED</text>
-  <text x="32" y="45" text-anchor="middle" fill="#D0D0FF" font-size="4" font-family="sans-serif">CREAM</text>
-  <ellipse cx="32" cy="22" rx="10" ry="4.5" fill="#C0C0D8" stroke="#A0A0C0" stroke-width="1"/>
-  <rect x="29" y="12" width="6" height="12" rx="3" fill="#A0A0C8" stroke="#8888B0" stroke-width="1"/>
-  <rect x="26" y="14" width="12" height="4" rx="2" fill="#B0B0D0"/>
-  <rect x="24" y="24" width="4" height="28" rx="2" fill="#fff" opacity=".2"/>
-</svg>`,
-
-condensed_milk: () => `<svg viewBox="0 0 64 64">
-  <rect x="18" y="16" width="28" height="38" rx="5" fill="#F8F0E0" stroke="#D0B880" stroke-width="1.5"/>
-  <rect x="18" y="16" width="28" height="12" rx="5" fill="#C09040"/>
-  <rect x="18" y="24" width="28" height="4" fill="#C09040"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">SWEETENED</text>
-  <text x="32" y="36" text-anchor="middle" fill="#9A6820" font-size="5" font-family="sans-serif">CONDENSED</text>
-  <text x="32" y="43" text-anchor="middle" fill="#9A6820" font-size="5" font-family="sans-serif">MILK</text>
-  <path d="M22 50 Q32 54 42 50" stroke="#D0B880" stroke-width="1" fill="none"/>
-</svg>`,
-
-string_cheese: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="dSCheese" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#EEEAE0"/>
-      <stop offset="50%" stop-color="#F8F4EC"/>
-      <stop offset="100%" stop-color="#E8E4D8"/>
-    </linearGradient>
-    <linearGradient id="dSWrap" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D8D0B8"/>
-      <stop offset="100%" stop-color="#C0B898"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="59" rx="10" ry="2.5" fill="#A09060" opacity=".2"/>
-  <path d="M26 8 Q32 4 38 8 Q38 13 32 11 Q26 13 26 8Z" fill="url(#dSWrap)" stroke="#C0B890" stroke-width="1"/>
-  <rect x="24" y="11" width="16" height="46" rx="8" fill="url(#dSCheese)" stroke="#D8D0B8" stroke-width="1.5"/>
-  <rect x="24" y="14" width="16" height="10" rx="0" fill="#C0A830" opacity=".85"/>
-  <text x="32" y="21" text-anchor="middle" fill="#fff" font-size="4" font-weight="700" font-family="sans-serif">STRING</text>
-  <text x="32" y="26" text-anchor="middle" fill="#FFF0C0" font-size="3.5" font-family="sans-serif">CHEESE</text>
-  <rect x="26" y="26" width="4" height="28" rx="2" fill="#fff" opacity=".25"/>
-  <line x1="24" y1="34" x2="40" y2="34" stroke="#D8D0B0" stroke-width=".8" opacity=".4"/>
-  <line x1="24" y1="42" x2="40" y2="42" stroke="#D8D0B0" stroke-width=".8" opacity=".4"/>
-  <line x1="24" y1="50" x2="40" y2="50" stroke="#D8D0B0" stroke-width=".8" opacity=".4"/>
-  <text x="32" y="61" text-anchor="middle" fill="#9A8858" font-size="3.8" font-family="sans-serif">MOZZARELLA</text>
-</svg>`,
-
-// ── PANTRY ───────────────────────────────────────────────
-
-olive_oil: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pOOBottle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#B0CC60"/>
-      <stop offset="50%" stop-color="#D4E880"/>
-      <stop offset="100%" stop-color="#A0BC50"/>
-    </linearGradient>
-    <linearGradient id="pOOLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3A7020"/>
-      <stop offset="100%" stop-color="#285010"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="14" ry="2.5" fill="#3A7020" opacity=".2"/>
-  <rect x="20" y="24" width="24" height="32" rx="6" fill="url(#pOOBottle)" stroke="#90A848" stroke-width="1.5"/>
-  <rect x="26" y="14" width="12" height="12" rx="4" fill="#A8C050" stroke="#80A038" stroke-width="1"/>
-  <rect x="27" y="9" width="10" height="7" rx="3" fill="#5A8828"/>
-  <rect x="22" y="30" width="20" height="18" rx="2" fill="url(#pOOLabel)"/>
-  <text x="32" y="37" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">OLIVE</text>
-  <text x="32" y="42" text-anchor="middle" fill="#C0E080" font-size="4" font-family="sans-serif">OIL</text>
-  <text x="32" y="47" text-anchor="middle" fill="#90C060" font-size="3.5" font-family="sans-serif">EXTRA VIRGIN</text>
-  <rect x="22" y="26" width="5" height="28" rx="2" fill="#fff" opacity=".2"/>
-</svg>`,
-
-vegetable_oil: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pVOBottle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#EEE870"/>
-      <stop offset="50%" stop-color="#FEF8A0"/>
-      <stop offset="100%" stop-color="#E4DC60"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="14" ry="2.5" fill="#C0A820" opacity=".2"/>
-  <rect x="20" y="24" width="24" height="32" rx="6" fill="url(#pVOBottle)" stroke="#D0B828" stroke-width="1.5"/>
-  <rect x="26" y="14" width="12" height="12" rx="4" fill="#E0C840" stroke="#C0A828" stroke-width="1"/>
-  <rect x="27" y="9" width="10" height="7" rx="3" fill="#D0A020"/>
-  <rect x="22" y="30" width="20" height="18" rx="2" fill="#C0A020" opacity=".85"/>
-  <text x="32" y="37" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">VEGGIE</text>
-  <text x="32" y="42" text-anchor="middle" fill="#FFF8C0" font-size="4" font-family="sans-serif">OIL</text>
-  <text x="32" y="47" text-anchor="middle" fill="#FFE880" font-size="3.5" font-family="sans-serif">48 FL OZ</text>
-  <rect x="22" y="26" width="5" height="28" rx="2" fill="#fff" opacity=".2"/>
-</svg>`,
-
-flour: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pFBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFEFE"/>
-      <stop offset="100%" stop-color="#EAE6DE"/>
-    </linearGradient>
-    <linearGradient id="pFLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#7878A8"/>
-      <stop offset="100%" stop-color="#505088"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#B8B8C0" opacity=".25"/>
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#pFBag)" stroke="#C8C8C0" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#pFLabel)"/>
-  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="6" font-weight="700" font-family="sans-serif">FLOUR</text>
-  <text x="32" y="36" text-anchor="middle" fill="#7A7868" font-size="5" font-family="sans-serif">ALL PURPOSE</text>
-  <text x="32" y="44" text-anchor="middle" fill="#8A8878" font-size="5" font-family="sans-serif">5 LB BAG</text>
-  <path d="M18 52 Q32 56 46 52" stroke="#C8C8C0" stroke-width="1" fill="none"/>
-</svg>`,
-
-sugar: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pSGBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#EEEEE8"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#C0C0B8" opacity=".25"/>
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#pSGBag)" stroke="#D0D0C8" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="12" rx="5" fill="#D0D0C8"/>
-  <text x="32" y="23" text-anchor="middle" fill="#6A6A60" font-size="5.5" font-weight="700" font-family="sans-serif">SUGAR</text>
-  <circle cx="22" cy="35" r="2" fill="#D8D8D0" opacity=".8"/>
-  <circle cx="28" cy="32" r="1.5" fill="#D8D8D0" opacity=".8"/>
-  <circle cx="35" cy="35" r="2" fill="#D8D8D0" opacity=".8"/>
-  <circle cx="41" cy="32" r="1.5" fill="#D8D8D0" opacity=".8"/>
-  <circle cx="25" cy="40" r="1.5" fill="#D8D8D0" opacity=".8"/>
-  <circle cx="32" cy="42" r="2" fill="#D8D8D0" opacity=".8"/>
-  <circle cx="38" cy="40" r="1.5" fill="#D8D8D0" opacity=".8"/>
-  <text x="32" y="52" text-anchor="middle" fill="#8A8880" font-size="5" font-family="sans-serif">4 LB</text>
-</svg>`,
-
-brown_sugar: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pBSBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0D888"/>
-      <stop offset="100%" stop-color="#D8B858"/>
-    </linearGradient>
-    <linearGradient id="pBSLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C0A040"/>
-      <stop offset="100%" stop-color="#906018"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#906018" opacity=".25"/>
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#pBSBag)" stroke="#C0A040" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#pBSLabel)"/>
-  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">BROWN SUGAR</text>
-  <circle cx="22" cy="36" r="2.5" fill="#C09030" opacity=".6"/>
-  <circle cx="30" cy="33" r="2" fill="#C09030" opacity=".5"/>
-  <circle cx="38" cy="36" r="2.5" fill="#B88020" opacity=".6"/>
-  <circle cx="26" cy="42" r="2" fill="#C09030" opacity=".5"/>
-  <circle cx="35" cy="43" r="2.5" fill="#B88020" opacity=".6"/>
-  <text x="32" y="52" text-anchor="middle" fill="#7A5010" font-size="5" font-family="sans-serif">2 LB</text>
-</svg>`,
-
-baking_soda: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pBSDBox" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4F4FC"/>
-      <stop offset="100%" stop-color="#E0E0F0"/>
-    </linearGradient>
-    <linearGradient id="pBSDTop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#E85030"/>
-      <stop offset="100%" stop-color="#C02810"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#6068A8" opacity=".2"/>
-  <rect x="18" y="16" width="28" height="40" rx="4" fill="url(#pBSDBox)" stroke="#B0B8D0" stroke-width="1.5"/>
-  <rect x="18" y="16" width="28" height="12" rx="4" fill="url(#pBSDTop)"/>
-  <text x="32" y="25" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">BAKING</text>
-  <text x="32" y="36" text-anchor="middle" fill="#5060A8" font-size="6" font-weight="700" font-family="sans-serif">SODA</text>
-  <text x="32" y="44" text-anchor="middle" fill="#7878B0" font-size="4" font-family="sans-serif">ARM &amp; HAMMER</text>
-  <path d="M22 52 Q32 56 42 52" stroke="#B0B8D0" stroke-width="1" fill="none"/>
-</svg>`,
-
-baking_powder: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pBPWCan" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#E8D8D0"/>
-      <stop offset="50%" stop-color="#F8F0EC"/>
-      <stop offset="100%" stop-color="#D8C8C0"/>
-    </linearGradient>
-    <linearGradient id="pBPWTop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C85040"/>
-      <stop offset="100%" stop-color="#A02818"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#A02818" opacity=".2"/>
-  <rect x="20" y="18" width="24" height="38" rx="5" fill="url(#pBPWCan)" stroke="#D0B8B0" stroke-width="1.5"/>
-  <rect x="20" y="18" width="24" height="12" rx="5" fill="url(#pBPWTop)"/>
-  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">BAKING</text>
-  <text x="32" y="38" text-anchor="middle" fill="#9A4838" font-size="5.5" font-weight="700" font-family="sans-serif">POWDER</text>
-  <text x="32" y="46" text-anchor="middle" fill="#B07068" font-size="3.5" font-family="sans-serif">DOUBLE ACTING</text>
-  <rect x="22" y="20" width="4" height="34" rx="2" fill="#fff" opacity=".18"/>
-</svg>`,
-
-salt_pepper: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pSPSalt" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#E8E8E8"/>
-      <stop offset="50%" stop-color="#FAFAFA"/>
-      <stop offset="100%" stop-color="#E0E0E0"/>
-    </linearGradient>
-    <linearGradient id="pSPPepper" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#282828"/>
-      <stop offset="50%" stop-color="#404040"/>
-      <stop offset="100%" stop-color="#202020"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="21" cy="56" rx="8" ry="2.5" fill="#B0B0B0" opacity=".25"/>
-  <ellipse cx="43" cy="56" rx="8" ry="2.5" fill="#202020" opacity=".25"/>
-  <rect x="13" y="20" width="16" height="34" rx="6" fill="url(#pSPSalt)" stroke="#D0D0D0" stroke-width="1.5"/>
-  <ellipse cx="21" cy="20" rx="8" ry="4" fill="#C8C8C8"/>
-  <circle cx="21" cy="20" r="3.5" fill="#B0B0B0"/>
-  <circle cx="19" cy="30" r="1" fill="#C8C8C8"/>
-  <circle cx="23" cy="34" r="1" fill="#C8C8C8"/>
-  <circle cx="20" cy="38" r="1" fill="#C8C8C8"/>
-  <text x="21" y="48" text-anchor="middle" fill="#909090" font-size="4.5" font-weight="600" font-family="sans-serif">SALT</text>
-  <rect x="35" y="20" width="16" height="34" rx="6" fill="url(#pSPPepper)" stroke="#181818" stroke-width="1.5"/>
-  <ellipse cx="43" cy="20" rx="8" ry="4" fill="#181818"/>
-  <circle cx="43" cy="20" r="3.5" fill="#303030"/>
-  <circle cx="41" cy="30" r="1" fill="#686868"/>
-  <circle cx="45" cy="34" r="1" fill="#686868"/>
-  <circle cx="42" cy="38" r="1" fill="#686868"/>
-  <circle cx="45" cy="30" r="1" fill="#585858"/>
-  <text x="43" y="48" text-anchor="middle" fill="#888" font-size="4.5" font-weight="600" font-family="sans-serif">PEPPER</text>
-</svg>`,
-
-italian_seasoning: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pISJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F8F4E0"/>
-      <stop offset="100%" stop-color="#EEE8C8"/>
-    </linearGradient>
-    <linearGradient id="pISLid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#B89830"/>
-      <stop offset="100%" stop-color="#907818"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#907818" opacity=".25"/>
-  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pISJar)" stroke="#C8B870" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pISLid)" stroke="#907818" stroke-width="1.5"/>
-  <text x="32" y="32" text-anchor="middle" fill="#7A6820" font-size="5" font-weight="700" font-family="sans-serif">ITALIAN</text>
-  <text x="32" y="39" text-anchor="middle" fill="#7A6820" font-size="4.5" font-family="sans-serif">SEASONING</text>
-  <circle cx="22" cy="47" r="2" fill="#5A8020"/>
-  <circle cx="28" cy="49" r="1.5" fill="#C04820"/>
-  <circle cx="34" cy="47" r="2" fill="#5A8020"/>
-  <circle cx="40" cy="49" r="1.5" fill="#C04820"/>
-  <circle cx="26" cy="45" r="1.5" fill="#7A9030"/>
-  <circle cx="38" cy="45" r="1.5" fill="#8A4818"/>
-</svg>`,
-
-cumin: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pCUJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4EAD8"/>
-      <stop offset="100%" stop-color="#E4D8C0"/>
-    </linearGradient>
-    <linearGradient id="pCULid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#B09050"/>
-      <stop offset="100%" stop-color="#886828"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#886828" opacity=".25"/>
-  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pCUJar)" stroke="#C0A878" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pCULid)" stroke="#886828" stroke-width="1.5"/>
-  <text x="32" y="32" text-anchor="middle" fill="#7A5820" font-size="6" font-weight="700" font-family="sans-serif">CUMIN</text>
-  <text x="32" y="40" text-anchor="middle" fill="#9A7840" font-size="4.5" font-family="sans-serif">GROUND</text>
-  <ellipse cx="23" cy="48" rx="3" ry="1.5" fill="#9A7840" opacity=".7" transform="rotate(-20,23,48)"/>
-  <ellipse cx="31" cy="50" rx="3" ry="1.5" fill="#9A7840" opacity=".7" transform="rotate(10,31,50)"/>
-  <ellipse cx="39" cy="48" rx="3" ry="1.5" fill="#9A7840" opacity=".7" transform="rotate(-15,39,48)"/>
-</svg>`,
-
-chili_powder: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pCPJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4DCC8"/>
-      <stop offset="100%" stop-color="#E4C4A8"/>
-    </linearGradient>
-    <linearGradient id="pCPLid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C05030"/>
-      <stop offset="100%" stop-color="#902818"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#902818" opacity=".25"/>
-  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pCPJar)" stroke="#C07050" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pCPLid)" stroke="#902818" stroke-width="1.5"/>
-  <text x="32" y="31" text-anchor="middle" fill="#8A2818" font-size="5.5" font-weight="700" font-family="sans-serif">CHILI</text>
-  <text x="32" y="39" text-anchor="middle" fill="#8A2818" font-size="5" font-family="sans-serif">POWDER</text>
-  <circle cx="23" cy="47" r="2.5" fill="#C84030" opacity=".7"/>
-  <circle cx="32" cy="49" r="2.5" fill="#D85038" opacity=".7"/>
-  <circle cx="41" cy="47" r="2.5" fill="#C84030" opacity=".7"/>
-</svg>`,
-
-cinnamon: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pCNJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4E0C8"/>
-      <stop offset="100%" stop-color="#E4CCA8"/>
-    </linearGradient>
-    <linearGradient id="pCNLid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#B08050"/>
-      <stop offset="100%" stop-color="#886030"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#886030" opacity=".25"/>
-  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pCNJar)" stroke="#C09060" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pCNLid)" stroke="#886030" stroke-width="1.5"/>
-  <text x="32" y="31" text-anchor="middle" fill="#7A4820" font-size="5.5" font-weight="700" font-family="sans-serif">CINNAMON</text>
-  <text x="32" y="39" text-anchor="middle" fill="#9A6840" font-size="4.5" font-family="sans-serif">GROUND</text>
-  <path d="M21 47 Q32 44 43 47" stroke="#A07040" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M22 51 Q32 48 42 51" stroke="#B08050" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".6"/>
-</svg>`,
-
-vanilla_extract: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pVEBottle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2A1808"/>
-      <stop offset="50%" stop-color="#4A2818"/>
-      <stop offset="100%" stop-color="#2A1808"/>
-    </linearGradient>
-    <linearGradient id="pVELabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C8A060"/>
-      <stop offset="100%" stop-color="#A87840"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="10" ry="2.5" fill="#2A1808" opacity=".3"/>
-  <rect x="24" y="20" width="16" height="36" rx="5" fill="url(#pVEBottle)" stroke="#1A1008" stroke-width="1.5"/>
-  <rect x="26" y="14" width="12" height="8" rx="3" fill="#3A2010" stroke="#2A1008" stroke-width="1"/>
-  <rect x="27" y="9" width="10" height="7" rx="3" fill="#2A1008"/>
-  <rect x="26" y="26" width="12" height="22" rx="2" fill="#1A0C04" opacity=".5"/>
-  <text x="32" y="33" text-anchor="middle" fill="#D8B070" font-size="4.5" font-weight="700" font-family="sans-serif">VANILLA</text>
-  <text x="32" y="40" text-anchor="middle" fill="#C8A058" font-size="4" font-family="sans-serif">EXTRACT</text>
-  <text x="32" y="46" text-anchor="middle" fill="#A88040" font-size="3.5" font-family="sans-serif">PURE</text>
-  <rect x="26" y="22" width="3" height="32" rx="1.5" fill="#fff" opacity=".12"/>
-</svg>`,
-
-cocoa_powder: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pCCCan" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#301008"/>
-      <stop offset="50%" stop-color="#4A1C10"/>
-      <stop offset="100%" stop-color="#281008"/>
-    </linearGradient>
-    <linearGradient id="pCCTop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#201008"/>
-      <stop offset="100%" stop-color="#180C04"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#180C04" opacity=".4"/>
-  <rect x="18" y="16" width="28" height="40" rx="5" fill="url(#pCCCan)" stroke="#180C04" stroke-width="1.5"/>
-  <rect x="18" y="16" width="28" height="12" rx="5" fill="url(#pCCTop)"/>
-  <text x="32" y="25" text-anchor="middle" fill="#D09050" font-size="5" font-weight="700" font-family="sans-serif">COCOA</text>
-  <text x="32" y="36" text-anchor="middle" fill="#D09050" font-size="5.5" font-family="sans-serif">POWDER</text>
-  <text x="32" y="44" text-anchor="middle" fill="#A06830" font-size="4" font-family="sans-serif">UNSWEETENED</text>
-  <rect x="20" y="18" width="4" height="36" rx="2" fill="#fff" opacity=".08"/>
-</svg>`,
-
-chocolate_chips: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pCHBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEF4E8"/>
-      <stop offset="100%" stop-color="#EEE0C8"/>
-    </linearGradient>
-    <linearGradient id="pCHTop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5A2808"/>
-      <stop offset="100%" stop-color="#3A1408"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#3A1408" opacity=".2"/>
-  <rect x="12" y="12" width="40" height="48" rx="6" fill="url(#pCHBag)" stroke="#D8C890" stroke-width="1.5"/>
-  <rect x="12" y="12" width="40" height="14" rx="6" fill="url(#pCHTop)"/>
-  <text x="32" y="22" text-anchor="middle" fill="#E8B060" font-size="5.5" font-weight="700" font-family="sans-serif">CHOC CHIPS</text>
-  <text x="32" y="29" text-anchor="middle" fill="#C89048" font-size="4" font-family="sans-serif">SEMI SWEET · 12 OZ</text>
-  <path d="M20 36 L23 31 L26 36 Z" fill="#3A1808"/>
-  <path d="M28 40 L31 35 L34 40 Z" fill="#3A1808"/>
-  <path d="M36 36 L39 31 L42 36 Z" fill="#4A2010"/>
-  <path d="M20 46 L23 41 L26 46 Z" fill="#4A2010"/>
-  <path d="M30 48 L33 43 L36 48 Z" fill="#3A1808"/>
-  <path d="M38 46 L41 41 L44 46 Z" fill="#4A2010"/>
-</svg>`,
-
-soy_sauce: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pSYBottle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#4A2808"/>
-      <stop offset="50%" stop-color="#6A3C18"/>
-      <stop offset="100%" stop-color="#4A2808"/>
-    </linearGradient>
-    <linearGradient id="pSYLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D89050"/>
-      <stop offset="100%" stop-color="#A06018"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="3" fill="#3A1808" opacity=".35"/>
-  <path d="M18 48 Q18 24 24 18 Q28 14 32 14 Q36 14 40 18 Q46 24 46 48 Z" fill="url(#pSYBottle)" stroke="#3A1808" stroke-width="1.5"/>
-  <rect x="22" y="26" width="20" height="18" rx="2" fill="url(#pSYLabel)"/>
-  <text x="32" y="33" text-anchor="middle" fill="#2A1008" font-size="4.5" font-weight="700" font-family="sans-serif">SOY</text>
-  <text x="32" y="39" text-anchor="middle" fill="#2A1008" font-size="4.5" font-family="sans-serif">SAUCE</text>
-  <rect x="26" y="10" width="12" height="6" rx="3" fill="#5A3018"/>
-  <circle cx="32" cy="10" r="3" fill="#3A1808"/>
-  <rect x="20" y="16" width="4" height="30" rx="2" fill="#fff" opacity=".08"/>
-</svg>`,
-
-honey: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pHNBottle" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0B830"/>
-      <stop offset="100%" stop-color="#D89010"/>
-    </linearGradient>
-    <radialGradient id="pHNHoney" cx="40%" cy="30%" r="70%">
-      <stop offset="0%" stop-color="#F8C840"/>
-      <stop offset="100%" stop-color="#D89010"/>
-    </radialGradient>
-  </defs>
-  <ellipse cx="32" cy="56" rx="14" ry="3" fill="#B07010" opacity=".3"/>
-  <path d="M18 52 Q16 36 20 24 Q24 12 32 12 Q40 12 44 24 Q48 36 46 52 Z" fill="url(#pHNHoney)" stroke="#C88010" stroke-width="1.5"/>
-  <path d="M20 52 Q18 38 22 26 Q26 16 32 16 Q38 16 42 26 Q46 38 44 52" fill="#FCD050" opacity=".35"/>
-  <rect x="26" y="8" width="12" height="6" rx="3" fill="#C88010"/>
-  <circle cx="32" cy="8" r="2.5" fill="#A06808"/>
-  <text x="32" y="34" text-anchor="middle" fill="#7A4808" font-size="6" font-weight="700" font-family="sans-serif">HONEY</text>
-  <text x="32" y="42" text-anchor="middle" fill="#9A6010" font-size="4.5" font-family="sans-serif">PURE</text>
-  <ellipse cx="24" cy="24" rx="3" ry="2" fill="#FDD860" opacity=".5"/>
-</svg>`,
-
-red_wine_vinegar: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pRVBottle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#881828"/>
-      <stop offset="50%" stop-color="#B02838"/>
-      <stop offset="100%" stop-color="#881828"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="12" ry="2.5" fill="#881828" opacity=".3"/>
-  <rect x="22" y="22" width="20" height="34" rx="6" fill="url(#pRVBottle)" stroke="#680E1A" stroke-width="1.5"/>
-  <rect x="26" y="14" width="12" height="10" rx="4" fill="#901A28" stroke="#680E1A" stroke-width="1"/>
-  <rect x="27" y="9" width="10" height="7" rx="3" fill="#6A1018"/>
-  <rect x="24" y="28" width="16" height="18" rx="2" fill="#5A0C14" opacity=".5"/>
-  <text x="32" y="34" text-anchor="middle" fill="#F0A0B0" font-size="4.5" font-weight="700" font-family="sans-serif">RED WINE</text>
-  <text x="32" y="40" text-anchor="middle" fill="#F0A0B0" font-size="4.5" font-family="sans-serif">VINEGAR</text>
-  <rect x="24" y="24" width="3" height="30" rx="1.5" fill="#fff" opacity=".1"/>
-</svg>`,
-
-oregano: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pORJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4EED8"/>
-      <stop offset="100%" stop-color="#E4E0C0"/>
-    </linearGradient>
-    <linearGradient id="pORLid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#A89840"/>
-      <stop offset="100%" stop-color="#807820"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#807820" opacity=".25"/>
-  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pORJar)" stroke="#C0B868" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pORLid)" stroke="#807820" stroke-width="1.5"/>
-  <text x="32" y="32" text-anchor="middle" fill="#6A7020" font-size="5.5" font-weight="700" font-family="sans-serif">OREGANO</text>
-  <text x="32" y="39" text-anchor="middle" fill="#8A8840" font-size="4.5" font-family="sans-serif">DRIED</text>
-  <circle cx="23" cy="47" r="2" fill="#7A9028"/>
-  <circle cx="29" cy="49" r="1.5" fill="#6A8020"/>
-  <circle cx="35" cy="47" r="2" fill="#7A9028"/>
-  <circle cx="41" cy="49" r="1.5" fill="#6A8020"/>
-  <circle cx="27" cy="45" r="1.5" fill="#8AA030"/>
-</svg>`,
-
-hot_sauce: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pHSBottle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#D02010"/>
-      <stop offset="50%" stop-color="#F03020"/>
-      <stop offset="100%" stop-color="#C01808"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="12" ry="2.5" fill="#C01808" opacity=".3"/>
-  <rect x="22" y="20" width="20" height="34" rx="7" fill="url(#pHSBottle)" stroke="#A81008" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="10" ry="4.5" fill="#C01808"/>
-  <rect x="28" y="13" width="8" height="9" rx="3" fill="#A01008"/>
-  <rect x="24" y="28" width="16" height="18" rx="2" fill="#FFFAF8" opacity=".15"/>
-  <text x="32" y="35" text-anchor="middle" fill="#FFE0D0" font-size="5.5" font-weight="700" font-family="sans-serif">HOT</text>
-  <text x="32" y="42" text-anchor="middle" fill="#FFC8B0" font-size="5" font-family="sans-serif">SAUCE</text>
-  <rect x="24" y="22" width="4" height="30" rx="2" fill="#fff" opacity=".12"/>
-</svg>`,
-
-ketchup_mustard: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pKMKetch" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#C01818"/>
-      <stop offset="50%" stop-color="#E02828"/>
-      <stop offset="100%" stop-color="#B81010"/>
-    </linearGradient>
-    <linearGradient id="pKMMust" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#C0A010"/>
-      <stop offset="50%" stop-color="#E8C028"/>
-      <stop offset="100%" stop-color="#B89010"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="21" cy="55" rx="9" ry="2.5" fill="#C01818" opacity=".25"/>
-  <ellipse cx="43" cy="55" rx="9" ry="2.5" fill="#C0A010" opacity=".25"/>
-  <rect x="12" y="20" width="18" height="33" rx="7" fill="url(#pKMKetch)" stroke="#A01010" stroke-width="1.5"/>
-  <ellipse cx="21" cy="20" rx="9" ry="4.5" fill="#A81010"/>
-  <rect x="17" y="13" width="8" height="9" rx="3" fill="#901008"/>
-  <rect x="14" y="28" width="14" height="16" rx="2" fill="#fff" opacity=".12"/>
-  <text x="21" y="38" text-anchor="middle" fill="#FFB0A0" font-size="4.5" font-weight="700" font-family="sans-serif">KETCHUP</text>
-  <rect x="34" y="20" width="18" height="33" rx="7" fill="url(#pKMMust)" stroke="#A08010" stroke-width="1.5"/>
-  <ellipse cx="43" cy="20" rx="9" ry="4.5" fill="#B09010"/>
-  <rect x="39" y="13" width="8" height="9" rx="3" fill="#988008"/>
-  <rect x="36" y="28" width="14" height="16" rx="2" fill="#fff" opacity=".12"/>
-  <text x="43" y="38" text-anchor="middle" fill="#FFF0A0" font-size="4" font-weight="700" font-family="sans-serif">MUSTARD</text>
-</svg>`,
-
-mayonnaise: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pMYJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFEF4"/>
-      <stop offset="100%" stop-color="#EEEEDC"/>
-    </linearGradient>
-    <linearGradient id="pMYLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4878B0"/>
-      <stop offset="100%" stop-color="#305888"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="16" ry="3" fill="#305888" opacity=".2"/>
-  <rect x="16" y="18" width="32" height="38" rx="6" fill="url(#pMYJar)" stroke="#D8D8B0" stroke-width="1.5"/>
-  <rect x="16" y="18" width="32" height="13" rx="6" fill="url(#pMYLabel)"/>
-  <rect x="22" y="13" width="20" height="7" rx="2" fill="#3868A0"/>
-  <text x="32" y="27" text-anchor="middle" fill="#fff" font-size="6" font-weight="700" font-family="sans-serif">MAYO</text>
-  <text x="32" y="40" text-anchor="middle" fill="#A0A070" font-size="5" font-family="sans-serif">REAL</text>
-  <text x="32" y="47" text-anchor="middle" fill="#9A9868" font-size="4.5" font-family="sans-serif">MAYONNAISE</text>
-  <rect x="18" y="20" width="5" height="34" rx="2" fill="#fff" opacity=".18"/>
-</svg>`,
-
-peanut_butter: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pPBJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4DCB0"/>
-      <stop offset="100%" stop-color="#E4C888"/>
-    </linearGradient>
-    <linearGradient id="pPBLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#9A6020"/>
-      <stop offset="100%" stop-color="#704010"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#704010" opacity=".25"/>
-  <rect x="14" y="18" width="36" height="38" rx="6" fill="url(#pPBJar)" stroke="#C8A858" stroke-width="1.5"/>
-  <rect x="14" y="18" width="36" height="13" rx="6" fill="url(#pPBLabel)"/>
-  <text x="32" y="27" text-anchor="middle" fill="#F0D070" font-size="5.5" font-weight="700" font-family="sans-serif">PEANUT</text>
-  <text x="32" y="37" text-anchor="middle" fill="#7A4810" font-size="6" font-weight="700" font-family="sans-serif">BUTTER</text>
-  <text x="32" y="45" text-anchor="middle" fill="#9A6830" font-size="5" font-family="sans-serif">CREAMY</text>
-  <rect x="16" y="20" width="5" height="34" rx="2" fill="#fff" opacity=".18"/>
-</svg>`,
-
-marinara_sauce: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pMRJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4E4D8"/>
-      <stop offset="100%" stop-color="#E4CEC0"/>
-    </linearGradient>
-    <linearGradient id="pMRLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D03828"/>
-      <stop offset="100%" stop-color="#A01808"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="18" ry="3" fill="#A01808" opacity=".25"/>
-  <rect x="14" y="16" width="36" height="42" rx="6" fill="url(#pMRJar)" stroke="#C09070" stroke-width="1.5"/>
-  <rect x="14" y="16" width="36" height="14" rx="6" fill="url(#pMRLabel)"/>
-  <text x="32" y="26" text-anchor="middle" fill="#FFD0C0" font-size="5.5" font-weight="700" font-family="sans-serif">MARINARA</text>
-  <text x="32" y="38" text-anchor="middle" fill="#9A5030" font-size="5.5" font-family="sans-serif">SAUCE</text>
-  <circle cx="23" cy="46" r="6" fill="#E03020" opacity=".65"/>
-  <circle cx="35" cy="48" r="5" fill="#C82818" opacity=".65"/>
-  <circle cx="29" cy="52" r="4" fill="#E03020" opacity=".5"/>
-  <rect x="16" y="18" width="5" height="38" rx="2" fill="#fff" opacity=".12"/>
-</svg>`,
-
-pizza_sauce: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pPZCan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0E4D8"/>
-      <stop offset="100%" stop-color="#E0CCC0"/>
-    </linearGradient>
-    <linearGradient id="pPZLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C02818"/>
-      <stop offset="100%" stop-color="#981008"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#981008" opacity=".25"/>
-  <rect x="16" y="16" width="32" height="42" rx="5" fill="url(#pPZCan)" stroke="#C09070" stroke-width="1.5"/>
-  <rect x="16" y="16" width="32" height="14" rx="5" fill="url(#pPZLabel)"/>
-  <text x="32" y="26" text-anchor="middle" fill="#FFD0C0" font-size="6" font-weight="700" font-family="sans-serif">PIZZA</text>
-  <text x="32" y="36" text-anchor="middle" fill="#9A4028" font-size="5.5" font-family="sans-serif">SAUCE</text>
-  <circle cx="24" cy="46" r="6" fill="#D02818" opacity=".65"/>
-  <circle cx="36" cy="48" r="6" fill="#C02010" opacity=".65"/>
-  <rect x="18" y="18" width="5" height="38" rx="2" fill="#fff" opacity=".12"/>
-</svg>`,
-
-crushed_tomatoes: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="16" width="32" height="36" rx="4" fill="#E8E0D0" stroke="#D04030" stroke-width="1.5"/>
-  <rect x="16" y="16" width="32" height="11" rx="4" fill="#D04030"/>
-  <rect x="16" y="23" width="32" height="4" fill="#D04030"/>
-  <text x="32" y="22" text-anchor="middle" fill="#FFC0B0" font-size="5.5" font-weight="500" font-family="sans-serif">CRUSHED</text>
-  <text x="32" y="33" text-anchor="middle" fill="#C03020" font-size="5.5" font-family="sans-serif">TOMATOES</text>
-  <text x="32" y="40" text-anchor="middle" fill="#A05030" font-size="5" font-family="sans-serif">28 OZ</text>
-  <path d="M20 48 Q32 52 44 48" stroke="#D04030" stroke-width="1" fill="none"/>
-</svg>`,
-
-breadcrumbs: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pBCBox" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4ECD8"/>
-      <stop offset="100%" stop-color="#E4D8C0"/>
-    </linearGradient>
-    <linearGradient id="pBCLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D84838"/>
-      <stop offset="100%" stop-color="#A02818"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#A02818" opacity=".2"/>
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#pBCBox)" stroke="#D04838" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#pBCLabel)"/>
-  <text x="32" y="23" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">ITALIAN</text>
-  <text x="32" y="30" text-anchor="middle" fill="#FFC0B0" font-size="4.5" font-family="sans-serif">BREAD CRUMBS</text>
-  <text x="32" y="40" text-anchor="middle" fill="#C03020" font-size="5.5" font-family="sans-serif">BREAD</text>
-  <text x="32" y="47" text-anchor="middle" fill="#C03020" font-size="5" font-family="sans-serif">CRUMBS</text>
-  <path d="M18 54 Q32 58 46 54" stroke="#D04838" stroke-width="1" fill="none"/>
-</svg>`,
-
-salsa: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pSAJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4ECD8"/>
-      <stop offset="100%" stop-color="#E4D4B8"/>
-    </linearGradient>
-    <linearGradient id="pSALabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D04818"/>
-      <stop offset="100%" stop-color="#A02808"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="18" ry="3" fill="#A02808" opacity=".25"/>
-  <rect x="14" y="16" width="36" height="42" rx="6" fill="url(#pSAJar)" stroke="#C07040" stroke-width="1.5"/>
-  <rect x="14" y="16" width="36" height="14" rx="6" fill="url(#pSALabel)"/>
-  <text x="32" y="25" text-anchor="middle" fill="#FFD0A0" font-size="6" font-weight="700" font-family="sans-serif">SALSA</text>
-  <text x="32" y="33" text-anchor="middle" fill="#FFB080" font-size="4" font-family="sans-serif">MILD · 16 OZ</text>
-  <circle cx="22" cy="43" r="5.5" fill="#E03020" opacity=".65"/>
-  <circle cx="34" cy="41" r="4.5" fill="#E87020" opacity=".65"/>
-  <circle cx="26" cy="50" r="4" fill="#D02818" opacity=".6"/>
-  <circle cx="37" cy="50" r="3.5" fill="#4A9020" opacity=".6"/>
-  <rect x="16" y="18" width="5" height="38" rx="2" fill="#fff" opacity=".12"/>
-</svg>`,
-
-rice_cereal: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pRCBox" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFAF0"/>
-      <stop offset="100%" stop-color="#EEE8D0"/>
-    </linearGradient>
-    <linearGradient id="pRCLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0B820"/>
-      <stop offset="100%" stop-color="#C89010"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#C89010" opacity=".2"/>
-  <rect x="12" y="12" width="40" height="48" rx="5" fill="url(#pRCBox)" stroke="#D8C890" stroke-width="1.5"/>
-  <rect x="12" y="12" width="40" height="16" rx="5" fill="url(#pRCLabel)"/>
-  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">CRISPY RICE</text>
-  <text x="32" y="30" text-anchor="middle" fill="#FFF0B0" font-size="4.5" font-family="sans-serif">CEREAL</text>
-  <ellipse cx="20" cy="40" rx="3.5" ry="2.5" fill="#E8CC70"/>
-  <ellipse cx="28" cy="36" rx="3.5" ry="2.5" fill="#E0C460"/>
-  <ellipse cx="36" cy="40" rx="3.5" ry="2.5" fill="#E8CC70"/>
-  <ellipse cx="44" cy="37" rx="3" ry="2" fill="#E0C460"/>
-  <ellipse cx="24" cy="46" rx="3.5" ry="2.5" fill="#E0C460"/>
-  <ellipse cx="33" cy="48" rx="3.5" ry="2.5" fill="#E8CC70"/>
-  <ellipse cx="42" cy="47" rx="3" ry="2" fill="#E0C460"/>
-</svg>`,
-
-marshmallows: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pMHBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F4F4FC"/>
-      <stop offset="100%" stop-color="#E4E4F0"/>
-    </linearGradient>
-    <linearGradient id="pMHLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#9090C8"/>
-      <stop offset="100%" stop-color="#6060A0"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#6060A0" opacity=".2"/>
-  <rect x="12" y="12" width="40" height="48" rx="5" fill="url(#pMHBag)" stroke="#C0C0D0" stroke-width="1.5"/>
-  <rect x="12" y="12" width="40" height="14" rx="5" fill="url(#pMHLabel)"/>
-  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">MARSHMALLOWS</text>
-  <text x="32" y="28" text-anchor="middle" fill="#D0D0F0" font-size="4" font-family="sans-serif">MINI · 10 OZ</text>
-  <rect x="18" y="30" width="11" height="11" rx="5" fill="#FFFFFF" stroke="#E0E0F0" stroke-width="1"/>
-  <rect x="31" y="30" width="11" height="11" rx="5" fill="#FEFEFE" stroke="#E0E0F0" stroke-width="1"/>
-  <rect x="17" y="43" width="11" height="11" rx="5" fill="#FFFFFF" stroke="#E0E0F0" stroke-width="1"/>
-  <rect x="30" y="43" width="11" height="11" rx="5" fill="#FEFEFE" stroke="#E0E0F0" stroke-width="1"/>
-  <rect x="19" y="31" width="4" height="4" rx="2" fill="#fff" opacity=".6"/>
-  <rect x="32" y="31" width="4" height="4" rx="2" fill="#fff" opacity=".6"/>
-</svg>`,
-
-// ── PROTEIN ───────────────────────────────────────────────
-
-ground_beef: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="trayGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFAF7"/>
-      <stop offset="100%" stop-color="#EDE4DC"/>
-    </linearGradient>
-    <linearGradient id="beefGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D4786A"/>
-      <stop offset="100%" stop-color="#A84838"/>
-    </linearGradient>
-  </defs>
-  <!-- tray shadow -->
-  <ellipse cx="33" cy="57" rx="22" ry="3" fill="#C8B8A8" opacity=".35"/>
-  <!-- tray body -->
-  <rect x="7" y="27" width="50" height="28" rx="5" fill="url(#trayGrad)" stroke="#C8C0B4" stroke-width="1.5"/>
-  <!-- tray inner well -->
-  <rect x="10" y="30" width="44" height="22" rx="3" fill="#FFF8F4"/>
-  <!-- tray rim highlight -->
-  <path d="M10 30 Q32 27 54 30" stroke="#FFFFFF" stroke-width="1.2" fill="none" opacity=".8"/>
-  <!-- ground beef mound — base shadow -->
-  <ellipse cx="32" cy="45" rx="19" ry="7" fill="#8A3820" opacity=".2"/>
-  <!-- ground beef main mass -->
-  <path d="M14 44 Q14 34 22 31 Q32 29 42 31 Q50 34 50 44 Q50 50 32 51 Q14 50 14 44Z" fill="url(#beefGrad)"/>
-  <!-- beef texture streaks -->
-  <path d="M18 36 Q24 34 30 36 Q36 34 42 36" stroke="#C06050" stroke-width="1" fill="none" opacity=".5"/>
-  <path d="M16 40 Q24 37 32 39 Q40 37 48 40" stroke="#C06050" stroke-width="1" fill="none" opacity=".4"/>
-  <path d="M17 44 Q26 41 32 43 Q38 41 47 44" stroke="#B05040" stroke-width=".8" fill="none" opacity=".4"/>
-  <!-- fat marbling -->
-  <path d="M22 33 Q26 31 28 33" stroke="#E8A890" stroke-width="1.2" fill="none" opacity=".6"/>
-  <path d="M36 32 Q40 30 43 33" stroke="#E8A890" stroke-width="1" fill="none" opacity=".5"/>
-  <!-- plastic wrap shimmer -->
-  <rect x="10" y="30" width="44" height="22" rx="3" fill="none" stroke="#C8E8F8" stroke-width="2.5" opacity=".35"/>
-  <path d="M13 32 Q32 29 51 33" stroke="#E0F4FF" stroke-width="1.5" fill="none" opacity=".5"/>
-  <!-- label sticker -->
-  <rect x="11" y="28" width="24" height="9" rx="2.5" fill="#FFFFFF" stroke="#D4C8BC" stroke-width=".8"/>
-  <rect x="11" y="28" width="24" height="3.5" rx="2.5" fill="#C84030"/>
-  <text x="23" y="31" text-anchor="middle" fill="#fff" font-size="3.5" font-weight="700" font-family="sans-serif">GROUND BEEF</text>
-  <text x="23" y="35.5" text-anchor="middle" fill="#7A4030" font-size="3.5" font-family="sans-serif">2 LB · 80/20</text>
-</svg>`,
-
-chicken_breast: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="chkBrGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FDF5E6"/>
-      <stop offset="100%" stop-color="#F0E2C8"/>
-    </linearGradient>
-    <linearGradient id="meatPink" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FDEEDD"/>
-      <stop offset="100%" stop-color="#E8C8A0"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="33" cy="57" rx="22" ry="2.5" fill="#C8C0B0" opacity=".3"/>
-  <!-- tray -->
-  <rect x="7" y="27" width="50" height="29" rx="5" fill="url(#chkBrGrad)" stroke="#C8C0B4" stroke-width="1.5"/>
-  <rect x="10" y="30" width="44" height="23" rx="3" fill="#FFFCF8"/>
-  <path d="M10 30 Q32 27 54 30" stroke="#fff" stroke-width="1.2" fill="none" opacity=".9"/>
-  <!-- left breast — plump teardrop shape -->
-  <path d="M12 52 Q9 42 13 34 Q19 28 27 30 Q34 32 33 41 Q31 52 22 53 Q16 54 12 52Z" fill="url(#meatPink)" stroke="#D8B880" stroke-width="1"/>
-  <!-- muscle grain lines -->
-  <path d="M15 36 Q20 33 26 35" stroke="#E8C890" stroke-width="1" fill="none" opacity=".7"/>
-  <path d="M13 42 Q20 38 28 41" stroke="#E8C890" stroke-width=".8" fill="none" opacity=".6"/>
-  <path d="M13 47 Q20 44 28 47" stroke="#D8B870" stroke-width=".7" fill="none" opacity=".5"/>
-  <!-- highlight -->
-  <path d="M15 34 Q21 30 27 32" stroke="#FFF8EC" stroke-width="1.8" fill="none" opacity=".6"/>
-  <!-- right breast -->
-  <path d="M33 52 Q31 41 35 33 Q41 27 49 29 Q57 31 57 41 Q57 52 49 54 Q39 55 33 52Z" fill="#F5E0C0" stroke="#D0B070" stroke-width="1"/>
-  <path d="M36 35 Q42 31 48 33" stroke="#E8C880" stroke-width="1" fill="none" opacity=".7"/>
-  <path d="M34 43 Q40 39 50 42" stroke="#E0B870" stroke-width=".8" fill="none" opacity=".6"/>
-  <path d="M35 34 Q42 30 48 32" stroke="#FFFAEE" stroke-width="1.5" fill="none" opacity=".6"/>
-  <!-- plastic wrap -->
-  <rect x="10" y="30" width="44" height="23" rx="3" fill="none" stroke="#C0E8F8" stroke-width="2" opacity=".3"/>
-  <path d="M13 31 Q32 28 52 32" stroke="#E0F4FF" stroke-width="1.2" fill="none" opacity=".45"/>
-  <!-- label -->
-  <rect x="11" y="28" width="26" height="9" rx="2.5" fill="#fff" stroke="#D4C8BC" stroke-width=".8"/>
-  <rect x="11" y="28" width="26" height="3.5" rx="2.5" fill="#4A8030"/>
-  <text x="24" y="31" text-anchor="middle" fill="#fff" font-size="3.2" font-weight="700" font-family="sans-serif">CHICKEN BREAST</text>
-  <text x="24" y="36" text-anchor="middle" fill="#5A7030" font-size="3.2" font-family="sans-serif">2 LB · BONELESS</text>
-</svg>`,
-
-chicken_wings: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="wingGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#E8B860"/>
-      <stop offset="100%" stop-color="#B87828"/>
-    </linearGradient>
-    <linearGradient id="trayW" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFAF6"/>
-      <stop offset="100%" stop-color="#EDE4DC"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="33" cy="58" rx="22" ry="2.5" fill="#C0B8A8" opacity=".3"/>
-  <!-- tray -->
-  <rect x="6" y="23" width="52" height="33" rx="5" fill="url(#trayW)" stroke="#C8C0B4" stroke-width="1.5"/>
-  <rect x="9" y="26" width="46" height="27" rx="3" fill="#FFFCF8"/>
-  <path d="M9 26 Q32 23 55 26" stroke="#fff" stroke-width="1.2" fill="none" opacity=".9"/>
-  <!-- wing back-left (darker, behind) -->
-  <path d="M10 50 Q8 38 14 30 Q20 24 27 26 Q32 28 30 37 Q28 46 20 51 Q14 53 10 50Z" fill="#C89040" stroke="#A87028" stroke-width="1" opacity=".85"/>
-  <path d="M30 37 Q33 28 39 26 Q46 24 49 32 Q49 41 43 47 Q36 50 30 46 Q27 42 30 37Z" fill="#C08030" stroke="#9A6820" stroke-width="1" opacity=".8"/>
-  <!-- wing front-center (brighter) -->
-  <path d="M16 53 Q12 44 16 35 Q23 27 32 29 Q39 31 37 42 Q35 52 26 55 Q20 56 16 53Z" fill="url(#wingGrad)" stroke="#C89840" stroke-width="1"/>
-  <!-- skin texture -->
-  <path d="M18 37 Q23 33 29 36" stroke="#F8D080" stroke-width="1.2" fill="none" opacity=".6"/>
-  <path d="M17 43 Q23 39 30 42" stroke="#E0B060" stroke-width="1" fill="none" opacity=".5"/>
-  <path d="M18 49 Q24 46 31 48" stroke="#D0A050" stroke-width=".8" fill="none" opacity=".5"/>
-  <!-- highlight sheen -->
-  <path d="M19 35 Q25 31 31 34" stroke="#FFEEA0" stroke-width="1.5" fill="none" opacity=".5"/>
-  <!-- bone tip 1 -->
-  <ellipse cx="18" cy="35" rx="3.5" ry="2.5" fill="#F5F0E4" stroke="#D8C8A8" stroke-width=".8"/>
-  <!-- bone tip 2 -->
-  <ellipse cx="40" cy="33" rx="3" ry="2" fill="#F5F0E4" stroke="#D8C8A8" stroke-width=".8"/>
-  <!-- plastic wrap -->
-  <rect x="9" y="26" width="46" height="27" rx="3" fill="none" stroke="#C0E8F8" stroke-width="2" opacity=".25"/>
-  <!-- label -->
-  <rect x="10" y="24" width="26" height="9" rx="2.5" fill="#fff" stroke="#D4C8BC" stroke-width=".8"/>
-  <rect x="10" y="24" width="26" height="3.5" rx="2.5" fill="#C86820"/>
-  <text x="23" y="27" text-anchor="middle" fill="#fff" font-size="3.2" font-weight="700" font-family="sans-serif">CHICKEN WINGS</text>
-  <text x="23" y="32" text-anchor="middle" fill="#8A5020" font-size="3.2" font-family="sans-serif">4 LB · PARTY PACK</text>
-</svg>`,
-
-chicken_thighs: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="thighGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#F0D090"/>
-      <stop offset="100%" stop-color="#C8903C"/>
-    </linearGradient>
-    <linearGradient id="trayTh" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFAF6"/>
-      <stop offset="100%" stop-color="#EDE4DC"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="33" cy="58" rx="22" ry="2.5" fill="#C0B8A8" opacity=".3"/>
-  <!-- tray -->
-  <rect x="6" y="25" width="52" height="31" rx="5" fill="url(#trayTh)" stroke="#C8C0B4" stroke-width="1.5"/>
-  <rect x="9" y="28" width="46" height="25" rx="3" fill="#FFFCF8"/>
-  <path d="M9 28 Q32 25 55 28" stroke="#fff" stroke-width="1.2" fill="none" opacity=".9"/>
-  <!-- thigh 1 left -->
-  <path d="M11 51 Q9 39 14 32 Q22 26 30 28 Q37 30 36 41 Q35 53 23 54 Q15 54 11 51Z" fill="url(#thighGrad)" stroke="#C09040" stroke-width="1"/>
-  <path d="M13 34 Q19 30 26 32" stroke="#F8E0A0" stroke-width="1.2" fill="none" opacity=".6"/>
-  <path d="M12 41 Q19 37 28 40" stroke="#E8C870" stroke-width="1" fill="none" opacity=".55"/>
-  <path d="M12 47 Q19 44 27 47" stroke="#D8B060" stroke-width=".8" fill="none" opacity=".5"/>
-  <!-- bone 1 -->
-  <line x1="21" y1="28" x2="19" y2="54" stroke="#F8F0DC" stroke-width="3.5" stroke-linecap="round" opacity=".9"/>
-  <ellipse cx="21" cy="28" rx="4.5" ry="3" fill="#F5EED8" stroke="#D8C8A0" stroke-width=".8"/>
-  <ellipse cx="19" cy="54" rx="3.5" ry="2.5" fill="#F5EED8" stroke="#D8C8A0" stroke-width=".8"/>
-  <!-- thigh 2 right -->
-  <path d="M35 51 Q33 39 39 30 Q47 24 53 27 Q59 31 58 43 Q57 54 48 56 Q37 55 35 51Z" fill="#E8C278" stroke="#B88838" stroke-width="1"/>
-  <path d="M38 32 Q43 28 50 30" stroke="#F8E090" stroke-width="1.2" fill="none" opacity=".6"/>
-  <path d="M36 41 Q43 37 54 41" stroke="#E8C870" stroke-width="1" fill="none" opacity=".5"/>
-  <!-- bone 2 -->
-  <line x1="48" y1="25" x2="46" y2="54" stroke="#F8F0DC" stroke-width="3.5" stroke-linecap="round" opacity=".9"/>
-  <ellipse cx="48" cy="25" rx="4.5" ry="3" fill="#F5EED8" stroke="#D8C8A0" stroke-width=".8"/>
-  <ellipse cx="46" cy="54" rx="3.5" ry="2.5" fill="#F5EED8" stroke="#D8C8A0" stroke-width=".8"/>
-  <!-- plastic wrap -->
-  <rect x="9" y="28" width="46" height="25" rx="3" fill="none" stroke="#C0E8F8" stroke-width="2" opacity=".25"/>
-  <!-- label -->
-  <rect x="10" y="26" width="26" height="9" rx="2.5" fill="#fff" stroke="#D4C8BC" stroke-width=".8"/>
-  <rect x="10" y="26" width="26" height="3.5" rx="2.5" fill="#9A6018"/>
-  <text x="23" y="29" text-anchor="middle" fill="#fff" font-size="3.2" font-weight="700" font-family="sans-serif">CHICKEN THIGHS</text>
-  <text x="23" y="34" text-anchor="middle" fill="#7A5018" font-size="3.2" font-family="sans-serif">2 LB · BONE-IN</text>
-</svg>`,
-
-bacon: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="baconPkg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FDF0E0"/>
-      <stop offset="100%" stop-color="#F0DCC0"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="22" ry="2.5" fill="#C0A890" opacity=".3"/>
-  <!-- package -->
-  <rect x="7" y="9" width="50" height="48" rx="5" fill="url(#baconPkg)" stroke="#C8A068" stroke-width="1.5"/>
-  <!-- header band -->
-  <rect x="7" y="9" width="50" height="16" rx="5" fill="#B83018"/>
-  <rect x="7" y="21" width="50" height="4" fill="#982010"/>
-  <text x="32" y="19" text-anchor="middle" fill="#FFECD8" font-size="6" font-weight="800" font-family="sans-serif">BACON</text>
-  <!-- clear window outline -->
-  <rect x="11" y="27" width="42" height="26" rx="3" fill="#FFF8F0" stroke="#D8B888" stroke-width="1"/>
-  <!-- bacon strip 1 — lean red with fat marbling -->
-  <path d="M13 31 Q19 28 26 31 Q32 34 38 31 Q44 28 51 31" stroke="#C03820" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <path d="M13 31 Q19 28 26 31 Q32 34 38 31 Q44 28 51 31" stroke="#F0A080" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <!-- fat streaks on strip 1 -->
-  <path d="M16 30 Q19 28 22 30" stroke="#F8DCC0" stroke-width="1.2" fill="none" opacity=".8"/>
-  <path d="M35 30 Q38 28 42 30" stroke="#F8DCC0" stroke-width="1.2" fill="none" opacity=".8"/>
-  <!-- bacon strip 2 -->
-  <path d="M13 37 Q20 34 27 37 Q33 40 40 37 Q46 34 51 37" stroke="#D04028" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-  <path d="M13 37 Q20 34 27 37 Q33 40 40 37 Q46 34 51 37" stroke="#F8C0A0" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-  <path d="M19 36 Q22 34 25 36" stroke="#F8E0C8" stroke-width="1" fill="none" opacity=".8"/>
-  <path d="M39 36 Q42 34 46 36" stroke="#F8E0C8" stroke-width="1" fill="none" opacity=".8"/>
-  <!-- bacon strip 3 -->
-  <path d="M13 43 Q21 40 28 43 Q34 46 42 43 Q47 40 51 43" stroke="#B83020" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M13 43 Q21 40 28 43 Q34 46 42 43 Q47 40 51 43" stroke="#F0B090" stroke-width="1" fill="none" stroke-linecap="round"/>
-  <!-- bacon strip 4 -->
-  <path d="M14 48 Q22 45 30 48 Q36 51 44 48 Q48 46 51 48" stroke="#C83828" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".8"/>
-  <!-- package glare -->
-  <path d="M11 28 Q32 25 53 28" stroke="#fff" stroke-width="1" fill="none" opacity=".5"/>
-</svg>`,
-
-turkey_deli: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="turkeyPkg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F5EED8"/>
-      <stop offset="100%" stop-color="#E5D8B8"/>
-    </linearGradient>
-    <linearGradient id="sliceGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#F8E8D0"/>
-      <stop offset="100%" stop-color="#DEC8A8"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#C0B0A0" opacity=".3"/>
-  <!-- package body -->
-  <rect x="9" y="10" width="46" height="48" rx="5" fill="url(#turkeyPkg)" stroke="#C8B888" stroke-width="1.5"/>
-  <!-- header -->
-  <rect x="9" y="10" width="46" height="15" rx="5" fill="#8A6838"/>
-  <rect x="9" y="21" width="46" height="4" fill="#704E28"/>
-  <text x="32" y="19" text-anchor="middle" fill="#F8E8C8" font-size="5.5" font-weight="700" font-family="sans-serif">TURKEY</text>
-  <!-- clear window -->
-  <rect x="12" y="28" width="40" height="26" rx="3" fill="#FFF8F0" stroke="#D4C4A0" stroke-width="1"/>
-  <!-- turkey slices fanned out — 5 overlapping rounds -->
-  <ellipse cx="22" cy="42" rx="10" ry="11" fill="#E8D4B0" stroke="#C8B488" stroke-width=".8" transform="rotate(-15 22 42)"/>
-  <ellipse cx="25" cy="41" rx="10" ry="11" fill="#EED8B8" stroke="#C8B888" stroke-width=".8" transform="rotate(-8 25 41)"/>
-  <ellipse cx="28" cy="41" rx="10" ry="11" fill="#F0DAB8" stroke="#CCC090" stroke-width=".8" transform="rotate(-2 28 41)"/>
-  <ellipse cx="32" cy="41" rx="10" ry="11" fill="url(#sliceGrad)" stroke="#C8B880" stroke-width=".8" transform="rotate(4 32 41)"/>
-  <ellipse cx="36" cy="41" rx="10" ry="11" fill="#ECD8B0" stroke="#C8B880" stroke-width=".8" transform="rotate(10 36 41)"/>
-  <!-- slice texture/grain -->
-  <ellipse cx="32" cy="41" rx="7" ry="8" fill="none" stroke="#D8C498" stroke-width=".6" opacity=".6" transform="rotate(4 32 41)"/>
-  <ellipse cx="32" cy="41" rx="4" ry="5" fill="#E0C8A0" opacity=".3" transform="rotate(4 32 41)"/>
-  <!-- weight label bottom -->
-  <text x="32" y="56.5" text-anchor="middle" fill="#6A5028" font-size="4.5" font-weight="600" font-family="sans-serif">1 LB SLICED</text>
-  <!-- glare -->
-  <path d="M12 29 Q32 26 52 29" stroke="#fff" stroke-width="1" fill="none" opacity=".5"/>
-</svg>`,
-
-pepperoni: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pepPkg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F8EEE0"/>
-      <stop offset="100%" stop-color="#ECD8C0"/>
-    </linearGradient>
-    <radialGradient id="pepSlice" cx="40%" cy="35%" r="60%">
-      <stop offset="0%" stop-color="#E85040"/>
-      <stop offset="100%" stop-color="#A01808"/>
-    </radialGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="20" ry="2.5" fill="#B8A090" opacity=".3"/>
-  <!-- package -->
-  <rect x="9" y="10" width="46" height="48" rx="5" fill="url(#pepPkg)" stroke="#C8A868" stroke-width="1.5"/>
-  <!-- header -->
-  <rect x="9" y="10" width="46" height="13" rx="5" fill="#A01808"/>
-  <rect x="9" y="19" width="46" height="4" fill="#800808"/>
-  <text x="32" y="18" text-anchor="middle" fill="#FFD8C8" font-size="5.5" font-weight="800" font-family="sans-serif">PEPPERONI</text>
-  <!-- window -->
-  <rect x="12" y="26" width="40" height="28" rx="3" fill="#FFF5EE" stroke="#D8B898" stroke-width="1"/>
-  <!-- back slice (left, slightly behind) -->
-  <circle cx="25" cy="41" r="12" fill="#B82010" stroke="#901008" stroke-width=".8" opacity=".75"/>
-  <circle cx="22" cy="38" r="4" fill="#901008" opacity=".5"/>
-  <circle cx="28" cy="36" r="2.5" fill="#901008" opacity=".5"/>
-  <circle cx="24" cy="46" r="3" fill="#901008" opacity=".5"/>
-  <!-- front slice (right, in front) -->
-  <circle cx="38" cy="40" r="13" fill="url(#pepSlice)" stroke="#901010" stroke-width="1"/>
-  <!-- grease/sheen highlight -->
-  <ellipse cx="33" cy="34" rx="6" ry="4" fill="#F08060" opacity=".35" transform="rotate(-15 33 34)"/>
-  <!-- dark spots (fat/spice) -->
-  <circle cx="34" cy="36" r="2.5" fill="#801008" opacity=".7"/>
-  <circle cx="42" cy="35" r="3" fill="#781008" opacity=".65"/>
-  <circle cx="36" cy="44" r="2.5" fill="#801008" opacity=".7"/>
-  <circle cx="43" cy="43" r="2" fill="#781008" opacity=".6"/>
-  <circle cx="30" cy="41" r="2" fill="#901010" opacity=".7"/>
-  <!-- edge char detail -->
-  <circle cx="38" cy="40" r="13" fill="none" stroke="#701008" stroke-width=".8" opacity=".5"/>
-  <!-- glare -->
-  <path d="M12 27 Q32 24 52 27" stroke="#fff" stroke-width="1" fill="none" opacity=".5"/>
-  <text x="32" y="57.5" text-anchor="middle" fill="#802010" font-size="4.5" font-weight="600" font-family="sans-serif">6 OZ</text>
-</svg>`,
-
-shrimp: () => `<svg viewBox="0 0 64 64">
-  <!-- frozen bag body -->
-  <rect x="8" y="8" width="48" height="52" rx="6" fill="#D8EEF8" stroke="#88BCD8" stroke-width="1.5"/>
-  <!-- header band -->
-  <rect x="8" y="8" width="48" height="13" rx="6" fill="#2878B0"/>
-  <rect x="10" y="17" width="44" height="3" rx="1.5" fill="#1A60A0"/>
-  <text x="32" y="17" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="500" font-family="sans-serif">SHRIMP</text>
-  <text x="32" y="23" text-anchor="middle" fill="#B8D8F0" font-size="4" font-family="sans-serif">COOKED  1 LB</text>
-  <!-- frost overlay -->
-  <rect x="10" y="23" width="44" height="35" rx="3" fill="#EEF8FF" opacity=".35"/>
-  <!-- SHRIMP 1 (top-left) — curved comma/prawn shape, curled inward -->
-  <!-- body: fat crescent from head down to curled tail -->
-  <path d="M18 27 Q12 30 11 36 Q10 43 16 47 Q20 50 24 48 Q27 46 26 42 Q24 38 22 36 Q26 32 24 28 Q22 25 18 27Z" fill="#F0A070" stroke="#C87848" stroke-width="1"/>
-  <!-- belly highlight -->
-  <path d="M17 29 Q13 32 12 37 Q12 43 17 46 Q20 48 23 46 Q25 44 24 41 Q22 38 20 36 Q23 32 22 30Z" fill="#F8C098" opacity=".55"/>
-  <!-- tail fan -->
-  <path d="M24 48 L28 52 M24 48 L22 53 M24 48 L19 52" stroke="#C07040" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-  <!-- head/shell -->
-  <ellipse cx="19" cy="27" rx="4" ry="3" fill="#D88050"/>
-  <circle cx="21" cy="26" r="1.2" fill="#1A0800"/>
-  <!-- antennae -->
-  <path d="M21 25 Q25 21 27 17" stroke="#C07040" stroke-width="1" fill="none" stroke-linecap="round"/>
-  <path d="M20 24 Q23 19 24 15" stroke="#C07040" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-  <!-- legs hint -->
-  <path d="M15 33 L11 34 M15 37 L11 38 M16 41 L12 42" stroke="#D09060" stroke-width="0.8" stroke-linecap="round" fill="none"/>
-
-  <!-- SHRIMP 2 (bottom-right) — mirrored, slightly rotated -->
-  <path d="M46 30 Q52 33 53 39 Q54 46 48 50 Q44 53 40 51 Q37 49 38 45 Q40 41 42 39 Q38 35 40 31 Q42 28 46 30Z" fill="#E89860" stroke="#C07040" stroke-width="1"/>
-  <!-- belly highlight -->
-  <path d="M47 32 Q51 35 52 40 Q52 46 47 49 Q44 51 41 49 Q39 47 40 44 Q42 41 44 39 Q40 36 42 32Z" fill="#F8C098" opacity=".5"/>
-  <!-- tail fan -->
-  <path d="M40 51 L36 55 M40 51 L42 56 M40 51 L45 55" stroke="#B06830" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-  <!-- head/shell -->
-  <ellipse cx="45" cy="30" rx="4" ry="3" fill="#C87840"/>
-  <circle cx="43" cy="29" r="1.2" fill="#1A0800"/>
-  <!-- antennae -->
-  <path d="M43 28 Q39 24 37 20" stroke="#B06830" stroke-width="1" fill="none" stroke-linecap="round"/>
-  <path d="M44 27 Q41 22 40 18" stroke="#B06830" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-  <!-- legs hint -->
-  <path d="M49 37 L53 38 M49 41 L53 42 M48 45 L52 46" stroke="#C08050" stroke-width="0.8" stroke-linecap="round" fill="none"/>
-
-  <!-- ice crystals -->
-  <circle cx="13" cy="26" r="1.8" fill="#C8E8F8" opacity=".8"/>
-  <circle cx="51" cy="26" r="1.5" fill="#C8E8F8" opacity=".8"/>
-  <circle cx="32" cy="57" r="1.5" fill="#C8E8F8" opacity=".8"/>
-</svg>`,
-
-tofu: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="tofuBox" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#EEF4F0"/>
-      <stop offset="100%" stop-color="#D8E8DE"/>
-    </linearGradient>
-    <linearGradient id="tofuBlock" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FDFCF8"/>
-      <stop offset="100%" stop-color="#EDE8D8"/>
-    </linearGradient>
-    <linearGradient id="tofuWater" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D8EEF8" stop-opacity=".7"/>
-      <stop offset="100%" stop-color="#B8D8EE" stop-opacity=".9"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="19" ry="2.5" fill="#B8C8B8" opacity=".3"/>
-  <!-- outer packaging box -->
-  <rect x="9" y="11" width="46" height="47" rx="5" fill="url(#tofuBox)" stroke="#A8C4B0" stroke-width="1.5"/>
-  <!-- top band with brand text -->
-  <rect x="9" y="11" width="46" height="13" rx="5" fill="#4A9060"/>
-  <rect x="9" y="20" width="46" height="4" fill="#3A7848"/>
-  <text x="32" y="19" text-anchor="middle" fill="#E8F8EE" font-size="5.5" font-weight="700" font-family="sans-serif">FIRM TOFU</text>
-  <!-- clear window showing tofu in water -->
-  <rect x="12" y="27" width="40" height="27" rx="3" fill="url(#tofuWater)" stroke="#9AB8C8" stroke-width="1"/>
-  <!-- water level shimmer -->
-  <path d="M13 30 Q32 28 51 30" stroke="#C8E8F8" stroke-width="1.5" fill="none" opacity=".7"/>
-  <!-- tofu block — white/cream cube with slight 3D perspective -->
-  <rect x="16" y="31" width="32" height="20" rx="2" fill="url(#tofuBlock)" stroke="#D8D0C0" stroke-width="1"/>
-  <!-- top face highlight -->
-  <rect x="16" y="31" width="32" height="4" rx="2" fill="#FEFDFB" opacity=".7"/>
-  <!-- tofu porous texture — small holes/bubbles -->
-  <circle cx="22" cy="38" r="1.2" fill="#E8E0D0" opacity=".7"/>
-  <circle cx="28" cy="36" r="1" fill="#E8E0D0" opacity=".6"/>
-  <circle cx="34" cy="39" r="1.3" fill="#E8E0D0" opacity=".7"/>
-  <circle cx="40" cy="37" r="1" fill="#E8E0D0" opacity=".6"/>
-  <circle cx="25" cy="43" r="1.2" fill="#E8E0D0" opacity=".6"/>
-  <circle cx="31" cy="45" r="1" fill="#E8E0D0" opacity=".5"/>
-  <circle cx="38" cy="44" r="1.1" fill="#E8E0D0" opacity=".6"/>
-  <circle cx="20" cy="44" r="1" fill="#E8E0D0" opacity=".5"/>
-  <circle cx="44" cy="42" r="1.2" fill="#E8E0D0" opacity=".6"/>
-  <!-- water pool at bottom -->
-  <rect x="12" y="47" width="40" height="7" rx="3" fill="#B8D4E8" opacity=".5"/>
-  <path d="M14 48 Q32 46 50 48" stroke="#D0E8F4" stroke-width="1" fill="none" opacity=".7"/>
-  <!-- package glare -->
-  <path d="M12 28 Q32 25 52 28" stroke="#fff" stroke-width="1" fill="none" opacity=".4"/>
-  <!-- weight label bottom -->
-  <text x="32" y="57.5" text-anchor="middle" fill="#3A7848" font-size="4.5" font-weight="600" font-family="sans-serif">14 OZ ORGANIC</text>
-</svg>`,
-
-// ── BAKERY ───────────────────────────────────────────────
-
-baguette: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="57" rx="26" ry="4" fill="#D4B880" opacity=".3"/>
-  <g transform="rotate(-12,32,32)">
-    <path d="M8 34 Q10 28 18 26 Q32 24 46 26 Q54 28 56 34 Q54 40 46 42 Q32 44 18 42 Q10 40 8 34Z" fill="#D4923A"/>
-    <path d="M12 32 Q18 27 32 26 Q46 27 52 32 Q46 29 32 28 Q18 29 12 32Z" fill="#F0B850" opacity=".7"/>
-    <line x1="20" y1="27" x2="17" y2="41" stroke="#B87820" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="27" y1="26" x2="24" y2="42" stroke="#B87820" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="34" y1="25" x2="31" y2="42" stroke="#B87820" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="41" y1="26" x2="38" y2="41" stroke="#B87820" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="48" y1="27" x2="45" y2="40" stroke="#B87820" stroke-width="1.5" stroke-linecap="round"/>
-    <ellipse cx="8" cy="34" rx="4" ry="6" fill="#C07820"/>
-    <ellipse cx="56" cy="34" rx="4" ry="6" fill="#C07820"/>
-    <ellipse cx="8" cy="34" rx="2.5" ry="4" fill="#D08830"/>
-    <ellipse cx="56" cy="34" rx="2.5" ry="4" fill="#D08830"/>
-  </g>
-  <g transform="rotate(-6,32,36)">
-    <path d="M9 38 Q11 31 20 29 Q32 27 44 29 Q53 31 55 38 Q53 45 44 47 Q32 49 20 47 Q11 45 9 38Z" fill="#E0A040"/>
-    <path d="M14 36 Q20 31 32 30 Q44 31 50 36 Q44 33 32 32 Q20 33 14 36Z" fill="#F5C860" opacity=".7"/>
-    <line x1="21" y1="30" x2="18" y2="46" stroke="#C07820" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="28" y1="29" x2="25" y2="47" stroke="#C07820" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="35" y1="28" x2="32" y2="48" stroke="#C07820" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="42" y1="29" x2="39" y2="46" stroke="#C07820" stroke-width="1.5" stroke-linecap="round"/>
-    <ellipse cx="9" cy="38" rx="4.5" ry="7" fill="#B87018"/>
-    <ellipse cx="55" cy="38" rx="4.5" ry="7" fill="#B87018"/>
-    <ellipse cx="9" cy="38" rx="3" ry="5" fill="#CC8828"/>
-    <ellipse cx="55" cy="38" rx="3" ry="5" fill="#CC8828"/>
-    <ellipse cx="28" cy="30" rx="3" ry="1" fill="#FFFBE8" opacity=".5"/>
-    <ellipse cx="38" cy="29" rx="2.5" ry="1" fill="#FFFBE8" opacity=".4"/>
-  </g>
-</svg>`,
-burger_buns: () => `<svg viewBox="0 0 64 64">
-  <rect x="6" y="8" width="52" height="50" rx="7" fill="#FEF3E2" stroke="#E8C880" stroke-width="1.5"/>
-  <rect x="6" y="8" width="52" height="14" rx="7" fill="#E8C060"/>
-  <rect x="6" y="16" width="52" height="6" fill="#E8C060"/>
-  <text x="32" y="18" text-anchor="middle" font-family="sans-serif" font-size="5.5" font-weight="700" fill="#fff">BURGER BUNS</text>
-  <text x="32" y="24" text-anchor="middle" font-family="sans-serif" font-size="4" fill="#FFF8D0">8 PACK</text>
-  <ellipse cx="20" cy="44" rx="13" ry="8" fill="#E8A840"/>
-  <ellipse cx="20" cy="40" rx="12" ry="8" fill="#F0B850"/>
-  <ellipse cx="20" cy="39" rx="10" ry="6" fill="#F8C860"/>
-  <ellipse cx="17" cy="37" rx="4" ry="2.5" fill="#FADA80" opacity=".5"/>
-  <ellipse cx="17" cy="36" rx="2" ry="1" fill="#E8E0B0" transform="rotate(20,17,36)"/>
-  <ellipse cx="22" cy="35" rx="2" ry="1" fill="#E8E0B0" transform="rotate(-15,22,35)"/>
-  <ellipse cx="25" cy="38" rx="1.8" ry="0.9" fill="#E8E0B0" transform="rotate(30,25,38)"/>
-  <ellipse cx="19" cy="34" rx="1.8" ry="0.9" fill="#E8E0B0" transform="rotate(-10,19,34)"/>
-  <ellipse cx="20" cy="47" rx="12" ry="4" fill="#DDA030"/>
-  <ellipse cx="20" cy="46" rx="11" ry="3" fill="#E8B040"/>
-  <ellipse cx="40" cy="48" rx="14" ry="9" fill="#E0A030"/>
-  <ellipse cx="40" cy="43" rx="13" ry="9" fill="#EEAE40"/>
-  <ellipse cx="40" cy="42" rx="11" ry="7" fill="#F8BE58"/>
-  <ellipse cx="37" cy="40" rx="4.5" ry="2.5" fill="#FADA80" opacity=".5"/>
-  <ellipse cx="36" cy="39" rx="2.2" ry="1" fill="#E8E0B0" transform="rotate(15,36,39)"/>
-  <ellipse cx="41" cy="38" rx="2.2" ry="1" fill="#E8E0B0" transform="rotate(-20,41,38)"/>
-  <ellipse cx="45" cy="41" rx="2" ry="1" fill="#E8E0B0" transform="rotate(25,45,41)"/>
-  <ellipse cx="38" cy="37" rx="2" ry="1" fill="#E8E0B0" transform="rotate(-5,38,37)"/>
-  <ellipse cx="43" cy="37" rx="1.8" ry="0.9" fill="#E8E0B0" transform="rotate(35,43,37)"/>
-  <ellipse cx="40" cy="51" rx="13" ry="4.5" fill="#D09028"/>
-  <ellipse cx="40" cy="50" rx="12" ry="3.5" fill="#DEAA38"/>
-</svg>`,
-sandwich_bread: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="bSBLoaf" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#E8D898"/>
-      <stop offset="100%" stop-color="#D0C080"/>
-    </linearGradient>
-    <linearGradient id="bSBCrust" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C8A860"/>
-      <stop offset="100%" stop-color="#B89040"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="22" ry="3" fill="#B89040" opacity=".25"/>
-  <rect x="10" y="22" width="44" height="32" rx="4" fill="url(#bSBLoaf)" stroke="#C8B878" stroke-width="1.5"/>
-  <path d="M10 22 Q16 8 32 10 Q48 8 54 22" fill="url(#bSBCrust)" stroke="#C8B878" stroke-width="1.5"/>
-  <rect x="12" y="23" width="40" height="5" fill="#C8A870" opacity=".35"/>
-  <rect x="12" y="48" width="40" height="5" fill="#C0A060" opacity=".35"/>
-  <line x1="12" y1="30" x2="52" y2="30" stroke="#C8B878" stroke-width=".7" opacity=".35"/>
-  <line x1="12" y1="38" x2="52" y2="38" stroke="#C8B878" stroke-width=".7" opacity=".35"/>
-  <line x1="12" y1="46" x2="52" y2="46" stroke="#C8B878" stroke-width=".7" opacity=".35"/>
-  <text x="32" y="59" text-anchor="middle" fill="#9A8050" font-size="4.5" font-weight="600" font-family="sans-serif">SANDWICH BREAD</text>
-</svg>`,
-
-pizza_dough: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="bPDDough" cx="40%" cy="35%" r="65%">
-      <stop offset="0%" stop-color="#F8ECC8"/>
-      <stop offset="100%" stop-color="#D8B870"/>
-    </radialGradient>
-  </defs>
-  <ellipse cx="32" cy="56" rx="22" ry="4" fill="#C09840" opacity=".3"/>
-  <ellipse cx="32" cy="42" rx="22" ry="14" fill="url(#bPDDough)" stroke="#C8A858" stroke-width="1.5"/>
-  <ellipse cx="32" cy="40" rx="18" ry="11" fill="#F4E0B0" opacity=".6"/>
-  <ellipse cx="32" cy="38" rx="14" ry="8" fill="#FFF0D0" opacity=".4"/>
-  <path d="M16 36 Q20 28 32 26 Q44 28 48 36" fill="#F0DCA8" opacity=".5"/>
-  <circle cx="23" cy="38" r="2.5" fill="#D8B060" opacity=".4"/>
-  <circle cx="40" cy="36" r="2" fill="#D8B060" opacity=".4"/>
-  <circle cx="32" cy="44" r="2" fill="#D8B060" opacity=".3"/>
-  <text x="32" y="57" text-anchor="middle" fill="#9A7838" font-size="5" font-weight="600" font-family="sans-serif">PIZZA DOUGH</text>
-</svg>`,
-
-corn_tortillas: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="bCTTort" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#EAD89C"/>
-      <stop offset="100%" stop-color="#D4C080"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="48" rx="20" ry="5.5" fill="#CCBA70" stroke="#B0A060" stroke-width=".8" opacity=".65"/>
-  <ellipse cx="32" cy="44" rx="20" ry="5.5" fill="#D4C07A" stroke="#B8A868" stroke-width=".8" opacity=".75"/>
-  <ellipse cx="32" cy="40" rx="20" ry="5.5" fill="#DECA84" stroke="#C0B070" stroke-width=".8" opacity=".85"/>
-  <ellipse cx="32" cy="36" rx="20" ry="5.5" fill="url(#bCTTort)" stroke="#C0A868" stroke-width="1.5"/>
-  <ellipse cx="32" cy="35" rx="16" ry="3.5" fill="#F8ECC8" opacity=".35"/>
-  <text x="32" y="26" text-anchor="middle" fill="#8A6828" font-size="5" font-weight="600" font-family="sans-serif">CORN TORTILLAS</text>
-  <text x="32" y="19" text-anchor="middle" fill="#8A6828" font-size="5" font-family="sans-serif">24 PACK</text>
-</svg>`,
-
-tortilla_chips: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="bTCChip" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0C848"/>
-      <stop offset="100%" stop-color="#D8A820"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="54" rx="20" ry="3" fill="#C09010" opacity=".2"/>
-  <!-- back chip -->
-  <path d="M10 52 L30 10 L52 52 Z" fill="#D8B020" stroke="#C09810" stroke-width="1" opacity=".6"/>
-  <!-- middle chip -->
-  <path d="M14 52 L32 14 L50 52 Z" fill="#E8C038" stroke="#C8A820" stroke-width="1.5" opacity=".8"/>
-  <!-- front chip -->
-  <path d="M16 50 L32 18 L48 50 Z" fill="url(#bTCChip)" stroke="#C0A028" stroke-width="2"/>
-  <path d="M18 48 L32 22 L46 48 Z" fill="#F8D858" opacity=".4"/>
-  <line x1="32" y1="18" x2="16" y2="50" stroke="#C0A028" stroke-width=".8" opacity=".35"/>
-  <line x1="32" y1="18" x2="48" y2="50" stroke="#C0A028" stroke-width=".8" opacity=".35"/>
-  <line x1="22" y1="38" x2="42" y2="38" stroke="#C0A028" stroke-width=".8" opacity=".35"/>
-  <circle cx="29" cy="38" r="1.5" fill="#D8A820" opacity=".6"/>
-  <circle cx="36" cy="42" r="1.5" fill="#C8A010" opacity=".5"/>
-</svg>`,
-
-pita_bread: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="36" rx="22" ry="18" fill="#F0E8C0" stroke="#D8C890" stroke-width="1.5"/>
-  <ellipse cx="32" cy="35" rx="18" ry="14" fill="#F8F0D0" opacity=".6"/>
-  <circle cx="26" cy="32" r="4" fill="#E8D090" opacity=".5"/>
-  <circle cx="38" cy="34" r="3" fill="#E8D090" opacity=".5"/>
-  <circle cx="32" cy="40" r="3" fill="#E8D090" opacity=".5"/>
-  <text x="32" y="56" text-anchor="middle" fill="#9A8040" font-size="5" font-family="sans-serif">PITA BREAD</text>
-</svg>`,
-
-rice_paper: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="44" rx="20" ry="4" fill="#F0EEE0" stroke="#D0C8A8" stroke-width=".8" opacity=".6"/>
-  <ellipse cx="32" cy="40" rx="20" ry="4" fill="#F0EEE0" stroke="#D0C8A8" stroke-width=".8" opacity=".7"/>
-  <ellipse cx="32" cy="36" rx="20" ry="4" fill="#F4F0E4" stroke="#D8D0B0" stroke-width="1.5"/>
-  <ellipse cx="32" cy="35" rx="16" ry="3" fill="#FFFCF4" opacity=".5"/>
-  <text x="32" y="28" text-anchor="middle" fill="#8A8060" font-size="5" font-family="sans-serif">RICE PAPER</text>
-  <text x="32" y="21" text-anchor="middle" fill="#8A8060" font-size="5" font-family="sans-serif">WRAPPERS</text>
-  <text x="32" y="14" text-anchor="middle" fill="#8A8060" font-size="4.5" font-family="sans-serif">16 COUNT</text>
-</svg>`,
-
-// ── GRAINS ────────────────────────────────────────────────
-
-pasta: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="gPABox" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#EEEADC"/>
-      <stop offset="100%" stop-color="#DEDAD0"/>
-    </linearGradient>
-    <linearGradient id="gPALabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5858B0"/>
-      <stop offset="100%" stop-color="#383888"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#383888" opacity=".2"/>
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#gPABox)" stroke="#9090A8" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#gPALabel)"/>
-  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="6" font-weight="700" font-family="sans-serif">PASTA</text>
-  <text x="32" y="32" text-anchor="middle" fill="#C0C0E8" font-size="4.5" font-family="sans-serif">PENNE · 16 OZ</text>
-  <line x1="20" y1="34" x2="20" y2="53" stroke="#E8C860" stroke-width="3" stroke-linecap="round"/>
-  <line x1="25" y1="34" x2="25" y2="53" stroke="#F0D060" stroke-width="3" stroke-linecap="round"/>
-  <line x1="30" y1="34" x2="30" y2="53" stroke="#E8C860" stroke-width="3" stroke-linecap="round"/>
-  <line x1="35" y1="34" x2="35" y2="53" stroke="#F0D060" stroke-width="3" stroke-linecap="round"/>
-  <line x1="40" y1="34" x2="40" y2="53" stroke="#E8C860" stroke-width="3" stroke-linecap="round"/>
-  <line x1="45" y1="34" x2="45" y2="53" stroke="#F0D060" stroke-width="3" stroke-linecap="round"/>
-</svg>`,
-
-jasmine_rice: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="gJRBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFAF0"/>
-      <stop offset="100%" stop-color="#EEE8D8"/>
-    </linearGradient>
-    <linearGradient id="gJRLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#7A9060"/>
-      <stop offset="100%" stop-color="#587040"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#587040" opacity=".2"/>
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#gJRBag)" stroke="#D8C8A0" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#gJRLabel)"/>
-  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">JASMINE</text>
-  <text x="32" y="31" text-anchor="middle" fill="#D0E8B8" font-size="4" font-family="sans-serif">THAI RICE · 5 LB</text>
-  <text x="32" y="40" text-anchor="middle" fill="#8A7040" font-size="5" font-family="sans-serif">JASMINE</text>
-  <text x="32" y="47" text-anchor="middle" fill="#9A8050" font-size="4.5" font-family="sans-serif">RICE</text>
-  <ellipse cx="20" cy="53" rx="3" ry="1.8" fill="#E0D8C0"/>
-  <ellipse cx="26" cy="54" rx="3" ry="1.8" fill="#D8D0B8"/>
-  <ellipse cx="32" cy="53" rx="3" ry="1.8" fill="#E0D8C0"/>
-  <ellipse cx="38" cy="54" rx="3" ry="1.8" fill="#D8D0B8"/>
-  <ellipse cx="44" cy="53" rx="3" ry="1.8" fill="#E0D8C0"/>
-</svg>`,
-
-garlic_powder: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pGPJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F8F2E4"/>
-      <stop offset="100%" stop-color="#E8E0C8"/>
-    </linearGradient>
-    <linearGradient id="pGPLid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D8A838"/>
-      <stop offset="100%" stop-color="#A87820"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#A87820" opacity=".25"/>
-  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pGPJar)" stroke="#C8B870" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pGPLid)" stroke="#A87820" stroke-width="1.5"/>
-  <text x="32" y="31" text-anchor="middle" fill="#8A6820" font-size="5.5" font-weight="700" font-family="sans-serif">GARLIC</text>
-  <text x="32" y="39" text-anchor="middle" fill="#8A6820" font-size="4.5" font-family="sans-serif">POWDER</text>
-  <ellipse cx="24" cy="47" rx="4" ry="2.5" fill="#E8E0C8" opacity=".8"/>
-  <ellipse cx="32" cy="49" rx="3.5" ry="2" fill="#E8E0C8" opacity=".8"/>
-  <ellipse cx="40" cy="47" rx="4" ry="2.5" fill="#E8E0C8" opacity=".8"/>
-  <path d="M27 43 Q32 40 37 43" stroke="#C8A830" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-</svg>`,
-
-sesame_seeds: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pSSJar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FAF4E4"/>
-      <stop offset="100%" stop-color="#EAE0C8"/>
-    </linearGradient>
-    <linearGradient id="pSSLid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C0A048"/>
-      <stop offset="100%" stop-color="#907828"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="14" ry="2.5" fill="#907828" opacity=".25"/>
-  <rect x="18" y="20" width="28" height="34" rx="5" fill="url(#pSSJar)" stroke="#D0B860" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="14" ry="5" fill="url(#pSSLid)" stroke="#907828" stroke-width="1.5"/>
-  <text x="32" y="30" text-anchor="middle" fill="#8A6820" font-size="5.5" font-weight="700" font-family="sans-serif">SESAME</text>
-  <text x="32" y="37" text-anchor="middle" fill="#8A6820" font-size="4.5" font-family="sans-serif">SEEDS</text>
-  <ellipse cx="22" cy="45" rx="3" ry="1.4" fill="#C8A040" transform="rotate(-20,22,45)"/>
-  <ellipse cx="28" cy="48" rx="3" ry="1.4" fill="#D0A848" transform="rotate(10,28,48)"/>
-  <ellipse cx="34" cy="45" rx="3" ry="1.4" fill="#C8A040" transform="rotate(-15,34,45)"/>
-  <ellipse cx="40" cy="48" rx="3" ry="1.4" fill="#D0A848" transform="rotate(20,40,48)"/>
-  <ellipse cx="31" cy="43" rx="3" ry="1.4" fill="#C0A038" transform="rotate(5,31,43)"/>
-</svg>`,
-
-cooking_spray: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="pCSCan" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#B8D0E0"/>
-      <stop offset="50%" stop-color="#D8EEF8"/>
-      <stop offset="100%" stop-color="#A8C8D8"/>
-    </linearGradient>
-    <linearGradient id="pCSLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5090B8"/>
-      <stop offset="100%" stop-color="#307898"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="34" cy="56" rx="12" ry="2.5" fill="#307898" opacity=".2"/>
-  <rect x="24" y="20" width="20" height="34" rx="7" fill="url(#pCSCan)" stroke="#90B8C8" stroke-width="1.5"/>
-  <rect x="24" y="30" width="20" height="14" fill="url(#pCSLabel)"/>
-  <text x="34" y="37" text-anchor="middle" fill="#fff" font-size="4.5" font-weight="700" font-family="sans-serif">COOKING</text>
-  <text x="34" y="42" text-anchor="middle" fill="#C8E8FF" font-size="4" font-family="sans-serif">SPRAY</text>
-  <ellipse cx="34" cy="20" rx="10" ry="4" fill="#A0C0D0" stroke="#90B8C8" stroke-width="1"/>
-  <rect x="30" y="12" width="8" height="10" rx="3" fill="#7098B0" stroke="#5080A0" stroke-width="1"/>
-  <rect x="28" y="13" width="12" height="4" rx="2" fill="#90B0C8"/>
-  <path d="M44 13 Q50 10 52 14 Q50 16 46 14" fill="#B8D8EC" opacity=".8"/>
-  <rect x="26" y="22" width="4" height="30" rx="2" fill="#fff" opacity=".2"/>
-</svg>`,
-
-shredded_cabbage: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="38" rx="22" ry="14" fill="#C8E0B0"/>
-  <ellipse cx="32" cy="36" rx="20" ry="13" fill="#D8ECC0"/>
-  <path d="M14 36 Q20 30 32 32 Q44 30 50 36" stroke="#A8C890" stroke-width="1.5" fill="none"/>
-  <path d="M16 40 Q24 34 32 36 Q40 34 48 40" stroke="#A8C890" stroke-width="1.2" fill="none"/>
-  <path d="M18 44 Q26 38 32 40 Q38 38 46 44" stroke="#A8C890" stroke-width="1" fill="none" opacity=".6"/>
-  <ellipse cx="32" cy="24" rx="16" ry="6" fill="#B8D8A0"/>
-  <path d="M20 24 Q32 18 44 24" stroke="#90B870" stroke-width="1.2" fill="none"/>
-</svg>`,
-
-spring_roll_wrappers: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="bSRWPkg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F8F2DC"/>
-      <stop offset="100%" stop-color="#E8E0C0"/>
-    </linearGradient>
-    <linearGradient id="bSRWLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D8B858"/>
-      <stop offset="100%" stop-color="#A88830"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="22" ry="3" fill="#A88830" opacity=".2"/>
-  <rect x="10" y="16" width="44" height="40" rx="5" fill="url(#bSRWPkg)" stroke="#D0C080" stroke-width="1.5"/>
-  <rect x="10" y="16" width="44" height="12" rx="5" fill="url(#bSRWLabel)"/>
-  <text x="32" y="25" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">SPRING ROLL</text>
-  <text x="32" y="32" text-anchor="middle" fill="#FFF0C0" font-size="4" font-family="sans-serif">WRAPPERS</text>
-  <rect x="12" y="32" width="40" height="2" rx="1" fill="#D8C080" opacity=".4"/>
-  <rect x="12" y="38" width="40" height="2" rx="1" fill="#D8C080" opacity=".4"/>
-  <rect x="12" y="44" width="40" height="2" rx="1" fill="#D8C080" opacity=".4"/>
-  <rect x="12" y="50" width="40" height="2" rx="1" fill="#D8C080" opacity=".4"/>
-  <rect x="12" y="18" width="5" height="36" rx="2" fill="#fff" opacity=".15"/>
-</svg>`,
-
-lemon: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="34" rx="20" ry="17" fill="#F0D020"/>
-  <ellipse cx="32" cy="32" rx="18" ry="15" fill="#F8E040"/>
-  <circle cx="24" cy="28" r="4" fill="#FAEA60" opacity=".5"/>
-  <path d="M32 17 Q30 12 32 9 Q34 12 32 17" fill="#6A9830"/>
-  <path d="M32 17 Q28 12 26 10" stroke="#5A8820" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M32 17 Q36 12 38 10" stroke="#5A8820" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".7"/>
-</svg>`,
-
-basmati_rice: () => `<svg viewBox="0 0 64 64">
-  <ellipse cx="32" cy="48" rx="18" ry="7" fill="#D4B880"/>
-  <rect x="14" y="22" width="36" height="26" rx="3" fill="#E8D8A8" stroke="#C8A870" stroke-width="1.5"/>
-  <ellipse cx="32" cy="22" rx="18" ry="6" fill="#C8A870"/>
-  <text x="32" y="26" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">BASMATI</text>
-  <text x="32" y="36" text-anchor="middle" fill="#8B6820" font-size="5.5" font-family="sans-serif">RICE</text>
-  <text x="32" y="43" text-anchor="middle" fill="#8B6820" font-size="5" font-family="sans-serif">5 LB</text>
-</svg>`,
-
-rice_noodles: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="gRNBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFAF0"/>
-      <stop offset="100%" stop-color="#EEEADC"/>
-    </linearGradient>
-    <linearGradient id="gRNLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D0A848"/>
-      <stop offset="100%" stop-color="#A07820"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#A07820" opacity=".2"/>
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#gRNBag)" stroke="#D0C8A0" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#gRNLabel)"/>
-  <text x="32" y="24" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">RICE NOODLES</text>
-  <text x="32" y="31" text-anchor="middle" fill="#FFF0C0" font-size="4" font-family="sans-serif">THIN VERMICELLI</text>
-  <path d="M18 36 Q22 32 26 36 Q30 40 34 36 Q38 32 42 36 Q45 38 46 36" stroke="#E8D88C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M18 42 Q22 38 26 42 Q30 46 34 42 Q38 38 42 42 Q45 44 46 42" stroke="#E8D88C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M18 48 Q22 44 26 48 Q30 52 34 48 Q38 44 42 48 Q45 50 46 48" stroke="#E0D080" stroke-width="2" fill="none" stroke-linecap="round"/>
-</svg>`,
-
-sweet_rice_flour: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="gSRFBox" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFCF8"/>
-      <stop offset="100%" stop-color="#EEE8E0"/>
-    </linearGradient>
-    <linearGradient id="gSRFLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D070A0"/>
-      <stop offset="100%" stop-color="#A04870"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="18" ry="3" fill="#A04870" opacity=".2"/>
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="url(#gSRFBox)" stroke="#D8D0C0" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="14" rx="5" fill="url(#gSRFLabel)"/>
-  <text x="32" y="22" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">SWEET RICE</text>
-  <text x="32" y="29" text-anchor="middle" fill="#FFD0E8" font-size="4.5" font-family="sans-serif">FLOUR</text>
-  <text x="32" y="40" text-anchor="middle" fill="#8A7068" font-size="5.5" font-weight="700" font-family="sans-serif">MOCHIKO</text>
-  <text x="32" y="48" text-anchor="middle" fill="#9A8078" font-size="4.5" font-family="sans-serif">16 OZ</text>
-  <path d="M18 54 Q32 58 46 54" stroke="#D8D0C0" stroke-width="1" fill="none"/>
-</svg>`,
-
-cornstarch: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="gCOBox" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFEF4"/>
-      <stop offset="100%" stop-color="#EEEEE0"/>
-    </linearGradient>
-    <linearGradient id="gCOLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0C830"/>
-      <stop offset="100%" stop-color="#C09010"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="16" ry="3" fill="#C09010" opacity=".2"/>
-  <rect x="16" y="14" width="32" height="42" rx="5" fill="url(#gCOBox)" stroke="#D8D8C0" stroke-width="1.5"/>
-  <rect x="16" y="14" width="32" height="14" rx="5" fill="url(#gCOLabel)"/>
-  <text x="32" y="23" text-anchor="middle" fill="#7A5A08" font-size="5.5" font-weight="700" font-family="sans-serif">CORN</text>
-  <text x="32" y="30" text-anchor="middle" fill="#604008" font-size="4.5" font-family="sans-serif">STARCH</text>
-  <text x="32" y="42" text-anchor="middle" fill="#8A8060" font-size="6" font-weight="700" font-family="sans-serif">STARCH</text>
-  <text x="32" y="50" text-anchor="middle" fill="#9A9070" font-size="4.5" font-family="sans-serif">16 OZ</text>
-  <path d="M20 56 Q32 60 44 56" stroke="#D8D8C0" stroke-width="1" fill="none"/>
-</svg>`,
-
-// ── DRINKS ───────────────────────────────────────────────
-
-lemons_drink: () => `<svg viewBox="0 0 64 64">
-  <circle cx="22" cy="34" r="13" fill="#F8E820" stroke="#D8C800" stroke-width="1.5"/>
-  <circle cx="20" cy="31" r="4" fill="#F0D810" opacity=".5"/>
-  <path d="M22 21 Q20 16 22 13" stroke="#A09030" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M22 21 Q18 16 16 14" stroke="#A09030" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <circle cx="42" cy="34" r="11" fill="#F8E820" stroke="#D8C800" stroke-width="1.5"/>
-  <circle cx="40" cy="31" r="3.5" fill="#F0D810" opacity=".5"/>
-  <path d="M42 23 Q40 18 42 15" stroke="#A09030" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <text x="32" y="52" text-anchor="middle" fill="#9A8028" font-size="5" font-family="sans-serif">LEMONS × 12</text>
-</svg>`,
-
-cranberry_juice: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="drCJBottle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#B81830"/>
-      <stop offset="50%" stop-color="#E82848"/>
-      <stop offset="100%" stop-color="#A81028"/>
-    </linearGradient>
-    <linearGradient id="drCJLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#880818"/>
-      <stop offset="100%" stop-color="#600008"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#880818" opacity=".3"/>
-  <rect x="18" y="14" width="28" height="44" rx="6" fill="url(#drCJBottle)" stroke="#A01020" stroke-width="1.5"/>
-  <rect x="23" y="8" width="18" height="8" rx="3" fill="#A01020"/>
-  <rect x="18" y="14" width="28" height="14" fill="url(#drCJLabel)"/>
-  <text x="32" y="22" text-anchor="middle" fill="#FFB0C0" font-size="5" font-weight="700" font-family="sans-serif">CRANBERRY</text>
-  <text x="32" y="29" text-anchor="middle" fill="#FF90A8" font-size="4.5" font-family="sans-serif">JUICE</text>
-  <text x="32" y="42" text-anchor="middle" fill="#FFD0D8" font-size="4.5" font-family="sans-serif">JUICE</text>
-  <text x="32" y="50" text-anchor="middle" fill="#FFB0C0" font-size="4" font-family="sans-serif">2 LITERS</text>
-  <rect x="20" y="16" width="5" height="40" rx="2" fill="#fff" opacity=".1"/>
-</svg>`,
-
-pineapple_juice: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="drPJBottle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#D8B810"/>
-      <stop offset="50%" stop-color="#F8D820"/>
-      <stop offset="100%" stop-color="#C8A808"/>
-    </linearGradient>
-    <linearGradient id="drPJLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C09008"/>
-      <stop offset="100%" stop-color="#906800"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#906800" opacity=".25"/>
-  <rect x="18" y="14" width="28" height="44" rx="6" fill="url(#drPJBottle)" stroke="#C0A010" stroke-width="1.5"/>
-  <rect x="23" y="8" width="18" height="8" rx="3" fill="#C09810"/>
-  <rect x="18" y="14" width="28" height="14" fill="url(#drPJLabel)"/>
-  <text x="32" y="22" text-anchor="middle" fill="#FFF0A0" font-size="4.5" font-weight="700" font-family="sans-serif">PINEAPPLE</text>
-  <text x="32" y="29" text-anchor="middle" fill="#FFE080" font-size="4.5" font-family="sans-serif">JUICE</text>
-  <text x="32" y="42" text-anchor="middle" fill="#7A5808" font-size="5" font-family="sans-serif">JUICE</text>
-  <text x="32" y="50" text-anchor="middle" fill="#8A6810" font-size="4" font-family="sans-serif">2 LITERS</text>
-  <rect x="20" y="16" width="5" height="40" rx="2" fill="#fff" opacity=".12"/>
-</svg>`,
-
-lemon_lime_soda: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="drLSCan" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#B0CC18"/>
-      <stop offset="50%" stop-color="#D8F030"/>
-      <stop offset="100%" stop-color="#A0BC10"/>
-    </linearGradient>
-    <linearGradient id="drLSLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#7A9810"/>
-      <stop offset="100%" stop-color="#587008"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="58" rx="16" ry="3" fill="#587008" opacity=".2"/>
-  <rect x="18" y="12" width="28" height="46" rx="7" fill="url(#drLSCan)" stroke="#98B010" stroke-width="1.5"/>
-  <rect x="23" y="6" width="18" height="8" rx="3" fill="#90A818"/>
-  <rect x="18" y="12" width="28" height="14" fill="url(#drLSLabel)"/>
-  <text x="32" y="20" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">LEMON LIME</text>
-  <text x="32" y="27" text-anchor="middle" fill="#DFFFA0" font-size="4.5" font-family="sans-serif">SODA</text>
-  <text x="32" y="40" text-anchor="middle" fill="#4A5808" font-size="5.5" font-family="sans-serif">SODA</text>
-  <text x="32" y="48" text-anchor="middle" fill="#5A6810" font-size="4" font-family="sans-serif">2 LITERS</text>
-  <circle cx="22" cy="50" r="2" fill="#C8E030" opacity=".5"/>
-  <circle cx="30" cy="52" r="2" fill="#C8E030" opacity=".5"/>
-  <circle cx="38" cy="50" r="2" fill="#C8E030" opacity=".5"/>
-  <rect x="20" y="14" width="5" height="42" rx="2" fill="#fff" opacity=".15"/>
-</svg>`,
-
-frozen_lemonade: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="drFLCan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F8F898"/>
-      <stop offset="100%" stop-color="#F0E870"/>
-    </linearGradient>
-    <linearGradient id="drFLLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0C820"/>
-      <stop offset="100%" stop-color="#C89808"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="16" ry="3" fill="#C89808" opacity=".2"/>
-  <rect x="16" y="16" width="32" height="40" rx="6" fill="url(#drFLCan)" stroke="#D8D040" stroke-width="1.5"/>
-  <rect x="16" y="16" width="32" height="14" rx="6" fill="url(#drFLLabel)"/>
-  <text x="32" y="25" text-anchor="middle" fill="#7A5808" font-size="5" font-weight="700" font-family="sans-serif">FROZEN</text>
-  <text x="32" y="32" text-anchor="middle" fill="#5A4008" font-size="4.5" font-family="sans-serif">LEMONADE</text>
-  <text x="32" y="42" text-anchor="middle" fill="#9A8820" font-size="6" font-weight="700" font-family="sans-serif">LEMON</text>
-  <text x="32" y="49" text-anchor="middle" fill="#9A8020" font-size="4.5" font-family="sans-serif">CONCENTRATE</text>
-  <rect x="18" y="18" width="5" height="36" rx="2" fill="#fff" opacity=".2"/>
-</svg>`,
-
-frozen_strawberries: () => `<svg viewBox="0 0 64 64">
-  <!-- freezer bag -->
-  <rect x="10" y="8" width="44" height="52" rx="6" fill="#D0E8F4" stroke="#78B0D0" stroke-width="1.5"/>
-  <!-- zip seal at top -->
-  <rect x="10" y="8" width="44" height="10" rx="6" fill="#78B0D0"/>
-  <rect x="12" y="14" width="40" height="3" rx="1.5" fill="#5090B8"/>
-  <text x="32" y="13" text-anchor="middle" fill="#fff" font-size="5" font-weight="500" font-family="sans-serif">FROZEN</text>
-  <!-- frost texture -->
-  <rect x="12" y="20" width="40" height="38" rx="3" fill="#E8F6FC" opacity=".6"/>
-  <!-- strawberry 1 -->
-  <path d="M18 38 Q14 30 18 24 Q22 20 26 22 Q28 20 30 24 Q32 20 34 22 Q38 26 34 32 Q30 38 26 42 Q22 42 18 38" fill="#D82840"/>
-  <path d="M24 22 Q22 18 24 16" stroke="#3A8020" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M26 21 Q24 17 22 15" stroke="#3A8020" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <circle cx="22" cy="30" r="1.5" fill="#FFF" opacity=".5"/>
-  <circle cx="28" cy="26" r="1.5" fill="#FFF" opacity=".4"/>
-  <!-- strawberry 2 -->
-  <path d="M36 42 Q32 36 34 30 Q36 24 42 26 Q46 28 44 36 Q42 44 38 46 Q36 44 36 42" fill="#E03050"/>
-  <path d="M40 26 Q40 22 40 20" stroke="#3A8020" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <!-- ice crystals -->
-  <circle cx="14" cy="24" r="2" fill="#B8D8F0" opacity=".8"/>
-  <circle cx="48" cy="30" r="1.5" fill="#B8D8F0" opacity=".8"/>
-  <circle cx="46" cy="50" r="1.5" fill="#B8D8F0" opacity=".8"/>
-  <circle cx="14" cy="50" r="2" fill="#B8D8F0" opacity=".8"/>
-  <!-- label -->
-  <text x="32" y="56" text-anchor="middle" fill="#3870A0" font-size="5" font-family="sans-serif">STRAWBERRIES 4 C</text>
-</svg>`,
-
-black_tea_bags: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="drBTBox" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEF2E0"/>
-      <stop offset="100%" stop-color="#EEE0C8"/>
-    </linearGradient>
-    <linearGradient id="drBTLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5A3010"/>
-      <stop offset="100%" stop-color="#3A1808"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="56" rx="16" ry="3" fill="#3A1808" opacity=".2"/>
-  <rect x="16" y="12" width="32" height="42" rx="5" fill="url(#drBTBox)" stroke="#D0B880" stroke-width="1.5"/>
-  <rect x="16" y="12" width="32" height="13" rx="5" fill="url(#drBTLabel)"/>
-  <text x="32" y="22" text-anchor="middle" fill="#F0C880" font-size="5.5" font-weight="700" font-family="sans-serif">BLACK TEA</text>
-  <text x="32" y="29" text-anchor="middle" fill="#C8A050" font-size="4" font-family="sans-serif">8 TEA BAGS</text>
-  <!-- tea bag -->
-  <rect x="24" y="34" width="16" height="18" rx="3" fill="#9A6030" opacity=".85"/>
-  <rect x="26" y="36" width="12" height="14" rx="2" fill="#C89058" opacity=".35"/>
-  <line x1="32" y1="31" x2="32" y2="34" stroke="#7A4020" stroke-width="1.5"/>
-  <circle cx="32" cy="30" r="2.5" fill="#7A4020"/>
-  <text x="32" y="46" text-anchor="middle" fill="#F0E0C0" font-size="4" font-family="sans-serif">TEA</text>
-</svg>`,
-
-rice_horchata: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="drRHBag" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEFAF4"/>
-      <stop offset="100%" stop-color="#EEE8D8"/>
-    </linearGradient>
-    <linearGradient id="drRHLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#B0A078"/>
-      <stop offset="100%" stop-color="#887850"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="16" ry="3" fill="#887850" opacity=".2"/>
-  <rect x="16" y="16" width="32" height="40" rx="5" fill="url(#drRHBag)" stroke="#D8C8A0" stroke-width="1.5"/>
-  <rect x="16" y="16" width="32" height="14" rx="5" fill="url(#drRHLabel)"/>
-  <text x="32" y="25" text-anchor="middle" fill="#fff" font-size="5" font-weight="700" font-family="sans-serif">WHITE RICE</text>
-  <text x="32" y="32" text-anchor="middle" fill="#FFF0D0" font-size="4" font-family="sans-serif">FOR HORCHATA</text>
-  <ellipse cx="20" cy="42" rx="3.5" ry="2.5" fill="#E8E0C8"/>
-  <ellipse cx="28" cy="45" rx="3.5" ry="2.5" fill="#E0D8C0"/>
-  <ellipse cx="36" cy="42" rx="3.5" ry="2.5" fill="#E8E0C8"/>
-  <ellipse cx="44" cy="45" rx="3" ry="2" fill="#E0D8C0"/>
-  <ellipse cx="24" cy="50" rx="3.5" ry="2.5" fill="#E0D8C0"/>
-  <ellipse cx="32" cy="52" rx="3" ry="2" fill="#E8E0C8"/>
-  <ellipse cx="40" cy="50" rx="3.5" ry="2.5" fill="#E0D8C0"/>
-</svg>`,
-
-cinnamon_sticks: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="drCSStick" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#8A5020"/>
-      <stop offset="50%" stop-color="#B07040"/>
-      <stop offset="100%" stop-color="#8A5020"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="57" rx="12" ry="2.5" fill="#7A4820" opacity=".25"/>
-  <!-- back stick (rotated) -->
-  <rect x="19" y="12" width="9" height="44" rx="4.5" fill="#9A6030" stroke="#7A4820" stroke-width="1.2" transform="rotate(-12,24,34)"/>
-  <line x1="19" y1="19" x2="28" y2="18" stroke="#7A4820" stroke-width=".8" opacity=".5" transform="rotate(-12,24,34)"/>
-  <line x1="19" y1="28" x2="28" y2="27" stroke="#7A4820" stroke-width=".8" opacity=".5" transform="rotate(-12,24,34)"/>
-  <line x1="19" y1="37" x2="28" y2="36" stroke="#7A4820" stroke-width=".8" opacity=".5" transform="rotate(-12,24,34)"/>
-  <!-- front stick (center) -->
-  <rect x="27" y="10" width="10" height="46" rx="5" fill="url(#drCSStick)" stroke="#7A4820" stroke-width="1.5"/>
-  <line x1="27" y1="18" x2="37" y2="18" stroke="#7A4820" stroke-width="1" opacity=".55"/>
-  <line x1="27" y1="26" x2="37" y2="26" stroke="#7A4820" stroke-width="1" opacity=".55"/>
-  <line x1="27" y1="34" x2="37" y2="34" stroke="#7A4820" stroke-width="1" opacity=".55"/>
-  <line x1="27" y1="42" x2="37" y2="42" stroke="#7A4820" stroke-width="1" opacity=".55"/>
-  <rect x="29" y="12" width="3" height="42" rx="1.5" fill="#fff" opacity=".12"/>
-</svg>`,
-
-// ── DESSERTS & BAKING ─────────────────────────────────────
-
-chocolate_chips2: () => `<svg viewBox="0 0 64 64">
-  <rect x="14" y="14" width="36" height="42" rx="5" fill="#F8F0E0" stroke="#D8B878" stroke-width="1.5"/>
-  <rect x="14" y="14" width="36" height="13" rx="5" fill="#3A1808"/>
-  <text x="32" y="23" text-anchor="middle" fill="#E8A050" font-size="5" font-weight="500" font-family="sans-serif">CHOCOLATE</text>
-  <text x="32" y="30" text-anchor="middle" fill="#C89040" font-size="5" font-family="sans-serif">CHIPS 12 OZ</text>
-  <path d="M18 38 L22 30 L26 38 Z" fill="#3A1808"/>
-  <path d="M26 42 L30 34 L34 42 Z" fill="#4A2010"/>
-  <path d="M34 38 L38 30 L42 38 Z" fill="#3A1808"/>
-  <path d="M20 48 L24 42 L28 48 Z" fill="#4A2010"/>
-  <path d="M34 48 L38 42 L42 48 Z" fill="#3A1808"/>
-</svg>`,
-
-cocoa_powder2: () => `<svg viewBox="0 0 64 64">
-  <rect x="16" y="12" width="32" height="42" rx="4" fill="#3A1808" stroke="#2A1000" stroke-width="1.5"/>
-  <rect x="16" y="12" width="32" height="13" rx="4" fill="#2A1000"/>
-  <text x="32" y="21" text-anchor="middle" fill="#D09050" font-size="5" font-weight="500" font-family="sans-serif">COCOA</text>
-  <text x="32" y="28" text-anchor="middle" fill="#C88040" font-size="5" font-family="sans-serif">POWDER</text>
-  <text x="32" y="37" text-anchor="middle" fill="#B06830" font-size="5" font-family="sans-serif">UNSWEETENED</text>
-  <text x="32" y="44" text-anchor="middle" fill="#A05820" font-size="5" font-family="sans-serif">BAKING</text>
-  <path d="M20 52 Q32 56 44 52" stroke="#5A2808" stroke-width="1" fill="none"/>
-</svg>`,
-
-ice_cream: () => `<svg viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="deICPint" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FEF6E8"/>
-      <stop offset="100%" stop-color="#EEE0C8"/>
-    </linearGradient>
-    <linearGradient id="deICLabel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C898E8"/>
-      <stop offset="100%" stop-color="#9060C0"/>
-    </linearGradient>
-    <linearGradient id="deICScoop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFE8D8"/>
-      <stop offset="100%" stop-color="#F8C8A8"/>
-    </linearGradient>
-  </defs>
-  <ellipse cx="32" cy="56" rx="18" ry="4" fill="#9060C0" opacity=".2"/>
-  <!-- pint container -->
-  <path d="M14 26 L16 54 L48 54 L50 26 Z" fill="url(#deICPint)" stroke="#D8C8A8" stroke-width="1.5"/>
-  <rect x="14" y="22" width="36" height="8" rx="3" fill="url(#deICLabel)"/>
-  <text x="32" y="29" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700" font-family="sans-serif">ICE CREAM</text>
-  <text x="32" y="40" text-anchor="middle" fill="#9A7848" font-size="5" font-family="sans-serif">ANY FLAVOR</text>
-  <text x="32" y="47" text-anchor="middle" fill="#A88050" font-size="4.5" font-family="sans-serif">1 PINT</text>
-  <!-- lid scoop -->
-  <ellipse cx="32" cy="22" rx="18" ry="6" fill="url(#deICScoop)" stroke="#D8C0A0" stroke-width="1.5"/>
-  <ellipse cx="26" cy="20" rx="6" ry="4" fill="#fff" opacity=".35"/>
-  <!-- sprinkles on top -->
-  <rect x="25" y="18" width="4" height="1.5" rx=".75" fill="#E84848" transform="rotate(30,27,18.75)"/>
-  <rect x="32" y="17" width="4" height="1.5" rx=".75" fill="#4890E8" transform="rotate(-20,34,17.75)"/>
-  <rect x="38" y="19" width="4" height="1.5" rx=".75" fill="#E8C020" transform="rotate(45,40,19.75)"/>
-  <rect x="29" y="20" width="4" height="1.5" rx=".75" fill="#48C048" transform="rotate(-10,31,20.75)"/>
-</svg>`,
-
-whipped_cream2: () => `<svg viewBox="0 0 64 64">
-  <rect x="22" y="20" width="20" height="36" rx="6" fill="#E8E8F0" stroke="#B0B0D0" stroke-width="1.5"/>
-  <ellipse cx="32" cy="20" rx="10" ry="5" fill="#C0C0D8"/>
-  <rect x="28" y="12" width="8" height="10" rx="3" fill="#A0A0C0"/>
-  <text x="32" y="33" text-anchor="middle" fill="#6060A0" font-size="5" font-family="sans-serif">WHIPPED</text>
-  <text x="32" y="40" text-anchor="middle" fill="#6060A0" font-size="5" font-family="sans-serif">CREAM</text>
-  <path d="M26 22 Q32 18 38 22" stroke="#D0D0E8" stroke-width="1" fill="none"/>
-  <path d="M24 52 Q32 56 40 52" stroke="#B0B0D0" stroke-width="1" fill="none"/>
-</svg>`,
-
+  tomatoes: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="tomatoes-rtG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ff7a5c"/><stop offset=".55" stop-color="#e0321f"/><stop offset="1" stop-color="#a8180f"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(21 33) rotate(-14) scale(1)"><path d="M0 -14 C8 -14 11 -7 11 1 C11 9 6 14 0 14 C-6 14 -11 9 -11 1 C-11 -7 -8 -14 0 -14 Z" fill="url(#tomatoes-rtG)" stroke="#8a1a12" stroke-width=".7"/><path d="M-6 -7 C-8 -3 -8 3 -6 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".35"/><ellipse cx="-4" cy="-8" rx="2" ry="1.4" fill="#fff" opacity=".55"/><path d="M0 -12 C3 -4 3 6 0 12" stroke="#a51e14" stroke-width=".6" fill="none" opacity=".45"/><g transform="translate(0 -13)"><path d="M0 -1 L1.6 -5 L1.3 -1.2 L5 -2.6 L1.9 .3 L4.2 3.6 L0 1.4 L-4.2 3.6 L-1.9 .3 L-5 -2.6 L-1.3 -1.2 L-1.6 -5 Z" fill="#3d8a2c" stroke="#2a6a1e" stroke-width=".4" stroke-linejoin="round"/><rect x="-.8" y="-4" width="1.6" height="3.5" rx=".8" fill="#2f6e22"/></g></g><g transform="translate(43 33) rotate(12) scale(1)"><path d="M0 -14 C8 -14 11 -7 11 1 C11 9 6 14 0 14 C-6 14 -11 9 -11 1 C-11 -7 -8 -14 0 -14 Z" fill="url(#tomatoes-rtG)" stroke="#8a1a12" stroke-width=".7"/><path d="M-6 -7 C-8 -3 -8 3 -6 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".35"/><ellipse cx="-4" cy="-8" rx="2" ry="1.4" fill="#fff" opacity=".55"/><path d="M0 -12 C3 -4 3 6 0 12" stroke="#a51e14" stroke-width=".6" fill="none" opacity=".45"/><g transform="translate(0 -13)"><path d="M0 -1 L1.6 -5 L1.3 -1.2 L5 -2.6 L1.9 .3 L4.2 3.6 L0 1.4 L-4.2 3.6 L-1.9 .3 L-5 -2.6 L-1.3 -1.2 L-1.6 -5 Z" fill="#3d8a2c" stroke="#2a6a1e" stroke-width=".4" stroke-linejoin="round"/><rect x="-.8" y="-4" width="1.6" height="3.5" rx=".8" fill="#2f6e22"/></g></g><g transform="translate(32 40) rotate(0) scale(1.05)"><path d="M0 -14 C8 -14 11 -7 11 1 C11 9 6 14 0 14 C-6 14 -11 9 -11 1 C-11 -7 -8 -14 0 -14 Z" fill="url(#tomatoes-rtG)" stroke="#8a1a12" stroke-width=".7"/><path d="M-6 -7 C-8 -3 -8 3 -6 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".35"/><ellipse cx="-4" cy="-8" rx="2" ry="1.4" fill="#fff" opacity=".55"/><path d="M0 -12 C3 -4 3 6 0 12" stroke="#a51e14" stroke-width=".6" fill="none" opacity=".45"/><g transform="translate(0 -13)"><path d="M0 -1 L1.6 -5 L1.3 -1.2 L5 -2.6 L1.9 .3 L4.2 3.6 L0 1.4 L-4.2 3.6 L-1.9 .3 L-5 -2.6 L-1.3 -1.2 L-1.6 -5 Z" fill="#3d8a2c" stroke="#2a6a1e" stroke-width=".4" stroke-linejoin="round"/><rect x="-.8" y="-4" width="1.6" height="3.5" rx=".8" fill="#2f6e22"/></g></g></svg>`,
+  avocados: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="avocados-avS" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#5d7a34"/><stop offset=".55" stop-color="#2f4a1e"/><stop offset="1" stop-color="#1c2e12"/></radialGradient><radialGradient id="avocados-avF" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#f3f0a0"/><stop offset=".55" stop-color="#cfe07a"/><stop offset="1" stop-color="#8fb84a"/></radialGradient><radialGradient id="avocados-avP" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#c48a52"/><stop offset=".55" stop-color="#8a5524"/><stop offset="1" stop-color="#5a3414"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(20 32) rotate(-14)"><path d="M0 -14 C5 -14 7 -8 8 -3 C11 2 11 12 0 13 C-11 12 -11 2 -8 -3 C-7 -8 -5 -14 0 -14 Z" fill="url(#avocados-avS)" stroke="#1a2e14" stroke-width=".7"/><g fill="#1a2e14" opacity=".35"><circle cx="-4" cy="-6" r=".7"/><circle cx="2" cy="-9" r=".7"/><circle cx="4" cy="-2" r=".7"/><circle cx="-5" cy="3" r=".7"/><circle cx="1" cy="4" r=".7"/><circle cx="5" cy="7" r=".7"/><circle cx="-2" cy="9" r=".7"/><circle cx="-6" cy="-1" r=".7"/></g><path d="M-5 -6 C-7 0 -6 6 -4 9" stroke="#fff" stroke-width="1.4" fill="none" opacity=".25" stroke-linecap="round"/><path d="M0 -14 v-2.5" stroke="#5a3a1a" stroke-width="1.6" stroke-linecap="round"/></g><g transform="translate(43 30) rotate(12)"><path d="M0 -14 C5 -14 7 -8 8 -3 C11 2 11 12 0 13 C-11 12 -11 2 -8 -3 C-7 -8 -5 -14 0 -14 Z" fill="url(#avocados-avS)" stroke="#1a2e14" stroke-width=".7"/><g fill="#1a2e14" opacity=".35"><circle cx="-4" cy="-6" r=".7"/><circle cx="2" cy="-9" r=".7"/><circle cx="4" cy="-2" r=".7"/><circle cx="-5" cy="3" r=".7"/><circle cx="1" cy="4" r=".7"/><circle cx="5" cy="7" r=".7"/><circle cx="-2" cy="9" r=".7"/><circle cx="-6" cy="-1" r=".7"/></g><path d="M-5 -6 C-7 0 -6 6 -4 9" stroke="#fff" stroke-width="1.4" fill="none" opacity=".25" stroke-linecap="round"/><path d="M0 -14 v-2.5" stroke="#5a3a1a" stroke-width="1.6" stroke-linecap="round"/></g><g transform="translate(32 44) rotate(-4)"><path d="M0 -12 C5 -12 7 -7 8 -3 C11 2 10 11 0 12 C-10 11 -11 2 -8 -3 C-7 -7 -5 -12 0 -12 Z" fill="#2f4a1e" stroke="#1a2e14" stroke-width=".7"/><path d="M0 -10.5 C4 -10.5 6 -6 6.8 -2.5 C9.3 2 8.6 9.6 0 10.5 C-8.6 9.6 -9.3 2 -6.8 -2.5 C-6 -6 -4 -10.5 0 -10.5 Z" fill="url(#avocados-avF)"/><circle cx="0" cy="3" r="5" fill="url(#avocados-avP)" stroke="#4a2a10" stroke-width=".5"/><ellipse cx="-1.6" cy="1.4" rx="1.6" ry="1" fill="#fff" opacity=".4"/></g></svg>`,
+  lettuce: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="lettuce-leA" cx="50%" cy="35%" r="75%"><stop offset="0" stop-color="#e9f7b8"/><stop offset=".55" stop-color="#a8d86a"/><stop offset="1" stop-color="#5a9a34"/></radialGradient><radialGradient id="lettuce-leB" cx="50%" cy="30%" r="75%"><stop offset="0" stop-color="#c9ec8a"/><stop offset=".55" stop-color="#7cc04a"/><stop offset="1" stop-color="#3f7f26"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M8 40 C4 28 12 20 18 22 C18 12 30 8 34 14 C40 8 52 12 50 22 C58 22 60 34 56 42 C50 54 14 54 8 40 Z" fill="url(#lettuce-leB)" stroke="#2f6a1e" stroke-width=".8"/>
+ <path d="M12 42 C10 32 18 28 22 30 C24 20 34 18 36 24 C42 20 50 24 48 32 C54 34 54 42 50 46 C44 54 18 54 12 42 Z" fill="url(#lettuce-leA)" stroke="#5a9a34" stroke-width=".7"/>
+ <path d="M20 40 C20 32 28 30 32 34 C36 30 44 32 44 40 C42 48 22 48 20 40 Z" fill="#f4fbd6" stroke="#8fc45a" stroke-width=".6"/>
+ <g stroke="#6aa63e" stroke-width=".6" fill="none" opacity=".8"><path d="M32 50 C30 40 24 34 18 30"/><path d="M32 50 C34 40 40 34 46 30"/><path d="M32 50 V30"/><path d="M32 50 C26 44 16 42 12 40"/><path d="M32 50 C38 44 48 42 52 40"/></g>
+ <path d="M14 30 C12 26 14 22 18 22" stroke="#fff" stroke-width="1.4" fill="none" opacity=".35" stroke-linecap="round"/></svg>`,
+  cucumber: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cucumber-cuG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a6a22"/><stop offset=".5" stop-color="#4f9a3a"/><stop offset="1" stop-color="#235a1d"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="rotate(-28 34 28)"><rect x="8" y="20" width="50" height="16" rx="8" fill="url(#cucumber-cuG)" stroke="#1d4a18" stroke-width=".8"/>
+ <path d="M13 24.5 H53 M12 28 H54 M13 31.5 H53" stroke="#86c06a" stroke-width="1.1" stroke-linecap="round" opacity=".55" stroke-dasharray="7 3"/>
+ <path d="M14 23 H50" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".3"/>
+ <g fill="#1d4a18" opacity=".5"><circle cx="18" cy="26" r=".7"/><circle cx="26" cy="33" r=".7"/><circle cx="33" cy="25" r=".7"/><circle cx="41" cy="32" r=".7"/><circle cx="47" cy="26" r=".7"/><circle cx="22" cy="30" r=".7"/><circle cx="38" cy="29" r=".7"/><circle cx="51" cy="30" r=".7"/></g>
+ <rect x="56.5" y="25.5" width="4" height="5" rx="1.5" fill="#6b5a2a"/><ellipse cx="9.5" cy="28" rx="1.6" ry="3" fill="#d8e6a6" opacity=".8"/></g>
+ <g transform="translate(18 47)"><circle r="8" fill="#2f6b26"/><circle r="6.9" fill="#cfe8a8"/><circle r="5.4" fill="#e6f4cf"/><g fill="#f8fbe9" stroke="#b9d68c" stroke-width=".3"><ellipse cx="0" cy="-3.8" rx=".9" ry="1.5" transform="rotate(0)"/><ellipse cx="0" cy="-3.8" rx=".9" ry="1.5" transform="rotate(120)"/><ellipse cx="0" cy="-3.8" rx=".9" ry="1.5" transform="rotate(240)"/></g><circle r="8" fill="none" stroke="#1f4d1a" stroke-width=".6"/></g><g transform="translate(33 50)"><circle r="7.5" fill="#2f6b26"/><circle r="6.4" fill="#cfe8a8"/><circle r="4.9" fill="#e6f4cf"/><g fill="#f8fbe9" stroke="#b9d68c" stroke-width=".3"><ellipse cx="0" cy="-3.3" rx=".9" ry="1.5" transform="rotate(0)"/><ellipse cx="0" cy="-3.3" rx=".9" ry="1.5" transform="rotate(120)"/><ellipse cx="0" cy="-3.3" rx=".9" ry="1.5" transform="rotate(240)"/></g><circle r="7.5" fill="none" stroke="#1f4d1a" stroke-width=".6"/></g></svg>`,
+  carrots: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="carrots-caG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffa040"/><stop offset=".5" stop-color="#f57c1a"/><stop offset="1" stop-color="#d65a0c"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(17 24) rotate(-28)">
+ <g stroke-linecap="round" fill="none"><path d="M0 0 C-2 -6 -6 -10 -8 -16" stroke="#3f8a2c" stroke-width="1.6"/><path d="M0 0 C0 -7 1 -12 0 -18" stroke="#4fa035" stroke-width="1.6"/><path d="M0 0 C3 -6 6 -9 8 -14" stroke="#3f8a2c" stroke-width="1.6"/></g>
+ <g fill="#5cb03e"><ellipse cx="-8" cy="-16" rx="1.6" ry="3" transform="rotate(-40 -8 -16)"/><ellipse cx="-6" cy="-12" rx="1.6" ry="3" transform="rotate(-30 -6 -12)"/><ellipse cx="0" cy="-18" rx="1.6" ry="3" transform="rotate(0 0 -18)"/><ellipse cx="1" cy="-13" rx="1.6" ry="3" transform="rotate(10 1 -13)"/><ellipse cx="8" cy="-14" rx="1.6" ry="3" transform="rotate(40 8 -14)"/><ellipse cx="5" cy="-10" rx="1.6" ry="3" transform="rotate(30 5 -10)"/></g>
+ <path d="M-5.5 1 C-5.5 -1 5.5 -1 5.5 1 C5 12 2 26 0 32 C-2 26 -5 12 -5.5 1 Z" fill="url(#carrots-caG)" stroke="#b34a0c" stroke-width=".7"/>
+ <g stroke="#b34a0c" stroke-width=".7" stroke-linecap="round" opacity=".55"><path d="M0.5 6 h3"/><path d="M-3.5 11 h3"/><path d="M0.5 16 h3"/><path d="M-3.5 21 h3"/><path d="M0.5 26 h3"/></g>
+ <path d="M-3 3 C-3 10 -1.5 20 -.5 24" stroke="#ffd2a0" stroke-width="1.1" fill="none" stroke-linecap="round" opacity=".6"/></g><g transform="translate(47 24) rotate(28)">
+ <g stroke-linecap="round" fill="none"><path d="M0 0 C-2 -6 -6 -10 -8 -16" stroke="#3f8a2c" stroke-width="1.6"/><path d="M0 0 C0 -7 1 -12 0 -18" stroke="#4fa035" stroke-width="1.6"/><path d="M0 0 C3 -6 6 -9 8 -14" stroke="#3f8a2c" stroke-width="1.6"/></g>
+ <g fill="#5cb03e"><ellipse cx="-8" cy="-16" rx="1.6" ry="3" transform="rotate(-40 -8 -16)"/><ellipse cx="-6" cy="-12" rx="1.6" ry="3" transform="rotate(-30 -6 -12)"/><ellipse cx="0" cy="-18" rx="1.6" ry="3" transform="rotate(0 0 -18)"/><ellipse cx="1" cy="-13" rx="1.6" ry="3" transform="rotate(10 1 -13)"/><ellipse cx="8" cy="-14" rx="1.6" ry="3" transform="rotate(40 8 -14)"/><ellipse cx="5" cy="-10" rx="1.6" ry="3" transform="rotate(30 5 -10)"/></g>
+ <path d="M-5.5 1 C-5.5 -1 5.5 -1 5.5 1 C5 12 2 26 0 32 C-2 26 -5 12 -5.5 1 Z" fill="url(#carrots-caG)" stroke="#b34a0c" stroke-width=".7"/>
+ <g stroke="#b34a0c" stroke-width=".7" stroke-linecap="round" opacity=".55"><path d="M0.5 6 h3"/><path d="M-3.5 11 h3"/><path d="M0.5 16 h3"/><path d="M-3.5 21 h3"/><path d="M0.5 26 h3"/></g>
+ <path d="M-3 3 C-3 10 -1.5 20 -.5 24" stroke="#ffd2a0" stroke-width="1.1" fill="none" stroke-linecap="round" opacity=".6"/></g><g transform="translate(32 20) rotate(0)">
+ <g stroke-linecap="round" fill="none"><path d="M0 0 C-2 -6 -6 -10 -8 -16" stroke="#3f8a2c" stroke-width="1.6"/><path d="M0 0 C0 -7 1 -12 0 -18" stroke="#4fa035" stroke-width="1.6"/><path d="M0 0 C3 -6 6 -9 8 -14" stroke="#3f8a2c" stroke-width="1.6"/></g>
+ <g fill="#5cb03e"><ellipse cx="-8" cy="-16" rx="1.6" ry="3" transform="rotate(-40 -8 -16)"/><ellipse cx="-6" cy="-12" rx="1.6" ry="3" transform="rotate(-30 -6 -12)"/><ellipse cx="0" cy="-18" rx="1.6" ry="3" transform="rotate(0 0 -18)"/><ellipse cx="1" cy="-13" rx="1.6" ry="3" transform="rotate(10 1 -13)"/><ellipse cx="8" cy="-14" rx="1.6" ry="3" transform="rotate(40 8 -14)"/><ellipse cx="5" cy="-10" rx="1.6" ry="3" transform="rotate(30 5 -10)"/></g>
+ <path d="M-5.5 1 C-5.5 -1 5.5 -1 5.5 1 C5 12 2 30 0 36 C-2 30 -5 12 -5.5 1 Z" fill="url(#carrots-caG)" stroke="#b34a0c" stroke-width=".7"/>
+ <g stroke="#b34a0c" stroke-width=".7" stroke-linecap="round" opacity=".55"><path d="M0.5 6 h3"/><path d="M-3.5 11 h3"/><path d="M0.5 16 h3"/><path d="M-3.5 21 h3"/><path d="M0.5 26 h3"/></g>
+ <path d="M-3 3 C-3 10 -1.5 24 -.5 28" stroke="#ffd2a0" stroke-width="1.1" fill="none" stroke-linecap="round" opacity=".6"/></g></svg>`,
+  bell_pepper: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="bell_pepper-bpY" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe680"/><stop offset=".55" stop-color="#f5c518"/><stop offset="1" stop-color="#c99a06"/></radialGradient><radialGradient id="bell_pepper-bpG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#8fd36a"/><stop offset=".55" stop-color="#3f9a2c"/><stop offset="1" stop-color="#25661a"/></radialGradient><radialGradient id="bell_pepper-bpR" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ff7a66"/><stop offset=".55" stop-color="#d8261a"/><stop offset="1" stop-color="#9a140c"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(44 31) scale(0.95)">
+ <path d="M-10 -6 C-12 -12 -4 -13 0 -10 C4 -13 12 -12 10 -6 C13 2 12 10 7 12 C4 13 2 11 0 12.5 C-2 11 -4 13 -7 12 C-12 10 -13 2 -10 -6 Z" fill="url(#bell_pepper-bpY)" stroke="rgba(0,0,0,.28)" stroke-width=".7"/>
+ <path d="M0 -9 C1 -2 1 6 0 12" stroke="rgba(0,0,0,.18)" stroke-width="1.1" fill="none"/><path d="M-6 -8 C-7 0 -6 6 -4.5 11" stroke="rgba(0,0,0,.12)" stroke-width="1" fill="none"/><path d="M6 -8 C7 0 6 6 4.5 11" stroke="rgba(0,0,0,.12)" stroke-width="1" fill="none"/>
+ <path d="M-7.5 -5 C-8.5 0 -8 5 -6.5 8" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".45"/>
+ <ellipse cx="0" cy="-10" rx="4" ry="1.8" fill="#2f6e22"/><path d="M0 -10 C0 -14 1.5 -16 4 -17" stroke="#3a7a26" stroke-width="2.6" stroke-linecap="round" fill="none"/></g><g transform="translate(20 32) scale(0.95)">
+ <path d="M-10 -6 C-12 -12 -4 -13 0 -10 C4 -13 12 -12 10 -6 C13 2 12 10 7 12 C4 13 2 11 0 12.5 C-2 11 -4 13 -7 12 C-12 10 -13 2 -10 -6 Z" fill="url(#bell_pepper-bpG)" stroke="rgba(0,0,0,.28)" stroke-width=".7"/>
+ <path d="M0 -9 C1 -2 1 6 0 12" stroke="rgba(0,0,0,.18)" stroke-width="1.1" fill="none"/><path d="M-6 -8 C-7 0 -6 6 -4.5 11" stroke="rgba(0,0,0,.12)" stroke-width="1" fill="none"/><path d="M6 -8 C7 0 6 6 4.5 11" stroke="rgba(0,0,0,.12)" stroke-width="1" fill="none"/>
+ <path d="M-7.5 -5 C-8.5 0 -8 5 -6.5 8" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".45"/>
+ <ellipse cx="0" cy="-10" rx="4" ry="1.8" fill="#2f6e22"/><path d="M0 -10 C0 -14 1.5 -16 4 -17" stroke="#2f6e22" stroke-width="2.6" stroke-linecap="round" fill="none"/></g><g transform="translate(32 42) scale(1.05)">
+ <path d="M-10 -6 C-12 -12 -4 -13 0 -10 C4 -13 12 -12 10 -6 C13 2 12 10 7 12 C4 13 2 11 0 12.5 C-2 11 -4 13 -7 12 C-12 10 -13 2 -10 -6 Z" fill="url(#bell_pepper-bpR)" stroke="rgba(0,0,0,.28)" stroke-width=".7"/>
+ <path d="M0 -9 C1 -2 1 6 0 12" stroke="rgba(0,0,0,.18)" stroke-width="1.1" fill="none"/><path d="M-6 -8 C-7 0 -6 6 -4.5 11" stroke="rgba(0,0,0,.12)" stroke-width="1" fill="none"/><path d="M6 -8 C7 0 6 6 4.5 11" stroke="rgba(0,0,0,.12)" stroke-width="1" fill="none"/>
+ <path d="M-7.5 -5 C-8.5 0 -8 5 -6.5 8" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".45"/>
+ <ellipse cx="0" cy="-10" rx="4" ry="1.8" fill="#2f6e22"/><path d="M0 -10 C0 -14 1.5 -16 4 -17" stroke="#3a7a26" stroke-width="2.6" stroke-linecap="round" fill="none"/></g></svg>`,
+  broccoli: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="broccoli-brG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#6fbf4a"/><stop offset=".55" stop-color="#2f8a2c"/><stop offset="1" stop-color="#1b5a1a"/></radialGradient><linearGradient id="broccoli-brS" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d6ecaa"/><stop offset=".5" stop-color="#b4d888"/><stop offset="1" stop-color="#86b45a"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M16 38 C17.5 44 17 48 16.5 52 Q21 54 25.5 52 C25 48 24.5 44 26 38 Z" fill="url(#broccoli-brS)" stroke="#5a8a3a" stroke-width=".6"/><path d="M19.5 41 V51" stroke="#eef7d8" stroke-width="1.2" stroke-linecap="round" opacity=".7"/><circle cx="21" cy="23" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="15" cy="26" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="27" cy="26" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="13" cy="31" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="29" cy="31" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="18" cy="30" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="24" cy="29" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="21" cy="33" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="17" cy="22" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="25" cy="22" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="16" cy="34" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="26" cy="34" r="4" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><g fill="#9ad66a" opacity=".5"><circle cx="19.8" cy="21.8" r="1"/><circle cx="13.8" cy="24.8" r="1"/><circle cx="25.8" cy="24.8" r="1"/><circle cx="11.8" cy="29.8" r="1"/><circle cx="27.8" cy="29.8" r="1"/><circle cx="16.8" cy="28.8" r="1"/><circle cx="22.8" cy="27.8" r="1"/><circle cx="19.8" cy="31.8" r="1"/><circle cx="15.8" cy="20.8" r="1"/><circle cx="23.8" cy="20.8" r="1"/><circle cx="14.8" cy="32.8" r="1"/><circle cx="24.8" cy="32.8" r="1"/></g><path d="M38.25 40 C39.675 45.7 39.2 49.5 38.725 53.3 Q43 55.2 47.275 53.3 C46.8 49.5 46.325 45.7 47.75 40 Z" fill="url(#broccoli-brS)" stroke="#5a8a3a" stroke-width=".6"/><path d="M41.575 42.85 V52.35" stroke="#eef7d8" stroke-width="1.14" stroke-linecap="round" opacity=".7"/><circle cx="43" cy="25.35" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="37.3" cy="28.2" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="48.7" cy="28.2" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="35.4" cy="32.95" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="50.6" cy="32.95" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="40.15" cy="32" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="45.85" cy="31.05" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="43" cy="34.85" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="39.2" cy="24.4" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="46.8" cy="24.4" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="38.25" cy="35.8" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><circle cx="47.75" cy="35.8" r="3.8" fill="url(#broccoli-brG)" stroke="#1f5a1a" stroke-width=".5"/><g fill="#9ad66a" opacity=".5"><circle cx="41.86" cy="24.21" r="0.95"/><circle cx="36.16" cy="27.06" r="0.95"/><circle cx="47.56" cy="27.06" r="0.95"/><circle cx="34.26" cy="31.810000000000002" r="0.95"/><circle cx="49.46" cy="31.810000000000002" r="0.95"/><circle cx="39.01" cy="30.86" r="0.95"/><circle cx="44.71" cy="29.91" r="0.95"/><circle cx="41.86" cy="33.71" r="0.95"/><circle cx="38.06" cy="23.259999999999998" r="0.95"/><circle cx="45.66" cy="23.259999999999998" r="0.95"/><circle cx="37.11" cy="34.66" r="0.95"/><circle cx="46.61" cy="34.66" r="0.95"/></g></svg>`,
+  strawberries: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="strawberries-sbG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ff6b6b"/><stop offset=".55" stop-color="#e0233a"/><stop offset="1" stop-color="#a3142a"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(22 29) rotate(-18) scale(1)"><path d="M0 -8 C7 -8 10 -4 9 1 C8 7 3 11 0 12 C-3 11 -8 7 -9 1 C-10 -4 -7 -8 0 -8 Z" fill="url(#strawberries-sbG)" stroke="#9a1424" stroke-width=".6"/>
+ <g fill="#ffe27a"><ellipse cx="-4" cy="-3" rx=".55" ry=".85"/><ellipse cx="0" cy="-4" rx=".55" ry=".85"/><ellipse cx="4" cy="-3" rx=".55" ry=".85"/><ellipse cx="-6" cy="1" rx=".55" ry=".85"/><ellipse cx="-2" cy="1" rx=".55" ry=".85"/><ellipse cx="2" cy="1" rx=".55" ry=".85"/><ellipse cx="6" cy="1" rx=".55" ry=".85"/><ellipse cx="-3" cy="5" rx=".55" ry=".85"/><ellipse cx="1" cy="5" rx=".55" ry=".85"/><ellipse cx="0" cy="9" rx=".55" ry=".85"/><ellipse cx="4" cy="5" rx=".55" ry=".85"/></g>
+ <ellipse cx="-4.5" cy="-4" rx="1.8" ry="1.1" fill="#fff" opacity=".45"/>
+ <path d="M-8 -7 L-4 -8.5 L-5 -12 L-1.5 -9 L0 -12.5 L1.5 -9 L5 -12 L4 -8.5 L8 -7 L3 -6 L0 -6.8 L-3 -6 Z" fill="#3f8a2c" stroke="#2a6a1e" stroke-width=".4" stroke-linejoin="round"/><path d="M0 -10 V-14" stroke="#2f6e22" stroke-width="1.4" stroke-linecap="round"/></g><g transform="translate(42 29) rotate(16) scale(1)"><path d="M0 -8 C7 -8 10 -4 9 1 C8 7 3 11 0 12 C-3 11 -8 7 -9 1 C-10 -4 -7 -8 0 -8 Z" fill="url(#strawberries-sbG)" stroke="#9a1424" stroke-width=".6"/>
+ <g fill="#ffe27a"><ellipse cx="-4" cy="-3" rx=".55" ry=".85"/><ellipse cx="0" cy="-4" rx=".55" ry=".85"/><ellipse cx="4" cy="-3" rx=".55" ry=".85"/><ellipse cx="-6" cy="1" rx=".55" ry=".85"/><ellipse cx="-2" cy="1" rx=".55" ry=".85"/><ellipse cx="2" cy="1" rx=".55" ry=".85"/><ellipse cx="6" cy="1" rx=".55" ry=".85"/><ellipse cx="-3" cy="5" rx=".55" ry=".85"/><ellipse cx="1" cy="5" rx=".55" ry=".85"/><ellipse cx="0" cy="9" rx=".55" ry=".85"/><ellipse cx="4" cy="5" rx=".55" ry=".85"/></g>
+ <ellipse cx="-4.5" cy="-4" rx="1.8" ry="1.1" fill="#fff" opacity=".45"/>
+ <path d="M-8 -7 L-4 -8.5 L-5 -12 L-1.5 -9 L0 -12.5 L1.5 -9 L5 -12 L4 -8.5 L8 -7 L3 -6 L0 -6.8 L-3 -6 Z" fill="#3f8a2c" stroke="#2a6a1e" stroke-width=".4" stroke-linejoin="round"/><path d="M0 -10 V-14" stroke="#2f6e22" stroke-width="1.4" stroke-linecap="round"/></g><g transform="translate(32 25) rotate(0) scale(1.05)"><path d="M0 -8 C7 -8 10 -4 9 1 C8 7 3 11 0 12 C-3 11 -8 7 -9 1 C-10 -4 -7 -8 0 -8 Z" fill="url(#strawberries-sbG)" stroke="#9a1424" stroke-width=".6"/>
+ <g fill="#ffe27a"><ellipse cx="-4" cy="-3" rx=".55" ry=".85"/><ellipse cx="0" cy="-4" rx=".55" ry=".85"/><ellipse cx="4" cy="-3" rx=".55" ry=".85"/><ellipse cx="-6" cy="1" rx=".55" ry=".85"/><ellipse cx="-2" cy="1" rx=".55" ry=".85"/><ellipse cx="2" cy="1" rx=".55" ry=".85"/><ellipse cx="6" cy="1" rx=".55" ry=".85"/><ellipse cx="-3" cy="5" rx=".55" ry=".85"/><ellipse cx="1" cy="5" rx=".55" ry=".85"/><ellipse cx="0" cy="9" rx=".55" ry=".85"/><ellipse cx="4" cy="5" rx=".55" ry=".85"/></g>
+ <ellipse cx="-4.5" cy="-4" rx="1.8" ry="1.1" fill="#fff" opacity=".45"/>
+ <path d="M-8 -7 L-4 -8.5 L-5 -12 L-1.5 -9 L0 -12.5 L1.5 -9 L5 -12 L4 -8.5 L8 -7 L3 -6 L0 -6.8 L-3 -6 Z" fill="#3f8a2c" stroke="#2a6a1e" stroke-width=".4" stroke-linejoin="round"/><path d="M0 -10 V-14" stroke="#2f6e22" stroke-width="1.4" stroke-linecap="round"/></g><path d="M11 35 H53 L48.5 56 H15.5 Z" fill="#3f8f4a" stroke="#2a6a34" stroke-width=".8"/><g fill="#2a6a34" opacity=".75"><rect x="16" y="39" width="3.4" height="3" rx=".6"/><rect x="21.6" y="39" width="3.4" height="3" rx=".6"/><rect x="27.2" y="39" width="3.4" height="3" rx=".6"/><rect x="32.8" y="39" width="3.4" height="3" rx=".6"/><rect x="38.4" y="39" width="3.4" height="3" rx=".6"/><rect x="44" y="39" width="3.4" height="3" rx=".6"/><rect x="16.3" y="44.5" width="3.4" height="3" rx=".6"/><rect x="21.900000000000002" y="44.5" width="3.4" height="3" rx=".6"/><rect x="27.5" y="44.5" width="3.4" height="3" rx=".6"/><rect x="33.099999999999994" y="44.5" width="3.4" height="3" rx=".6"/><rect x="38.699999999999996" y="44.5" width="3.4" height="3" rx=".6"/><rect x="44.3" y="44.5" width="3.4" height="3" rx=".6"/><rect x="16.6" y="50" width="3.4" height="3" rx=".6"/><rect x="22.200000000000003" y="50" width="3.4" height="3" rx=".6"/><rect x="27.8" y="50" width="3.4" height="3" rx=".6"/><rect x="33.4" y="50" width="3.4" height="3" rx=".6"/><rect x="39" y="50" width="3.4" height="3" rx=".6"/><rect x="44.6" y="50" width="3.4" height="3" rx=".6"/></g><rect x="10" y="33.5" width="44" height="3.5" rx="1.4" fill="#55a85e"/><g transform="translate(51 51) rotate(24) scale(0.75)"><path d="M0 -8 C7 -8 10 -4 9 1 C8 7 3 11 0 12 C-3 11 -8 7 -9 1 C-10 -4 -7 -8 0 -8 Z" fill="url(#strawberries-sbG)" stroke="#9a1424" stroke-width=".6"/>
+ <g fill="#ffe27a"><ellipse cx="-4" cy="-3" rx=".55" ry=".85"/><ellipse cx="0" cy="-4" rx=".55" ry=".85"/><ellipse cx="4" cy="-3" rx=".55" ry=".85"/><ellipse cx="-6" cy="1" rx=".55" ry=".85"/><ellipse cx="-2" cy="1" rx=".55" ry=".85"/><ellipse cx="2" cy="1" rx=".55" ry=".85"/><ellipse cx="6" cy="1" rx=".55" ry=".85"/><ellipse cx="-3" cy="5" rx=".55" ry=".85"/><ellipse cx="1" cy="5" rx=".55" ry=".85"/><ellipse cx="0" cy="9" rx=".55" ry=".85"/><ellipse cx="4" cy="5" rx=".55" ry=".85"/></g>
+ <ellipse cx="-4.5" cy="-4" rx="1.8" ry="1.1" fill="#fff" opacity=".45"/>
+ <path d="M-8 -7 L-4 -8.5 L-5 -12 L-1.5 -9 L0 -12.5 L1.5 -9 L5 -12 L4 -8.5 L8 -7 L3 -6 L0 -6.8 L-3 -6 Z" fill="#3f8a2c" stroke="#2a6a1e" stroke-width=".4" stroke-linejoin="round"/><path d="M0 -10 V-14" stroke="#2f6e22" stroke-width="1.4" stroke-linecap="round"/></g><rect x="20" y="42" width="24" height="8" rx="1.5" fill="#fff" stroke="#2a6a34" stroke-width=".5"/><text x="32" y="48" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#2a6a34" text-anchor="middle" >2 CUPS</text></svg>`,
+  watermelon: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="watermelon-wmR" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#8fd06a"/><stop offset=".55" stop-color="#3f9a2c"/><stop offset="1" stop-color="#1f5a1a"/></radialGradient><radialGradient id="watermelon-wmF" cx="50%" cy="20%" r="75%"><stop offset="0" stop-color="#ff8a8a"/><stop offset=".55" stop-color="#ef4a5a"/><stop offset="1" stop-color="#c42a3a"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><circle cx="26" cy="34" r="20" fill="url(#watermelon-wmR)" stroke="#1a4a16" stroke-width=".8"/>
+ <g stroke="#1f5a1a" stroke-width="2.6" fill="none" opacity=".75" stroke-linecap="round"><path d="M26 14 C20 24 20 44 26 54"/><path d="M16 17 C10 26 10 42 16 51"/><path d="M36 17 C42 26 42 42 36 51"/><path d="M8 26 C6 32 6 38 8 42"/><path d="M44 26 C46 32 46 38 44 42"/></g>
+ <path d="M14 24 C16 20 20 18 24 17" stroke="#fff" stroke-width="2" fill="none" opacity=".35" stroke-linecap="round"/>
+ <g transform="translate(46 48)"><path d="M-14 0 A14 14 0 0 0 14 0 Z" fill="#2f8a2c" stroke="#1a4a16" stroke-width=".7"/><path d="M-12.4 0 A12.4 12.4 0 0 0 12.4 0 Z" fill="#e8f5c8"/><path d="M-11.2 0 A11.2 11.2 0 0 0 11.2 0 Z" fill="url(#watermelon-wmF)"/><g fill="#2a1a12"><ellipse cx="-6" cy="3" rx=".8" ry="1.2"/><ellipse cx="-2" cy="5.5" rx=".8" ry="1.2"/><ellipse cx="2" cy="5.5" rx=".8" ry="1.2"/><ellipse cx="6" cy="3" rx=".8" ry="1.2"/><ellipse cx="0" cy="2.5" rx=".8" ry="1.2"/></g></g></svg>`,
+  grapes: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="grapes-grN" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#d9f2a0"/><stop offset=".55" stop-color="#9ccc52"/><stop offset="1" stop-color="#6a9a2e"/></radialGradient><radialGradient id="grapes-grR" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#c25a86"/><stop offset=".55" stop-color="#7e1f4c"/><stop offset="1" stop-color="#4d0f2c"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M38 20 C38 14 36 11 33 8" stroke="#6b4a26" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M36 13 C40 8 47 8 50 11 C47 15 41 16 36 13 Z" fill="#4f9a3a" stroke="#2f6e22" stroke-width=".6"/><path d="M37 13 C41 12 45 11 49 11" stroke="#2f6e22" stroke-width=".5" fill="none"/><path d="M16 24 C16 20 18 18 21 17" stroke="#6b4a26" stroke-width="1.4" fill="none" stroke-linecap="round"/><ellipse cx="9" cy="28" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="7.5" cy="26.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="16" cy="27" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="14.5" cy="25.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="23" cy="28" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="21.5" cy="26.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="6" cy="35" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="4.5" cy="33.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="13" cy="34" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="11.5" cy="32.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="20" cy="35" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="18.5" cy="33.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="9" cy="42" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="7.5" cy="40.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="16" cy="41" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="14.5" cy="39.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="23" cy="42" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="21.5" cy="40.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="12" cy="49" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="10.5" cy="47.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="19" cy="48" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="17.5" cy="46.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="15" cy="55" rx="4.3" ry="4.8" fill="url(#grapes-grN)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="13.5" cy="53.2" rx="1.2" ry=".8" fill="#fff" opacity="0.6"/><ellipse cx="26" cy="24" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="24.5" cy="22.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="34" cy="24" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="32.5" cy="22.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="42" cy="24" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="40.5" cy="22.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="50" cy="25" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="48.5" cy="23.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="30" cy="32" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="28.5" cy="30.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="38" cy="32" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="36.5" cy="30.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="46" cy="32" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="44.5" cy="30.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="34" cy="40" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="32.5" cy="38.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="42" cy="40" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="40.5" cy="38.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/><ellipse cx="38" cy="48" rx="4.3" ry="4.8" fill="url(#grapes-grR)" stroke="rgba(0,0,0,.25)" stroke-width=".5"/><ellipse cx="36.5" cy="46.2" rx="1.2" ry=".8" fill="#fff" opacity="0.5"/></svg>`,
+  kiwi: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="kiwi-kwS" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#b88a52"/><stop offset=".55" stop-color="#8a6232"/><stop offset="1" stop-color="#5a3e1c"/></radialGradient><radialGradient id="kiwi-kwF" cx="50%" cy="50%" r="75%"><stop offset="0" stop-color="#d8f08a"/><stop offset=".55" stop-color="#8cc63e"/><stop offset="1" stop-color="#4f8f24"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(20 30) rotate(-10)"><ellipse rx="11" ry="9" fill="url(#kiwi-kwS)" stroke="#4a3418" stroke-width=".7"/><g stroke="#5a3e1c" stroke-width=".5" opacity=".5"><path d="M2.0 0.0 l.8 .5"/><path d="M-8.3 2.9 l.8 .5"/><path d="M5.5 -4.7 l.8 .5"/><path d="M-2.4 5.3 l.8 .5"/><path d="M-0.3 -4.8 l.8 .5"/><path d="M2.2 3.6 l.8 .5"/><path d="M-3.1 -2.1 l.8 .5"/><path d="M0.0 -2.4 l.8 .5"/><path d="M0.8 1.5 l.8 .5"/><path d="M-6.5 -5.0 l.8 .5"/><path d="M7.5 2.2 l.8 .5"/><path d="M-7.0 0.3 l.8 .5"/><path d="M5.4 -2.1 l.8 .5"/><path d="M-3.2 3.1 l.8 .5"/><path d="M-4.0 -0.0 l.8 .5"/><path d="M2.8 -0.9 l.8 .5"/><path d="M-1.4 1.2 l.8 .5"/><path d="M3.2 -6.7 l.8 .5"/><path d="M0.4 6.4 l.8 .5"/><path d="M-3.1 -5.0 l.8 .5"/><path d="M4.6 3.1 l.8 .5"/><path d="M-0.1 4.0 l.8 .5"/></g><ellipse cx="-4" cy="-3.5" rx="3" ry="1.6" fill="#fff" opacity=".18"/></g><g transform="translate(42 28) rotate(14)"><ellipse rx="11" ry="9" fill="url(#kiwi-kwS)" stroke="#4a3418" stroke-width=".7"/><g stroke="#5a3e1c" stroke-width=".5" opacity=".5"><path d="M2.0 0.0 l.8 .5"/><path d="M-8.3 2.9 l.8 .5"/><path d="M5.5 -4.7 l.8 .5"/><path d="M-2.4 5.3 l.8 .5"/><path d="M-0.3 -4.8 l.8 .5"/><path d="M2.2 3.6 l.8 .5"/><path d="M-3.1 -2.1 l.8 .5"/><path d="M0.0 -2.4 l.8 .5"/><path d="M0.8 1.5 l.8 .5"/><path d="M-6.5 -5.0 l.8 .5"/><path d="M7.5 2.2 l.8 .5"/><path d="M-7.0 0.3 l.8 .5"/><path d="M5.4 -2.1 l.8 .5"/><path d="M-3.2 3.1 l.8 .5"/><path d="M-4.0 -0.0 l.8 .5"/><path d="M2.8 -0.9 l.8 .5"/><path d="M-1.4 1.2 l.8 .5"/><path d="M3.2 -6.7 l.8 .5"/><path d="M0.4 6.4 l.8 .5"/><path d="M-3.1 -5.0 l.8 .5"/><path d="M4.6 3.1 l.8 .5"/><path d="M-0.1 4.0 l.8 .5"/></g><ellipse cx="-4" cy="-3.5" rx="3" ry="1.6" fill="#fff" opacity=".18"/></g><g transform="translate(32 44)"><ellipse rx="12" ry="10" fill="#7a5a2c" stroke="#4a3418" stroke-width=".7"/><ellipse rx="10.8" ry="8.9" fill="url(#kiwi-kwF)"/><ellipse rx="4" ry="3" fill="#f6f8dc"/><g fill="#1a1a12"><ellipse cx="5.4" cy="0.0" rx=".5" ry=".9" transform="rotate(90 5.4 0.0)"/><ellipse cx="5.0" cy="1.6" rx=".5" ry=".9" transform="rotate(113 5.0 1.6)"/><ellipse cx="3.8" cy="3.0" rx=".5" ry=".9" transform="rotate(135 3.8 3.0)"/><ellipse cx="2.1" cy="4.0" rx=".5" ry=".9" transform="rotate(158 2.1 4.0)"/><ellipse cx="0.0" cy="4.3" rx=".5" ry=".9" transform="rotate(180 0.0 4.3)"/><ellipse cx="-2.1" cy="4.0" rx=".5" ry=".9" transform="rotate(203 -2.1 4.0)"/><ellipse cx="-3.8" cy="3.0" rx=".5" ry=".9" transform="rotate(225 -3.8 3.0)"/><ellipse cx="-5.0" cy="1.6" rx=".5" ry=".9" transform="rotate(248 -5.0 1.6)"/><ellipse cx="-5.4" cy="0.0" rx=".5" ry=".9" transform="rotate(270 -5.4 0.0)"/><ellipse cx="-5.0" cy="-1.6" rx=".5" ry=".9" transform="rotate(293 -5.0 -1.6)"/><ellipse cx="-3.8" cy="-3.0" rx=".5" ry=".9" transform="rotate(315 -3.8 -3.0)"/><ellipse cx="-2.1" cy="-4.0" rx=".5" ry=".9" transform="rotate(338 -2.1 -4.0)"/><ellipse cx="-0.0" cy="-4.3" rx=".5" ry=".9" transform="rotate(360 -0.0 -4.3)"/><ellipse cx="2.1" cy="-4.0" rx=".5" ry=".9" transform="rotate(383 2.1 -4.0)"/><ellipse cx="3.8" cy="-3.0" rx=".5" ry=".9" transform="rotate(405 3.8 -3.0)"/><ellipse cx="5.0" cy="-1.6" rx=".5" ry=".9" transform="rotate(427 5.0 -1.6)"/></g><g stroke="#f6f8dc" stroke-width=".5" opacity=".6"><path d="M4.0 0.0 L9.0 0.0"/><path d="M3.5 1.5 L7.8 3.7"/><path d="M2.0 2.6 L4.5 6.5"/><path d="M0.0 3.0 L0.0 7.5"/><path d="M-2.0 2.6 L-4.5 6.5"/><path d="M-3.5 1.5 L-7.8 3.7"/><path d="M-4.0 0.0 L-9.0 0.0"/><path d="M-3.5 -1.5 L-7.8 -3.8"/><path d="M-2.0 -2.6 L-4.5 -6.5"/><path d="M-0.0 -3.0 L-0.0 -7.5"/><path d="M2.0 -2.6 L4.5 -6.5"/><path d="M3.5 -1.5 L7.8 -3.8"/></g></g></svg>`,
+  blueberries: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="blueberries-blG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#7a8ed8"/><stop offset=".55" stop-color="#3a4aa0"/><stop offset="1" stop-color="#1c2460"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><circle cx="18" cy="28" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M17 25.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="16.7" cy="26.8" r=".8" fill="#fff" opacity=".35"/><circle cx="25" cy="25" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M24 22.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="23.7" cy="23.8" r=".8" fill="#fff" opacity=".35"/><circle cx="32" cy="23" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M31 20.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="30.7" cy="21.8" r=".8" fill="#fff" opacity=".35"/><circle cx="39" cy="24" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M38 21.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="37.7" cy="22.8" r=".8" fill="#fff" opacity=".35"/><circle cx="46" cy="27" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M45 24.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="44.7" cy="25.8" r=".8" fill="#fff" opacity=".35"/><circle cx="21" cy="33" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M20 30.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="19.7" cy="31.8" r=".8" fill="#fff" opacity=".35"/><circle cx="28" cy="30" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M27 27.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="26.7" cy="28.8" r=".8" fill="#fff" opacity=".35"/><circle cx="35" cy="29" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M34 26.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="33.7" cy="27.8" r=".8" fill="#fff" opacity=".35"/><circle cx="42" cy="31" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M41 28.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="40.7" cy="29.8" r=".8" fill="#fff" opacity=".35"/><circle cx="25" cy="35" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M24 32.199999999999996 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="23.7" cy="33.8" r=".8" fill="#fff" opacity=".35"/><circle cx="32" cy="34" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M31 31.2 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="30.7" cy="32.8" r=".8" fill="#fff" opacity=".35"/><circle cx="39" cy="35" r="3.6" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M38 32.199999999999996 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="37.7" cy="33.8" r=".8" fill="#fff" opacity=".35"/><path d="M12 33 H52 L48 55 H16 Z" fill="#2f7fc1" stroke="#1f5a8a" stroke-width=".8"/><path d="M12 33 H52 v3 H12 Z" fill="#4a9ad8"/>
+ <g stroke="#1f5a8a" stroke-width=".7" opacity=".7"><path d="M17 38 L18 53"/><path d="M22 38 L22.6 53"/><path d="M27 38 L27.2 53"/><path d="M32 38 L31.799999999999997 53"/><path d="M37 38 L36.4 53"/><path d="M42 38 L41 53"/><path d="M47 38 L45.599999999999994 53"/></g><text x="32" y="45" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.8" fill="#fff" text-anchor="middle" >BLUEBERRIES</text><text x="32" y="51" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.6" fill="#fff" text-anchor="middle" >2 CUPS</text><circle cx="52" cy="52" r="3.2" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M51 49.599999999999994 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="50.7" cy="50.8" r=".8" fill="#fff" opacity=".35"/><circle cx="46" cy="55" r="3" fill="url(#blueberries-blG)" stroke="#1c2050" stroke-width=".5"/><path d="M45 52.8 l1 1 l1 -1" stroke="#8fa0d8" stroke-width=".5" fill="none"/><circle cx="44.7" cy="53.8" r=".8" fill="#fff" opacity=".35"/></svg>`,
+  oranges: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="oranges-orG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffc070"/><stop offset=".55" stop-color="#f5891a"/><stop offset="1" stop-color="#d0600c"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(19 36) scale(1)"><ellipse rx="11" ry="9.5" fill="url(#oranges-orG)" stroke="#b8520c" stroke-width=".7"/><g fill="#c45a0c" opacity=".35"><circle cx="-5" cy="-2" r=".5"/><circle cx="-2" cy="3" r=".5"/><circle cx="3" cy="-4" r=".5"/><circle cx="5" cy="2" r=".5"/><circle cx="0" cy="-1" r=".5"/><circle cx="-6" cy="4" r=".5"/><circle cx="6" cy="-2" r=".5"/><circle cx="1" cy="5" r=".5"/></g><ellipse cx="-4" cy="-4" rx="3" ry="1.8" fill="#fff" opacity=".4"/><circle cy="-8.6" r="1.2" fill="#5a7a2a"/></g><g transform="translate(44 36) scale(1)"><ellipse rx="11" ry="9.5" fill="url(#oranges-orG)" stroke="#b8520c" stroke-width=".7"/><g fill="#c45a0c" opacity=".35"><circle cx="-5" cy="-2" r=".5"/><circle cx="-2" cy="3" r=".5"/><circle cx="3" cy="-4" r=".5"/><circle cx="5" cy="2" r=".5"/><circle cx="0" cy="-1" r=".5"/><circle cx="-6" cy="4" r=".5"/><circle cx="6" cy="-2" r=".5"/><circle cx="1" cy="5" r=".5"/></g><ellipse cx="-4" cy="-4" rx="3" ry="1.8" fill="#fff" opacity=".4"/><circle cy="-8.6" r="1.2" fill="#5a7a2a"/></g><g transform="translate(31 44) scale(1.1)"><ellipse rx="11" ry="9.5" fill="url(#oranges-orG)" stroke="#b8520c" stroke-width=".7"/><g fill="#c45a0c" opacity=".35"><circle cx="-5" cy="-2" r=".5"/><circle cx="-2" cy="3" r=".5"/><circle cx="3" cy="-4" r=".5"/><circle cx="5" cy="2" r=".5"/><circle cx="0" cy="-1" r=".5"/><circle cx="-6" cy="4" r=".5"/><circle cx="6" cy="-2" r=".5"/><circle cx="1" cy="5" r=".5"/></g><ellipse cx="-4" cy="-4" rx="3" ry="1.8" fill="#fff" opacity=".4"/><circle cy="-8.6" r="1.2" fill="#5a7a2a"/><path d="M0 -9 C3 -14 9 -14 11 -12 C8 -9 3 -8 0 -9 Z" fill="#3f8a2c" stroke="#2a6a1e" stroke-width=".5"/><path d="M1 -9.4 C4 -11 7 -12 10 -12" stroke="#2a6a1e" stroke-width=".4" fill="none"/></g></svg>`,
+  ginger: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ginger-giG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8c890"/><stop offset=".5" stop-color="#d4a862"/><stop offset="1" stop-color="#a87a3a"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M8 40 C6 34 10 30 15 32 C16 26 22 24 25 28 C28 22 35 22 37 27 C40 22 47 22 49 28 C54 26 59 31 56 37 C60 42 55 48 50 46 C47 51 40 51 38 47 C34 51 26 51 24 46 C19 50 12 48 13 44 C9 45 7 43 8 40 Z" fill="url(#ginger-giG)" stroke="#8a5e2a" stroke-width=".8"/>
+ <g stroke="#a87a3a" stroke-width=".6" fill="none" opacity=".75"><path d="M16 35 C18 38 18 42 16 44"/><path d="M27 31 C29 35 29 41 26 46"/><path d="M38 30 C40 35 40 41 38 46"/><path d="M49 31 C51 35 51 40 49 44"/><path d="M20 40 h4 M32 38 h4 M43 37 h3"/></g>
+ <path d="M14 34 C18 33 22 33 24 35" stroke="#fff" stroke-width="1.2" fill="none" opacity=".35" stroke-linecap="round"/>
+ <g transform="translate(46 50)"><ellipse rx="6" ry="4" fill="#f4e6b0" stroke="#a87a3a" stroke-width=".6"/><ellipse rx="4.5" ry="2.8" fill="#f8eec8"/><g stroke="#e0c88a" stroke-width=".4"><path d="M-3 -2 v4"/><path d="M-1.5 -2 v4"/><path d="M0 -2 v4"/><path d="M1.5 -2 v4"/><path d="M3 -2 v4"/></g></g></svg>`,
+  cilantro: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g stroke="#4f8a34" stroke-width="1" stroke-linecap="round" fill="none"><path d="M32 48 Q27 35 22 14"/><path d="M32 48 Q31 33 30 10"/><path d="M32 48 Q35 34.5 38 13"/><path d="M32 48 Q38 38 44 20"/><path d="M32 48 Q25 39 18 22"/><path d="M32 48 Q29 37 26 18"/><path d="M32 48 Q33 37 34 18"/><path d="M32 48 Q36 41 40 26"/><path d="M32 48 Q27 42 22 28"/><path d="M32 48 Q31 40 30 24"/><path d="M32 48 Q24 43 16 30"/><path d="M32 48 Q39 42 46 28"/></g>
+ <path d="M30 46 L28.5 57 M32 46 V57.5 M34 46 L35.5 57" stroke="#6aa04a" stroke-width="1.2" stroke-linecap="round"/>
+ <path d="M22 14 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(-30 22 14)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M30 10 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(0 30 10)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M38 13 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(25 38 13)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M44 20 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(40 44 20)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M18 22 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(-50 18 22)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M26 18 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(-10 26 18)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M34 18 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(15 34 18)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M40 26 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(35 40 26)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M22 28 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(-35 22 28)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M30 24 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(0 30 24)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M16 30 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(-60 16 30)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/><path d="M46 28 l-3.4499999999999997 -2.3 l1.15 -2.3 l2.3 1.15 l1.15 -3.4499999999999997 l1.15 3.4499999999999997 l2.3 -1.15 l1.15 2.3 Z" transform="rotate(55 46 28)" fill="#4fa83a" stroke="#2a6a1e" stroke-width=".45" stroke-linejoin="round"/>
+ <rect x="27.5" y="44" width="9" height="3.4" rx="1.2" fill="#c0392b" stroke="#8a2318" stroke-width=".4"/></svg>`,
+  basil: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g stroke="#4f8a34" stroke-width="1" stroke-linecap="round" fill="none"><path d="M32 48 Q27 35 22 14"/><path d="M32 48 Q31 33 30 10"/><path d="M32 48 Q35 34.5 38 13"/><path d="M32 48 Q38 38 44 20"/><path d="M32 48 Q25 39 18 22"/><path d="M32 48 Q29 37 26 18"/><path d="M32 48 Q33 37 34 18"/><path d="M32 48 Q36 41 40 26"/><path d="M32 48 Q27 42 22 28"/><path d="M32 48 Q31 40 30 24"/><path d="M32 48 Q24 43 16 30"/><path d="M32 48 Q39 42 46 28"/></g>
+ <path d="M30 46 L28.5 57 M32 46 V57.5 M34 46 L35.5 57" stroke="#6aa04a" stroke-width="1.2" stroke-linecap="round"/>
+ <ellipse cx="22" cy="14" rx="5" ry="3.8" transform="rotate(-30 22 14)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M18.55 14 h6.8999999999999995" transform="rotate(-30 22 14)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="30" cy="10" rx="5" ry="3.8" transform="rotate(0 30 10)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M26.55 10 h6.8999999999999995" transform="rotate(0 30 10)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="38" cy="13" rx="5" ry="3.8" transform="rotate(25 38 13)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M34.55 13 h6.8999999999999995" transform="rotate(25 38 13)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="44" cy="20" rx="5" ry="3.8" transform="rotate(40 44 20)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M40.55 20 h6.8999999999999995" transform="rotate(40 44 20)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="18" cy="22" rx="5" ry="3.8" transform="rotate(-50 18 22)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M14.55 22 h6.8999999999999995" transform="rotate(-50 18 22)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="26" cy="18" rx="5" ry="3.8" transform="rotate(-10 26 18)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M22.55 18 h6.8999999999999995" transform="rotate(-10 26 18)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="34" cy="18" rx="5" ry="3.8" transform="rotate(15 34 18)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M30.55 18 h6.8999999999999995" transform="rotate(15 34 18)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="40" cy="26" rx="5" ry="3.8" transform="rotate(35 40 26)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M36.55 26 h6.8999999999999995" transform="rotate(35 40 26)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="22" cy="28" rx="5" ry="3.8" transform="rotate(-35 22 28)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M18.55 28 h6.8999999999999995" transform="rotate(-35 22 28)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="30" cy="24" rx="5" ry="3.8" transform="rotate(0 30 24)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M26.55 24 h6.8999999999999995" transform="rotate(0 30 24)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="16" cy="30" rx="5" ry="3.8" transform="rotate(-60 16 30)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M12.55 30 h6.8999999999999995" transform="rotate(-60 16 30)" stroke="#1a5a1a" stroke-width=".4"/><ellipse cx="46" cy="28" rx="5" ry="3.8" transform="rotate(55 46 28)" fill="#2f8a2c" stroke="#1a5a1a" stroke-width=".5"/><path d="M42.55 28 h6.8999999999999995" transform="rotate(55 46 28)" stroke="#1a5a1a" stroke-width=".4"/>
+ <rect x="27.5" y="44" width="9" height="3.4" rx="1.2" fill="#c0392b" stroke="#8a2318" stroke-width=".4"/></svg>`,
+  mint: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g stroke="#4f8a34" stroke-width="1" stroke-linecap="round" fill="none"><path d="M32 48 Q27 35 22 14"/><path d="M32 48 Q31 33 30 10"/><path d="M32 48 Q35 34.5 38 13"/><path d="M32 48 Q38 38 44 20"/><path d="M32 48 Q25 39 18 22"/><path d="M32 48 Q29 37 26 18"/><path d="M32 48 Q33 37 34 18"/><path d="M32 48 Q36 41 40 26"/><path d="M32 48 Q27 42 22 28"/><path d="M32 48 Q31 40 30 24"/><path d="M32 48 Q24 43 16 30"/><path d="M32 48 Q39 42 46 28"/></g>
+ <path d="M30 46 L28.5 57 M32 46 V57.5 M34 46 L35.5 57" stroke="#6aa04a" stroke-width="1.2" stroke-linecap="round"/>
+ <ellipse cx="22" cy="14" rx="4.6" ry="3.4499999999999997" transform="rotate(-30 22 14)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M18.55 14 h6.8999999999999995" transform="rotate(-30 22 14)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="30" cy="10" rx="4.6" ry="3.4499999999999997" transform="rotate(0 30 10)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M26.55 10 h6.8999999999999995" transform="rotate(0 30 10)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="38" cy="13" rx="4.6" ry="3.4499999999999997" transform="rotate(25 38 13)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M34.55 13 h6.8999999999999995" transform="rotate(25 38 13)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="44" cy="20" rx="4.6" ry="3.4499999999999997" transform="rotate(40 44 20)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M40.55 20 h6.8999999999999995" transform="rotate(40 44 20)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="18" cy="22" rx="4.6" ry="3.4499999999999997" transform="rotate(-50 18 22)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M14.55 22 h6.8999999999999995" transform="rotate(-50 18 22)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="26" cy="18" rx="4.6" ry="3.4499999999999997" transform="rotate(-10 26 18)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M22.55 18 h6.8999999999999995" transform="rotate(-10 26 18)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="34" cy="18" rx="4.6" ry="3.4499999999999997" transform="rotate(15 34 18)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M30.55 18 h6.8999999999999995" transform="rotate(15 34 18)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="40" cy="26" rx="4.6" ry="3.4499999999999997" transform="rotate(35 40 26)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M36.55 26 h6.8999999999999995" transform="rotate(35 40 26)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="22" cy="28" rx="4.6" ry="3.4499999999999997" transform="rotate(-35 22 28)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M18.55 28 h6.8999999999999995" transform="rotate(-35 22 28)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="30" cy="24" rx="4.6" ry="3.4499999999999997" transform="rotate(0 30 24)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M26.55 24 h6.8999999999999995" transform="rotate(0 30 24)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="16" cy="30" rx="4.6" ry="3.4499999999999997" transform="rotate(-60 16 30)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M12.55 30 h6.8999999999999995" transform="rotate(-60 16 30)" stroke="#3a8a2c" stroke-width=".4"/><ellipse cx="46" cy="28" rx="4.6" ry="3.4499999999999997" transform="rotate(55 46 28)" fill="#6ccf5a" stroke="#3a8a2c" stroke-width=".5"/><path d="M42.55 28 h6.8999999999999995" transform="rotate(55 46 28)" stroke="#3a8a2c" stroke-width=".4"/>
+ <rect x="27.5" y="44" width="9" height="3.4" rx="1.2" fill="#c0392b" stroke="#8a2318" stroke-width=".4"/></svg>`,
+  mushrooms: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mushrooms-muG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".55" stop-color="#efe4d0"/><stop offset="1" stop-color="#cdbb9a"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(20 34) scale(0.9)"><path d="M-4 0 C-4.5 6 -5 10 -4 13 H4 C5 10 4.5 6 4 0 Z" fill="#f2ebdf" stroke="#b8a890" stroke-width=".6"/><path d="M-2 2 v9" stroke="#fff" stroke-width="1" opacity=".6"/><path d="M-13 1 C-13 -10 13 -10 13 1 C9 3 -9 3 -13 1 Z" fill="url(#mushrooms-muG)" stroke="#a89070" stroke-width=".7"/><path d="M-12 1 C-6 4 6 4 12 1" stroke="#d8c8a8" stroke-width="1.6" fill="none"/><ellipse cx="-5" cy="-5" rx="4" ry="2" fill="#fff" opacity=".55"/></g><g transform="translate(44 32) scale(0.85)"><path d="M-4 0 C-4.5 6 -5 10 -4 13 H4 C5 10 4.5 6 4 0 Z" fill="#f2ebdf" stroke="#b8a890" stroke-width=".6"/><path d="M-2 2 v9" stroke="#fff" stroke-width="1" opacity=".6"/><path d="M-13 1 C-13 -10 13 -10 13 1 C9 3 -9 3 -13 1 Z" fill="url(#mushrooms-muG)" stroke="#a89070" stroke-width=".7"/><path d="M-12 1 C-6 4 6 4 12 1" stroke="#d8c8a8" stroke-width="1.6" fill="none"/><ellipse cx="-5" cy="-5" rx="4" ry="2" fill="#fff" opacity=".55"/></g><g transform="translate(32 42) scale(1.05)"><path d="M-4 0 C-4.5 6 -5 10 -4 13 H4 C5 10 4.5 6 4 0 Z" fill="#f2ebdf" stroke="#b8a890" stroke-width=".6"/><path d="M-2 2 v9" stroke="#fff" stroke-width="1" opacity=".6"/><path d="M-13 1 C-13 -10 13 -10 13 1 C9 3 -9 3 -13 1 Z" fill="url(#mushrooms-muG)" stroke="#a89070" stroke-width=".7"/><path d="M-12 1 C-6 4 6 4 12 1" stroke="#d8c8a8" stroke-width="1.6" fill="none"/><ellipse cx="-5" cy="-5" rx="4" ry="2" fill="#fff" opacity=".55"/></g></svg>`,
+  kalamata_olives: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="kalamata_olives-olG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#8a4a7a"/><stop offset=".55" stop-color="#4a1f42"/><stop offset="1" stop-color="#26101f"/></radialGradient><linearGradient id="kalamata_olives-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="22" y="13" width="20" height="6" rx="1.5" fill="#d8b04a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/><path d="M22 16 h20" stroke="rgba(0,0,0,.2)" stroke-width=".5"/>
+ <rect x="19" y="18" width="26" height="38" rx="5" fill="#c8b05a" opacity=".55" stroke="#7a6a2a" stroke-width=".7"/><ellipse cx="24" cy="30" rx="3.6" ry="2.6" transform="rotate(20 24 30)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="23" cy="29" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="31" cy="29" rx="3.6" ry="2.6" transform="rotate(-10 31 29)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="30" cy="28" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="38" cy="30" rx="3.6" ry="2.6" transform="rotate(30 38 30)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="37" cy="29" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="26" cy="36" rx="3.6" ry="2.6" transform="rotate(-20 26 36)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="25" cy="35" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="33" cy="35" rx="3.6" ry="2.6" transform="rotate(10 33 35)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="32" cy="34" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="40" cy="37" rx="3.6" ry="2.6" transform="rotate(-30 40 37)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="39" cy="36" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="24" cy="43" rx="3.6" ry="2.6" transform="rotate(10 24 43)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="23" cy="42" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="31" cy="42" rx="3.6" ry="2.6" transform="rotate(40 31 42)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="30" cy="41" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="38" cy="44" rx="3.6" ry="2.6" transform="rotate(0 38 44)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="37" cy="43" rx="1.1" ry=".6" fill="#fff" opacity=".4"/>
+ <rect x="19" y="37" width="26" height="12" fill="#2f5a2a"/><rect x="19" y="18" width="26" height="38" rx="5" fill="url(#kalamata_olives-cyl)"/><text x="32" y="45" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.2" fill="#f4e6b0" text-anchor="middle" >KALAMATA</text><path d="M22.5 21 L22.5 34" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+ <ellipse cx="50" cy="53" rx="3.6" ry="2.6" transform="rotate(20 50 53)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="49" cy="52" rx="1.1" ry=".6" fill="#fff" opacity=".4"/><ellipse cx="14" cy="54" rx="3.6" ry="2.6" transform="rotate(-15 14 54)" fill="url(#kalamata_olives-olG)" stroke="#1a0c18" stroke-width=".4"/><ellipse cx="13" cy="53" rx="1.1" ry=".6" fill="#fff" opacity=".4"/></svg>`,
+  garlic: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="garlic-gaG" cx="40%" cy="30%" r="75%"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f1ebe0"/><stop offset="1" stop-color="#cfc2ac"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="17" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(32 57) scale(.78) translate(-32 -57)"><path d="M32 12 C31 16 30 18 28 20 C18 22 12 32 14 42 C16 52 26 55 32 55 C38 55 48 52 50 42 C52 32 46 22 36 20 C34 18 33 16 32 12 Z" fill="url(#garlic-gaG)" stroke="#a89880" stroke-width=".8"/>
+ <g stroke="#c8b8a0" stroke-width=".7" fill="none"><path d="M28 21 C22 30 22 44 26 54"/><path d="M36 21 C42 30 42 44 38 54"/><path d="M32 22 C30 32 30 44 32 55"/></g>
+ <g stroke="#b0a090" stroke-width=".4" opacity=".7"><path d="M26 55 l-1.7999999999999998 2"/><path d="M29 55 l-0.8999999999999999 2"/><path d="M32 55 l0 2"/><path d="M35 55 l0.8999999999999999 2"/><path d="M38 55 l1.7999999999999998 2"/></g>
+ <path d="M19 32 C18 38 20 44 23 48" stroke="#fff" stroke-width="2" fill="none" opacity=".6" stroke-linecap="round"/>
+ <path d="M30 14 C31 12 33 11 34 12" stroke="#b8a888" stroke-width="1" fill="none"/>
+ <g transform="translate(51 51) rotate(30)"><path d="M0 -6 C4 -3 4 3 1 6 C-2 6 -4 3 -3 0 C-2 -3 -1 -5 0 -6 Z" fill="#f6f0e2" stroke="#a89880" stroke-width=".6"/></g></g></svg>`,
+  onion: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="onion-onG" cx="38%" cy="35%" r="75%"><stop offset="0" stop-color="#f8c870"/><stop offset=".55" stop-color="#d68a2a"/><stop offset="1" stop-color="#9a5a14"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M32 12 C30 18 28 20 24 22 C14 26 10 36 14 45 C18 54 46 54 50 45 C54 36 50 26 40 22 C36 20 34 18 32 12 Z" fill="url(#onion-onG)" stroke="#7a4a12" stroke-width=".8"/>
+ <g stroke="#9a5a14" stroke-width=".7" fill="none" opacity=".7"><path d="M28 22 C20 30 20 44 26 51"/><path d="M36 22 C44 30 44 44 38 51"/><path d="M32 20 V52"/><path d="M24 23 C16 32 16 42 20 49"/><path d="M40 23 C48 32 48 42 44 49"/></g>
+ <path d="M30 13 C30 10 34 10 34 13" stroke="#a87a3a" stroke-width="1.2" fill="none"/><path d="M27 52 l-2 3 M30 53 l-.5 3.5 M34 53 l.5 3.5 M37 52 l2 3" stroke="#c8b08a" stroke-width=".8" stroke-linecap="round"/>
+ <path d="M19 32 C18 38 19 42 21 46" stroke="#fff" stroke-width="2" fill="none" opacity=".4" stroke-linecap="round"/></svg>`,
+  lime: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="lime-liG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#a8e070"/><stop offset=".55" stop-color="#5cb03a"/><stop offset="1" stop-color="#2f7a22"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(20 32) rotate(-15)"><ellipse rx="10" ry="8.5" fill="url(#lime-liG)" stroke="#2f7a22" stroke-width=".7"/><ellipse cx="10" rx="2" ry="1.6" fill="url(#lime-liG)" stroke="#2f7a22" stroke-width=".6"/><ellipse cx="-10" rx="1.4" ry="1.2" fill="#2f7a22"/><g fill="#2f7a22" opacity=".3"><circle cx="-5" cy="-3" r=".45"/><circle cx="-1" cy="3" r=".45"/><circle cx="3" cy="-4" r=".45"/><circle cx="6" cy="2" r=".45"/><circle cx="-6" cy="3" r=".45"/><circle cx="1" cy="-1" r=".45"/></g><ellipse cx="-3.5" cy="-4.25" rx="3.5" ry="1.53" fill="#fff" opacity=".45"/></g><g transform="translate(43 30) rotate(15)"><ellipse rx="10" ry="8.5" fill="url(#lime-liG)" stroke="#2f7a22" stroke-width=".7"/><ellipse cx="10" rx="2" ry="1.6" fill="url(#lime-liG)" stroke="#2f7a22" stroke-width=".6"/><ellipse cx="-10" rx="1.4" ry="1.2" fill="#2f7a22"/><g fill="#2f7a22" opacity=".3"><circle cx="-5" cy="-3" r=".45"/><circle cx="-1" cy="3" r=".45"/><circle cx="3" cy="-4" r=".45"/><circle cx="6" cy="2" r=".45"/><circle cx="-6" cy="3" r=".45"/><circle cx="1" cy="-1" r=".45"/></g><ellipse cx="-3.5" cy="-4.25" rx="3.5" ry="1.53" fill="#fff" opacity=".45"/></g><g transform="translate(27 45) rotate(5)"><ellipse rx="10.5" ry="9" fill="url(#lime-liG)" stroke="#2f7a22" stroke-width=".7"/><ellipse cx="10.5" rx="2" ry="1.6" fill="url(#lime-liG)" stroke="#2f7a22" stroke-width=".6"/><ellipse cx="-10.5" rx="1.4" ry="1.2" fill="#2f7a22"/><g fill="#2f7a22" opacity=".3"><circle cx="-5" cy="-3" r=".45"/><circle cx="-1" cy="3" r=".45"/><circle cx="3" cy="-4" r=".45"/><circle cx="6" cy="2" r=".45"/><circle cx="-6" cy="3" r=".45"/><circle cx="1" cy="-1" r=".45"/></g><ellipse cx="-3.675" cy="-4.5" rx="3.675" ry="1.6199999999999999" fill="#fff" opacity=".45"/></g><g transform="translate(47 47) scale(0.95)"><circle r="10" fill="#3f8a2c"/><circle r="9" fill="#f6f8d8"/><circle r="8" fill="#b8e070"/><path d="M0 0 L8.0 0.0" stroke="#f6f8d8" stroke-width=".8"/><path d="M0 0 L5.7 5.7" stroke="#f6f8d8" stroke-width=".8"/><path d="M0 0 L0.0 8.0" stroke="#f6f8d8" stroke-width=".8"/><path d="M0 0 L-5.7 5.7" stroke="#f6f8d8" stroke-width=".8"/><path d="M0 0 L-8.0 0.0" stroke="#f6f8d8" stroke-width=".8"/><path d="M0 0 L-5.7 -5.7" stroke="#f6f8d8" stroke-width=".8"/><path d="M0 0 L-0.0 -8.0" stroke="#f6f8d8" stroke-width=".8"/><path d="M0 0 L5.7 -5.7" stroke="#f6f8d8" stroke-width=".8"/><circle r="1.4" fill="#f6f8d8"/><circle r="10" fill="none" stroke="#3f8a2c" stroke-width=".7"/></g></svg>`,
+  shredded_cabbage: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="shredded_cabbage-scC"><path d="M14 14 C12 28 12 46 14 55 H50 C52 46 52 28 50 14 Z"/></clipPath></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M14 14 C12 28 12 46 14 55 H50 C52 46 52 28 50 14 Z" fill="#f6eef8" stroke="#a890b8" stroke-width=".7"/>
+ <g clip-path="url(#shredded_cabbage-scC)"><path d="M13 16 q2 -1.6 4 -2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M50 39 q2.8 -1.6 5.6 -1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M49 22 q3.6 -1.6 7.2 0" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M48 45 q4.4 -1.6 8.8 1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M47 28 q2 -1.6 4 2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M46 51 q2.8 -1.6 5.6 -2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M45 34 q3.6 -1.6 7.2 -1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M44 17 q4.4 -1.6 8.8 0" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M43 40 q2 -1.6 4 1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M42 23 q2.8 -1.6 5.6 2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M41 46 q3.6 -1.6 7.2 -2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M40 29 q4.4 -1.6 8.8 -1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M39 52 q2 -1.6 4 0" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M38 35 q2.8 -1.6 5.6 1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M37 18 q3.6 -1.6 7.2 2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M36 41 q4.4 -1.6 8.8 -2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M35 24 q2 -1.6 4 -1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M34 47 q2.8 -1.6 5.6 0" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M33 30 q3.6 -1.6 7.2 1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M32 53 q4.4 -1.6 8.8 2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M31 36 q2 -1.6 4 -2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M30 19 q2.8 -1.6 5.6 -1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M29 42 q3.6 -1.6 7.2 0" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M28 25 q4.4 -1.6 8.8 1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M27 48 q2 -1.6 4 2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M26 31 q2.8 -1.6 5.6 -2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M25 54 q3.6 -1.6 7.2 -1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M24 37 q4.4 -1.6 8.8 0" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M23 20 q2 -1.6 4 1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M22 43 q2.8 -1.6 5.6 2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M21 26 q3.6 -1.6 7.2 -2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M20 49 q4.4 -1.6 8.8 -1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M19 32 q2 -1.6 4 0" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M18 55 q2.8 -1.6 5.6 1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M17 38 q3.6 -1.6 7.2 2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M16 21 q4.4 -1.6 8.8 -2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M15 44 q2 -1.6 4 -1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M14 27 q2.8 -1.6 5.6 0" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M13 50 q3.6 -1.6 7.2 1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M50 33 q4.4 -1.6 8.8 2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M49 16 q2 -1.6 4 -2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M48 39 q2.8 -1.6 5.6 -1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M47 22 q3.6 -1.6 7.2 0" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M46 45 q4.4 -1.6 8.8 1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M45 28 q2 -1.6 4 2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M44 51 q2.8 -1.6 5.6 -2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M43 34 q3.6 -1.6 7.2 -1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M42 17 q4.4 -1.6 8.8 0" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M41 40 q2 -1.6 4 1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M40 23 q2.8 -1.6 5.6 2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M39 46 q3.6 -1.6 7.2 -2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M38 29 q4.4 -1.6 8.8 -1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M37 52 q2 -1.6 4 0" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M36 35 q2.8 -1.6 5.6 1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M35 18 q3.6 -1.6 7.2 2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M34 41 q4.4 -1.6 8.8 -2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M33 24 q2 -1.6 4 -1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M32 47 q2.8 -1.6 5.6 0" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M31 30 q3.6 -1.6 7.2 1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M30 53 q4.4 -1.6 8.8 2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M29 36 q2 -1.6 4 -2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M28 19 q2.8 -1.6 5.6 -1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M27 42 q3.6 -1.6 7.2 0" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M26 25 q4.4 -1.6 8.8 1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M25 48 q2 -1.6 4 2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M24 31 q2.8 -1.6 5.6 -2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M23 54 q3.6 -1.6 7.2 -1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M22 37 q4.4 -1.6 8.8 0" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M21 20 q2 -1.6 4 1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M20 43 q2.8 -1.6 5.6 2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M19 26 q3.6 -1.6 7.2 -2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M18 49 q4.4 -1.6 8.8 -1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M17 32 q2 -1.6 4 0" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M16 55 q2.8 -1.6 5.6 1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M15 38 q3.6 -1.6 7.2 2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M14 21 q4.4 -1.6 8.8 -2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M13 44 q2 -1.6 4 -1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M50 27 q2.8 -1.6 5.6 0" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M49 50 q3.6 -1.6 7.2 1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M48 33 q4.4 -1.6 8.8 2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M47 16 q2 -1.6 4 -2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M46 39 q2.8 -1.6 5.6 -1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M45 22 q3.6 -1.6 7.2 0" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M44 45 q4.4 -1.6 8.8 1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M43 28 q2 -1.6 4 2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M42 51 q2.8 -1.6 5.6 -2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M41 34 q3.6 -1.6 7.2 -1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M40 17 q4.4 -1.6 8.8 0" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M39 40 q2 -1.6 4 1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M38 23 q2.8 -1.6 5.6 2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M37 46 q3.6 -1.6 7.2 -2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M36 29 q4.4 -1.6 8.8 -1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M35 52 q2 -1.6 4 0" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M34 35 q2.8 -1.6 5.6 1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M33 18 q3.6 -1.6 7.2 2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M32 41 q4.4 -1.6 8.8 -2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M31 24 q2 -1.6 4 -1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M30 47 q2.8 -1.6 5.6 0" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M29 30 q3.6 -1.6 7.2 1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M28 53 q4.4 -1.6 8.8 2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M27 36 q2 -1.6 4 -2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M26 19 q2.8 -1.6 5.6 -1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M25 42 q3.6 -1.6 7.2 0" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M24 25 q4.4 -1.6 8.8 1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M23 48 q2 -1.6 4 2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M22 31 q2.8 -1.6 5.6 -2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M21 54 q3.6 -1.6 7.2 -1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M20 37 q4.4 -1.6 8.8 0" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M19 20 q2 -1.6 4 1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M18 43 q2.8 -1.6 5.6 2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M13 16 q2 -1.6 4 -2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M44 17 q4.4 -1.6 8.8 0" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M37 18 q3.6 -1.6 7.2 2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M30 19 q2.8 -1.6 5.6 -1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M23 20 q2 -1.6 4 1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M16 21 q4.4 -1.6 8.8 -2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M47 22 q3.6 -1.6 7.2 0" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M40 23 q2.8 -1.6 5.6 2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M33 24 q2 -1.6 4 -1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M26 25 q4.4 -1.6 8.8 1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M19 26 q3.6 -1.6 7.2 -2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M50 27 q2.8 -1.6 5.6 0" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M43 28 q2 -1.6 4 2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M36 29 q4.4 -1.6 8.8 -1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M29 30 q3.6 -1.6 7.2 1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M22 31 q2.8 -1.6 5.6 -2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M15 32 q2 -1.6 4 0" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M46 33 q4.4 -1.6 8.8 2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M39 34 q3.6 -1.6 7.2 -1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M32 35 q2.8 -1.6 5.6 1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M25 36 q2 -1.6 4 -2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M18 37 q4.4 -1.6 8.8 0" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M49 38 q3.6 -1.6 7.2 2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M42 39 q2.8 -1.6 5.6 -1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M35 40 q2 -1.6 4 1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M28 41 q4.4 -1.6 8.8 -2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M21 42 q3.6 -1.6 7.2 0" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M14 43 q2.8 -1.6 5.6 2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M45 44 q2 -1.6 4 -1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M38 45 q4.4 -1.6 8.8 1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M31 46 q3.6 -1.6 7.2 -2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M24 47 q2.8 -1.6 5.6 0" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M17 48 q2 -1.6 4 2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M48 49 q4.4 -1.6 8.8 -1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M41 50 q3.6 -1.6 7.2 1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M34 51 q2.8 -1.6 5.6 -2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M27 52 q2 -1.6 4 0" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M20 53 q4.4 -1.6 8.8 2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M13 54 q3.6 -1.6 7.2 -1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M44 55 q2.8 -1.6 5.6 1.2" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M37 16 q2 -1.6 4 -2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M30 17 q4.4 -1.6 8.8 0" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M23 18 q3.6 -1.6 7.2 2.4" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M16 19 q2.8 -1.6 5.6 -1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M47 20 q2 -1.6 4 1.2" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M40 21 q4.4 -1.6 8.8 -2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M33 22 q3.6 -1.6 7.2 0" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M26 23 q2.8 -1.6 5.6 2.4" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M19 24 q2 -1.6 4 -1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M50 25 q4.4 -1.6 8.8 1.2" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M43 26 q3.6 -1.6 7.2 -2.4" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M36 27 q2.8 -1.6 5.6 0" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M29 28 q2 -1.6 4 2.4" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M22 29 q4.4 -1.6 8.8 -1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M15 30 q3.6 -1.6 7.2 1.2" stroke="#7a2a8a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M46 31 q2.8 -1.6 5.6 -2.4" stroke="#9a3aa8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M39 32 q2 -1.6 4 0" stroke="#f4e8f4" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M32 33 q4.4 -1.6 8.8 2.4" stroke="#6a1f7a" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M25 34 q3.6 -1.6 7.2 -1.2" stroke="#b85ac8" stroke-width="1.15" fill="none" stroke-linecap="round"/><path d="M18 35 q2.8 -1.6 5.6 1.2" stroke="#e8d4ec" stroke-width="1.15" fill="none" stroke-linecap="round"/></g>
+ <path d="M14 14 C12 28 12 46 14 55 H50 C52 46 52 28 50 14 Z" fill="#fff" opacity=".12"/>
+ <rect x="13" y="10" width="38" height="6" rx="1" fill="#e8e0ee" stroke="#a890b8" stroke-width=".6"/><path d="M14 11 v4 M16 11 v4 M18 11 v4 M20 11 v4 M22 11 v4 M24 11 v4 M26 11 v4 M28 11 v4 M30 11 v4 M32 11 v4 M34 11 v4 M36 11 v4 M38 11 v4 M40 11 v4 M42 11 v4 M44 11 v4 M46 11 v4 M48 11 v4" stroke="rgba(0,0,0,.12)" stroke-width=".5"/>
+ <rect x="17" y="27" width="30" height="13" rx="2" fill="#5a1f6a"/><text x="32" y="32.8" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.35" fill="#fff" text-anchor="middle" >SHREDDED</text><text x="32" y="38" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="2.18" fill="#f2c14e" text-anchor="middle" >CABBAGE · 2 CUPS</text>
+ <path d="M17 18 L17 25" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/><path d="M17 43 L17 52" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/></svg>`,
+  lemon: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="lemon-leG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff6a0"/><stop offset=".55" stop-color="#f8d830"/><stop offset="1" stop-color="#d8a810"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(30 38) rotate(-14)"><ellipse rx="17" ry="13" fill="url(#lemon-leG)" stroke="#c89a0a" stroke-width=".7"/><ellipse cx="17" rx="2" ry="1.6" fill="url(#lemon-leG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="-17" rx="1.4" ry="1.2" fill="#c89a0a"/><g fill="#c89a0a" opacity=".3"><circle cx="-5" cy="-3" r=".45"/><circle cx="-1" cy="3" r=".45"/><circle cx="3" cy="-4" r=".45"/><circle cx="6" cy="2" r=".45"/><circle cx="-6" cy="3" r=".45"/><circle cx="1" cy="-1" r=".45"/></g><ellipse cx="-5.949999999999999" cy="-6.5" rx="5.949999999999999" ry="2.34" fill="#fff" opacity=".45"/></g><path d="M47.5 33.5 L48.6 32" stroke="#5a7a2a" stroke-width="1.3" stroke-linecap="round" fill="none"/><path d="M48.6 32 C49.6 24.5 55.6 20.5 59.6 20.5 C58.6 26.5 54.6 31.5 48.6 32 Z" fill="#3f8a2c" stroke="#2a6a1e" stroke-width=".5"/><path d="M49.1 31.5 C52.1 28 55.6 24 59.1 21" stroke="#2a6a1e" stroke-width=".45" fill="none"/><g transform="translate(14 52) scale(0.55)"><circle r="10" fill="#e0b012"/><circle r="9" fill="#fffbe0"/><circle r="8" fill="#fff08a"/><path d="M0 0 L8.0 0.0" stroke="#fffbe0" stroke-width=".8"/><path d="M0 0 L5.7 5.7" stroke="#fffbe0" stroke-width=".8"/><path d="M0 0 L0.0 8.0" stroke="#fffbe0" stroke-width=".8"/><path d="M0 0 L-5.7 5.7" stroke="#fffbe0" stroke-width=".8"/><path d="M0 0 L-8.0 0.0" stroke="#fffbe0" stroke-width=".8"/><path d="M0 0 L-5.7 -5.7" stroke="#fffbe0" stroke-width=".8"/><path d="M0 0 L-0.0 -8.0" stroke="#fffbe0" stroke-width=".8"/><path d="M0 0 L5.7 -5.7" stroke="#fffbe0" stroke-width=".8"/><circle r="1.4" fill="#fffbe0"/><circle r="10" fill="none" stroke="#e0b012" stroke-width=".7"/></g></svg>`,
+  eggs: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="eggs-egG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff4e6"/><stop offset=".55" stop-color="#f0d8b4"/><stop offset="1" stop-color="#c89a6a"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M8 30 L12 14 H52 L56 30 Z" fill="#d6cdbc" stroke="#9a8e78" stroke-width=".7"/><path d="M14 17 H50" stroke="#bfb4a0" stroke-width=".6"/><ellipse cx="18" cy="30" rx="5.2" ry="6.6" fill="url(#eggs-egG)" stroke="#b08a5a" stroke-width=".5"/><ellipse cx="16.4" cy="27.4" rx="1.4" ry="2" fill="#fff" opacity=".5"/><ellipse cx="26" cy="30" rx="5.2" ry="6.6" fill="url(#eggs-egG)" stroke="#b08a5a" stroke-width=".5"/><ellipse cx="24.4" cy="27.4" rx="1.4" ry="2" fill="#fff" opacity=".5"/><ellipse cx="34" cy="30" rx="5.2" ry="6.6" fill="url(#eggs-egG)" stroke="#b08a5a" stroke-width=".5"/><ellipse cx="32.4" cy="27.4" rx="1.4" ry="2" fill="#fff" opacity=".5"/><ellipse cx="42" cy="30" rx="5.2" ry="6.6" fill="url(#eggs-egG)" stroke="#b08a5a" stroke-width=".5"/><ellipse cx="40.4" cy="27.4" rx="1.4" ry="2" fill="#fff" opacity=".5"/><ellipse cx="50" cy="30" rx="5.2" ry="6.6" fill="url(#eggs-egG)" stroke="#b08a5a" stroke-width=".5"/><ellipse cx="48.4" cy="27.4" rx="1.4" ry="2" fill="#fff" opacity=".5"/><path d="M6 32 H58 L55 52 H9 Z" fill="#e2dac8" stroke="#9a8e78" stroke-width=".7"/>
+ <g fill="#cfc5b0"><path d="M10 32 q4.1 6 8.2 0 Z"/><path d="M18.2 32 q4.1 6 8.2 0 Z"/><path d="M26.4 32 q4.1 6 8.2 0 Z"/><path d="M34.599999999999994 32 q4.1 6 8.2 0 Z"/><path d="M42.8 32 q4.1 6 8.2 0 Z"/><path d="M51 32 q4.1 6 8.2 0 Z"/></g>
+ <path d="M10 44 H54" stroke="#bfb4a0" stroke-width=".7"/><text x="32" y="50.5" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4" fill="#7a6a50" text-anchor="middle" >12 LARGE EGGS</text></svg>`,
+  butter: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="butter-buS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6c4"/><stop offset=".5" stop-color="#ffe98a"/><stop offset="1" stop-color="#f0cf5a"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M10 22 L16 17 H52 L46 22 Z" fill="#f4d24a" stroke="#b8901a" stroke-width=".6"/><path d="M46 22 L52 17 V36 L46 41 Z" fill="#d8b02a" stroke="#b8901a" stroke-width=".6"/>
+ <rect x="10" y="22" width="36" height="19" fill="#fff8e0" stroke="#b8901a" stroke-width=".6"/><rect x="10" y="22" width="36" height="6" fill="#e8b81a"/><text x="28" y="26.8" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.2" fill="#fff" text-anchor="middle" >BUTTER</text><text x="28" y="36" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.4" fill="#b8901a" text-anchor="middle" >UNSALTED</text>
+ <g transform="translate(0 4)"><path d="M14 42 L18 38 H56 L52 42 Z" fill="#fffbe0" stroke="#c8a83a" stroke-width=".6"/><path d="M52 42 L56 38 V48 L52 52 Z" fill="#f0d870" stroke="#c8a83a" stroke-width=".6"/><rect x="14" y="42" width="38" height="10" fill="url(#butter-buS)" stroke="#c8a83a" stroke-width=".6"/>
+ <path d="M30 42 V52" stroke="#c8a83a" stroke-width=".4" stroke-dasharray="1 1"/><path d="M14 42 h16 v10 h-16 Z" fill="#fff" opacity=".85"/><path d="M14 47 h16" stroke="#e8b81a" stroke-width="1.6"/><path d="M34 44.5 L48 44.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></g></svg>`,
+  milk: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M20 18 L31 10 L42 18 Z" fill="#fff" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M42 18 L31 10 L36 8 L47 16 Z" fill="#e4e0d8" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="30" y="6" width="7" height="4" fill="#e4e0d8" stroke="rgba(0,0,0,.3)" stroke-width=".5" transform="skewY(-20)" transform-origin="31 10"/>
+ <path d="M42 18 L47 16 V54 L42 56 Z" fill="#e4e0d8" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="20" y="18" width="22" height="38" fill="#fff" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="20" y="26" width="22" height="12.48" fill="#2f7fc1"/>
+ <text x="31" y="34.06" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.2" fill="#fff" text-anchor="middle" >MILK</text><rect x="20" y="40" width="22" height="2" fill="#2f7fc1"/><text x="31" y="50" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.4" fill="#2f7fc1" text-anchor="middle" >WHOLE</text><circle cx="26" cy="22" r="0" /></svg>`,
+  heavy_cream: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M22 30 L32 22 L42 30 Z" fill="#fff" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M42 30 L32 22 L36 20 L46 28 Z" fill="#e4e0d8" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="31" y="18" width="6" height="4" fill="#e4e0d8" stroke="rgba(0,0,0,.3)" stroke-width=".5" transform="skewY(-20)" transform-origin="32 22"/>
+ <path d="M42 30 L46 28 V54 L42 56 Z" fill="#e4e0d8" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="22" y="30" width="20" height="26" fill="#fff" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="22" y="38" width="20" height="10.08" fill="#c0392b"/>
+ <text x="32" y="44.51" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.2" fill="#fff" text-anchor="middle" >CREAM</text><text x="32" y="48" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.3" fill="#c0392b" text-anchor="middle" >HEAVY</text><text x="32" y="52" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="2.6" fill="#7a6a50" text-anchor="middle" >1 PINT</text></svg>`,
+  mozzarella: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="mozzarella-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M17 15 C16 30 15 46 17 56 H47 C49 46 48 30 47 15 Z" fill="#2f7fc1" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="16" y="10" width="32" height="6" rx="1" fill="#2a6aa8" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M17 11 v4 M19 11 v4 M21 11 v4 M23 11 v4 M25 11 v4 M27 11 v4 M29 11 v4 M31 11 v4 M33 11 v4 M35 11 v4 M37 11 v4 M39 11 v4 M41 11 v4 M43 11 v4 M45 11 v4 M47 11 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ <rect x="22.4" y="32" width="19.2" height="18" rx="3" fill="#fbf6ea" stroke="rgba(0,0,0,.2)" stroke-width=".5"/><g stroke-linecap="round" fill="none" stroke-width="1.3"><path d="M24 35 q1.6 -1 3.2 -1" stroke="#e8dcbc"/><path d="M31 40 q1.6 -1 3.2 0" stroke="#f4ecd6"/><path d="M24 45 q1.6 -1 3.2 1" stroke="#e8dcbc"/><path d="M31 38 q1.6 -1 3.2 -1" stroke="#f4ecd6"/><path d="M24 43 q1.6 -1 3.2 0" stroke="#e8dcbc"/><path d="M31 36 q1.6 -1 3.2 1" stroke="#f4ecd6"/><path d="M24 41 q1.6 -1 3.2 -1" stroke="#e8dcbc"/><path d="M31 46 q1.6 -1 3.2 0" stroke="#f4ecd6"/><path d="M24 39 q1.6 -1 3.2 1" stroke="#e8dcbc"/><path d="M31 44 q1.6 -1 3.2 -1" stroke="#f4ecd6"/><path d="M24 37 q1.6 -1 3.2 0" stroke="#e8dcbc"/><path d="M31 42 q1.6 -1 3.2 1" stroke="#f4ecd6"/><path d="M24 35 q1.6 -1 3.2 -1" stroke="#e8dcbc"/><path d="M31 40 q1.6 -1 3.2 0" stroke="#f4ecd6"/><path d="M24 45 q1.6 -1 3.2 1" stroke="#e8dcbc"/><path d="M31 38 q1.6 -1 3.2 -1" stroke="#f4ecd6"/><path d="M24 43 q1.6 -1 3.2 0" stroke="#e8dcbc"/><path d="M31 36 q1.6 -1 3.2 1" stroke="#f4ecd6"/></g>
+ <rect x="16.5" y="22" width="31" height="8.8" fill="#fff"/>
+ <text x="32" y="27.8" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4" fill="#2f7fc1" text-anchor="middle" >MOZZARELLA</text>
+ <rect x="16" y="15" width="32" height="41" rx="2" fill="url(#mozzarella-cyl)"/></svg>`,
+  parmesan: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="parmesan-paG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2c0"/><stop offset=".5" stop-color="#f4dc8a"/><stop offset="1" stop-color="#d8b45a"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M8 44 L34 18 L56 40 Z" fill="url(#parmesan-paG)" stroke="#a8843a" stroke-width=".8"/><path d="M8 44 L56 40 L56 50 L8 54 Z" fill="#e8c46a" stroke="#a8843a" stroke-width=".8"/>
+ <path d="M8 44 L56 40" stroke="#c89a3a" stroke-width="3"/><g fill="#c89a3a" opacity=".6"><circle cx="26" cy="48" r=".8"/><circle cx="36" cy="47" r=".8"/><circle cx="46" cy="46" r=".8"/><circle cx="18" cy="49" r=".8"/></g>
+ <text x="32" y="51" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3" fill="#8a6420" text-anchor="middle" transform="rotate(-4 32 50)">PARMIGIANO</text>
+ <g fill="#d8b45a" opacity=".6"><circle cx="28" cy="32" r=".7"/><circle cx="36" cy="30" r=".7"/><circle cx="32" cy="37" r=".7"/><circle cx="40" cy="36" r=".7"/><circle cx="22" cy="40" r=".7"/><circle cx="44" cy="38" r=".7"/></g><path d="M16 40 L30 26" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/></svg>`,
+  cheddar: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cheddar-chF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc04a"/><stop offset=".5" stop-color="#f59a1a"/><stop offset="1" stop-color="#d87a0c"/></linearGradient><linearGradient id="cheddar-chT" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd070"/><stop offset=".5" stop-color="#ffb83a"/><stop offset="1" stop-color="#f0a020"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M10 26 L20 18 H52 L42 26 Z" fill="url(#cheddar-chT)" stroke="#b86a0c" stroke-width=".7"/><path d="M42 26 L52 18 V40 L42 48 Z" fill="#d87a0c" stroke="#b86a0c" stroke-width=".7"/>
+ <rect x="10" y="26" width="32" height="22" fill="url(#cheddar-chF)" stroke="#b86a0c" stroke-width=".7"/>
+ <path d="M10 33 H42 V41 H10 Z" fill="#fff" opacity=".9"/><path d="M42 33 L52 25 V33 L42 41 Z" fill="#f4ecd8"/><text x="26" y="39" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.2" fill="#d87a0c" text-anchor="middle" >CHEDDAR</text><path d="M13 29 L38 29" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+ <g stroke-linecap="round" fill="none" stroke-width="1.3"><path d="M40 50 q1.6 -1 3.2 -1" stroke="#f59a1a"/><path d="M47 50 q1.6 -1 3.2 0" stroke="#ffb83a"/><path d="M54 50 q1.6 -1 3.2 1" stroke="#f59a1a"/><path d="M45 50 q1.6 -1 3.2 -1" stroke="#ffb83a"/><path d="M52 50 q1.6 -1 3.2 0" stroke="#f59a1a"/><path d="M43 50 q1.6 -1 3.2 1" stroke="#ffb83a"/><path d="M50 50 q1.6 -1 3.2 -1" stroke="#f59a1a"/><path d="M41 50 q1.6 -1 3.2 0" stroke="#ffb83a"/><path d="M48 50 q1.6 -1 3.2 1" stroke="#f59a1a"/><path d="M55 50 q1.6 -1 3.2 -1" stroke="#ffb83a"/><path d="M46 50 q1.6 -1 3.2 0" stroke="#f59a1a"/><path d="M53 50 q1.6 -1 3.2 1" stroke="#ffb83a"/><path d="M44 50 q1.6 -1 3.2 -1" stroke="#f59a1a"/><path d="M51 50 q1.6 -1 3.2 0" stroke="#ffb83a"/><path d="M42 50 q1.6 -1 3.2 1" stroke="#f59a1a"/><path d="M49 50 q1.6 -1 3.2 -1" stroke="#ffb83a"/><path d="M40 50 q1.6 -1 3.2 0" stroke="#f59a1a"/><path d="M47 50 q1.6 -1 3.2 1" stroke="#ffb83a"/></g></svg>`,
+  feta: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="feta-feG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#f6f3ea"/><stop offset="1" stop-color="#dcd6c8"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><ellipse cx="32" cy="48" rx="24" ry="7" fill="#2f7fc1" stroke="#1f5a8a" stroke-width=".7"/><ellipse cx="32" cy="46.5" rx="21" ry="5.5" fill="#e8f2fa"/>
+ <path d="M16 30 L24 24 H46 L38 30 Z" fill="#fbf9f2" stroke="#b8b0a0" stroke-width=".7"/><path d="M38 30 L46 24 V40 L38 46 Z" fill="#dcd6c8" stroke="#b8b0a0" stroke-width=".7"/>
+ <rect x="16" y="30" width="22" height="16" fill="url(#feta-feG)" stroke="#b8b0a0" stroke-width=".7"/>
+ <g fill="#cfc8b8"><circle cx="20" cy="34" r=".8"/><circle cx="26" cy="38" r=".8"/><circle cx="33" cy="33" r=".8"/><circle cx="22" cy="42" r=".8"/><circle cx="31" cy="42" r=".8"/><circle cx="35" cy="38" r=".8"/><circle cx="28" cy="32" r=".8"/></g>
+ <path d="M41.4 45 l1.56 -2.6 l3.12 0.52 l0.78 2.6 l-2.6 1.3 Z" fill="#fbf9f2" stroke="#b8b0a0" stroke-width=".4"/><path d="M46 47 l1.2 -2 l2.4 0.4 l0.6 2 l-2 1 Z" fill="#fbf9f2" stroke="#b8b0a0" stroke-width=".4"/><path d="M38.8 48 l1.32 -2.2 l2.64 0.44000000000000006 l0.66 2.2 l-2.2 1.1 Z" fill="#fbf9f2" stroke="#b8b0a0" stroke-width=".4"/><path d="M48.4 44 l0.96 -1.6 l1.92 0.32000000000000006 l0.48 1.6 l-1.6 0.8 Z" fill="#fbf9f2" stroke="#b8b0a0" stroke-width=".4"/><path d="M20 49 l1.2 -2 l2.4 0.4 l0.6 2 l-2 1 Z" fill="#fbf9f2" stroke="#b8b0a0" stroke-width=".4"/><path d="M44.4 49.5 l0.96 -1.6 l1.92 0.32000000000000006 l0.48 1.6 l-1.6 0.8 Z" fill="#fbf9f2" stroke="#b8b0a0" stroke-width=".4"/></svg>`,
+  american_cheese: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(28 40) rotate(-8)"><rect x="-13" y="-13" width="26" height="26" rx="1.6" fill="#ffb83a" stroke="#c8780c" stroke-width=".7"/><rect x="-14.5" y="-14.5" width="29" height="29" rx="2" fill="#fff" opacity=".22" stroke="#b8d0e0" stroke-width=".5"/></g><g transform="translate(32 36) rotate(4)"><rect x="-13" y="-13" width="26" height="26" rx="1.6" fill="#ffb83a" stroke="#c8780c" stroke-width=".7"/><rect x="-14.5" y="-14.5" width="29" height="29" rx="2" fill="#fff" opacity=".22" stroke="#b8d0e0" stroke-width=".5"/></g><g transform="translate(36 32) rotate(14)"><rect x="-13" y="-13" width="26" height="26" rx="1.6" fill="#ffb83a" stroke="#c8780c" stroke-width=".7"/><rect x="-14.5" y="-14.5" width="29" height="29" rx="2" fill="#fff" opacity=".22" stroke="#b8d0e0" stroke-width=".5"/></g><g transform="translate(36 32) rotate(14)"><path d="M-14.5 -14.5 L-6 -14.5 L-14.5 -6 Z" fill="#fff" opacity=".6"/><text x="0" y="3" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.6" fill="#b8600c" text-anchor="middle" >AMERICAN</text></g></svg>`,
+  yogurt: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="yogurt-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M13 24 H51 L48 54 Q32 57 16 54 Z" fill="#fff" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <path d="M13.7 30 H50.3 L48.8 48 H15.2 Z" fill="#2f7fc1"/>
+ <text x="32" y="47.5" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.6" fill="#cfe2f4" text-anchor="middle" >GREEK</text><text x="32" y="41.8" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#fff" text-anchor="middle" >YOGURT</text>
+ <rect x="13" y="24" width="38" height="30" rx="0" fill="url(#yogurt-cyl)"/>
+ <ellipse cx="32" cy="24" rx="20.2" ry="3.6" fill="#2f7fc1" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="11.8" y="21.5" width="40.4" height="3" fill="#2f7fc1"/><ellipse cx="32" cy="21.5" rx="20.2" ry="3.6" fill="#2f7fc1" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <ellipse cx="28" cy="20.4" rx="9.5" ry="1" fill="#fff" opacity=".3"/></svg>`,
+  whipped_cream: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="whipped_cream-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="whipped_cream-wcM" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#eef0f4"/><stop offset=".5" stop-color="#c8ccd4"/><stop offset="1" stop-color="#9aa0aa"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M20 22 C20 15 44 15 44 22 Z" fill="url(#whipped_cream-wcM)" stroke="#8a8a96" stroke-width=".6"/>
+ <rect x="28" y="10" width="8" height="8" rx="1.2" fill="#fff" stroke="#8a8a96" stroke-width=".6"/>
+ <path d="M29 10 L31 4 H33 L35 10 Z" fill="#fff" stroke="#8a8a96" stroke-width=".6"/><path d="M31.4 4.6 V9 M32.6 4.6 V9" stroke="#c8ccd4" stroke-width=".4"/>
+ <rect x="20" y="21" width="24" height="35" rx="3" fill="#fff" stroke="#8a8a96" stroke-width=".7"/><rect x="20" y="30" width="24" height="14" fill="#c0392b"/><rect x="20" y="21" width="24" height="35" rx="3" fill="url(#whipped_cream-cyl)"/><text x="32" y="35.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.6" fill="#fff" text-anchor="middle" >WHIPPED</text><text x="32" y="41" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4" fill="#fff" text-anchor="middle" >CREAM</text>
+ <path d="M44 50 C48 50 50 46 54 46 C58 46 58 52 54 54 C50 56 44 56 44 50 Z" fill="#fffdf6" stroke="#d0c8b8" stroke-width=".6"/><path d="M48 48 C50 44 54 42 55 40 C56 44 54 47 52 48" fill="#fffdf6" stroke="#d0c8b8" stroke-width=".6"/></svg>`,
+  string_cheese: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="string_cheese-scG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fffde8"/><stop offset=".5" stop-color="#fff8cc"/><stop offset="1" stop-color="#f0e6a8"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(24 35) rotate(-20)">
+ <path d="M-6 -22 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 V22 " fill="none"/>
+ <path d="M-6 -22 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 V22 l-1.2 -2.4 l-1.2 2.4 l-1.2 -2.4 l-1.2 2.4 l-1.2 -2.4 l-1.2 2.4 l-1.2 -2.4 l-1.2 2.4 l-1.2 -2.4 l-1.2 2.4 Z" fill="#f2f4f6" stroke="#a8acb2" stroke-width=".7" stroke-linejoin="round"/>
+ <rect x="-3.6" y="-16" width="7.2" height="32" rx="3.6" fill="url(#string_cheese-scG)" stroke="#c8b878" stroke-width=".6"/>
+ <path d="M-3.4 12 C-1 14 1 14 3.4 12" stroke="#c8b878" stroke-width=".5" fill="none"/><path d="M-1.6 -13 V10" stroke="#fff" stroke-width="1.2" opacity=".7" stroke-linecap="round"/>
+ <path d="M-4.6 -16.5 q-1 -1.4 -.6 -3 M4.6 -16.5 q1 -1.4 .6 -3 M-4.6 16.5 q-1 1.4 -.6 3 M4.6 16.5 q1 1.4 .6 3" stroke="#b8bcc2" stroke-width=".5" fill="none"/>
+ <path d="M-5 -19 V19" stroke="#fff" stroke-width="1" opacity=".8"/></g><g transform="translate(40 35) rotate(20)">
+ <path d="M-6 -22 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 V22 " fill="none"/>
+ <path d="M-6 -22 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 l1.2 2.4 l1.2 -2.4 V22 l-1.2 -2.4 l-1.2 2.4 l-1.2 -2.4 l-1.2 2.4 l-1.2 -2.4 l-1.2 2.4 l-1.2 -2.4 l-1.2 2.4 l-1.2 -2.4 l-1.2 2.4 Z" fill="#f2f4f6" stroke="#a8acb2" stroke-width=".7" stroke-linejoin="round"/>
+ <rect x="-3.6" y="-16" width="7.2" height="32" rx="3.6" fill="url(#string_cheese-scG)" stroke="#c8b878" stroke-width=".6"/>
+ <path d="M-3.4 12 C-1 14 1 14 3.4 12" stroke="#c8b878" stroke-width=".5" fill="none"/><path d="M-1.6 -13 V10" stroke="#fff" stroke-width="1.2" opacity=".7" stroke-linecap="round"/>
+ <path d="M-4.6 -16.5 q-1 -1.4 -.6 -3 M4.6 -16.5 q1 -1.4 .6 -3 M-4.6 16.5 q-1 1.4 -.6 3 M4.6 16.5 q1 1.4 .6 3" stroke="#b8bcc2" stroke-width=".5" fill="none"/>
+ <path d="M-5 -19 V19" stroke="#fff" stroke-width="1" opacity=".8"/></g></svg>`,
+  olive_oil: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="olive_oil-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="olive_oil-ooG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c8b84a"/><stop offset=".5" stop-color="#8a8a1a"/><stop offset="1" stop-color="#5a5a10"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="29" y="4" width="6" height="6" rx="1.2" fill="#1f1f1f" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M29.5 10 h5 v8 C34.5 21 40 22 40 26 V54 q0 3 -3 3 h-10 q-3 0 -3 -3 V26 C24 22 29.5 21 29.5 18 Z" fill="url(#olive_oil-ooG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="24" y="22" width="16" height="35" rx="3" fill="url(#olive_oil-cyl)"/>
+ <rect x="24" y="32" width="16" height="17" fill="#fffaf0"/><rect x="24" y="32" width="16" height="17" rx="0" fill="url(#olive_oil-cyl)"/>
+ 
+ <path d="M26.8 25 L26.8 30.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/><path d="M26.8 50.5 L26.8 54" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/><text x="32" y="40" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.8" fill="#4a5a1a" text-anchor="middle" >OLIVE</text><text x="32" y="45.5" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.4" fill="#4a5a1a" text-anchor="middle" >OIL</text><path d="M27 35 q5 -3 10 0" stroke="#5a7a2a" stroke-width=".7" fill="none"/><ellipse cx="29" cy="34.3" rx="1.2" ry=".7" fill="#5a7a2a"/><ellipse cx="35" cy="34.3" rx="1.2" ry=".7" fill="#5a7a2a"/></svg>`,
+  vegetable_oil: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="vegetable_oil-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="vegetable_oil-voG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffe27a"/><stop offset=".5" stop-color="#f2c22a"/><stop offset="1" stop-color="#d09a10"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="28" y="6" width="8" height="6" rx="1.2" fill="#c0392b" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M28.5 12 h7 v4 C35.5 19 44 20 44 24 V54 q0 3 -3 3 h-18 q-3 0 -3 -3 V24 C20 20 28.5 19 28.5 16 Z" fill="url(#vegetable_oil-voG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="20" y="20" width="24" height="37" rx="3" fill="url(#vegetable_oil-cyl)"/>
+ <rect x="20" y="30" width="24" height="16" fill="#c0392b"/><rect x="20" y="30" width="24" height="16" rx="0" fill="url(#vegetable_oil-cyl)"/>
+ 
+ <path d="M22.8 23 L22.8 28.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/><path d="M22.8 47.5 L22.8 54" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/><text x="32" y="37" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.18" fill="#fff" text-anchor="middle" >VEGETABLE</text><text x="32" y="43" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#fff" text-anchor="middle" >OIL</text><path d="M44 26 C50 26 50 40 44 42" stroke="#d09a10" stroke-width="2.2" fill="none"/></svg>`,
+  flour: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="flour-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 15 C15 30 14 47 16 57 H48 C50 47 49 30 48 15 Z" fill="#fbf7ee" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="15" y="10" width="34" height="6" rx="1" fill="#efe8da" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M16 11 v4 M18 11 v4 M20 11 v4 M22 11 v4 M24 11 v4 M26 11 v4 M28 11 v4 M30 11 v4 M32 11 v4 M34 11 v4 M36 11 v4 M38 11 v4 M40 11 v4 M42 11 v4 M44 11 v4 M46 11 v4 M48 11 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ 
+ <rect x="15.5" y="22" width="33" height="12.32" fill="#2f7fc1"/>
+ <text x="32" y="30.119999999999997" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.6" fill="#fff" text-anchor="middle" >FLOUR</text><g stroke="#c89a3a" stroke-width=".6" fill="#e8c46a"><path d="M32 48 V36" fill="none"/><ellipse cx="30.7" cy="40" rx="1.1" ry="1.8" transform="rotate(-25 30.7 40)"/><ellipse cx="33.3" cy="40" rx="1.1" ry="1.8" transform="rotate(25 33.3 40)"/><ellipse cx="30.7" cy="37" rx="1.1" ry="1.8" transform="rotate(-25 30.7 37)"/><ellipse cx="33.3" cy="37" rx="1.1" ry="1.8" transform="rotate(25 33.3 37)"/><ellipse cx="30.7" cy="34" rx="1.1" ry="1.8" transform="rotate(-25 30.7 34)"/><ellipse cx="33.3" cy="34" rx="1.1" ry="1.8" transform="rotate(25 33.3 34)"/></g><text x="32" y="52" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.16" fill="#2f7fc1" text-anchor="middle" >ALL PURPOSE</text>
+ <rect x="15" y="15" width="34" height="42" rx="2" fill="url(#flour-cyl)"/></svg>`,
+  sugar: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sugar-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 15 C15 30 14 47 16 57 H48 C50 47 49 30 48 15 Z" fill="#fbf7ee" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="15" y="10" width="34" height="6" rx="1" fill="#efe8da" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M16 11 v4 M18 11 v4 M20 11 v4 M22 11 v4 M24 11 v4 M26 11 v4 M28 11 v4 M30 11 v4 M32 11 v4 M34 11 v4 M36 11 v4 M38 11 v4 M40 11 v4 M42 11 v4 M44 11 v4 M46 11 v4 M48 11 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ 
+ <rect x="15.5" y="22" width="33" height="12.32" fill="#e05a7a"/>
+ <text x="32" y="30.119999999999997" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.6" fill="#fff" text-anchor="middle" >SUGAR</text><g fill="#fff" stroke="#d8d0c0" stroke-width=".4"><rect x="25.4" y="36.4" width="3.2" height="3.2" rx=".4"/><rect x="30.4" y="34.4" width="3.2" height="3.2" rx=".4"/><rect x="35.4" y="36.4" width="3.2" height="3.2" rx=".4"/><rect x="27.4" y="40.4" width="3.2" height="3.2" rx=".4"/><rect x="33.4" y="40.4" width="3.2" height="3.2" rx=".4"/><rect x="30.4" y="44.4" width="3.2" height="3.2" rx=".4"/></g><text x="32" y="52" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.4" fill="#e05a7a" text-anchor="middle" >GRANULATED</text>
+ <rect x="15" y="15" width="34" height="42" rx="2" fill="url(#sugar-cyl)"/></svg>`,
+  brown_sugar: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="brown_sugar-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 15 C15 30 14 47 16 57 H48 C50 47 49 30 48 15 Z" fill="#b8763a" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="15" y="10" width="34" height="6" rx="1" fill="#9a6230" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M16 11 v4 M18 11 v4 M20 11 v4 M22 11 v4 M24 11 v4 M26 11 v4 M28 11 v4 M30 11 v4 M32 11 v4 M34 11 v4 M36 11 v4 M38 11 v4 M40 11 v4 M42 11 v4 M44 11 v4 M46 11 v4 M48 11 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ 
+ <rect x="15.5" y="22" width="33" height="11.440000000000001" fill="#fff8ec"/>
+ <text x="32" y="29.54" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.2" fill="#8a5224" text-anchor="middle" >BROWN</text><text x="32" y="40" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.2" fill="#fff" text-anchor="middle" >SUGAR</text><ellipse cx="32" cy="48" rx="8" ry="3" fill="#8a5224"/><ellipse cx="32" cy="47" rx="6" ry="2" fill="#a86a32"/>
+ <rect x="15" y="15" width="34" height="42" rx="2" fill="url(#brown_sugar-cyl)"/></svg>`,
+  baking_soda: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 16 L23 11.8 H51 L44 16 Z" fill="#ffb04a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M44 16 L51 11.8 V49.8 L44 54 Z" fill="#c8680c" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="16" y="16" width="28" height="38" fill="#f08a1a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <text x="30" y="32" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6" fill="#fff" text-anchor="middle" >SODA</text><circle cx="30" cy="43" r="6" fill="#fff" opacity=".9"/><path d="M27 43 l2 2 l4 -4" stroke="#f08a1a" stroke-width="1.3" fill="none"/><text x="30" y="25" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#fff" text-anchor="middle" >BAKING</text></svg>`,
+  baking_powder: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="baking_powder-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="19" y="16" width="26" height="38" rx="2" fill="#c0392b" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <text x="32" y="30" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#fff" text-anchor="middle" >BAKING</text><text x="32" y="37" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#fff" text-anchor="middle" >POWDER</text><rect x="19" y="42" width="26" height="5" fill="#f2c14e"/>
+ <rect x="19" y="16" width="26" height="38" rx="2" fill="url(#baking_powder-cyl)"/>
+ <ellipse cx="32" cy="16" rx="13" ry="2.6" fill="#b8bec4" stroke="rgba(0,0,0,.3)" stroke-width=".6"/><ellipse cx="32" cy="16" rx="11" ry="1.6" fill="#dde2e6"/>
+ <path d="M19 18.5 h26 M19 51.5 h26" stroke="rgba(255,255,255,.45)" stroke-width=".6"/></svg>`,
+  salt_pepper: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M15 22 C15 16 27 16 27 22 Z" fill="#c8ccd2" stroke="#6a6a72" stroke-width=".6"/><g fill="#3a3a42"><circle cx="18" cy="19.5" r=".6"/><circle cx="21" cy="19.5" r=".6"/><circle cx="24" cy="19.5" r=".6"/></g><path d="M14 22 H28 L29 55 H13 Z" fill="#eaf4fb" opacity=".7" stroke="#8aa0b0" stroke-width=".6"/><path d="M14.5 30 H27.5 L28.3 54.4 H13.7 Z" fill="#fff"/><text x="21" y="44" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.4" fill="#8aa0b0" text-anchor="middle" >S</text><path d="M16 25 L15.5 52" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/><path d="M37 22 C37 16 49 16 49 22 Z" fill="#c8ccd2" stroke="#6a6a72" stroke-width=".6"/><g fill="#3a3a42"><circle cx="40" cy="19.5" r=".6"/><circle cx="43" cy="19.5" r=".6"/><circle cx="46" cy="19.5" r=".6"/></g><path d="M36 22 H50 L51 55 H35 Z" fill="#eaf4fb" opacity=".7" stroke="#8aa0b0" stroke-width=".6"/><path d="M36.5 30 H49.5 L50.3 54.4 H35.7 Z" fill="#3a3a3a"/><text x="43" y="44" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.4" fill="#fff" text-anchor="middle" >P</text><path d="M38 25 L37.5 52" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/><g fill="#3a3a3a"><circle cx="38" cy="32" r=".6" fill="#6a6a6a"/><circle cx="41" cy="35" r=".6" fill="#6a6a6a"/><circle cx="46" cy="31" r=".6" fill="#6a6a6a"/><circle cx="44" cy="38" r=".6" fill="#6a6a6a"/></g></svg>`,
+  italian_seasoning: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="italian_seasoning-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="21.5" y="12" width="21" height="8" rx="2" fill="#2f8a2c" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M23 15 h18" stroke="rgba(255,255,255,.35)" stroke-width=".7"/>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="#6a8a3a" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="22" y="25" width="20" height="24" fill="#fffaf0"/>
+ <g fill="#3a5a1a"><rect x="25" y="22" width="1.4" height=".8" rx=".3"/><rect x="30" y="21" width="1.4" height=".8" rx=".3"/><rect x="36" y="22" width="1.4" height=".8" rx=".3"/><rect x="27" y="48" width="1.4" height=".8" rx=".3"/><rect x="33" y="49" width="1.4" height=".8" rx=".3"/><rect x="38" y="48" width="1.4" height=".8" rx=".3"/></g>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="url(#italian_seasoning-cyl)"/><path d="M24.5 21 L24.5 23.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><rect x="22" y="30" width="20" height="10" fill="#2f8a2c"/><text x="32" y="36.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.37" fill="#fff" text-anchor="middle" >ITALIAN</text><g fill="#3a5a1a"><rect x="25" y="22" width="1.4" height=".8" rx=".3"/><rect x="30" y="21" width="1.4" height=".8" rx=".3"/><rect x="36" y="22" width="1.4" height=".8" rx=".3"/><rect x="27" y="48" width="1.4" height=".8" rx=".3"/><rect x="33" y="49" width="1.4" height=".8" rx=".3"/><rect x="38" y="48" width="1.4" height=".8" rx=".3"/></g></svg>`,
+  cumin: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cumin-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="21.5" y="12" width="21" height="8" rx="2" fill="#8a5224" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M23 15 h18" stroke="rgba(255,255,255,.35)" stroke-width=".7"/>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="#b8862a" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="22" y="25" width="20" height="24" fill="#fffaf0"/>
+ 
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="url(#cumin-cyl)"/><path d="M24.5 21 L24.5 23.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><rect x="22" y="30" width="20" height="10" fill="#8a5224"/><text x="32" y="36.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#fff" text-anchor="middle" >CUMIN</text></svg>`,
+  chili_powder: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="chili_powder-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="21.5" y="12" width="21" height="8" rx="2" fill="#2a2a2a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M23 15 h18" stroke="rgba(255,255,255,.35)" stroke-width=".7"/>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="#c0392b" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="22" y="25" width="20" height="24" fill="#fffaf0"/>
+ 
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="url(#chili_powder-cyl)"/><path d="M24.5 21 L24.5 23.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><rect x="22" y="30" width="20" height="10" fill="#c0392b"/><text x="32" y="36.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#fff" text-anchor="middle" >CHILI</text></svg>`,
+  cinnamon: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cinnamon-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="19.5" y="12" width="21" height="8" rx="2" fill="#5a3414" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M21 15 h18" stroke="rgba(255,255,255,.35)" stroke-width=".7"/>
+ <rect x="20" y="19" width="20" height="37" rx="2.5" fill="#8a4a1a" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="20" y="25" width="20" height="24" fill="#fffaf0"/>
+ 
+ <rect x="20" y="19" width="20" height="37" rx="2.5" fill="url(#cinnamon-cyl)"/><path d="M22.5 21 L22.5 23.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><rect x="20" y="30" width="20" height="10" fill="#8a4a1a"/><text x="30" y="36.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="2.95" fill="#fff" text-anchor="middle" >CINNAMON</text><g transform="translate(47 52) rotate(-70)"><rect x="-2" y="-10" width="4" height="20" rx="2" fill="#a0602a" stroke="#6a3a14" stroke-width=".5"/><path d="M-.5 -9 V9" stroke="#6a3a14" stroke-width=".5"/></g></svg>`,
+  vanilla_extract: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="vanilla_extract-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="vanilla_extract-vaG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6a3a14"/><stop offset=".5" stop-color="#3a1f0a"/><stop offset="1" stop-color="#22120a"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="26.5" y="10" width="7" height="7" rx="1.2" fill="#2a2a2a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M27 17 h6 v3 C33 23 38 24 38 28 V53 q0 3 -3 3 h-10 q-3 0 -3 -3 V28 C22 24 27 23 27 20 Z" fill="url(#vanilla_extract-vaG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="22" y="24" width="16" height="32" rx="3" fill="url(#vanilla_extract-cyl)"/>
+ <rect x="22" y="30" width="16" height="18" fill="#fffaf0"/><rect x="22" y="30" width="16" height="18" rx="0" fill="url(#vanilla_extract-cyl)"/>
+ 
+ <path d="M24.8 27 L24.8 28.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/><path d="M24.8 49.5 L24.8 53" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/><text x="30" y="38" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.2" fill="#6a3a14" text-anchor="middle" >PURE</text><text x="30" y="44" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="2.66" fill="#3a1f0a" text-anchor="middle" >VANILLA</text><path d="M40 56 C44 44 48 34 54 26" stroke="#3a1f0a" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M40 56 C44 44 48 34 54 26" stroke="#6a3a14" stroke-width=".7" fill="none"/><path d="M54 26 l2 -3" stroke="#3a1f0a" stroke-width="1.2" stroke-linecap="round"/></svg>`,
+  cocoa_powder: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cocoa_powder-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="18" y="18" width="28" height="36" rx="2" fill="#5a2e14" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <text x="32" y="32" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6" fill="#f2c14e" text-anchor="middle" >COCOA</text><rect x="18" y="38" width="28" height="7" fill="#c0392b"/><text x="32" y="43.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="2.94" fill="#fff" text-anchor="middle" >UNSWEETENED</text>
+ <rect x="18" y="18" width="28" height="36" rx="2" fill="url(#cocoa_powder-cyl)"/>
+ <ellipse cx="32" cy="18" rx="14" ry="2.6" fill="#b8bec4" stroke="rgba(0,0,0,.3)" stroke-width=".6"/><ellipse cx="32" cy="18" rx="12" ry="1.6" fill="#dde2e6"/>
+ <path d="M18 20.5 h28 M18 51.5 h28" stroke="rgba(255,255,255,.45)" stroke-width=".6"/></svg>`,
+  chocolate_chips: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="chocolate_chips-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 15 C15 30 14 47 16 57 H48 C50 47 49 30 48 15 Z" fill="#6a3414" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="15" y="10" width="34" height="6" rx="1" fill="#552a10" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M16 11 v4 M18 11 v4 M20 11 v4 M22 11 v4 M24 11 v4 M26 11 v4 M28 11 v4 M30 11 v4 M32 11 v4 M34 11 v4 M36 11 v4 M38 11 v4 M40 11 v4 M42 11 v4 M44 11 v4 M46 11 v4 M48 11 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ <rect x="21.8" y="32" width="20.4" height="16" rx="3" fill="#fbf2e2" stroke="rgba(0,0,0,.2)" stroke-width=".5"/><path d="M22.6 41.6 Q25 36.4 27.4 41.6 Z" fill="#4a2410"/><path d="M25 37.4 l.4 -.8" stroke="#4a2410" stroke-width=".8"/><path d="M27.6 39.6 Q30 34.4 32.4 39.6 Z" fill="#4a2410"/><path d="M30 35.4 l.4 -.8" stroke="#4a2410" stroke-width=".8"/><path d="M32.6 41.6 Q35 36.4 37.4 41.6 Z" fill="#4a2410"/><path d="M35 37.4 l.4 -.8" stroke="#4a2410" stroke-width=".8"/><path d="M36.6 39.6 Q39 34.4 41.4 39.6 Z" fill="#4a2410"/><path d="M39 35.4 l.4 -.8" stroke="#4a2410" stroke-width=".8"/><path d="M24.6 46.6 Q27 41.4 29.4 46.6 Z" fill="#4a2410"/><path d="M27 42.4 l.4 -.8" stroke="#4a2410" stroke-width=".8"/><path d="M30.6 46.6 Q33 41.4 35.4 46.6 Z" fill="#4a2410"/><path d="M33 42.4 l.4 -.8" stroke="#4a2410" stroke-width=".8"/><path d="M35.6 46.6 Q38 41.4 40.4 46.6 Z" fill="#4a2410"/><path d="M38 42.4 l.4 -.8" stroke="#4a2410" stroke-width=".8"/>
+ <rect x="15.5" y="22" width="33" height="9.724" fill="#f2c14e"/>
+ <text x="32" y="28.409" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.42" fill="#6a3414" text-anchor="middle" >CHOCOLATE</text><text x="32" y="54" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4" fill="#fff" text-anchor="middle" >CHIPS</text>
+ <rect x="15" y="15" width="34" height="42" rx="2" fill="url(#chocolate_chips-cyl)"/></svg>`,
+  soy_sauce: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="soy_sauce-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="soy_sauce-soG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4a2a1a"/><stop offset=".5" stop-color="#2a140a"/><stop offset="1" stop-color="#1a0a04"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="28.5" y="8" width="7" height="7" rx="1.2" fill="#c0392b" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M29 15 h6 v5 C35 23 42 24 42 28 V54 q0 3 -3 3 h-14 q-3 0 -3 -3 V28 C22 24 29 23 29 20 Z" fill="url(#soy_sauce-soG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="22" y="24" width="20" height="33" rx="3" fill="url(#soy_sauce-cyl)"/>
+ <rect x="22" y="32" width="20" height="16" fill="#fffaf0"/><rect x="22" y="32" width="20" height="16" rx="0" fill="url(#soy_sauce-cyl)"/>
+ 
+ <path d="M24.8 27 L24.8 30.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/><path d="M24.8 49.5 L24.8 54" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/><text x="32" y="39" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#c0392b" text-anchor="middle" >SOY</text><text x="32" y="45" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.2" fill="#2a140a" text-anchor="middle" >SAUCE</text></svg>`,
+  honey: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="honey-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="honey-hoG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffc84a"/><stop offset=".5" stop-color="#f0a01a"/><stop offset="1" stop-color="#c8780c"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="20" y="15" width="24" height="6" rx="1.5" fill="#f2c14e" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M20 17.5 h24" stroke="rgba(255,255,255,.35)" stroke-width=".8"/>
+ <rect x="18" y="21" width="28" height="34" rx="5" fill="url(#honey-hoG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="18" y="21" width="28" height="34" rx="5" fill="url(#honey-cyl)"/>
+ <rect x="18" y="31.200000000000003" width="28" height="14.7" fill="#fffaf0"/>
+ <rect x="18" y="31.200000000000003" width="28" height="14.7" rx="0" fill="url(#honey-cyl)"/>
+ <text x="32" y="40.49400000000001" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.4" fill="#c8780c" text-anchor="middle" >HONEY</text>
+ <path d="M21.5 24 L21.5 29.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/><g transform="translate(46 16) rotate(30)"><rect x="-.8" y="0" width="1.6" height="20" fill="#a0602a"/><g fill="#d8a050" stroke="#8a5224" stroke-width=".5"><ellipse cx="0" cy="-1" rx="4" ry="1.2"/><ellipse cx="0" cy="-3.6" rx="3.6" ry="1.2"/><ellipse cx="0" cy="-6.2" rx="3.2" ry="1.2"/></g></g><path d="M44 20 q-1 4 0 6" stroke="#f0a01a" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>`,
+  red_wine_vinegar: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="red_wine_vinegar-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="red_wine_vinegar-rwG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a01830"/><stop offset=".5" stop-color="#6a0c20"/><stop offset="1" stop-color="#3a0612"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="29" y="4" width="6" height="7" rx="1.2" fill="#2a2a2a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M29.5 11 h5 v9 C34.5 23 41 24 41 28 V54 q0 3 -3 3 h-12 q-3 0 -3 -3 V28 C23 24 29.5 23 29.5 20 Z" fill="url(#red_wine_vinegar-rwG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="23" y="24" width="18" height="33" rx="3" fill="url(#red_wine_vinegar-cyl)"/>
+ <rect x="23" y="32" width="18" height="16" fill="#fffaf0"/><rect x="23" y="32" width="18" height="16" rx="0" fill="url(#red_wine_vinegar-cyl)"/>
+ 
+ <path d="M25.8 27 L25.8 30.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/><path d="M25.8 49.5 L25.8 54" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/><text x="32" y="39" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#6a0c20" text-anchor="middle" >RED</text><text x="32" y="45" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.02" fill="#6a0c20" text-anchor="middle" >VINEGAR</text></svg>`,
+  oregano: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="oregano-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="21.5" y="12" width="21" height="8" rx="2" fill="#c89a1a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M23 15 h18" stroke="rgba(255,255,255,.35)" stroke-width=".7"/>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="#5a7a2a" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="22" y="25" width="20" height="24" fill="#fffaf0"/>
+ <g fill="#2a4a14"><rect x="25" y="22" width="1.4" height=".8" rx=".3"/><rect x="30" y="21" width="1.4" height=".8" rx=".3"/><rect x="36" y="22" width="1.4" height=".8" rx=".3"/><rect x="27" y="48" width="1.4" height=".8" rx=".3"/><rect x="33" y="49" width="1.4" height=".8" rx=".3"/><rect x="38" y="48" width="1.4" height=".8" rx=".3"/></g>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="url(#oregano-cyl)"/><path d="M24.5 21 L24.5 23.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><rect x="22" y="30" width="20" height="10" fill="#5a7a2a"/><text x="32" y="36.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.37" fill="#fff" text-anchor="middle" >OREGANO</text><g fill="#2a4a14"><rect x="25" y="22" width="1.4" height=".8" rx=".3"/><rect x="30" y="21" width="1.4" height=".8" rx=".3"/><rect x="36" y="22" width="1.4" height=".8" rx=".3"/><rect x="27" y="48" width="1.4" height=".8" rx=".3"/><rect x="33" y="49" width="1.4" height=".8" rx=".3"/><rect x="38" y="48" width="1.4" height=".8" rx=".3"/></g></svg>`,
+  hot_sauce: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="hot_sauce-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="hot_sauce-hsG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff5a3a"/><stop offset=".5" stop-color="#d8261a"/><stop offset="1" stop-color="#a0140c"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="29" y="6" width="6" height="8" rx="1.2" fill="#2f8a2c" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M29.5 14 h5 v8 C34.5 25 40 26 40 30 V54 q0 3 -3 3 h-10 q-3 0 -3 -3 V30 C24 26 29.5 25 29.5 22 Z" fill="url(#hot_sauce-hsG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="24" y="26" width="16" height="31" rx="3" fill="url(#hot_sauce-cyl)"/>
+ <rect x="24" y="34" width="16" height="15" fill="#fffaf0"/><rect x="24" y="34" width="16" height="15" rx="0" fill="url(#hot_sauce-cyl)"/>
+ 
+ <path d="M26.8 29 L26.8 32.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/><path d="M26.8 50.5 L26.8 54" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/><text x="32" y="46" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#d8261a" text-anchor="middle" >HOT</text><path d="M28 39 C30 36 34 36 37 38 C34 40 30 40 28 39 Z" fill="#d8261a"/><path d="M37 38 l1.6 -1.4" stroke="#2f8a2c" stroke-width=".8"/></svg>`,
+  ketchup_mustard: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ketchup_mustard-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M20 6 L22 1 L24 6 Z" fill="#fff"/><rect x="18" y="6" width="8" height="6" rx="1" fill="#fff" stroke="rgba(0,0,0,.3)" stroke-width=".5"/><path d="M17 12 H27 C30 14 30 20 30 24 V54 Q30 57 27 57 H17 Q14 57 14 54 V24 C14 20 14 14 17 12 Z" fill="#d8261a" stroke="rgba(0,0,0,.35)" stroke-width=".7"/><rect x="14" y="14" width="16" height="43" rx="3" fill="url(#ketchup_mustard-cyl)"/><rect x="14" y="30" width="16" height="12" fill="#fffaf0"/><text x="22" y="37.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="2.49" fill="#d8261a" text-anchor="middle" >KETCHUP</text><path d="M17 17 L17 28" stroke="#fff" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/><path d="M41 6 L43 1 L45 6 Z" fill="#d8261a"/><rect x="39" y="6" width="8" height="6" rx="1" fill="#d8261a" stroke="rgba(0,0,0,.3)" stroke-width=".5"/><path d="M38 12 H48 C51 14 51 20 51 24 V54 Q51 57 48 57 H38 Q35 57 35 54 V24 C35 20 35 14 38 12 Z" fill="#f5c518" stroke="rgba(0,0,0,.35)" stroke-width=".7"/><rect x="35" y="14" width="16" height="43" rx="3" fill="url(#ketchup_mustard-cyl)"/><rect x="35" y="30" width="16" height="12" fill="#fffaf0"/><text x="43" y="37.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="2.49" fill="#c89a06" text-anchor="middle" >MUSTARD</text><path d="M38 17 L38 28" stroke="#fff" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/></svg>`,
+  mayonnaise: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="mayonnaise-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="19" y="15" width="26" height="6" rx="1.5" fill="#2f7fc1" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M19 17.5 h26" stroke="rgba(255,255,255,.35)" stroke-width=".8"/>
+ <rect x="17" y="21" width="30" height="34" rx="5" fill="#fbf8ee" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="17" y="21" width="30" height="34" rx="5" fill="url(#mayonnaise-cyl)"/>
+ <rect x="17" y="31.200000000000003" width="30" height="14.7" fill="#2f7fc1"/>
+ <rect x="17" y="31.200000000000003" width="30" height="14.7" rx="0" fill="url(#mayonnaise-cyl)"/>
+ <text x="32" y="40.71000000000001" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6" fill="#fff" text-anchor="middle" >MAYO</text>
+ <path d="M20.5 24 L20.5 29.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/></svg>`,
+  peanut_butter: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="peanut_butter-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="peanut_butter-pbG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d8a060"/><stop offset=".5" stop-color="#b87a3a"/><stop offset="1" stop-color="#8a5424"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="19" y="15" width="26" height="6" rx="1.5" fill="#c0392b" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M19 17.5 h26" stroke="rgba(255,255,255,.35)" stroke-width=".8"/>
+ <rect x="17" y="21" width="30" height="34" rx="5" fill="url(#peanut_butter-pbG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="17" y="21" width="30" height="34" rx="5" fill="url(#peanut_butter-cyl)"/>
+ <rect x="17" y="31.200000000000003" width="30" height="14.7" fill="#fffaf0"/>
+ <rect x="17" y="31.200000000000003" width="30" height="14.7" rx="0" fill="url(#peanut_butter-cyl)"/>
+ <text x="32" y="36.5" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#c0392b" text-anchor="middle" >PEANUT</text><text x="32" y="42.5" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#8a5424" text-anchor="middle" >BUTTER</text>
+ <path d="M20.5 24 L20.5 29.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/></svg>`,
+  marinara_sauce: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="marinara_sauce-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="marinara_sauce-maG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e04a2a"/><stop offset=".5" stop-color="#b82a14"/><stop offset="1" stop-color="#8a1a0c"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="20" y="13" width="24" height="6" rx="1.5" fill="#d8b04a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M20 15.5 h24" stroke="rgba(255,255,255,.35)" stroke-width=".8"/>
+ <rect x="18" y="19" width="28" height="37" rx="5" fill="url(#marinara_sauce-maG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="18" y="19" width="28" height="37" rx="5" fill="url(#marinara_sauce-cyl)"/>
+ <rect x="18" y="30.16" width="28" height="15.959999999999999" fill="#fffaf0"/>
+ <rect x="18" y="30.16" width="28" height="15.959999999999999" rx="0" fill="url(#marinara_sauce-cyl)"/>
+ <text x="32" y="36" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.04" fill="#b82a14" text-anchor="middle" >MARINARA</text><path d="M24 40 h16" stroke="#2f8a2c" stroke-width="1.4"/><ellipse cx="32" cy="40" rx="2.4" ry="1.3" fill="#2f8a2c"/>
+ <path d="M21.5 22 L21.5 28.64" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/></svg>`,
+  pizza_sauce: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pizza_sauce-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="18" y="22" width="28" height="32" rx="2" fill="#2f8a2c" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="18" y="28" width="28" height="18" fill="#fffaf0"/><text x="32" y="35" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#c0392b" text-anchor="middle" >PIZZA</text><text x="32" y="42" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#c0392b" text-anchor="middle" >SAUCE</text>
+ <rect x="18" y="22" width="28" height="32" rx="2" fill="url(#pizza_sauce-cyl)"/>
+ <ellipse cx="32" cy="22" rx="14" ry="2.6" fill="#b8bec4" stroke="rgba(0,0,0,.3)" stroke-width=".6"/><ellipse cx="32" cy="22" rx="12" ry="1.6" fill="#dde2e6"/>
+ <path d="M18 24.5 h28 M18 51.5 h28" stroke="rgba(255,255,255,.45)" stroke-width=".6"/></svg>`,
+  crushed_tomatoes: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="crushed_tomatoes-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="17" y="16" width="30" height="38" rx="2" fill="#c0392b" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <g transform="translate(26 32) scale(1.2)"><circle r="5" fill="#e0321f" stroke="#a51e14" stroke-width=".5"/><path d="M0 -4.5 l1 -1.6 l.4 1.4 l1.6 -.6 l-1 1.4 Z M0 -4.5 l-1 -1.6 l-.4 1.4 l-1.6 -.6 l1 1.4 Z" fill="#2f8a2c"/><ellipse cx="-1.8" cy="-1.6" rx="1.4" ry=".9" fill="#fff" opacity=".5"/></g><g transform="translate(37 30) scale(1)"><circle r="5" fill="#e0321f" stroke="#a51e14" stroke-width=".5"/><path d="M0 -4.5 l1 -1.6 l.4 1.4 l1.6 -.6 l-1 1.4 Z M0 -4.5 l-1 -1.6 l-.4 1.4 l-1.6 -.6 l1 1.4 Z" fill="#2f8a2c"/><ellipse cx="-1.8" cy="-1.6" rx="1.4" ry=".9" fill="#fff" opacity=".5"/></g><rect x="17" y="40" width="30" height="8" fill="#fffaf0"/><text x="32" y="46" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.6" fill="#c0392b" text-anchor="middle" >CRUSHED</text>
+ <rect x="17" y="16" width="30" height="38" rx="2" fill="url(#crushed_tomatoes-cyl)"/>
+ <ellipse cx="32" cy="16" rx="15" ry="2.6" fill="#b8bec4" stroke="rgba(0,0,0,.3)" stroke-width=".6"/><ellipse cx="32" cy="16" rx="13" ry="1.6" fill="#dde2e6"/>
+ <path d="M17 18.5 h30 M17 51.5 h30" stroke="rgba(255,255,255,.45)" stroke-width=".6"/></svg>`,
+  breadcrumbs: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="breadcrumbs-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="19" y="14" width="26" height="40" rx="2" fill="#e8b84a" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="19" y="24" width="26" height="16" fill="#2f7fc1"/><text x="32" y="31" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#fff" text-anchor="middle" >BREAD</text><text x="32" y="37.5" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.97" fill="#fff" text-anchor="middle" >CRUMBS</text><g fill="#b8862a"><circle cx="24" cy="46" r=".9"/><circle cx="28" cy="48" r=".9"/><circle cx="33" cy="45" r=".9"/><circle cx="38" cy="48" r=".9"/><circle cx="41" cy="45" r=".9"/><circle cx="30" cy="51" r=".9"/><circle cx="36" cy="51" r=".9"/></g>
+ <rect x="19" y="14" width="26" height="40" rx="2" fill="url(#breadcrumbs-cyl)"/>
+ <ellipse cx="32" cy="14" rx="13" ry="2.6" fill="#2f7fc1" stroke="rgba(0,0,0,.3)" stroke-width=".6"/><ellipse cx="32" cy="14" rx="11" ry="1.6" fill="#4a9ad8"/>
+ <path d="M19 16.5 h26 M19 51.5 h26" stroke="rgba(255,255,255,.45)" stroke-width=".6"/></svg>`,
+  salsa: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="salsa-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="salsa-saG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e8502a"/><stop offset=".5" stop-color="#c0321a"/><stop offset="1" stop-color="#8a1a0c"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="20" y="15" width="24" height="6" rx="1.5" fill="#2f8a2c" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M20 17.5 h24" stroke="rgba(255,255,255,.35)" stroke-width=".8"/>
+ <rect x="18" y="21" width="28" height="34" rx="5" fill="url(#salsa-saG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="18" y="21" width="28" height="34" rx="5" fill="url(#salsa-cyl)"/>
+ <rect x="18" y="31.200000000000003" width="28" height="14.7" fill="#f2c14e"/>
+ <rect x="18" y="31.200000000000003" width="28" height="14.7" rx="0" fill="url(#salsa-cyl)"/>
+ <text x="32" y="40.71000000000001" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6" fill="#c0321a" text-anchor="middle" >SALSA</text>
+ <path d="M21.5 24 L21.5 29.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/><g fill="#5cb03a"><rect x="22" y="26" width="1.8" height="1.2" rx=".3"/><rect x="30" y="27" width="1.8" height="1.2" rx=".3"/><rect x="39" y="25" width="1.8" height="1.2" rx=".3"/><rect x="24" y="51" width="1.8" height="1.2" rx=".3"/><rect x="36" y="52" width="1.8" height="1.2" rx=".3"/></g><g fill="#f4e0a0"><rect x="27" y="25" width="1.6" height="1.2"/><rect x="42" y="28" width="1.6" height="1.2"/><rect x="30" y="52" width="1.6" height="1.2"/></g></svg>`,
+  rice_cereal: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M14 12 L21 7.8 H51 L44 12 Z" fill="#5aa0dc" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M44 12 L51 7.8 V51.8 L44 56 Z" fill="#1f5a8a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="14" y="12" width="30" height="44" fill="#2f7fc1" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <text x="29" y="27" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6.2" fill="#f2c14e" text-anchor="middle" >RICE</text><path d="M18 40 h22 C40 48 34 52 29 52 C24 52 18 48 18 40 Z" fill="#fff" stroke="#cfd8e0" stroke-width=".5"/><g fill="#f4e6b0" stroke="#d8c088" stroke-width=".3"><ellipse cx="22" cy="39" rx="1.6" ry="1"/><ellipse cx="25" cy="38" rx="1.6" ry="1"/><ellipse cx="28" cy="39" rx="1.6" ry="1"/><ellipse cx="31" cy="38" rx="1.6" ry="1"/><ellipse cx="34" cy="39" rx="1.6" ry="1"/><ellipse cx="37" cy="38" rx="1.6" ry="1"/><ellipse cx="24" cy="37" rx="1.6" ry="1"/><ellipse cx="30" cy="36.5" rx="1.6" ry="1"/><ellipse cx="35" cy="37" rx="1.6" ry="1"/></g><text x="29" y="21" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.4" fill="#fff" text-anchor="middle" >CRISPY</text></svg>`,
+  marshmallows: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="marshmallows-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 15 C15 30 14 47 16 57 H48 C50 47 49 30 48 15 Z" fill="#7ac8e8" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="15" y="10" width="34" height="6" rx="1" fill="#5ab0d8" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M16 11 v4 M18 11 v4 M20 11 v4 M22 11 v4 M24 11 v4 M26 11 v4 M28 11 v4 M30 11 v4 M32 11 v4 M34 11 v4 M36 11 v4 M38 11 v4 M40 11 v4 M42 11 v4 M44 11 v4 M46 11 v4 M48 11 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ <rect x="21.8" y="31" width="20.4" height="18" rx="3" fill="#eef8fc" stroke="rgba(0,0,0,.2)" stroke-width=".5"/><rect x="22.4" y="33.8" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/><rect x="28.4" y="32.8" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/><rect x="34.4" y="33.8" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/><rect x="25.4" y="38.3" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/><rect x="31.4" y="38.3" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/><rect x="36.4" y="38.8" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/><rect x="22.4" y="42.8" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/><rect x="28.4" y="42.8" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/><rect x="34.4" y="43.3" width="5.2" height="4.4" rx="1.6" fill="#fff" stroke="#d8d0c8" stroke-width=".4"/>
+ <rect x="15.5" y="22" width="33" height="7.304" fill="#e05a7a"/>
+ <text x="32" y="26.814" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.32" fill="#fff" text-anchor="middle" >MARSHMALLOWS</text><text x="32" y="54.5" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4" fill="#fff" text-anchor="middle" >MINI</text>
+ <rect x="15" y="15" width="34" height="42" rx="2" fill="url(#marshmallows-cyl)"/></svg>`,
+  garlic_powder: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="garlic_powder-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="21.5" y="12" width="21" height="8" rx="2" fill="#8a5224" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M23 15 h18" stroke="rgba(255,255,255,.35)" stroke-width=".7"/>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="#efe2c2" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="22" y="25" width="20" height="24" fill="#fffaf0"/>
+ 
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="url(#garlic_powder-cyl)"/><path d="M24.5 21 L24.5 23.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><rect x="22" y="30" width="20" height="10" fill="#a07a4a"/><text x="32" y="36.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.94" fill="#fff" text-anchor="middle" >GARLIC</text></svg>`,
+  sesame_seeds: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sesame_seeds-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="21.5" y="12" width="21" height="8" rx="2" fill="#2a2a2a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M23 15 h18" stroke="rgba(255,255,255,.35)" stroke-width=".7"/>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="#e8d4a0" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="22" y="25" width="20" height="24" fill="#fffaf0"/>
+ <g fill="#fffaf0"><ellipse cx="25" cy="22" rx=".9" ry=".5"/><ellipse cx="30" cy="21" rx=".9" ry=".5"/><ellipse cx="36" cy="22" rx=".9" ry=".5"/><ellipse cx="27" cy="48" rx=".9" ry=".5"/><ellipse cx="33" cy="49" rx=".9" ry=".5"/><ellipse cx="38" cy="48" rx=".9" ry=".5"/></g>
+ <rect x="22" y="19" width="20" height="37" rx="2.5" fill="url(#sesame_seeds-cyl)"/><path d="M24.5 21 L24.5 23.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/><rect x="22" y="30" width="20" height="10" fill="#2a2a2a"/><text x="32" y="36.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.94" fill="#fff" text-anchor="middle" >SESAME</text><g fill="#fffaf0"><ellipse cx="25" cy="22" rx=".9" ry=".5"/><ellipse cx="30" cy="21" rx=".9" ry=".5"/><ellipse cx="36" cy="22" rx=".9" ry=".5"/><ellipse cx="27" cy="48" rx=".9" ry=".5"/><ellipse cx="33" cy="49" rx=".9" ry=".5"/><ellipse cx="38" cy="48" rx=".9" ry=".5"/></g></svg>`,
+  cooking_spray: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cooking_spray-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="cooking_spray-csM" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#eef0f4"/><stop offset=".5" stop-color="#b8bcc6"/><stop offset="1" stop-color="#8a909a"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M20 20 C20 13 44 13 44 20 Z" fill="url(#cooking_spray-csM)" stroke="#7a7f88" stroke-width=".6"/>
+ <path d="M26 15.5 C26 9 38 9 38 15.5 Z" fill="#c0392b" stroke="#8a2318" stroke-width=".6"/><rect x="26" y="14" width="12" height="3" fill="#c0392b" stroke="#8a2318" stroke-width=".5"/>
+ <rect x="37" y="11" width="4" height="2" rx=".6" fill="#8a2318"/><path d="M28 12 C29 10.5 31 10 33 10" stroke="#fff" stroke-width=".8" opacity=".5" fill="none"/>
+ <rect x="20" y="19" width="24" height="37" rx="3" fill="#f2c22a" stroke="#a8840a" stroke-width=".7"/><rect x="20" y="28" width="24" height="16" fill="#fffaf0"/><rect x="20" y="19" width="24" height="37" rx="3" fill="url(#cooking_spray-cyl)"/><text x="32" y="35" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.91" fill="#c0392b" text-anchor="middle" >COOKING</text><text x="32" y="41" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.4" fill="#a8840a" text-anchor="middle" >SPRAY</text>
+ <g fill="#cfe8f8" opacity=".9"><circle cx="44" cy="12" r=".8"/><circle cx="47" cy="10" r=".8"/><circle cx="46" cy="14" r=".8"/><circle cx="50" cy="11" r=".8"/><circle cx="51" cy="15" r=".8"/><circle cx="54" cy="10" r=".8"/></g></svg>`,
+  ground_beef: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ground_beef-gbG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#e86a6a"/><stop offset=".55" stop-color="#c43a3a"/><stop offset="1" stop-color="#8a1a1a"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M8 30 H56 L53 54 H11 Z" fill="#f4f1ec" stroke="#cfc6ba" stroke-width=".8"/>
+ <path d="M11 32 H53 L51 51 H13 Z" fill="#e8e2d8"/>
+ <path d="M14 46 C12 38 18 34 24 34 C28 30 38 30 42 34 C48 34 52 38 50 46 C46 51 18 51 14 46 Z" fill="url(#ground_beef-gbG)" stroke="#8a1a1a" stroke-width=".6"/><g fill="#f4b8b8" opacity=".75"><circle cx="16" cy="35" r=".7"/><circle cx="23" cy="40" r=".7"/><circle cx="30" cy="45" r=".7"/><circle cx="37" cy="37" r=".7"/><circle cx="44" cy="42" r=".7"/><circle cx="18" cy="47" r=".7"/><circle cx="25" cy="39" r=".7"/><circle cx="32" cy="44" r=".7"/><circle cx="39" cy="36" r=".7"/><circle cx="46" cy="41" r=".7"/><circle cx="20" cy="46" r=".7"/><circle cx="27" cy="38" r=".7"/><circle cx="34" cy="43" r=".7"/><circle cx="41" cy="35" r=".7"/><circle cx="48" cy="40" r=".7"/><circle cx="22" cy="45" r=".7"/><circle cx="29" cy="37" r=".7"/><circle cx="36" cy="42" r=".7"/><circle cx="43" cy="47" r=".7"/><circle cx="17" cy="39" r=".7"/><circle cx="24" cy="44" r=".7"/><circle cx="31" cy="36" r=".7"/><circle cx="38" cy="41" r=".7"/><circle cx="45" cy="46" r=".7"/><circle cx="19" cy="38" r=".7"/><circle cx="26" cy="43" r=".7"/></g><g fill="#8a1a1a" opacity=".4"><circle cx="18" cy="37" r=".6"/><circle cx="29" cy="40" r=".6"/><circle cx="40" cy="43" r=".6"/><circle cx="21" cy="46" r=".6"/><circle cx="32" cy="39" r=".6"/><circle cx="43" cy="42" r=".6"/><circle cx="24" cy="45" r=".6"/><circle cx="35" cy="38" r=".6"/><circle cx="46" cy="41" r=".6"/><circle cx="27" cy="44" r=".6"/><circle cx="38" cy="37" r=".6"/><circle cx="19" cy="40" r=".6"/><circle cx="30" cy="43" r=".6"/><circle cx="41" cy="46" r=".6"/><circle cx="22" cy="39" r=".6"/><circle cx="33" cy="42" r=".6"/><circle cx="44" cy="45" r=".6"/><circle cx="25" cy="38" r=".6"/></g>
+ <path d="M7 29 H57 L54 54.5 H10 Z" fill="#dff1ff" opacity=".22" stroke="#bcd3e0" stroke-width=".6"/>
+ <path d="M13 33 L29.6 33" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+ <rect x="39" y="44" width="15" height="8" rx="1" fill="#fff" stroke="#c0392b" stroke-width=".6"/><rect x="39" y="44" width="15" height="2.6" fill="#c0392b"/><text x="46.5" y="50.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="2.6" fill="#333" text-anchor="middle" >BEEF</text></svg>`,
+  chicken_breast: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="chicken_breast-cbR" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe2d6"/><stop offset=".55" stop-color="#f6c4b0"/><stop offset="1" stop-color="#d89a88"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M8 30 H56 L53 54 H11 Z" fill="#f4f1ec" stroke="#cfc6ba" stroke-width=".8"/>
+ <path d="M11 32 H53 L51 51 H13 Z" fill="#e8e2d8"/>
+ <g transform="translate(22 41) rotate(-8)"><path d="M-11 2 C-12 -5 -4 -7 2 -6 C9 -5 12 -1 11 3 C9 6 -8 7 -11 2 Z" fill="url(#chicken_breast-cbR)" stroke="#c88a7a" stroke-width=".6"/><path d="M-7 -2 C-2 -4 4 -3 8 -1" stroke="#fff" stroke-width="1.1" opacity=".45" fill="none"/></g><g transform="translate(42 42) rotate(10)"><path d="M-11 2 C-12 -5 -4 -7 2 -6 C9 -5 12 -1 11 3 C9 6 -8 7 -11 2 Z" fill="url(#chicken_breast-cbR)" stroke="#c88a7a" stroke-width=".6"/><path d="M-7 -2 C-2 -4 4 -3 8 -1" stroke="#fff" stroke-width="1.1" opacity=".45" fill="none"/></g>
+ <path d="M7 29 H57 L54 54.5 H10 Z" fill="#dff1ff" opacity=".22" stroke="#bcd3e0" stroke-width=".6"/>
+ <path d="M13 33 L29.6 33" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+ <rect x="39" y="44" width="15" height="8" rx="1" fill="#fff" stroke="#c0392b" stroke-width=".6"/><rect x="39" y="44" width="15" height="2.6" fill="#c0392b"/><text x="46.5" y="50.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="2.6" fill="#333" text-anchor="middle" >CHICKEN</text></svg>`,
+  chicken_wings: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="chicken_wings-cwR" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe6d0"/><stop offset=".55" stop-color="#f4c8a4"/><stop offset="1" stop-color="#d4a07a"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M8 30 H56 L53 54 H11 Z" fill="#f4f1ec" stroke="#cfc6ba" stroke-width=".8"/>
+ <path d="M11 32 H53 L51 51 H13 Z" fill="#e8e2d8"/>
+ <g transform="translate(18 38) rotate(-15)"><path d="M-7 -2 C-8 -6 -2 -7 0 -4 L5 -3 C8 -5 10 -2 8 0 C10 3 7 5 5 3 L0 3 C-2 6 -8 5 -7 1 Z" fill="url(#chicken_wings-cwR)" stroke="#c88a6a" stroke-width=".6"/><path d="M-5 -3 C-3 -4 0 -3 2 -2" stroke="#fff" stroke-width=".9" opacity=".5" fill="none"/></g><g transform="translate(33 37) rotate(10)"><path d="M-7 -2 C-8 -6 -2 -7 0 -4 L5 -3 C8 -5 10 -2 8 0 C10 3 7 5 5 3 L0 3 C-2 6 -8 5 -7 1 Z" fill="url(#chicken_wings-cwR)" stroke="#c88a6a" stroke-width=".6"/><path d="M-5 -3 C-3 -4 0 -3 2 -2" stroke="#fff" stroke-width=".9" opacity=".5" fill="none"/></g><g transform="translate(46 39) rotate(-5)"><path d="M-7 -2 C-8 -6 -2 -7 0 -4 L5 -3 C8 -5 10 -2 8 0 C10 3 7 5 5 3 L0 3 C-2 6 -8 5 -7 1 Z" fill="url(#chicken_wings-cwR)" stroke="#c88a6a" stroke-width=".6"/><path d="M-5 -3 C-3 -4 0 -3 2 -2" stroke="#fff" stroke-width=".9" opacity=".5" fill="none"/></g><g transform="translate(25 45) rotate(20)"><path d="M-7 -2 C-8 -6 -2 -7 0 -4 L5 -3 C8 -5 10 -2 8 0 C10 3 7 5 5 3 L0 3 C-2 6 -8 5 -7 1 Z" fill="url(#chicken_wings-cwR)" stroke="#c88a6a" stroke-width=".6"/><path d="M-5 -3 C-3 -4 0 -3 2 -2" stroke="#fff" stroke-width=".9" opacity=".5" fill="none"/></g><g transform="translate(40 46) rotate(-12)"><path d="M-7 -2 C-8 -6 -2 -7 0 -4 L5 -3 C8 -5 10 -2 8 0 C10 3 7 5 5 3 L0 3 C-2 6 -8 5 -7 1 Z" fill="url(#chicken_wings-cwR)" stroke="#c88a6a" stroke-width=".6"/><path d="M-5 -3 C-3 -4 0 -3 2 -2" stroke="#fff" stroke-width=".9" opacity=".5" fill="none"/></g>
+ <path d="M7 29 H57 L54 54.5 H10 Z" fill="#dff1ff" opacity=".22" stroke="#bcd3e0" stroke-width=".6"/>
+ <path d="M13 33 L29.6 33" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+ <rect x="39" y="44" width="15" height="8" rx="1" fill="#fff" stroke="#c0392b" stroke-width=".6"/><rect x="39" y="44" width="15" height="2.6" fill="#c0392b"/><text x="46.5" y="50.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="2.6" fill="#333" text-anchor="middle" >WINGS</text></svg>`,
+  chicken_thighs: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="chicken_thighs-ctR" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe2c4"/><stop offset=".55" stop-color="#f2c08e"/><stop offset="1" stop-color="#d49a62"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M8 30 H56 L53 54 H11 Z" fill="#f4f1ec" stroke="#cfc6ba" stroke-width=".8"/>
+ <path d="M11 32 H53 L51 51 H13 Z" fill="#e8e2d8"/>
+ <g transform="translate(19 40) rotate(-10)"><path d="M-8 -1 C-9 -7 0 -8 5 -6 C10 -4 10 3 6 5 C2 7 -7 6 -8 -1 Z" fill="url(#chicken_thighs-ctR)" stroke="#c8906a" stroke-width=".6"/><path d="M-5 -4 C-1 -6 3 -5 6 -3" stroke="#fff" stroke-width="1" opacity=".5" fill="none"/><g fill="#d4a07a" opacity=".5"><circle cx="-4" cy="0" r=".5"/><circle cx="0" cy="2" r=".5"/><circle cx="3" cy="-1" r=".5"/><circle cx="-2" cy="-3" r=".5"/></g></g><g transform="translate(33 39) rotate(8)"><path d="M-8 -1 C-9 -7 0 -8 5 -6 C10 -4 10 3 6 5 C2 7 -7 6 -8 -1 Z" fill="url(#chicken_thighs-ctR)" stroke="#c8906a" stroke-width=".6"/><path d="M-5 -4 C-1 -6 3 -5 6 -3" stroke="#fff" stroke-width="1" opacity=".5" fill="none"/><g fill="#d4a07a" opacity=".5"><circle cx="-4" cy="0" r=".5"/><circle cx="0" cy="2" r=".5"/><circle cx="3" cy="-1" r=".5"/><circle cx="-2" cy="-3" r=".5"/></g></g><g transform="translate(45 42) rotate(-4)"><path d="M-8 -1 C-9 -7 0 -8 5 -6 C10 -4 10 3 6 5 C2 7 -7 6 -8 -1 Z" fill="url(#chicken_thighs-ctR)" stroke="#c8906a" stroke-width=".6"/><path d="M-5 -4 C-1 -6 3 -5 6 -3" stroke="#fff" stroke-width="1" opacity=".5" fill="none"/><g fill="#d4a07a" opacity=".5"><circle cx="-4" cy="0" r=".5"/><circle cx="0" cy="2" r=".5"/><circle cx="3" cy="-1" r=".5"/><circle cx="-2" cy="-3" r=".5"/></g></g><g transform="translate(26 47) rotate(6)"><path d="M-8 -1 C-9 -7 0 -8 5 -6 C10 -4 10 3 6 5 C2 7 -7 6 -8 -1 Z" fill="url(#chicken_thighs-ctR)" stroke="#c8906a" stroke-width=".6"/><path d="M-5 -4 C-1 -6 3 -5 6 -3" stroke="#fff" stroke-width="1" opacity=".5" fill="none"/><g fill="#d4a07a" opacity=".5"><circle cx="-4" cy="0" r=".5"/><circle cx="0" cy="2" r=".5"/><circle cx="3" cy="-1" r=".5"/><circle cx="-2" cy="-3" r=".5"/></g></g>
+ <path d="M7 29 H57 L54 54.5 H10 Z" fill="#dff1ff" opacity=".22" stroke="#bcd3e0" stroke-width=".6"/>
+ <path d="M13 33 L29.6 33" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+ <rect x="39" y="44" width="15" height="8" rx="1" fill="#fff" stroke="#c0392b" stroke-width=".6"/><rect x="39" y="44" width="15" height="2.6" fill="#c0392b"/><text x="46.5" y="50.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="2.6" fill="#333" text-anchor="middle" >THIGHS</text></svg>`,
+  bacon: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bacon-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="9" y="18" width="46" height="38" rx="2" fill="#fbf7ee" stroke="#b8a890" stroke-width=".7"/><rect x="9" y="18" width="46" height="11" rx="2" fill="#c0392b"/><text x="32" y="26.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6" fill="#fff" text-anchor="middle" >BACON</text><rect x="12" y="32" width="40" height="21" rx="1.5" fill="#fff3ec" stroke="#d8c0b0" stroke-width=".5"/><path d="M14 37 q4 -2.4 8 0 t8 0 t8 0 t8 0 t8 0" stroke="#c43a3a" stroke-width="4.4" fill="none" stroke-linecap="round"/><path d="M14 37 q4 -2.4 8 0 t8 0 t8 0 t8 0 t8 0" stroke="#f8d8c8" stroke-width="1.4" fill="none" stroke-linecap="round" transform="translate(0 .6)"/><path d="M14 43 q4 -2.4 8 0 t8 0 t8 0 t8 0 t8 0" stroke="#c43a3a" stroke-width="4.4" fill="none" stroke-linecap="round"/><path d="M14 43 q4 -2.4 8 0 t8 0 t8 0 t8 0 t8 0" stroke="#f8d8c8" stroke-width="1.4" fill="none" stroke-linecap="round" transform="translate(0 .6)"/><path d="M14 49 q4 -2.4 8 0 t8 0 t8 0 t8 0 t8 0" stroke="#c43a3a" stroke-width="4.4" fill="none" stroke-linecap="round"/><path d="M14 49 q4 -2.4 8 0 t8 0 t8 0 t8 0 t8 0" stroke="#f8d8c8" stroke-width="1.4" fill="none" stroke-linecap="round" transform="translate(0 .6)"/><rect x="12" y="32" width="40" height="21" rx="1.5" fill="#fff" opacity=".18"/><path d="M14 34 L30 34" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>`,
+  turkey_deli: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="turkey_deli-tkG" cx="45%" cy="40%" r="75%"><stop offset="0" stop-color="#fff0e4"/><stop offset=".55" stop-color="#f6dcc6"/><stop offset="1" stop-color="#e0b89a"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M8 26 H56 V54 H8 Z" fill="#eaf4fb" opacity=".55" stroke="#9ab8d0" stroke-width=".7"/><rect x="8" y="22" width="48" height="5" rx="1.5" fill="#2f8a2c"/><ellipse cx="22" cy="42" rx="11" ry="9" fill="url(#turkey_deli-tkG)" stroke="#c8a088" stroke-width=".6"/><ellipse cx="22" cy="42" rx="9.6" ry="7.6" fill="none" stroke="#e8c8b0" stroke-width=".6"/><ellipse cx="30" cy="40" rx="11" ry="9" fill="url(#turkey_deli-tkG)" stroke="#c8a088" stroke-width=".6"/><ellipse cx="30" cy="40" rx="9.6" ry="7.6" fill="none" stroke="#e8c8b0" stroke-width=".6"/><ellipse cx="38" cy="41" rx="11" ry="9" fill="url(#turkey_deli-tkG)" stroke="#c8a088" stroke-width=".6"/><ellipse cx="38" cy="41" rx="9.6" ry="7.6" fill="none" stroke="#e8c8b0" stroke-width=".6"/><ellipse cx="44" cy="43" rx="11" ry="9" fill="url(#turkey_deli-tkG)" stroke="#c8a088" stroke-width=".6"/><ellipse cx="44" cy="43" rx="9.6" ry="7.6" fill="none" stroke="#e8c8b0" stroke-width=".6"/><rect x="8" y="26" width="48" height="28" fill="#fff" opacity=".15"/><rect x="34" y="46" width="18" height="7" rx="1" fill="#fff" stroke="#2f8a2c" stroke-width=".5"/><text x="43" y="51.2" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.32" fill="#2f8a2c" text-anchor="middle" >TURKEY</text><path d="M11 30 L25 30" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>`,
+  pepperoni: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="pepperoni-peG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#d8503a"/><stop offset=".55" stop-color="#b02a1a"/><stop offset="1" stop-color="#7a1a10"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(26 34) rotate(-30)"><rect x="-20" y="-5.5" width="34" height="11" rx="5.5" fill="url(#pepperoni-peG)" stroke="#7a1a10" stroke-width=".6"/><ellipse cx="14" cy="0" rx="2.8" ry="5.5" fill="#d8503a" stroke="#7a1a10" stroke-width=".5"/><g fill="#f4c0a0" opacity=".7"><circle cx="-14" cy="-1" r=".6"/><circle cx="-8" cy="2" r=".6"/><circle cx="-2" cy="-2" r=".6"/><circle cx="4" cy="1" r=".6"/><circle cx="-11" cy="3" r=".6"/><circle cx="8" cy="-2" r=".6"/></g><path d="M-17 -3 H10" stroke="#fff" stroke-width="1" opacity=".3"/><path d="M-20 0 l-3 -1 M-20 0 l-3 1" stroke="#c8a888" stroke-width=".8"/></g><circle cx="40" cy="46" r="6.4" fill="url(#pepperoni-peG)" stroke="#7a1a10" stroke-width=".5"/><g fill="#f4c0a0" opacity=".8"><circle cx="37.44" cy="44.72" r=".55"/><circle cx="41.92" cy="47.28" r=".55"/><circle cx="39.36" cy="48.56" r=".55"/><circle cx="42.56" cy="43.44" r=".55"/></g><circle cx="50" cy="40" r="5.6" fill="url(#pepperoni-peG)" stroke="#7a1a10" stroke-width=".5"/><g fill="#f4c0a0" opacity=".8"><circle cx="47.76" cy="38.88" r=".55"/><circle cx="51.68" cy="41.12" r=".55"/><circle cx="49.44" cy="42.24" r=".55"/><circle cx="52.24" cy="37.76" r=".55"/></g><circle cx="30" cy="51" r="5.6" fill="url(#pepperoni-peG)" stroke="#7a1a10" stroke-width=".5"/><g fill="#f4c0a0" opacity=".8"><circle cx="27.76" cy="49.88" r=".55"/><circle cx="31.68" cy="52.12" r=".55"/><circle cx="29.44" cy="53.24" r=".55"/><circle cx="32.24" cy="48.76" r=".55"/></g><circle cx="48" cy="52" r="5" fill="url(#pepperoni-peG)" stroke="#7a1a10" stroke-width=".5"/><g fill="#f4c0a0" opacity=".8"><circle cx="46" cy="51" r=".55"/><circle cx="49.5" cy="53" r=".55"/><circle cx="47.5" cy="54" r=".55"/><circle cx="50" cy="50" r=".55"/></g></svg>`,
+  tofu: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tofu-tfG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#f8f4ea"/><stop offset="1" stop-color="#e4dcc8"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="10" y="26" width="38" height="28" rx="3" fill="#eaf4fb" opacity=".6" stroke="#9ab8d0" stroke-width=".7"/><rect x="13" y="30" width="32" height="21" rx="2" fill="url(#tofu-tfG)" stroke="#d0c8b4" stroke-width=".5"/><rect x="10" y="26" width="38" height="10" fill="#2f8a2c"/><text x="29" y="33.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.97" fill="#fff" text-anchor="middle" >FIRM TOFU</text><path d="M13 39 L24 39" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+ <g transform="translate(51 50)"><path d="M-6 -3 L-2 -6 H6 L2 -3 Z" fill="#fff" stroke="#c8c0aa" stroke-width=".5"/><path d="M2 -3 L6 -6 V2 L2 5 Z" fill="#e4dcc8" stroke="#c8c0aa" stroke-width=".5"/><rect x="-6" y="-3" width="8" height="8" fill="#faf6ec" stroke="#c8c0aa" stroke-width=".5"/></g></svg>`,
+  baguette: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="baguette-bgG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8a858"/><stop offset=".5" stop-color="#c8803a"/><stop offset="1" stop-color="#9a5a20"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(30 34) rotate(-30)"><rect x="-24" y="-5" width="48" height="10" rx="5" fill="url(#baguette-bgG)" stroke="#8a5420" stroke-width=".7"/><path d="M-18.84 -3 q3 1.2 6 3" stroke="#f4d8a0" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M-8.280000000000001 -3 q3 1.2 6 3" stroke="#f4d8a0" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M2.2800000000000002 -3 q3 1.2 6 3" stroke="#f4d8a0" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M12.84 -3 q3 1.2 6 3" stroke="#f4d8a0" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M-20 -3 H20" stroke="#fff" stroke-width=".9" opacity=".3"/></g><g transform="translate(34 44) rotate(-14)"><rect x="-23" y="-5" width="46" height="10" rx="5" fill="url(#baguette-bgG)" stroke="#8a5420" stroke-width=".7"/><path d="M-18.18 -3 q3 1.2 6 3" stroke="#f4d8a0" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M-8.059999999999999 -3 q3 1.2 6 3" stroke="#f4d8a0" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M2.0599999999999996 -3 q3 1.2 6 3" stroke="#f4d8a0" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M12.180000000000001 -3 q3 1.2 6 3" stroke="#f4d8a0" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M-19 -3 H19" stroke="#fff" stroke-width=".9" opacity=".3"/></g></svg>`,
+  burger_buns: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="burger_buns-bnG" cx="40%" cy="25%" r="75%"><stop offset="0" stop-color="#f4b866"/><stop offset=".55" stop-color="#d88a3a"/><stop offset="1" stop-color="#a85e1e"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(23 30) scale(1)"><path d="M-9 2 H9 C9 4 7 5 0 5 C-7 5 -9 4 -9 2 Z" fill="#d8904a" stroke="#9a5a20" stroke-width=".5"/><path d="M-9 1.5 C-9 -6 9 -6 9 1.5 Z" fill="url(#burger_buns-bnG)" stroke="#9a5a20" stroke-width=".6"/><g fill="#fffaf0"><ellipse cx="-4" cy="-2" rx=".6" ry=".35"/><ellipse cx="0" cy="-3" rx=".6" ry=".35"/><ellipse cx="4" cy="-2" rx=".6" ry=".35"/><ellipse cx="-2" cy="0" rx=".6" ry=".35"/><ellipse cx="2" cy="0" rx=".6" ry=".35"/></g><ellipse cx="-3" cy="-2.6" rx="3" ry=".9" fill="#fff" opacity=".3"/></g><g transform="translate(41 30) scale(1)"><path d="M-9 2 H9 C9 4 7 5 0 5 C-7 5 -9 4 -9 2 Z" fill="#d8904a" stroke="#9a5a20" stroke-width=".5"/><path d="M-9 1.5 C-9 -6 9 -6 9 1.5 Z" fill="url(#burger_buns-bnG)" stroke="#9a5a20" stroke-width=".6"/><g fill="#fffaf0"><ellipse cx="-4" cy="-2" rx=".6" ry=".35"/><ellipse cx="0" cy="-3" rx=".6" ry=".35"/><ellipse cx="4" cy="-2" rx=".6" ry=".35"/><ellipse cx="-2" cy="0" rx=".6" ry=".35"/><ellipse cx="2" cy="0" rx=".6" ry=".35"/></g><ellipse cx="-3" cy="-2.6" rx="3" ry=".9" fill="#fff" opacity=".3"/></g><g transform="translate(23 42) scale(1)"><path d="M-9 2 H9 C9 4 7 5 0 5 C-7 5 -9 4 -9 2 Z" fill="#d8904a" stroke="#9a5a20" stroke-width=".5"/><path d="M-9 1.5 C-9 -6 9 -6 9 1.5 Z" fill="url(#burger_buns-bnG)" stroke="#9a5a20" stroke-width=".6"/><g fill="#fffaf0"><ellipse cx="-4" cy="-2" rx=".6" ry=".35"/><ellipse cx="0" cy="-3" rx=".6" ry=".35"/><ellipse cx="4" cy="-2" rx=".6" ry=".35"/><ellipse cx="-2" cy="0" rx=".6" ry=".35"/><ellipse cx="2" cy="0" rx=".6" ry=".35"/></g><ellipse cx="-3" cy="-2.6" rx="3" ry=".9" fill="#fff" opacity=".3"/></g><g transform="translate(41 42) scale(1)"><path d="M-9 2 H9 C9 4 7 5 0 5 C-7 5 -9 4 -9 2 Z" fill="#d8904a" stroke="#9a5a20" stroke-width=".5"/><path d="M-9 1.5 C-9 -6 9 -6 9 1.5 Z" fill="url(#burger_buns-bnG)" stroke="#9a5a20" stroke-width=".6"/><g fill="#fffaf0"><ellipse cx="-4" cy="-2" rx=".6" ry=".35"/><ellipse cx="0" cy="-3" rx=".6" ry=".35"/><ellipse cx="4" cy="-2" rx=".6" ry=".35"/><ellipse cx="-2" cy="0" rx=".6" ry=".35"/><ellipse cx="2" cy="0" rx=".6" ry=".35"/></g><ellipse cx="-3" cy="-2.6" rx="3" ry=".9" fill="#fff" opacity=".3"/></g><path d="M12 20 C10 32 10 46 12 55 H52 C54 46 54 32 52 20 C46 16 18 16 12 20 Z" fill="#eaf4fb" opacity=".35" stroke="#9ab8d0" stroke-width=".7"/>
+ <path d="M26 17 C28 12 30 9 32 8 C34 9 36 12 38 17" fill="#eaf4fb" opacity=".5" stroke="#9ab8d0" stroke-width=".6"/><rect x="28" y="12" width="8" height="3" rx="1" fill="#c0392b"/>
+ <rect x="16" y="48" width="32" height="6" rx="1" fill="#c0392b"/><text x="32" y="52.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="2.66" fill="#fff" text-anchor="middle" >HAMBURGER BUNS</text><path d="M15 23 L15 44" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/></svg>`,
+  sandwich_bread: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sandwich_bread-sbT" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0b060"/><stop offset=".5" stop-color="#d8883a"/><stop offset="1" stop-color="#b86a24"/></linearGradient><linearGradient id="sandwich_bread-sbS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8601e"/><stop offset=".5" stop-color="#a0521a"/><stop offset="1" stop-color="#7a3a10"/></linearGradient><radialGradient id="sandwich_bread-sbF" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#fff8e8"/><stop offset=".55" stop-color="#fbe8c4"/><stop offset="1" stop-color="#f0d098"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M22 22 C22 13 30 10 38 12 L50 16 C56 18 58 24 56 30 L54 52 L30 56 Z" fill="url(#sandwich_bread-sbS)" stroke="#7a3a10" stroke-width=".7"/>
+ <path d="M22 22 C22 13 30 10 38 12 L50 16 C56 18 58 24 56 30 C52 28 46 27 40 27 L30 24 Z" fill="url(#sandwich_bread-sbT)" stroke="#8a4a14" stroke-width=".6"/>
+ <path d="M32 16 C38 14 46 16 52 20" stroke="#fff" stroke-width="1.6" fill="none" opacity=".3" stroke-linecap="round"/>
+ <path d="M8 30 C5 22 12 17 18 19 C22 14 32 15 33 22 C38 24 38 31 34 34 L33 56 H10 Z" fill="#d8883a" stroke="#8a4a14" stroke-width=".7"/>
+ <path d="M10.5 31 C8.5 24 13.5 20.5 18.5 22 C22 18 30 18.5 30.8 24 C35 26 35 31 31.5 33.5 L30.8 53.8 H12.2 Z" fill="url(#sandwich_bread-sbF)"/>
+ <g fill="#e0b070"><circle cx="16" cy="30" r=".7"/><circle cx="22" cy="28" r=".7"/><circle cx="26" cy="35" r=".7"/><circle cx="18" cy="40" r=".7"/><circle cx="24" cy="44" r=".7"/><circle cx="15" cy="48" r=".7"/><circle cx="28" cy="48" r=".7"/><circle cx="20" cy="34" r=".7"/></g>
+ <path d="M33 56 L54 52" stroke="#7a3a10" stroke-width=".7"/></svg>`,
+  pizza_dough: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="pizza_dough-pdG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".55" stop-color="#f6e8cc"/><stop offset="1" stop-color="#dcc49a"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M6 46 L14 38 H56 L50 46 Z" fill="#c89050" stroke="#8a5a20" stroke-width=".6"/><path d="M6 46 H50 V51 H6 Z" fill="#a87030" stroke="#8a5a20" stroke-width=".6"/><path d="M50 46 L56 38 V43 L50 51 Z" fill="#8a5a20"/><g fill="#fff" opacity=".7"><circle cx="18" cy="42" r=".8"/><circle cx="24" cy="40" r=".8"/><circle cx="38" cy="44" r=".8"/><circle cx="44" cy="41" r=".8"/><circle cx="30" cy="43" r=".8"/></g><g transform="translate(23 36) scale(1)"><ellipse rx="11" ry="8" fill="url(#pizza_dough-pdG)" stroke="#c8a878" stroke-width=".6"/><ellipse cx="-4" cy="-3.5" rx="4" ry="1.6" fill="#fff" opacity=".55"/></g><g transform="translate(40 35) scale(1.05)"><ellipse rx="11" ry="8" fill="url(#pizza_dough-pdG)" stroke="#c8a878" stroke-width=".6"/><ellipse cx="-4" cy="-3.5" rx="4" ry="1.6" fill="#fff" opacity=".55"/></g></svg>`,
+  corn_tortillas: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="corn_tortillas-ctG" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#fff0b0"/><stop offset=".55" stop-color="#f4d880"/><stop offset="1" stop-color="#d8b050"/></radialGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><ellipse cx="32" cy="52" rx="22" ry="6" fill="url(#corn_tortillas-ctG)" stroke="#b8862a" stroke-width=".6"/><ellipse cx="32" cy="49" rx="22" ry="6" fill="url(#corn_tortillas-ctG)" stroke="#b8862a" stroke-width=".6"/><ellipse cx="32" cy="46" rx="22" ry="6" fill="url(#corn_tortillas-ctG)" stroke="#b8862a" stroke-width=".6"/><ellipse cx="32" cy="43" rx="22" ry="6" fill="url(#corn_tortillas-ctG)" stroke="#b8862a" stroke-width=".6"/><ellipse cx="32" cy="40" rx="22" ry="6" fill="url(#corn_tortillas-ctG)" stroke="#b8862a" stroke-width=".6"/><ellipse cx="32" cy="37" rx="22" ry="6" fill="url(#corn_tortillas-ctG)" stroke="#b8862a" stroke-width=".6"/><ellipse cx="32" cy="34" rx="22" ry="6" fill="url(#corn_tortillas-ctG)" stroke="#b8862a" stroke-width=".6"/><g fill="#a86a1a" opacity=".55"><ellipse cx="22" cy="33" rx="1.4" ry=".6"/><ellipse cx="30" cy="31" rx="1.4" ry=".6"/><ellipse cx="38" cy="34" rx="1.4" ry=".6"/><ellipse cx="44" cy="32" rx="1.4" ry=".6"/><ellipse cx="26" cy="36" rx="1.4" ry=".6"/><ellipse cx="35" cy="36" rx="1.4" ry=".6"/></g><path d="M10 42 H54 V50 C54 55 10 55 10 50 Z" fill="#c0392b" opacity=".92"/><text x="32" y="48.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.55" fill="#fff" text-anchor="middle" >CORN TORTILLAS</text></svg>`,
+  tortilla_chips: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tortilla_chips-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M17 13 C16 28 15 44 17 54 H45 C47 44 46 28 45 13 Z" fill="#2f8a2c" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="16" y="8" width="30" height="6" rx="1" fill="#24701f" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M17 9 v4 M19 9 v4 M21 9 v4 M23 9 v4 M25 9 v4 M27 9 v4 M29 9 v4 M31 9 v4 M33 9 v4 M35 9 v4 M37 9 v4 M39 9 v4 M41 9 v4 M43 9 v4 M45 9 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ 
+ <rect x="16.5" y="20" width="29" height="9.57" fill="#f2c14e"/>
+ <text x="31" y="26.307499999999997" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.35" fill="#2f8a2c" text-anchor="middle" >TORTILLA</text><text x="31" y="34" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6" fill="#fff" text-anchor="middle" >CHIPS</text><path d="M26 39 L31 48 L21 48 Z" transform="rotate(10 26 44)" fill="#f4c860" stroke="#c8902a" stroke-width=".6" stroke-linejoin="round"/><path d="M34 39 L39 48 L29 48 Z" transform="rotate(-15 34 44)" fill="#f4c860" stroke="#c8902a" stroke-width=".6" stroke-linejoin="round"/>
+ <rect x="16" y="13" width="30" height="41" rx="2" fill="url(#tortilla_chips-cyl)"/><path d="M50 45 L55 54 L45 54 Z" transform="rotate(25 50 50)" fill="#f4c860" stroke="#c8902a" stroke-width=".6" stroke-linejoin="round"/><path d="M44 49 L49 58 L39 58 Z" transform="rotate(-10 44 54)" fill="#f4c860" stroke="#c8902a" stroke-width=".6" stroke-linejoin="round"/><path d="M54 51 L59 60 L49 60 Z" transform="rotate(40 54 56)" fill="#f4c860" stroke="#c8902a" stroke-width=".6" stroke-linejoin="round"/></svg>`,
+  spring_roll_wrappers: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M10 40 H42 V52 H10 Z" fill="#f4ecd6" stroke="#d8ccb0" stroke-width=".5"/><path d="M42 40 L54 30 V42 L42 52 Z" fill="#e4d8b8" stroke="#d8ccb0" stroke-width=".5"/>
+ <g stroke="#e0d4b4" stroke-width=".5" fill="none"><path d="M10 42 H42 L54 32"/><path d="M10 44 H42 L54 34"/><path d="M10 46 H42 L54 36"/><path d="M10 48 H42 L54 38"/><path d="M10 50 H42 L54 40"/></g><path d="M10 40 L22 30 H54 L42 40 Z" fill="#fbf6e6" stroke="#d8ccb0" stroke-width=".5"/><path d="M8 41 H44 V47 H8 Z" fill="#c0392b"/><text x="26" y="45.6" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.8" fill="#fff" text-anchor="middle" >SPRING ROLL</text><path d="M44 41 L56 31 V37 L44 47 Z" fill="#9a2a1e"/><path d="M20 34 L40 34" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+ <path d="M30 22 L40 14 H58 L50 22 Z" fill="#fffaf0" stroke="#d8ccb0" stroke-width=".5" opacity=".95" transform="rotate(-8 44 18)"/></svg>`,
+  pasta: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M12 16 L19 11.8 H55 L48 16 Z" fill="#5aa0dc" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M48 16 L55 11.8 V49.8 L48 54 Z" fill="#1f5a8a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="12" y="16" width="36" height="38" fill="#2f7fc1" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="16" y="30" width="28" height="14" rx="2" fill="#fbf2d8" stroke="#1f5a8a" stroke-width=".5"/><g stroke="#e8c46a" stroke-width=".7"><path d="M17 31 H43"/><path d="M17 32 H43"/><path d="M17 33 H43"/><path d="M17 34 H43"/><path d="M17 35 H43"/><path d="M17 36 H43"/><path d="M17 37 H43"/><path d="M17 38 H43"/><path d="M17 39 H43"/><path d="M17 40 H43"/><path d="M17 41 H43"/><path d="M17 42 H43"/></g><text x="30" y="25" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.56" fill="#fff" text-anchor="middle" >SPAGHETTI</text></svg>`,
+  jasmine_rice: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="jasmine_rice-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><path d="M14 18 C12 30 12 46 14 56 H50 C52 46 52 30 50 18 C46 14 18 14 14 18 Z" fill="#fbf7ee" stroke="#b8a890" stroke-width=".7"/><path d="M14 18 C20 13 26 16 32 12 C38 16 44 13 50 18" fill="#efe8da" stroke="#b8a890" stroke-width=".6"/><rect x="14" y="26" width="36" height="12" fill="#2f8a2c"/><text x="32" y="34" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.4" fill="#fff" text-anchor="middle" >JASMINE</text><text x="32" y="46" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6" fill="#2f8a2c" text-anchor="middle" >RICE</text><rect x="13" y="18" width="38" height="38" rx="4" fill="url(#jasmine_rice-cyl)"/><ellipse cx="16" cy="56" rx="1.5" ry=".6" transform="rotate(20 16 56)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/><ellipse cx="20" cy="57" rx="1.5" ry=".6" transform="rotate(-30 20 57)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/><ellipse cx="46" cy="57" rx="1.5" ry=".6" transform="rotate(40 46 57)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/><ellipse cx="50" cy="56" rx="1.5" ry=".6" transform="rotate(-10 50 56)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/><ellipse cx="54" cy="57" rx="1.5" ry=".6" transform="rotate(10 54 57)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/><ellipse cx="11" cy="57" rx="1.5" ry=".6" transform="rotate(-50 11 57)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/></svg>`,
+  rice_noodles: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="rice_noodles-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="8" y="22" width="48" height="32" rx="3" fill="#eaf4fb" opacity=".55" stroke="#9ab8d0" stroke-width=".7"/><g stroke="#fffdf6" stroke-width="1" fill="none" opacity=".95"><path d="M12 27 q8 -3 16 0 t16 0 t8 0"/><path d="M12 29.8 q8 3 16 0 t16 0 t8 0"/><path d="M12 32.6 q8 -3 16 0 t16 0 t8 0"/><path d="M12 35.4 q8 3 16 0 t16 0 t8 0"/><path d="M12 38.2 q8 -3 16 0 t16 0 t8 0"/><path d="M12 41 q8 3 16 0 t16 0 t8 0"/><path d="M12 43.8 q8 -3 16 0 t16 0 t8 0"/><path d="M12 46.599999999999994 q8 3 16 0 t16 0 t8 0"/><path d="M12 49.4 q8 -3 16 0 t16 0 t8 0"/></g><g stroke="#d8d0c0" stroke-width=".4" fill="none"><path d="M12 28 q8 -3 16 0 t16 0 t8 0"/><path d="M12 30.8 q8 3 16 0 t16 0 t8 0"/><path d="M12 33.6 q8 -3 16 0 t16 0 t8 0"/><path d="M12 36.4 q8 3 16 0 t16 0 t8 0"/><path d="M12 39.2 q8 -3 16 0 t16 0 t8 0"/><path d="M12 42 q8 3 16 0 t16 0 t8 0"/><path d="M12 44.8 q8 -3 16 0 t16 0 t8 0"/><path d="M12 47.599999999999994 q8 3 16 0 t16 0 t8 0"/><path d="M12 50.4 q8 -3 16 0 t16 0 t8 0"/></g><rect x="8" y="40" width="48" height="10" fill="#c0392b"/><text x="32" y="47.2" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#fff" text-anchor="middle" >VERMICELLI</text><path d="M11 25 L26 25" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/></svg>`,
+  sweet_rice_flour: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sweet_rice_flour-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M17 15 C16 30 15 46 17 56 H47 C49 46 48 30 47 15 Z" fill="#fbf7ee" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="16" y="10" width="32" height="6" rx="1" fill="#efe8da" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M17 11 v4 M19 11 v4 M21 11 v4 M23 11 v4 M25 11 v4 M27 11 v4 M29 11 v4 M31 11 v4 M33 11 v4 M35 11 v4 M37 11 v4 M39 11 v4 M41 11 v4 M43 11 v4 M45 11 v4 M47 11 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ 
+ <rect x="16.5" y="22" width="31" height="11.726" fill="#2f7fc1"/>
+ <text x="32" y="29.7285" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.33" fill="#fff" text-anchor="middle" >MOCHIKO</text><circle cx="32" cy="38" r="6" fill="#e05a7a"/><text x="32" y="52" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="3.48" fill="#2f7fc1" text-anchor="middle" >SWEET RICE</text>
+ <rect x="16" y="15" width="32" height="41" rx="2" fill="url(#sweet_rice_flour-cyl)"/></svg>`,
+  cornstarch: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 14 L23 9.8 H51 L44 14 Z" fill="#ffd860" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M44 14 L51 9.8 V49.8 L44 54 Z" fill="#c89a0a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="16" y="14" width="28" height="40" fill="#f2c22a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <text x="30" y="30" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.39" fill="#2f7fc1" text-anchor="middle" >STARCH</text><g transform="translate(30 42) rotate(20)"><path d="M-4 -8 C-5 0 -3 7 0 9 C3 7 5 0 4 -8 C2 -10 -2 -10 -4 -8 Z" fill="#f8d040" stroke="#c89a0a" stroke-width=".5"/><g fill="#fff4a0" opacity=".7"><circle cx="-1.6" cy="-5" r=".8"/><circle cx="1.6" cy="-5" r=".8"/><circle cx="-1.6" cy="-2" r=".8"/><circle cx="1.6" cy="-2" r=".8"/><circle cx="-1.6" cy="1" r=".8"/><circle cx="1.6" cy="1" r=".8"/><circle cx="-1.6" cy="4" r=".8"/><circle cx="1.6" cy="4" r=".8"/></g><path d="M-4 -2 C-8 2 -7 8 0 10 C-5 6 -5 2 -4 -2 Z M4 -2 C8 2 7 8 0 10 C5 6 5 2 4 -2 Z" fill="#5cb03a" stroke="#2f7a22" stroke-width=".4"/></g><text x="30" y="23" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5.6" fill="#2f7fc1" text-anchor="middle" >CORN</text></svg>`,
+  lemons_drink: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="lemons_drink-ldG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff6a0"/><stop offset=".55" stop-color="#f8d830"/><stop offset="1" stop-color="#d8a810"/></radialGradient><clipPath id="lemons_drink-ldC"><path d="M14 22 C8 32 8 50 16 56 H48 C56 50 56 32 50 22 Z"/></clipPath></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(22 28) rotate(-10)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g transform="translate(34 26) rotate(10)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g transform="translate(44 30) rotate(-5)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g transform="translate(18 38) rotate(15)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g transform="translate(30 37) rotate(-15)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g transform="translate(42 40) rotate(8)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g transform="translate(22 48) rotate(5)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g transform="translate(34 48) rotate(-8)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g transform="translate(46 49) rotate(12)"><ellipse rx="7.5" ry="6" fill="url(#lemons_drink-ldG)" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><g clip-path="url(#lemons_drink-ldC)" stroke="#e8742a" stroke-width=".6" fill="none" opacity=".7"><path d="M4 18 L24 60"/><path d="M60 18 L40 60"/><path d="M9 18 L29 60"/><path d="M55 18 L35 60"/><path d="M14 18 L34 60"/><path d="M50 18 L30 60"/><path d="M19 18 L39 60"/><path d="M45 18 L25 60"/><path d="M24 18 L44 60"/><path d="M40 18 L20 60"/><path d="M29 18 L49 60"/><path d="M35 18 L15 60"/><path d="M34 18 L54 60"/><path d="M30 18 L10 60"/><path d="M39 18 L59 60"/><path d="M25 18 L5 60"/><path d="M44 18 L64 60"/><path d="M20 18 L0 60"/><path d="M49 18 L69 60"/><path d="M15 18 L-5 60"/><path d="M54 18 L74 60"/><path d="M10 18 L-10 60"/><path d="M59 18 L79 60"/><path d="M5 18 L-15 60"/></g>
+ <path d="M14 22 C8 32 8 50 16 56 H48 C56 50 56 32 50 22" stroke="#e8742a" stroke-width=".8" fill="none"/><path d="M14 22 Q32 16 50 22" stroke="#e8742a" stroke-width=".8" fill="none"/><path d="M27 20 L32 13 L37 20" stroke="#e8742a" stroke-width="1.4" fill="none"/><rect x="25" y="18" width="14" height="5" rx="1" fill="#e8742a"/><rect x="18" y="44" width="28" height="7" rx="1" fill="#fff" stroke="#e8742a" stroke-width=".5"/><text x="32" y="49.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.59" fill="#e8742a" text-anchor="middle" >12 LEMONS</text></svg>`,
+  cranberry_juice: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cranberry_juice-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="cranberry_juice-crG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a01830"/><stop offset=".5" stop-color="#7a0c20"/><stop offset="1" stop-color="#4a0612"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="27" y="6" width="10" height="6" rx="1.2" fill="#fff" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M27.5 12 h9 v4 C36.5 19 46 20 46 24 V54 q0 3 -3 3 h-22 q-3 0 -3 -3 V24 C18 20 27.5 19 27.5 16 Z" fill="url(#cranberry_juice-crG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="18" y="20" width="28" height="37" rx="3" fill="url(#cranberry_juice-cyl)"/>
+ <rect x="18" y="28" width="28" height="20" fill="#fffaf0"/><rect x="18" y="28" width="28" height="20" rx="0" fill="url(#cranberry_juice-cyl)"/>
+ 
+ <path d="M20.8 23 L20.8 26.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/><path d="M20.8 49.5 L20.8 54" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/><text x="32" y="36" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.59" fill="#a01830" text-anchor="middle" >CRANBERRY</text><g fill="#c0182a"><circle cx="27" cy="42" r="1.8" stroke="#7a0c20" stroke-width=".3"/><circle cx="31" cy="43" r="1.8" stroke="#7a0c20" stroke-width=".3"/><circle cx="35" cy="42" r="1.8" stroke="#7a0c20" stroke-width=".3"/><circle cx="29" cy="45.5" r="1.8" stroke="#7a0c20" stroke-width=".3"/><circle cx="33" cy="45.5" r="1.8" stroke="#7a0c20" stroke-width=".3"/></g></svg>`,
+  pineapple_juice: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pineapple_juice-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="pineapple_juice-pjG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffe27a"/><stop offset=".5" stop-color="#f8c830"/><stop offset="1" stop-color="#d8a010"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="27" y="6" width="10" height="6" rx="1.2" fill="#2f8a2c" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M27.5 12 h9 v4 C36.5 19 46 20 46 24 V54 q0 3 -3 3 h-22 q-3 0 -3 -3 V24 C18 20 27.5 19 27.5 16 Z" fill="url(#pineapple_juice-pjG)" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <rect x="18" y="20" width="28" height="37" rx="3" fill="url(#pineapple_juice-cyl)"/>
+ <rect x="18" y="28" width="28" height="20" fill="#2f8a2c"/><rect x="18" y="28" width="28" height="20" rx="0" fill="url(#pineapple_juice-cyl)"/>
+ 
+ <path d="M20.8 23 L20.8 26.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/><path d="M20.8 49.5 L20.8 54" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/><g transform="translate(32 40) scale(0.95)"><path d="M0 -8 L-3 -15 L-1 -10 L0 -17 L1 -10 L3 -15 Z" fill="#3f8a2c" stroke="#2a6a1e" stroke-width=".4"/><ellipse rx="5.5" ry="7.5" fill="#f2b42a" stroke="#a8740a" stroke-width=".5"/><g stroke="#a8740a" stroke-width=".4" opacity=".7"><path d="M-5 -4 L4 6 M-5 1 L1 7 M-3 -7 L5 2 M5 -4 L-4 6 M5 1 L-1 7 M3 -7 L-5 2"/></g></g><text x="32" y="54" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.32" fill="#a8740a" text-anchor="middle" >PINEAPPLE</text></svg>`,
+  lemon_lime_soda: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lemon_lime_soda-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="lemon_lime_soda-llG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8f0a0"/><stop offset=".5" stop-color="#6acc4a"/><stop offset="1" stop-color="#3a9a2a"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><rect x="28" y="4" width="8" height="5" rx="1" fill="#2f8a2c" stroke="#1f5a1a" stroke-width=".5"/><path d="M29 9 H35 V14 C35 18 44 20 44 26 V30 C42 32 42 34 44 36 V46 C42 48 42 50 44 52 V54 Q44 57 40 57 H24 Q20 57 20 54 V52 C22 50 22 48 20 46 V36 C22 34 22 32 20 30 V26 C20 20 29 18 29 14 Z" fill="url(#lemon_lime_soda-llG)" opacity=".92" stroke="#2f7a22" stroke-width=".7"/><rect x="20" y="36" width="24" height="10" fill="#f2e42a"/><text x="32" y="43" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="2.74" fill="#2f7a22" text-anchor="middle" >LEMON LIME</text><path d="M24 22 L24 33" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><g fill="#fff" opacity=".7"><circle cx="26" cy="50" r=".7"/><circle cx="30" cy="53" r=".7"/><circle cx="36" cy="49" r=".7"/><circle cx="39" cy="53" r=".7"/><circle cx="33" cy="51" r=".7"/></g></svg>`,
+  frozen_lemonade: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="frozen_lemonade-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <rect x="20" y="16" width="24" height="38" rx="2" fill="#f8d830" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+ <g transform="translate(32 30) rotate(0)"><ellipse rx="7.5" ry="6" fill="#fff6a0" stroke="#c89a0a" stroke-width=".6"/><ellipse cx="7.5" rx="1.4" ry="1.1" fill="#f8d830" stroke="#c89a0a" stroke-width=".4"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1" fill="#fff" opacity=".45"/></g><text x="32" y="43" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.42" fill="#2f7fc1" text-anchor="middle" >LEMONADE</text><rect x="20" y="46" width="24" height="5" fill="#2f7fc1"/>
+ <rect x="20" y="16" width="24" height="38" rx="2" fill="url(#frozen_lemonade-cyl)"/>
+ <ellipse cx="32" cy="16" rx="12" ry="2.6" fill="#b8bec4" stroke="rgba(0,0,0,.3)" stroke-width=".6"/><ellipse cx="32" cy="16" rx="10" ry="1.6" fill="#dde2e6"/>
+ <path d="M20 18.5 h24 M20 51.5 h24" stroke="rgba(255,255,255,.45)" stroke-width=".6"/><g stroke="#cfe8f8" stroke-width=".8" stroke-linecap="round"><path d="M46 20 v6 M43 23 h6 M44 21 l4 4 M48 21 l-4 4"/><path d="M14 40 v5 M11.5 42.5 h5"/></g><path d="M20 16 h24" stroke="#fff" stroke-width="2" opacity=".6"/></svg>`,
+  frozen_strawberries: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="frozen_strawberries-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 15 C15 30 14 47 16 57 H48 C50 47 49 30 48 15 Z" fill="#7ac8e8" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="15" y="10" width="34" height="6" rx="1" fill="#5ab0d8" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M16 11 v4 M18 11 v4 M20 11 v4 M22 11 v4 M24 11 v4 M26 11 v4 M28 11 v4 M30 11 v4 M32 11 v4 M34 11 v4 M36 11 v4 M38 11 v4 M40 11 v4 M42 11 v4 M44 11 v4 M46 11 v4 M48 11 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ <rect x="21.8" y="31" width="20.4" height="18" rx="3" fill="#eaf6fc" stroke="rgba(0,0,0,.2)" stroke-width=".5"/><g transform="translate(25 37) scale(0.95)"><path d="M0 -4 C3.5 -4 5 -2 4.5 .5 C4 3.5 1.5 5.5 0 6 C-1.5 5.5 -4 3.5 -4.5 .5 C-5 -2 -3.5 -4 0 -4 Z" fill="#e0233a" stroke="#9a1424" stroke-width=".4"/><path d="M-3.5 -3.6 L0 -5.4 L3.5 -3.6" stroke="#3f8a2c" stroke-width="1.2" fill="none"/><path d="M-3 -1 Q0 -2 3 -1" stroke="#fff" stroke-width=".8" opacity=".6" fill="none"/></g><g transform="translate(32 36) scale(0.95)"><path d="M0 -4 C3.5 -4 5 -2 4.5 .5 C4 3.5 1.5 5.5 0 6 C-1.5 5.5 -4 3.5 -4.5 .5 C-5 -2 -3.5 -4 0 -4 Z" fill="#e0233a" stroke="#9a1424" stroke-width=".4"/><path d="M-3.5 -3.6 L0 -5.4 L3.5 -3.6" stroke="#3f8a2c" stroke-width="1.2" fill="none"/><path d="M-3 -1 Q0 -2 3 -1" stroke="#fff" stroke-width=".8" opacity=".6" fill="none"/></g><g transform="translate(39 37) scale(0.95)"><path d="M0 -4 C3.5 -4 5 -2 4.5 .5 C4 3.5 1.5 5.5 0 6 C-1.5 5.5 -4 3.5 -4.5 .5 C-5 -2 -3.5 -4 0 -4 Z" fill="#e0233a" stroke="#9a1424" stroke-width=".4"/><path d="M-3.5 -3.6 L0 -5.4 L3.5 -3.6" stroke="#3f8a2c" stroke-width="1.2" fill="none"/><path d="M-3 -1 Q0 -2 3 -1" stroke="#fff" stroke-width=".8" opacity=".6" fill="none"/></g><g transform="translate(28 44) scale(0.95)"><path d="M0 -4 C3.5 -4 5 -2 4.5 .5 C4 3.5 1.5 5.5 0 6 C-1.5 5.5 -4 3.5 -4.5 .5 C-5 -2 -3.5 -4 0 -4 Z" fill="#e0233a" stroke="#9a1424" stroke-width=".4"/><path d="M-3.5 -3.6 L0 -5.4 L3.5 -3.6" stroke="#3f8a2c" stroke-width="1.2" fill="none"/><path d="M-3 -1 Q0 -2 3 -1" stroke="#fff" stroke-width=".8" opacity=".6" fill="none"/></g><g transform="translate(36 44) scale(0.95)"><path d="M0 -4 C3.5 -4 5 -2 4.5 .5 C4 3.5 1.5 5.5 0 6 C-1.5 5.5 -4 3.5 -4.5 .5 C-5 -2 -3.5 -4 0 -4 Z" fill="#e0233a" stroke="#9a1424" stroke-width=".4"/><path d="M-3.5 -3.6 L0 -5.4 L3.5 -3.6" stroke="#3f8a2c" stroke-width="1.2" fill="none"/><path d="M-3 -1 Q0 -2 3 -1" stroke="#fff" stroke-width=".8" opacity=".6" fill="none"/></g>
+ <rect x="15.5" y="22" width="33" height="11" fill="#fff"/>
+ <text x="32" y="29.25" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="5" fill="#2f7fc1" text-anchor="middle" >FROZEN</text><text x="32" y="54.4" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.11" fill="#fff" text-anchor="middle" >STRAWBERRIES</text>
+ <rect x="15" y="15" width="34" height="42" rx="2" fill="url(#frozen_strawberries-cyl)"/></svg>`,
+  black_tea_bags: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M12 22 L19 17.8 H53 L46 22 Z" fill="#c8304a" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M46 22 L53 17.8 V49.8 L46 54 Z" fill="#7a0c20" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="12" y="22" width="34" height="32" fill="#a01830" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <path d="M20 36 h18" stroke="#f2c14e" stroke-width=".7"/><text x="29" y="44" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="700" font-size="4" fill="#fff" text-anchor="middle" >8 BAGS</text><text x="29" y="31" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="4.42" fill="#f2c14e" text-anchor="middle" >BLACK TEA</text><path d="M44 18 C44 12 50 10 52 14" stroke="#d8d0c0" stroke-width=".6" fill="none"/><g transform="translate(52 22) rotate(10)"><rect x="-5" y="-6" width="10" height="13" rx="1" fill="#f4ecd8" stroke="#c8b898" stroke-width=".5"/><rect x="-5" y="-6" width="10" height="3" fill="#e8dcc0"/><g fill="#5a3a1a" opacity=".5"><circle cx="-2" cy="0" r=".6"/><circle cx="1" cy="2" r=".6"/><circle cx="-1" cy="4" r=".6"/><circle cx="2" cy="-1" r=".6"/></g></g><path d="M52 14 V16" stroke="#d8d0c0" stroke-width=".6"/><rect x="49" y="9" width="6" height="5" fill="#a01830"/></svg>`,
+  rice_horchata: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="rice_horchata-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M19 19 C18 34 17 46 19 56 H45 C47 46 46 34 45 19 Z" fill="#fbf7ee" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <rect x="18" y="14" width="28" height="6" rx="1" fill="#efe8da" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <path d="M19 15 v4 M21 15 v4 M23 15 v4 M25 15 v4 M27 15 v4 M29 15 v4 M31 15 v4 M33 15 v4 M35 15 v4 M37 15 v4 M39 15 v4 M41 15 v4 M43 15 v4 M45 15 v4" stroke="rgba(0,0,0,.15)" stroke-width=".5"/>
+ 
+ <rect x="18.5" y="26" width="27" height="7.106000000000001" fill="#e8a020"/>
+ <text x="32" y="30.6835" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.23" fill="#fff" text-anchor="middle" >LONG GRAIN</text><text x="32" y="40" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="6" fill="#e8a020" text-anchor="middle" >RICE</text>
+ <rect x="18" y="19" width="28" height="37" rx="2" fill="url(#rice_horchata-cyl)"/><ellipse cx="14" cy="56" rx="1.5" ry=".6" transform="rotate(20 14 56)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/><ellipse cx="50" cy="56" rx="1.5" ry=".6" transform="rotate(-30 50 56)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/><ellipse cx="54" cy="57" rx="1.5" ry=".6" transform="rotate(10 54 57)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/><ellipse cx="10" cy="57" rx="1.5" ry=".6" transform="rotate(-10 10 57)" fill="#fffdf6" stroke="#d8d0c0" stroke-width=".3"/></svg>`,
+  cinnamon_sticks: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cinnamon_sticks-csG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c8803a"/><stop offset=".5" stop-color="#a0602a"/><stop offset="1" stop-color="#7a4418"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/><g transform="translate(26 37) rotate(-8)"><rect x="-3" y="-19" width="6" height="38" rx="3" fill="url(#cinnamon_sticks-csG)" stroke="#6a3a14" stroke-width=".6"/><path d="M-.6 -18 V18" stroke="#6a3a14" stroke-width=".6"/><path d="M1.2 -17 V17" stroke="#c88a4a" stroke-width=".7" opacity=".6"/><ellipse cy="-19" rx="3" ry="1.4" fill="#b8763a" stroke="#6a3a14" stroke-width=".5"/><path d="M-1.6 -19 a1.6 1 0 1 1 3 0" stroke="#6a3a14" stroke-width=".4" fill="none"/></g><g transform="translate(33 37) rotate(0)"><rect x="-3" y="-19" width="6" height="38" rx="3" fill="url(#cinnamon_sticks-csG)" stroke="#6a3a14" stroke-width=".6"/><path d="M-.6 -18 V18" stroke="#6a3a14" stroke-width=".6"/><path d="M1.2 -17 V17" stroke="#c88a4a" stroke-width=".7" opacity=".6"/><ellipse cy="-19" rx="3" ry="1.4" fill="#b8763a" stroke="#6a3a14" stroke-width=".5"/><path d="M-1.6 -19 a1.6 1 0 1 1 3 0" stroke="#6a3a14" stroke-width=".4" fill="none"/></g><g transform="translate(40 37) rotate(8)"><rect x="-3" y="-19" width="6" height="38" rx="3" fill="url(#cinnamon_sticks-csG)" stroke="#6a3a14" stroke-width=".6"/><path d="M-.6 -18 V18" stroke="#6a3a14" stroke-width=".6"/><path d="M1.2 -17 V17" stroke="#c88a4a" stroke-width=".7" opacity=".6"/><ellipse cy="-19" rx="3" ry="1.4" fill="#b8763a" stroke="#6a3a14" stroke-width=".5"/><path d="M-1.6 -19 a1.6 1 0 1 1 3 0" stroke="#6a3a14" stroke-width=".4" fill="none"/></g><path d="M22 38 Q33 42 44 38" stroke="#c0392b" stroke-width="2.4" fill="none"/><path d="M32 40 l-4 6 M34 40 l4 6" stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"/><circle cx="33" cy="40" r="1.6" fill="#a02a1e"/></svg>`,
+  ice_cream: () => `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ice_cream-cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".22" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="32" cy="58.5" rx="23" ry="3" fill="#7a4e24" opacity=".16"/>
+ <path d="M16 28 H48 L45 54 Q32 57 19 54 Z" fill="#fffaf0" stroke="rgba(0,0,0,.3)" stroke-width=".7"/>
+ <path d="M16.7 34 H47.3 L45.8 48 H18.2 Z" fill="#f6d0dc"/>
+ <text x="32" y="43.3932" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="3.87" fill="#c0392b" text-anchor="middle" >ICE CREAM</text>
+ <rect x="16" y="28" width="32" height="26" rx="0" fill="url(#ice_cream-cyl)"/>
+ <ellipse cx="32" cy="28" rx="17.2" ry="3.6" fill="#c0392b" stroke="rgba(0,0,0,.3)" stroke-width=".6"/>
+ <rect x="14.8" y="25.5" width="34.4" height="3" fill="#c0392b"/><ellipse cx="32" cy="25.5" rx="17.2" ry="3.6" fill="#c0392b" stroke="rgba(0,0,0,.25)" stroke-width=".6"/>
+ <ellipse cx="28" cy="24.4" rx="8" ry="1" fill="#fff" opacity=".3"/><path d="M20 26 C18 18 24 13 32 14 C40 13 46 18 44 26 C40 28 24 28 20 26 Z" fill="#f8c8d8" stroke="#d890a8" stroke-width=".6"/><path d="M22 24 q3 2 6 0 q3 2 6 0 q3 2 6 0" stroke="#d890a8" stroke-width=".6" fill="none"/><ellipse cx="27" cy="18" rx="3.6" ry="1.6" fill="#fff" opacity=".55"/><circle cx="36" cy="12" r="2.4" fill="#c0182a"/><path d="M36 10 q1 -3 3 -4" stroke="#3f8a2c" stroke-width=".8" fill="none"/></svg>`,
 };
-
 
 const ITEMS = {
   // ── PRODUCE ──────────────────────────────────────────
@@ -2495,11 +531,11 @@ const ITEMS = {
   carrots:        {name:"Carrots (1 lb)",      aisle:"produce", tiers:[[0.98,1.48,2.98],[1,2,3],["Baby carrots bag","Whole carrots","Organic rainbow carrots"]]},
   bell_pepper:    {name:"Bell Peppers (3)",    aisle:"produce", tiers:[[2.48,3.98,5.98],[1,2,4],["Green bell peppers","Mixed bell peppers","Organic red & yellow"]]},
   broccoli:       {name:"Broccoli (2 heads)",  aisle:"produce", tiers:[[2.48,3.48,5.48],[1,2,4],["Frozen broccoli 2lb","Fresh broccoli","Organic fresh broccoli"]]},
-  strawberries:   {name:"Strawberries (2 c)",  aisle:"produce", tiers:[[2.48,3.48,5.48],[1,2,4],["Conventional","Local farm","Organic strawberries"]]},
+  strawberries:   {name:"Strawberries",  aisle:"produce", tiers:[[2.48,3.48,5.48],[1,2,4],["Conventional","Local farm","Organic strawberries"]]},
   watermelon:     {name:"Watermelon (small)",  aisle:"produce", tiers:[[3.48,5.48,8.98],[1,3,5],["Mini seedless","Full seedless","Organic seedless"]]},
   grapes:         {name:"Grapes (2 cups)",     aisle:"produce", tiers:[[1.98,2.98,4.98],[1,2,4],["Conventional red","Mixed red & green","Organic seedless"]]},
   kiwi:           {name:"Kiwis (3)",           aisle:"produce", tiers:[[1.28,1.98,3.48],[1,2,4],["Conventional kiwis","Fresh ripe kiwis","Organic kiwis"]]},
-  blueberries:    {name:"Blueberries (2 c)",   aisle:"produce", tiers:[[2.48,3.98,5.98],[1,2,4],["Conventional","Premium blueberries","Organic blueberries"]]},
+  blueberries:    {name:"Blueberries",   aisle:"produce", tiers:[[2.48,3.98,5.98],[1,2,4],["Conventional","Premium blueberries","Organic blueberries"]]},
   oranges:        {name:"Mandarins (3)",        aisle:"produce", tiers:[[0.98,1.98,3.48],[1,2,4],["Clementine bag","Fresh mandarins","Organic mandarins"]]},
   ginger:         {name:"Fresh Ginger",         aisle:"produce", tiers:[[0.98,1.48,2.98],[1,2,4],["Ground ginger jar","Fresh ginger root","Organic fresh ginger"]]},
   cilantro:       {name:"Fresh Cilantro",       aisle:"produce", tiers:[[0.68,0.98,2.48],[1,2,4],["Dried cilantro","Fresh cilantro bunch","Organic cilantro"]]},
@@ -2545,7 +581,7 @@ const ITEMS = {
   chocolate_chips:  {name:"Chocolate Chips (12 oz)", aisle:"pantry", tiers:[[2.48,3.98,6.98],[1,3,5],["Store brand semi sweet","Name brand semi sweet","Premium 60% dark chips"]]},
   soy_sauce:        {name:"Soy Sauce (10 oz)",       aisle:"pantry", tiers:[[1.28,2.48,5.48],[1,2,4],["Store brand","Name brand soy sauce","Tamari gluten free"]]},
   honey:            {name:"Honey (12 oz)",           aisle:"pantry", tiers:[[2.48,3.98,7.98],[1,2,4],["Store brand honey","Name brand honey","Local raw wildflower honey"]]},
-  red_wine_vinegar: {name:"Red Wine Vinegar",        aisle:"pantry", tiers:[[1.28,2.48,4.98],[1,2,4],["Store brand","Name brand","Aged red wine vinegar"]]},
+  red_wine_vinegar: {name:"Red Vinegar",        aisle:"pantry", tiers:[[1.28,2.48,4.98],[1,2,4],["Store brand","Name brand","Aged red wine vinegar"]]},
   oregano:          {name:"Dried Oregano",           aisle:"pantry", tiers:[[0.68,1.48,3.98],[1,2,3],["Store brand","Name brand oregano","Organic Greek oregano"]]},
   hot_sauce:        {name:"Hot Sauce (12 oz)",       aisle:"pantry", tiers:[[1.28,2.48,5.98],[1,2,4],["Store brand","Name brand hot sauce","Small batch hot sauce"]]},
   ketchup_mustard:  {name:"Ketchup & Mustard",       aisle:"pantry", tiers:[[1.98,3.48,5.98],[1,2,3],["Store brand","Name brand","Artisan ketchup & mustard"]]},
@@ -2597,7 +633,7 @@ const ITEMS = {
   frozen_strawberries:{name:"Frozen Strawberries (4 c)", aisle:"drinks", tiers:[[2.48,3.98,5.98],[1,2,4],["Store brand frozen","Name brand frozen","Organic frozen strawberries"]]},
   black_tea_bags:     {name:"Black Tea Bags (8)",        aisle:"drinks", tiers:[[0.98,1.98,4.98],[1,2,4],["Store brand black tea","Name brand black tea","Ceylon black tea"]]},
   rice_horchata:      {name:"White Rice (horchata)",     aisle:"drinks", tiers:[[0.68,0.98,2.48],[1,2,3],["Store brand","Name brand long grain","Organic long grain rice"]]},
-  cinnamon_sticks:    {name:"Cinnamon Sticks (2)",       aisle:"drinks", tiers:[[0.98,1.98,5.98],[1,2,4],["Store brand","Name brand cinnamon sticks","Ceylon cinnamon sticks"]]},
+  cinnamon_sticks:    {name:"Cinnamon Sticks",       aisle:"drinks", tiers:[[0.98,1.98,5.98],[1,2,4],["Store brand","Name brand cinnamon sticks","Ceylon cinnamon sticks"]]},
 
   // ── DESSERTS & BAKING ────────────────────────────────
   ice_cream:       {name:"Ice Cream (1 pint)",            aisle:"dessert",tiers:[[2.98,4.98,7.98],[1,3,5],["Store brand ice cream","Name brand ice cream","Premium ice cream"]]},

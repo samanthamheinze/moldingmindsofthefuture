@@ -54,7 +54,7 @@
   // "get the full project" buttons there so classrooms see a clean store.
   if (/^grocerystore\./i.test(location.hostname)) document.documentElement.classList.add('student-link');
 </script>
-<style>.student-link .tpt-cta{display:none!important}</style>
+<style>.student-link .tpt-cta{display:none!important}.student-only{display:none}.student-link .student-only{display:inline}</style>
 <style>
 :root{
   --ink:#263029;--tomato:#c2432a;--tomato2:#8f2e1c;--mustard:#f2c14e;--sage:#5c8a3a;--wood:#8a5a33;
@@ -95,8 +95,8 @@ h1,h2,h3{margin:0}
 .pts{display:flex;flex-direction:column;align-items:center;line-height:1;border-left:2px solid var(--hair);padding-left:16px}
 .pts b{font-family:Shrikhand,cursive;font-weight:400;font-size:22px;color:var(--tomato)}
 .pts span{font-size:10px;letter-spacing:2px;color:var(--muted);margin-top:3px}
-.pill-link{font-size:13px;font-weight:600;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:8px 14px;background:#fff;white-space:nowrap}
-.pill-link:hover{background:var(--mustard);color:var(--ink)}
+.pill-link{font-size:13px;font-weight:700;color:#fff;border:2px solid var(--ink);border-radius:999px;padding:8px 16px;background:var(--tomato);white-space:nowrap;box-shadow:3px 3px 0 var(--ink)}
+.pill-link:hover{background:var(--tomato2);color:#fff}
 
 /* ── Shell: sidebar + main ──────────────────────────── */
 .shell{flex:1;display:flex;align-items:stretch}
@@ -192,6 +192,8 @@ main{flex:1;min-width:0}
 .menu-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
 .menu h2{font-size:44px;color:var(--ink)}
 .menu .note{font-size:15px;color:var(--muted);max-width:380px}
+.note-link{color:var(--tomato);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.note-link:hover{color:var(--tomato2)}
 .course{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;align-items:center}
 .course .lbl{font-family:'Caveat Brush',cursive;font-size:32px;color:var(--tomato);line-height:1}
 .dishes{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
@@ -343,7 +345,7 @@ footer a{color:var(--tomato);font-weight:600}
       <div class="meter-bar"><div class="meter-fill" id="m-fill"></div></div>
     </div>
     <div class="pts"><b id="m-pts">0</b><span>POINTS</span></div>
-    <a class="pill-link tpt-cta" href="https://www.teacherspayteachers.com/Product/Budgeting-Project-Grocery-Store-Math-Financial-Literacy-Life-Skills-3-6-17868925" target="_blank" rel="noopener" onclick="window.gtag&&gtag('event','tpt_project_click',{placement:'header'})">For teachers: get the recipe cards</a>
+    <a class="pill-link tpt-cta" href="https://www.teacherspayteachers.com/Product/Budgeting-Project-Grocery-Store-Math-Financial-Literacy-Life-Skills-3-6-17868925" target="_blank" rel="noopener" onclick="window.gtag&&gtag('event','tpt_project_click',{placement:'header'})">Buy the full project on TPT</a>
   </div>
 </header>
 
@@ -420,7 +422,7 @@ footer a{color:var(--tomato);font-weight:600}
       <div class="wrap menu">
         <div class="menu-h">
           <div><div class="eyebrow">Tonight's menu</div><h2 class="display">24 dishes to choose from</h2></div>
-          <div class="note">The full recipe cards with every ingredient are in the printable project.</div>
+          <div class="note">The full recipe cards with every ingredient are in the <a class="tpt-cta note-link" href="https://www.teacherspayteachers.com/Product/Budgeting-Project-Grocery-Store-Math-Financial-Literacy-Life-Skills-3-6-17868925" target="_blank" rel="noopener" onclick="window.gtag&&gtag('event','tpt_project_click',{placement:'menu_note'})">printable project</a><span class="student-only">printable project</span>.</div>
         </div>
         <div id="menu-courses" style="display:flex;flex-direction:column;gap:22px"></div>
         <div style="display:flex;justify-content:center;margin-top:8px"><button class="btn-big" type="button" onclick="go('aisle','produce')">Ready? Start shopping</button></div>
