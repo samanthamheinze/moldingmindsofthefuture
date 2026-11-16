@@ -2,7 +2,12 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "grocerystore.moldingmindsofthefuture.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "grocerystore.moldingmindsofthefuture.com"
+        }
+      ],
       "destination": "/grocery-store/$1"
     },
     {
@@ -11,6 +16,77 @@
     }
   ],
   "functions": {
-    "api/admin/campaigns/[id]/send.js": { "maxDuration": 60 }
-  }
+    "api/admin/campaigns/[id]/send.js": {
+      "maxDuration": 60
+    }
+  },
+  "redirects": [
+    {
+      "source": "/online-tools",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/online-tools/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/math-diagnostic/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/reading-diagnostic/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/admin/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/freebie/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
 }
