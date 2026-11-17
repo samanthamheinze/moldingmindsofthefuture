@@ -275,6 +275,10 @@ main{flex:1;min-width:0}
 .lrow.cur{background:var(--mustard);font-weight:700}
 .lrow span:last-child{font-family:'Courier Prime',monospace}
 .cart-btns{display:flex;gap:12px;flex-wrap:wrap}
+.confirm{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:#f7ddd5;border:3px solid var(--tomato);border-radius:16px;padding:14px 18px;font-weight:600;color:var(--tomato2)}
+.confirm span{flex:1 1 220px}
+.btn-danger{background:var(--tomato);border:2px solid var(--ink);border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px;color:#fff}
+.btn-danger:hover{background:var(--tomato2)}
 
 footer{background:var(--kraft);color:var(--body);border-top:2px solid var(--ink)}
 footer .wrap{padding:20px 32px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:14px}
@@ -483,7 +487,12 @@ footer a{color:var(--tomato);font-weight:600}
           <div class="cart-btns">
             <button class="btn-out" type="button" onclick="go('aisle')">Keep shopping</button>
             <button class="btn-dark" type="button" onclick="window.print()">Print my receipt</button>
-            <button class="btn-text" type="button" id="empty-btn" onclick="emptyCart()">Empty cart</button>
+            <button class="btn-text" type="button" id="empty-btn" onclick="askEmpty(true)">Empty cart</button>
+          </div>
+          <div class="confirm" id="empty-confirm" hidden role="alertdialog" aria-labelledby="empty-confirm-text">
+            <span id="empty-confirm-text">Empty your whole cart? Every item you added will be removed and your rating will reset.</span>
+            <button class="btn-danger" type="button" onclick="emptyCart()">Yes, empty it</button>
+            <button class="btn-out" type="button" onclick="askEmpty(false)">Keep my cart</button>
           </div>
         </div>
       </div>
@@ -646,12 +655,13 @@ footer a{color:var(--tomato);font-weight:600}
   }
 
   window.go = function(view, aisle){
-    state.view = view; if (aisle) state.aisle = aisle;
+    state.view = view; if (aisle) state.aisle = aisle; askEmpty(false);
     render(); window.scrollTo({top:0});
   };
   window.prevAisle = function(){ const i = AISLES.findIndex(a => a[0] === state.aisle); go("aisle", AISLES[(i+7)%8][0]); };
   window.nextAisle = function(){ const i = AISLES.findIndex(a => a[0] === state.aisle); if (i === 7) go("cart"); else go("aisle", AISLES[i+1][0]); };
-  window.emptyCart = function(){ state.cart = {}; render(); };
+  window.askEmpty = function(show){ const c = document.getElementById("empty-confirm"); c.hidden = !show; if (show) c.querySelector(".btn-out").focus(); };
+  window.emptyCart = function(){ state.cart = {}; askEmpty(false); render(); };
 
   document.addEventListener("click", ev => {
     const b = ev.target.closest("[data-go],[data-tier],[data-inc],[data-dec],[data-rm]"); if (!b) return;
