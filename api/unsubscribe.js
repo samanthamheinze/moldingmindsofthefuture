@@ -1,15 +1,8 @@
 import { getSql } from './_lib/db.js';
 
-const PAGE_HTML = `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unsubscribed</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-<style>
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+const STYLE = `<style>
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -32,6 +25,12 @@ const PAGE_HTML = `<!doctype html>
     padding: 40px 32px;
     box-shadow: 0 10px 30px rgba(44, 37, 71, 0.08);
   }
+  .secondary {
+    display: block;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #8A86A0;
+  }
   .icon {
     font-size: 42px;
     margin-bottom: 8px;
@@ -52,7 +51,7 @@ const PAGE_HTML = `<!doctype html>
     color: #7C5CBF;
     font-weight: 700;
   }
-  a.button {
+  a.button, button.button {
     display: inline-block;
     background: #4BAE8A;
     color: #ffffff;
@@ -64,29 +63,71 @@ const PAGE_HTML = `<!doctype html>
     border-radius: 999px;
     transition: opacity 0.15s ease;
   }
-  a.button:hover {
+  button.button {
+    border: 0;
+    cursor: pointer;
+  }
+  a.button:hover, button.button:hover {
     opacity: 0.9;
   }
-</style>
+</style>`;
+
+function page(title, inner) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>${title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+${STYLE}
 </head>
 <body>
   <div class="card">
     <div class="icon">💜</div>
-    <h1>You've been unsubscribed</h1>
-    <p>We're sorry to see you go! You won't receive any more emails from the <span class="accent">Molding Minds of the Future</span> community.</p>
-    <a class="button" href="https://moldingmindsofthefuture.com">Back to the site</a>
+${inner}
   </div>
 </body>
 </html>
 `;
+}
 
+// Shown on GET. Opening the link changes nothing, so school/corporate email
+// scanners that pre-open every link (e.g. Outlook Safe Links) can't
+// unsubscribe anyone by accident. Only the button's POST does.
+function confirmPage(token) {
+  return page('Unsubscribe', `    <h1>Unsubscribe?</h1>
+    <p>Click the button below and you won't receive any more emails from the <span class="accent">Molding Minds of the Future</span> community.</p>
+    <form method="POST" action="/api/unsubscribe?token=${token}">
+      <button class="button" type="submit">Unsubscribe</button>
+    </form>
+    <a class="secondary" href="https://moldingmindsofthefuture.com">Never mind, keep me subscribed</a>`);
+}
+
+const DONE_HTML = page('Unsubscribed', `    <h1>You've been unsubscribed</h1>
+    <p>We're sorry to see you go! You won't receive any more emails from the <span class="accent">Molding Minds of the Future</span> community.</p>
+    <a class="button" href="https://moldingmindsofthefuture.com">Back to the site</a>`);
+
+// GET  /api/unsubscribe?token=...  -> confirmation page with a button (no DB change)
+// POST /api/unsubscribe?token=...  -> unsubscribes. Used by that button and by
+//      Gmail/Yahoo one-click unsubscribe (RFC 8058, body "List-Unsubscribe=One-Click").
 export default async function handler(req, res) {
-  if (req.method !== 'GET') {
-    res.status(405).json({ ok: false, error: 'method_not_allowed' });
+  const raw = Array.isArray(req.query?.token) ? req.query.token[0] : req.query?.token;
+  const token = typeof raw === 'string' && UUID_RE.test(raw) ? raw : null;
+
+  if (req.method === 'GET') {
+    res.setHeader('Content-Type', 'text/html').status(200).send(token ? confirmPage(token) : DONE_HTML);
     return;
   }
 
-  const token = Array.isArray(req.query?.token) ? req.query.token[0] : req.query?.token;
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'GET, POST');
+    res.status(405).json({ ok: false, error: 'method_not_allowed' });
+    return;
+  }
 
   if (token) {
     try {
@@ -104,5 +145,5 @@ export default async function handler(req, res) {
     }
   }
 
-  res.setHeader('Content-Type', 'text/html').status(200).send(PAGE_HTML);
+  res.setHeader('Content-Type', 'text/html').status(200).send(DONE_HTML);
 }
