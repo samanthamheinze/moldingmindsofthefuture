@@ -7,7 +7,10 @@ const RESEND_API_URL = 'https://api.resend.com/emails';
 // Low-level send via the Resend REST API. Throws a descriptive error if the
 // required env vars are missing or Resend responds non-2xx — callers decide
 // how to handle/log the failure (this file never swallows errors silently).
-export async function sendEmail({ to, subject, html }) {
+// Pass unsubscribeUrl for any marketing/list email: it adds the
+// List-Unsubscribe headers that let Gmail/Yahoo show their own one-click
+// "Unsubscribe" option (handled by POST /api/unsubscribe).
+export async function sendEmail({ to, subject, html, unsubscribeUrl }) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM_EMAIL;
 
@@ -26,7 +29,18 @@ export async function sendEmail({ to, subject, html }) {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ from, to, subject, html }),
+      body: JSON.stringify({
+        from,
+        to,
+        subject,
+        html,
+        ...(unsubscribeUrl && {
+          headers: {
+            'List-Unsubscribe': `<${unsubscribeUrl}>`,
+            'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+          },
+        }),
+      }),
     });
   } catch (err) {
     throw new Error(`sendEmail: network error calling Resend: ${err && err.message ? err.message : err}`);
@@ -75,5 +89,5 @@ export async function sendWelcomeEmail({ email, audience, unsubscribeToken, lead
   let html = entry.html.split('{{UNSUBSCRIBE_URL}}').join(unsubscribeUrl);
   html = wrapTptLinks(html, { source: `welcome_${audience}`, leadId });
 
-  return sendEmail({ to: email, subject: entry.subject, html });
+  return sendEmail({ to: email, subject: entry.subject, html, unsubscribeUrl });
 }

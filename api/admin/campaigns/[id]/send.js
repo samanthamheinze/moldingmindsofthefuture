@@ -119,7 +119,7 @@ export default async function handler(req, res) {
         html = wrapTptLinks(html, { source: 'campaign', campaignId: id, leadId: lead.id });
 
         try {
-          const messageId = await sendEmail({ to: lead.email, subject: campaign.subject, html });
+          const messageId = await sendEmail({ to: lead.email, subject: campaign.subject, html, unsubscribeUrl });
           await sql`
             INSERT INTO campaign_recipients (campaign_id, lead_id, status, resend_message_id, sent_at)
             VALUES (${id}, ${lead.id}, 'sent', ${messageId}, now())
