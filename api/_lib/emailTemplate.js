@@ -66,8 +66,9 @@ export function wrapEmail({ subject, preheader, bodyHtml, unsubscribeUrl, logoUr
             <td style="padding-top:24px; margin-top:24px; border-top:1px solid #eee6f7; font-family: 'Nunito', Arial, sans-serif; font-size:12px; line-height:1.6; color:#6b6480;">
               ${addressLine}
               <p style="margin:0;">
+                Don't want these emails anymore? Just tap
                 <a href="${safeUnsubscribeUrl}" style="color:${PURPLE}; text-decoration:underline;">Unsubscribe</a>
-                from these emails at any time.
+                and you'll be removed from future emails.
               </p>
             </td>
           </tr>
